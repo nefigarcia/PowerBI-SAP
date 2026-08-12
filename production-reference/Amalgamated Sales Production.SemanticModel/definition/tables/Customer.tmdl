@@ -1,0 +1,436 @@
+table Customer
+	lineageTag: 28e31008-d1bd-4b62-877d-6b48e241ca95
+
+	column 'Fiscal Year / Period'
+		dataType: string
+		lineageTag: 799cf913-29c1-488f-b521-bfee5f07abc0
+		summarizeBy: none
+		sourceColumn: Fiscal Year / Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Document Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c4685ef7-e649-4dc6-a348-ca951b15b01f
+		summarizeBy: none
+		sourceColumn: Document Date
+
+		variation Variation
+			isDefault
+			relationship: 23f705b6-b397-45ef-a68f-b91d77d01b42
+			defaultHierarchy: LocalDateTable_02318d3f-30f6-4f23-b250-02c0d380da12.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Plant
+		dataType: int64
+		formatString: 0
+		lineageTag: fa147645-82a8-4573-a11a-3a08d377099c
+		summarizeBy: sum
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Requested delivery date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e8b90896-a3e1-478a-87ef-ea99a49e4236
+		summarizeBy: none
+		sourceColumn: Requested delivery date
+
+		variation Variation
+			isDefault
+			relationship: a457de78-16d1-4b4e-8c59-66970758f695
+			defaultHierarchy: LocalDateTable_682fa7f0-0ffa-4e3b-b488-f3226d70987a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Industry
+		dataType: string
+		lineageTag: 71c699df-045f-45a0-8d46-ba9a4cf97b7a
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Company Type'
+		dataType: string
+		lineageTag: 5c65673c-9a6a-4d87-82a0-1138d8f7b1cd
+		summarizeBy: none
+		sourceColumn: Company Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Family'
+		dataType: string
+		lineageTag: f026588e-47a3-43e7-920b-45652f79a8df
+		summarizeBy: none
+		sourceColumn: Product Family
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Secondary Grouping'
+		dataType: string
+		lineageTag: 608b8a02-533c-4864-afef-e7f6d518affd
+		summarizeBy: none
+		sourceColumn: Secondary Grouping
+
+		annotation SummarizationSetBy = Automatic
+
+	column Application
+		dataType: string
+		lineageTag: bf73a114-a35f-45b0-add9-a31c50280e5e
+		summarizeBy: none
+		sourceColumn: Application
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Representative'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d427edd-5c91-431a-8b16-e0ea78833309
+		summarizeBy: sum
+		sourceColumn: Sales Representative
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Representative Name'
+		dataType: string
+		lineageTag: 30c76d0b-12ae-442c-9027-4cb9a83f0869
+		summarizeBy: none
+		sourceColumn: Sales Representative Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Project Coordinator'
+		dataType: string
+		lineageTag: 878f3d7d-542c-49f6-9fad-457154bc0c86
+		summarizeBy: none
+		sourceColumn: Project Coordinator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Document'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4041cf50-c927-4261-96a3-73be7d934d9a
+		summarizeBy: sum
+		sourceColumn: Sales Document
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales Document Item'
+		dataType: int64
+		formatString: 0
+		lineageTag: b8356431-94ca-417a-9944-db9852c46590
+		summarizeBy: sum
+		sourceColumn: Sales Document Item
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Project Name'
+		dataType: string
+		lineageTag: 8239775b-f22e-439d-8a6c-a4c9a48737d0
+		summarizeBy: none
+		sourceColumn: Customer Project Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship-to Party'
+		dataType: string
+		lineageTag: 075695b8-59ab-4fdb-837d-bea7c50e6dad
+		summarizeBy: none
+		sourceColumn: Ship-to Party
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship to state'
+		dataType: string
+		lineageTag: 919adfc0-f0ce-4f81-8e50-90a78efbcb4a
+		summarizeBy: none
+		sourceColumn: Ship to state
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ship-to Zip Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 06969576-1163-4cd5-9bdf-98f8b12c02c4
+		summarizeBy: count
+		sourceColumn: Ship-to Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Sold-to'
+		dataType: string
+		lineageTag: 99d3d567-67d0-455a-ac83-0258264f971a
+		summarizeBy: none
+		sourceColumn: Territory Sold-to
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Ship-to'
+		dataType: string
+		lineageTag: 3980e307-2212-4d55-be52-018c54cf5599
+		summarizeBy: none
+		sourceColumn: Territory Ship-to
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Bill-to'
+		dataType: string
+		lineageTag: d48cc24a-d83e-4fb9-9462-dcb26289afac
+		summarizeBy: none
+		sourceColumn: Territory Bill-to
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Payer'
+		dataType: string
+		lineageTag: db053af0-1093-4378-88ec-aa96f57f622b
+		summarizeBy: none
+		sourceColumn: Territory Payer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bill-to
+		dataType: string
+		lineageTag: 4d1da9c1-715a-4af1-ba99-5681599948b8
+		summarizeBy: none
+		sourceColumn: Bill-to
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bill to state'
+		dataType: string
+		lineageTag: 77a23ee1-452b-4f2b-bc78-2f9f2d97d052
+		summarizeBy: none
+		sourceColumn: Bill to state
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bill-to Zip Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3df465ca-6326-4702-a7ff-97d210b257f8
+		summarizeBy: count
+		sourceColumn: Bill-to Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Payer
+		dataType: string
+		lineageTag: 1de96650-afd6-495a-93d2-8d3d9a61e1ed
+		summarizeBy: none
+		sourceColumn: Payer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payer State'
+		dataType: string
+		lineageTag: df491c39-f566-414b-b0d5-f312456c0aa6
+		summarizeBy: none
+		sourceColumn: Payer State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Payer Zip Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d52efe3-7a1b-4eb4-9331-c919193a1a02
+		summarizeBy: count
+		sourceColumn: Payer Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sold-to Party'
+		dataType: int64
+		formatString: 0
+		lineageTag: b360647e-4a16-4d98-839b-7af9d155240c
+		summarizeBy: sum
+		sourceColumn: Sold-to Party
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sold to party Description'
+		dataType: string
+		lineageTag: 7834c59c-7106-40c1-a063-ed1642850505
+		summarizeBy: none
+		sourceColumn: Sold to party Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sold-to State'
+		dataType: string
+		lineageTag: 81dc5c6d-1480-42ed-9e4a-f52cb65169e4
+		summarizeBy: none
+		sourceColumn: Sold-to State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sold-to Zip Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 97a2de09-82f7-486d-9134-643006cf5f9a
+		summarizeBy: count
+		sourceColumn: Sold-to Zip Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 0d748c2f-1c07-463d-9c5c-e036670eeb87
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 88ed9cc8-2a33-40f0-8a41-7efcea417cf3
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material
+		dataType: string
+		lineageTag: b1d73e37-19e7-4b0e-9f4e-447f17fec0bf
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Material Description'
+		dataType: string
+		lineageTag: 0c558965-f045-4483-8799-80ee7a4a7678
+		summarizeBy: none
+		sourceColumn: Material Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales UoM'
+		dataType: string
+		lineageTag: 40fccea5-0a28-4a68-bc38-1ddd4f563217
+		summarizeBy: none
+		sourceColumn: Sales UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity in FT2'
+		dataType: double
+		lineageTag: d91c6949-d499-4136-8db1-03df625708a8
+		summarizeBy: sum
+		sourceColumn: Order Quantity in FT2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Quantity in Sales UoM'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4390f32e-3102-4e5e-9c2e-b77291a7ff90
+		summarizeBy: sum
+		sourceColumn: Quantity in Sales UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Quantity in BFT2'
+		dataType: double
+		lineageTag: c6c74754-5e4a-4a15-bd8f-e868b9086929
+		summarizeBy: sum
+		sourceColumn: Order Quantity in BFT2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Order Quantity in FT2_1'
+		dataType: double
+		lineageTag: 3a11e014-317a-4162-abd7-46171004c8e6
+		summarizeBy: sum
+		sourceColumn: Order Quantity in FT2_1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Order Quantity in M2'
+		dataType: double
+		lineageTag: 89e17d8c-5fab-4bf7-944f-8a7827ce9a67
+		summarizeBy: sum
+		sourceColumn: Order Quantity in M2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Unit Price in Base UoM'
+		dataType: double
+		lineageTag: dbbd1bf9-5046-42b3-b123-3b237297fb39
+		summarizeBy: sum
+		sourceColumn: Unit Price in Base UoM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cost of sales'
+		dataType: double
+		lineageTag: 68127968-e3fc-4c0f-a9fa-4307b0046db9
+		summarizeBy: sum
+		sourceColumn: Cost of sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Revenue
+		dataType: double
+		lineageTag: ca2065a2-2c43-4b2b-8cf2-918a9dd7b2d3
+		summarizeBy: sum
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Gross Margin'
+		dataType: double
+		lineageTag: 376eb515-a7fb-4ed9-818a-0b10e566f97b
+		summarizeBy: sum
+		sourceColumn: Gross Margin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Gross margin%'
+		dataType: double
+		lineageTag: fc179f21-9bbd-4f8f-97f5-60b1edfbd309
+		summarizeBy: sum
+		sourceColumn: Gross margin%
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Customer = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\cillian.ryan\OneDrive - Kingspan\Customer.xlsx"), null, true),
+				    Customer_Sheet = Source{[Item="Customer",Kind="Sheet"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Customer_Sheet, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Fiscal Year / Period", type any}, {"Document Date", type date}, {"Plant", Int64.Type}, {"Requested delivery date", type date}, {"Industry", type text}, {"Company Type", type text}, {"Product Family", type text}, {"Secondary Grouping", type text}, {"Application", type text}, {"Sales Representative", Int64.Type}, {"Sales Representative Name", type text}, {"Project Coordinator", type text}, {"Sales Document", Int64.Type}, {"Sales Document Item", Int64.Type}, {"Customer Project Name", type text}, {"Ship-to Party", type text}, {"Ship to state", type text}, {"Ship-to Zip Code", Int64.Type}, {"Territory Sold-to", type text}, {"Territory Ship-to", type text}, {"Territory Bill-to", type text}, {"Territory Payer", type text}, {"Bill-to", type text}, {"Bill to state", type text}, {"Bill-to Zip Code", Int64.Type}, {"Payer", type text}, {"Payer State", type text}, {"Payer Zip Code", Int64.Type}, {"Sold-to Party", Int64.Type}, {"Sold to party Description", type text}, {"Sold-to State", type text}, {"Sold-to Zip Code", Int64.Type}, {"Country", type text}, {"Region", type text}, {"Material", type text}, {"Material Description", type text}, {"Sales UoM", type text}, {"Order Quantity in FT2", type number}, {"Quantity in Sales UoM", Int64.Type}, {"Order Quantity in BFT2", type number}, {"Order Quantity in FT2_1", type number}, {"Order Quantity in M2", type number}, {"Unit Price in Base UoM", type number}, {"Cost of sales", type number}, {"Revenue", type number}, {"Gross Margin", type number}, {"Gross margin%", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

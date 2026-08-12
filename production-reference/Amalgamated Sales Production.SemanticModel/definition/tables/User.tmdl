@@ -1,0 +1,1780 @@
+table User
+	lineageTag: 58d75428-3935-4951-812d-4cba15cf5279
+
+	column Id
+		dataType: string
+		lineageTag: b90199eb-aab0-4262-85fa-850c6dca1d5c
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Username
+		dataType: string
+		lineageTag: 971b5476-b448-4def-bac1-f586e2047bac
+		summarizeBy: none
+		sourceColumn: Username
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: df614d9b-74e8-4aa2-8a87-c2c8a80e482f
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 99cef7b2-aefd-4329-a22e-08ea107a488c
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleName
+		dataType: string
+		lineageTag: 8f4e684e-881d-4d26-a876-290d9dcc613a
+		summarizeBy: none
+		sourceColumn: MiddleName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suffix
+		dataType: string
+		lineageTag: aaa9b987-6211-4407-bb47-ca2ed660d550
+		summarizeBy: none
+		sourceColumn: Suffix
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 4c89a99f-9c8b-4b19-858a-6a33f15e9161
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: 988db869-6e33-4cd9-a0b2-37dd70355035
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: 22d31ca0-8bf3-457a-b4e7-7e0aa7b8599a
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: b4469bb8-71e2-4435-8d8c-058bfe9f9eea
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 8c57bb5e-bbaa-4139-bf13-eb98fa71051d
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Street
+		dataType: string
+		lineageTag: aa0ff05d-c3ef-413c-a70d-d75278be456a
+		summarizeBy: none
+		sourceColumn: Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 1e819eab-4038-4cbc-87b9-a9952ad61d41
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 605f75f9-3c09-4a60-a05d-90f1492784e3
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: d8a39fcd-d612-4006-90bb-88ea00e45d94
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 5bf12a1c-c76e-4175-9c99-30dd26aca491
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateCode
+		dataType: string
+		lineageTag: a84ab912-5ce4-4323-8497-b224067a7aa6
+		summarizeBy: none
+		sourceColumn: StateCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 02842f2e-4284-4899-8553-73b4e6afaf16
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: b212ead3-3621-4747-ae3d-30e3ab5ecdca
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 0ea5c96f-ee01-4c17-b897-75a12e721512
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GeocodeAccuracy
+		dataType: string
+		lineageTag: a75810a9-0ade-4fc3-b5d6-37c81f777475
+		summarizeBy: none
+		sourceColumn: GeocodeAccuracy
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: a970ca5b-bfd3-4692-b7e6-3507b7187661
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 3f8062ab-65f9-4594-b8b1-f26201848b2c
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPreferencesAutoBcc
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d7629aed-5222-4c47-8b12-657b1e88acc4
+		summarizeBy: none
+		sourceColumn: EmailPreferencesAutoBcc
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPreferencesAutoBccStayInTouch
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4134d696-c6d3-4c35-a096-08e70a7393df
+		summarizeBy: none
+		sourceColumn: EmailPreferencesAutoBccStayInTouch
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailPreferencesStayInTouchReminder
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4fa730f8-6605-4f06-8be2-bbb7fc32f0ab
+		summarizeBy: none
+		sourceColumn: EmailPreferencesStayInTouchReminder
+
+		annotation SummarizationSetBy = Automatic
+
+	column SenderEmail
+		dataType: string
+		lineageTag: 71f251cf-3a81-43fa-8ab9-c852b050f1cd
+		summarizeBy: none
+		sourceColumn: SenderEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column SenderName
+		dataType: string
+		lineageTag: 9556b095-c0c9-480a-aaeb-b1ebeac3a673
+		summarizeBy: none
+		sourceColumn: SenderName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Signature
+		dataType: string
+		lineageTag: 51d76133-8d1a-40e9-9630-b006cd773897
+		summarizeBy: none
+		sourceColumn: Signature
+
+		annotation SummarizationSetBy = Automatic
+
+	column StayInTouchSubject
+		dataType: string
+		lineageTag: ea3a8032-a1da-4016-8370-c2148b5f8fe7
+		summarizeBy: none
+		sourceColumn: StayInTouchSubject
+
+		annotation SummarizationSetBy = Automatic
+
+	column StayInTouchSignature
+		dataType: string
+		lineageTag: 33e6a6ca-1daf-4520-beaa-db8d39e0d5e0
+		summarizeBy: none
+		sourceColumn: StayInTouchSignature
+
+		annotation SummarizationSetBy = Automatic
+
+	column StayInTouchNote
+		dataType: string
+		lineageTag: 7791cc18-896e-4e33-bcad-fae1b6177767
+		summarizeBy: none
+		sourceColumn: StayInTouchNote
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: 4076f86f-e9a7-461a-81ce-cdf6885b2194
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fax
+		dataType: string
+		lineageTag: ef9404e5-cbd0-4269-8dd5-e53de521cbf4
+		summarizeBy: none
+		sourceColumn: Fax
+
+		annotation SummarizationSetBy = Automatic
+
+	column MobilePhone
+		dataType: string
+		lineageTag: 93d91fbd-82fc-4950-b655-c6fdd91056bf
+		summarizeBy: none
+		sourceColumn: MobilePhone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Alias
+		dataType: string
+		lineageTag: e94d5540-3307-4e74-bffc-91aaee602204
+		summarizeBy: none
+		sourceColumn: Alias
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommunityNickname
+		dataType: string
+		lineageTag: b5d7abf7-2de7-4d96-9839-20e3f63bf255
+		summarizeBy: none
+		sourceColumn: CommunityNickname
+
+		annotation SummarizationSetBy = Automatic
+
+	column BadgeText
+		dataType: string
+		lineageTag: 339c0910-1354-49b2-a5ea-9c217b2c0f4f
+		summarizeBy: none
+		sourceColumn: BadgeText
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c8530192-a8d6-4bfc-a0f3-d8adaf157b42
+		summarizeBy: none
+		sourceColumn: IsActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeZoneSidKey
+		dataType: string
+		lineageTag: a0e5f492-c4a6-47f0-ac7f-ca5d0082eb22
+		summarizeBy: none
+		sourceColumn: TimeZoneSidKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserRoleId
+		dataType: string
+		lineageTag: f61a13d4-5f42-494b-89cc-ee46cec5c373
+		summarizeBy: none
+		sourceColumn: UserRoleId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LocaleSidKey
+		dataType: string
+		lineageTag: 5c383583-9575-4565-9b57-e2cae6091d8b
+		summarizeBy: none
+		sourceColumn: LocaleSidKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivesInfoEmails
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 18ee6268-b915-4d62-884c-88ede3067b16
+		summarizeBy: none
+		sourceColumn: ReceivesInfoEmails
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceivesAdminInfoEmails
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 71e80f8e-f5d7-4274-9290-d3854d4a2a97
+		summarizeBy: none
+		sourceColumn: ReceivesAdminInfoEmails
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmailEncodingKey
+		dataType: string
+		lineageTag: 1d140cfc-6915-4f56-b56b-87d1c7ad1889
+		summarizeBy: none
+		sourceColumn: EmailEncodingKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DefaultCurrencyIsoCode
+		dataType: string
+		lineageTag: 704a0521-6c9d-42a2-9b42-4655ce76c941
+		summarizeBy: none
+		sourceColumn: DefaultCurrencyIsoCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyIsoCode
+		dataType: string
+		lineageTag: 3cacee44-3df8-41de-892e-f6d29d64794d
+		summarizeBy: none
+		sourceColumn: CurrencyIsoCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProfileId
+		dataType: string
+		lineageTag: f66261a9-91a9-4e36-840f-96f8bf5f3baa
+		summarizeBy: none
+		sourceColumn: ProfileId
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserType
+		dataType: string
+		lineageTag: a656f0c6-94cb-4b08-8ad9-d979d56be9ce
+		summarizeBy: none
+		sourceColumn: UserType
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDay
+		dataType: string
+		lineageTag: edf6e17b-41b2-487a-9daa-5327c17be909
+		summarizeBy: none
+		sourceColumn: StartDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndDay
+		dataType: string
+		lineageTag: e3f9ef4e-ecfd-46ee-92a1-69de7b89d8a4
+		summarizeBy: none
+		sourceColumn: EndDay
+
+		annotation SummarizationSetBy = Automatic
+
+	column LanguageLocaleKey
+		dataType: string
+		lineageTag: 4c05986a-95c5-4d74-93ff-f688d3509e49
+		summarizeBy: none
+		sourceColumn: LanguageLocaleKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNumber
+		dataType: string
+		lineageTag: 041cb70a-30f7-4ed3-800c-a5a6c600b9f2
+		summarizeBy: none
+		sourceColumn: EmployeeNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column DelegatedApproverId
+		dataType: string
+		lineageTag: 8c77a090-da4b-4ee7-bac7-381364585948
+		summarizeBy: none
+		sourceColumn: DelegatedApproverId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManagerId
+		dataType: string
+		lineageTag: 358b5d7d-1b71-496e-9c73-de2ffb869c92
+		summarizeBy: none
+		sourceColumn: ManagerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastLoginDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cea6dddf-298f-4f3e-8181-f580bceeb9f0
+		summarizeBy: none
+		sourceColumn: LastLoginDate
+
+		variation Variation
+			isDefault
+			relationship: 0cc31bac-142f-4ef2-8363-0dc35fa0628d
+			defaultHierarchy: LocalDateTable_8311a4d4-7fa8-4d73-8544-3bb67fffba49.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastPasswordChangeDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b699bd25-60e7-4f56-b09b-238793636fbe
+		summarizeBy: none
+		sourceColumn: LastPasswordChangeDate
+
+		variation Variation
+			isDefault
+			relationship: d9ff1165-7eb6-4640-bba3-f55fc25439eb
+			defaultHierarchy: LocalDateTable_520927f8-b87d-4e20-a280-96a9663845d0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fdedf6fc-5279-488b-8b8b-2e2ed3f5d398
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		variation Variation
+			isDefault
+			relationship: fd7f859a-5975-45d5-a854-221b30d2fb6f
+			defaultHierarchy: LocalDateTable_eef16e33-4699-4116-8f4a-2919d43772c9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedById
+		dataType: string
+		lineageTag: 8ccdb911-8c10-4d19-8d01-5ca32938e605
+		summarizeBy: none
+		sourceColumn: CreatedById
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b3136bdf-bb25-44df-a653-d1d02890b533
+		summarizeBy: none
+		sourceColumn: LastModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: e9f062d3-1d65-4f6a-8bf9-8bb8e95c9c3e
+			defaultHierarchy: LocalDateTable_73a01ddf-c96c-4283-8901-8d64c27959d0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastModifiedById
+		dataType: string
+		lineageTag: 4542502b-0de8-4a79-bd61-267790de65e6
+		summarizeBy: none
+		sourceColumn: LastModifiedById
+
+		annotation SummarizationSetBy = Automatic
+
+	column SystemModstamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 792aefcf-5707-452a-bb31-45737d590b06
+		summarizeBy: none
+		sourceColumn: SystemModstamp
+
+		variation Variation
+			isDefault
+			relationship: 25f2e474-ffb8-471f-acf4-298b566e0366
+			defaultHierarchy: LocalDateTable_be5eee8a-ffbe-4a34-991d-1f1716b68702.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column PasswordExpirationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3fcb11a7-ffdf-43cb-98e5-b2ba8d1cfb36
+		summarizeBy: none
+		sourceColumn: PasswordExpirationDate
+
+		variation Variation
+			isDefault
+			relationship: 71ab97cd-1d84-41c9-91c3-bff5e10e1cea
+			defaultHierarchy: LocalDateTable_cace4296-40b9-4fdd-b16f-f1316295241d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberOfFailedLogins
+		dataType: int64
+		formatString: 0
+		lineageTag: c9418bfb-7e96-4b1c-a373-8159a158fc9e
+		summarizeBy: sum
+		sourceColumn: NumberOfFailedLogins
+
+		annotation SummarizationSetBy = Automatic
+
+	column SuAccessExpirationDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2b13f11e-f7cf-46a6-8002-a37a74506c86
+		summarizeBy: none
+		sourceColumn: SuAccessExpirationDate
+
+		variation Variation
+			isDefault
+			relationship: 9055e1f0-e898-4d8a-9756-3a9e3bca7341
+			defaultHierarchy: LocalDateTable_075050f5-8eb8-4edd-a265-48f54b65b8f7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OfflineTrialExpirationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a4d578f0-e80c-4bb9-a2ca-e462510ad261
+		summarizeBy: none
+		sourceColumn: OfflineTrialExpirationDate
+
+		variation Variation
+			isDefault
+			relationship: 79d8e043-518c-4dd3-b8f4-dc9f4c603835
+			defaultHierarchy: LocalDateTable_fc7f16c5-c39a-42fe-948d-24b81d83f20f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column OfflinePdaTrialExpirationDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 78e3b419-6b30-4dca-ac42-1af3edaebb7c
+		summarizeBy: none
+		sourceColumn: OfflinePdaTrialExpirationDate
+
+		variation Variation
+			isDefault
+			relationship: fdd6733b-1359-437c-84e6-3f4c5d383377
+			defaultHierarchy: LocalDateTable_09c8285a-b578-4e2f-aa74-215420c30b6f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsMarketingUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7451cc18-d8d3-4164-af82-fe18f7317ebb
+		summarizeBy: none
+		sourceColumn: UserPermissionsMarketingUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsOfflineUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d0a99d7c-f553-4581-bd45-0f6cf2934657
+		summarizeBy: none
+		sourceColumn: UserPermissionsOfflineUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsAvantgoUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d26ce496-1962-4e20-a36f-80108146d32b
+		summarizeBy: none
+		sourceColumn: UserPermissionsAvantgoUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsCallCenterAutoLogin
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 34365bd0-3fff-496e-8c86-78ff1b95e944
+		summarizeBy: none
+		sourceColumn: UserPermissionsCallCenterAutoLogin
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsSFContentUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 84992be7-e2e5-4281-abf2-8d682dae735a
+		summarizeBy: none
+		sourceColumn: UserPermissionsSFContentUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsKnowledgeUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 616259c0-1ee4-439d-b501-0da5eabd121c
+		summarizeBy: none
+		sourceColumn: UserPermissionsKnowledgeUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsInteractionUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2141c4ed-fdde-4eab-8523-a063d21899a5
+		summarizeBy: none
+		sourceColumn: UserPermissionsInteractionUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPermissionsSupportUser
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bc0d27df-c5ff-4be7-b433-13bb06e54f7f
+		summarizeBy: none
+		sourceColumn: UserPermissionsSupportUser
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastEnabled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ab84f63d-6f16-46a0-a185-64abe23712ac
+		summarizeBy: none
+		sourceColumn: ForecastEnabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesActivityRemindersPopup
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 87176582-2e96-42ed-8dcc-990f7d08a10b
+		summarizeBy: none
+		sourceColumn: UserPreferencesActivityRemindersPopup
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesEventRemindersCheckboxDefault
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 70d8efd7-c46e-45d6-9d3d-3b1be1101710
+		summarizeBy: none
+		sourceColumn: UserPreferencesEventRemindersCheckboxDefault
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesTaskRemindersCheckboxDefault
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bad862ea-f82d-4025-8a3c-74cdcf197479
+		summarizeBy: none
+		sourceColumn: UserPreferencesTaskRemindersCheckboxDefault
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesReminderSoundOff
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e0fa4ce9-b98e-44ce-972c-96b2ea8f1b6c
+		summarizeBy: none
+		sourceColumn: UserPreferencesReminderSoundOff
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableAllFeedsEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8fc7aa85-95cf-440f-9aa5-de49756690bf
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableAllFeedsEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableFollowersEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d2391555-d3b2-4464-9fc2-3cb3fd35df0b
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableFollowersEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableProfilePostEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 426735f5-4019-453a-ab9c-5842ff521f13
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableProfilePostEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableChangeCommentEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 52e3e82f-15bf-478b-a0dc-6f42bd55e45b
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableChangeCommentEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableLaterCommentEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 481fd0e0-bfac-4b45-b7a5-92eac2f37c29
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableLaterCommentEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisProfPostCommentEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9d739445-ed7a-4d99-b876-76975a44c91e
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisProfPostCommentEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesApexPagesDeveloperMode
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 283f9d82-0667-44d8-afae-bbf258191c2c
+		summarizeBy: none
+		sourceColumn: UserPreferencesApexPagesDeveloperMode
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesReceiveNoNotificationsAsApprover
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 19a93b1f-c0a3-42aa-8837-d42ad14f8ece
+		summarizeBy: none
+		sourceColumn: UserPreferencesReceiveNoNotificationsAsApprover
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesReceiveNotificationsAsDelegatedApprover
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 46dc4091-4e19-4f16-b6a8-08a694ce7ba1
+		summarizeBy: none
+		sourceColumn: UserPreferencesReceiveNotificationsAsDelegatedApprover
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideCSNGetChatterMobileTask
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9e7f11e3-a9fd-4718-b6d7-4824a9b710c2
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideCSNGetChatterMobileTask
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableMentionsPostEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f7d962eb-24bd-4df6-98fd-6b022d8d3162
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableMentionsPostEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisMentionsCommentEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 112e59bf-94c2-4dbc-a288-398d16ac543d
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisMentionsCommentEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideCSNDesktopTask
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 45650a68-0339-44a1-8456-354e829a3c1a
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideCSNDesktopTask
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideChatterOnboardingSplash
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bf1d2b24-daf2-43d4-ae49-2c40bd85af5a
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideChatterOnboardingSplash
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideSecondChatterOnboardingSplash
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6191c2c6-4e4c-40fe-b9b6-86b5de3d2d20
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideSecondChatterOnboardingSplash
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisCommentAfterLikeEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4762face-1c76-4f5f-8345-7cfb7214070f
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisCommentAfterLikeEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableLikeEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d727fe11-c778-4d3e-96e8-bf682ec2bfb0
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableLikeEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesSortFeedByComment
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 83a0720f-2d41-43f0-b766-eb8e71b6fb46
+		summarizeBy: none
+		sourceColumn: UserPreferencesSortFeedByComment
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableMessageEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: add837b9-6301-4c25-94b8-f8518108be36
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableMessageEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableBookmarkEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d8e4c2c1-bcf4-4ae9-8694-dd4d445d379b
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableBookmarkEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableSharePostEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3412d831-c05c-49d7-8c9e-2373c1edc87f
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableSharePostEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesEnableAutoSubForFeeds
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4a84b616-942b-467e-8f90-11808ed5b1c2
+		summarizeBy: none
+		sourceColumn: UserPreferencesEnableAutoSubForFeeds
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableFileShareNotificationsForApi
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2b962933-3687-4d44-b9a8-9b6689a89170
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableFileShareNotificationsForApi
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowTitleToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 503647b9-3ea7-47ec-9914-e5f2e4a43877
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowTitleToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowManagerToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 695f9392-2c48-40e7-b37a-db1b5fc1281f
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowManagerToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowEmailToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 07ed6f43-c767-47e2-8d96-eb2372ef99ab
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowEmailToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowWorkPhoneToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 85c346f1-2a1d-4df7-801f-45e5c0e7c8e6
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowWorkPhoneToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowMobilePhoneToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e84144be-0be5-407b-8ac9-bcd01b01daa8
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowMobilePhoneToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowFaxToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 99e18ec9-8271-4dbc-923b-8448ed6a8d5c
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowFaxToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowStreetAddressToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b2c9f52e-f510-4804-86c4-480dbaa1a60e
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowStreetAddressToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowCityToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 35051d22-1ce1-466b-a7eb-e8e7d53f00df
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowCityToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowStateToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d2f4a5cf-4d6c-4862-9fac-b4582e358e54
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowStateToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowPostalCodeToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 07c33e4f-cc83-4708-a91a-3770d7fe9c3a
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowPostalCodeToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowCountryToExternalUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 698bea63-098a-45e6-bba2-189716d1614f
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowCountryToExternalUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowProfilePicToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 309fbd82-e685-466f-bbb3-81fc9717b3e9
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowProfilePicToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowTitleToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 38b7c02a-047b-4681-b209-4c817bdeb5f9
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowTitleToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowCityToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c772b238-ba88-4bc5-a09a-d244a38ab771
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowCityToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowStateToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0cd921e4-bdc5-44ac-b739-f4068ec3237a
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowStateToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowPostalCodeToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 79c803b1-0e0b-4a04-9ce0-540517ce0346
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowPostalCodeToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowCountryToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7ad2845e-9bbc-4a99-9d2a-46f470e9d09d
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowCountryToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesPipelineViewHideHelpPopover
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3e6f91cb-7d59-43b5-8902-c7f82212f5d1
+		summarizeBy: none
+		sourceColumn: UserPreferencesPipelineViewHideHelpPopover
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideS1BrowserUI
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f9d00209-c0a7-43f7-bf81-54745279f579
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideS1BrowserUI
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesDisableEndorsementEmail
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dc27b48a-3aa2-4e12-b218-cf0692e0108f
+		summarizeBy: none
+		sourceColumn: UserPreferencesDisableEndorsementEmail
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesPathAssistantCollapsed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b656df0f-5cc6-4c0d-8af9-b2657944f843
+		summarizeBy: none
+		sourceColumn: UserPreferencesPathAssistantCollapsed
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesCacheDiagnostics
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f591099a-1b2a-47df-8afb-c55b4c868fd5
+		summarizeBy: none
+		sourceColumn: UserPreferencesCacheDiagnostics
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowEmailToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 81b6236f-2238-4dfc-a5ab-6a9b787cd8e3
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowEmailToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowManagerToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 46e97e8f-4b4c-4651-8c27-d28e2fe7460b
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowManagerToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowWorkPhoneToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4daa7afd-b183-4d9f-a928-1b56075572e8
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowWorkPhoneToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowMobilePhoneToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d480703e-0cac-4a44-b5e1-9fa20e2f35b9
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowMobilePhoneToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowFaxToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ff8b430f-c6db-4a20-b72b-605d06202d39
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowFaxToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesShowStreetAddressToGuestUsers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4089c26c-af0b-477d-9a13-825712601fc6
+		summarizeBy: none
+		sourceColumn: UserPreferencesShowStreetAddressToGuestUsers
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesLightningExperiencePreferred
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 20cbc670-ce7f-41f4-b0f7-2f62d01d12f9
+		summarizeBy: none
+		sourceColumn: UserPreferencesLightningExperiencePreferred
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesPreviewLightning
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3bd87e21-b3af-4141-b773-9fbb8fcc35a9
+		summarizeBy: none
+		sourceColumn: UserPreferencesPreviewLightning
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideEndUserOnboardingAssistantModal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1c38aa89-9708-45fd-b721-ff9dce04aa3f
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideEndUserOnboardingAssistantModal
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideLightningMigrationModal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ae23616c-778f-4a1b-80e7-97cefae7469d
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideLightningMigrationModal
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideSfxWelcomeMat
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c68db76b-6969-4c71-8464-4fa1638cf466
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideSfxWelcomeMat
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHideBiggerPhotoCallout
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ea10772f-00df-4606-bcad-545e31bec333
+		summarizeBy: none
+		sourceColumn: UserPreferencesHideBiggerPhotoCallout
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesGlobalNavBarWTShown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ca70fb2e-0e18-4705-92d9-f4685b77e915
+		summarizeBy: none
+		sourceColumn: UserPreferencesGlobalNavBarWTShown
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesGlobalNavGridMenuWTShown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7d4f66b6-9bac-40a0-b6d8-70733f532094
+		summarizeBy: none
+		sourceColumn: UserPreferencesGlobalNavGridMenuWTShown
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesCreateLEXAppsWTShown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1e0491b3-7fd3-4c9d-a387-bc620753059a
+		summarizeBy: none
+		sourceColumn: UserPreferencesCreateLEXAppsWTShown
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesFavoritesWTShown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3bb62692-595a-44aa-9469-336177775481
+		summarizeBy: none
+		sourceColumn: UserPreferencesFavoritesWTShown
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesRecordHomeSectionCollapseWTShown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1e55ab7b-0af5-4132-8980-a4da30691c57
+		summarizeBy: none
+		sourceColumn: UserPreferencesRecordHomeSectionCollapseWTShown
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesRecordHomeReservedWTShown
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 73112c0f-1bde-4bd8-9ab2-5fdb316f128f
+		summarizeBy: none
+		sourceColumn: UserPreferencesRecordHomeReservedWTShown
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesFavoritesShowTopFavorites
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1fe156ad-9800-4386-b6c9-c8e0788518e0
+		summarizeBy: none
+		sourceColumn: UserPreferencesFavoritesShowTopFavorites
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesExcludeMailAppAttachments
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5ce2b0f8-f58a-49c6-8ef6-e4950e380087
+		summarizeBy: none
+		sourceColumn: UserPreferencesExcludeMailAppAttachments
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesSuppressTaskSFXReminders
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 16ec88e5-bd13-4288-a917-6043a52f5040
+		summarizeBy: none
+		sourceColumn: UserPreferencesSuppressTaskSFXReminders
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesSuppressEventSFXReminders
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d824e2d3-568a-40ec-974e-999e47abee9c
+		summarizeBy: none
+		sourceColumn: UserPreferencesSuppressEventSFXReminders
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesPreviewCustomTheme
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: db852145-e175-4e83-ac4f-4e49c4dd4360
+		summarizeBy: none
+		sourceColumn: UserPreferencesPreviewCustomTheme
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesHasCelebrationBadge
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e27e2d6b-d877-4ed7-aa5c-8e5d62f9fbca
+		summarizeBy: none
+		sourceColumn: UserPreferencesHasCelebrationBadge
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesUserDebugModePref
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 70bee48a-274e-4331-8b1a-de74e571590f
+		summarizeBy: none
+		sourceColumn: UserPreferencesUserDebugModePref
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesSRHOverrideActivities
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e646077d-0cb8-480d-8d65-fef9287498c3
+		summarizeBy: none
+		sourceColumn: UserPreferencesSRHOverrideActivities
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesNewLightningReportRunPageEnabled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ab58599f-b894-4ff0-81f1-be483c03ca15
+		summarizeBy: none
+		sourceColumn: UserPreferencesNewLightningReportRunPageEnabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserPreferencesNativeEmailClient
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6b51e852-6fab-4e59-857a-79f472a19a7d
+		summarizeBy: none
+		sourceColumn: UserPreferencesNativeEmailClient
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContactId
+		dataType: string
+		lineageTag: e39b2974-f01b-43b7-b962-80779f00227f
+		summarizeBy: none
+		sourceColumn: ContactId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountId
+		dataType: string
+		lineageTag: ec99c062-95e8-44e7-899c-2719dbbef765
+		summarizeBy: none
+		sourceColumn: AccountId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CallCenterId
+		dataType: string
+		lineageTag: 9bfd9566-08aa-4c9e-8b21-a720aa3891e2
+		summarizeBy: none
+		sourceColumn: CallCenterId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Extension
+		dataType: string
+		lineageTag: 87b2d508-9272-4f96-aa98-9e74a0464971
+		summarizeBy: none
+		sourceColumn: Extension
+
+		annotation SummarizationSetBy = Automatic
+
+	column FederationIdentifier
+		dataType: string
+		lineageTag: 89039570-1462-48c1-a4a5-47f9f6c26a3a
+		summarizeBy: none
+		sourceColumn: FederationIdentifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column AboutMe
+		dataType: string
+		lineageTag: df91c833-488c-4803-b1c3-36e2a7a8c8f9
+		summarizeBy: none
+		sourceColumn: AboutMe
+
+		annotation SummarizationSetBy = Automatic
+
+	column FullPhotoUrl
+		dataType: string
+		lineageTag: c0dca9bd-bb7a-479a-a2a1-c1162dac7ee8
+		summarizeBy: none
+		sourceColumn: FullPhotoUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column SmallPhotoUrl
+		dataType: string
+		lineageTag: a65d6c95-6d71-4ff5-ae43-30224090dc73
+		summarizeBy: none
+		sourceColumn: SmallPhotoUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsExtIndicatorVisible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 342a1852-9ac0-4333-b743-ec287ff23f35
+		summarizeBy: none
+		sourceColumn: IsExtIndicatorVisible
+
+		annotation SummarizationSetBy = Automatic
+
+	column OutOfOfficeMessage
+		dataType: string
+		lineageTag: c448ea7a-ae67-456a-b1f2-b8e61046f8b3
+		summarizeBy: none
+		sourceColumn: OutOfOfficeMessage
+
+		annotation SummarizationSetBy = Automatic
+
+	column MediumPhotoUrl
+		dataType: string
+		lineageTag: 87445377-b70c-4ce3-adfc-bc047de58647
+		summarizeBy: none
+		sourceColumn: MediumPhotoUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column DigestFrequency
+		dataType: string
+		lineageTag: 4a744657-37e0-4bb0-8ad3-4ca521df6dda
+		summarizeBy: none
+		sourceColumn: DigestFrequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column DefaultGroupNotificationFrequency
+		dataType: string
+		lineageTag: e5925834-8bd4-4c18-9c87-387d036da2a8
+		summarizeBy: none
+		sourceColumn: DefaultGroupNotificationFrequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastViewedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c55dc1c-5a54-4f8a-aa44-79df36c967cc
+		summarizeBy: none
+		sourceColumn: LastViewedDate
+
+		variation Variation
+			isDefault
+			relationship: 62ebdf56-f128-4873-a564-516c973454cf
+			defaultHierarchy: LocalDateTable_26bb901d-6f78-4d2a-89c8-ae3a20fd9aab.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastReferencedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4475aeb6-7fab-44d5-a8ee-4dbbf9f671aa
+		summarizeBy: none
+		sourceColumn: LastReferencedDate
+
+		variation Variation
+			isDefault
+			relationship: cfd34da2-93cc-4394-89fa-0c1b792e517a
+			defaultHierarchy: LocalDateTable_0ebcbe88-730d-4dd0-bd47-7d8067faa39d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column BannerPhotoUrl
+		dataType: string
+		lineageTag: e0f38b57-5455-4ff7-b27e-e50251257e53
+		summarizeBy: none
+		sourceColumn: BannerPhotoUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column SmallBannerPhotoUrl
+		dataType: string
+		lineageTag: be8c670d-c8ad-407b-bccd-555f3c1448ea
+		summarizeBy: none
+		sourceColumn: SmallBannerPhotoUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column MediumBannerPhotoUrl
+		dataType: string
+		lineageTag: 9e251846-d0df-476a-9162-6adce5c4f5ef
+		summarizeBy: none
+		sourceColumn: MediumBannerPhotoUrl
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsProfilePhotoActive
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aee02f3a-dcd4-4a93-9511-95b0cabb1f40
+		summarizeBy: none
+		sourceColumn: IsProfilePhotoActive
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__ActivityGenerationObjects__c
+		dataType: string
+		lineageTag: 57340622-4b02-40ac-92b6-cee9f3973e68
+		summarizeBy: none
+		sourceColumn: maps__ActivityGenerationObjects__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__AllowMapsExports__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9f4dccb1-acb0-4f08-b571-1d193c68e9b0
+		summarizeBy: none
+		sourceColumn: maps__AllowMapsExports__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__BetaTester__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f1400c89-619b-4e51-a74a-bfe96493e538
+		summarizeBy: none
+		sourceColumn: maps__BetaTester__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__DefaultLatitude__c
+		dataType: double
+		lineageTag: c02a63c8-8411-4533-a25b-0e189763f750
+		summarizeBy: sum
+		sourceColumn: maps__DefaultLatitude__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maps__DefaultLongitude__c
+		dataType: double
+		lineageTag: 105d9f02-5462-4840-9440-f4863b1cd1a7
+		summarizeBy: sum
+		sourceColumn: maps__DefaultLongitude__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maps__DefaultProximityRadius__c
+		dataType: double
+		lineageTag: 3239801d-ee38-4771-8f24-81a33070bd73
+		summarizeBy: sum
+		sourceColumn: maps__DefaultProximityRadius__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maps__DefaultType__c
+		dataType: string
+		lineageTag: f022552c-03c0-475b-9090-a1f25c27094a
+		summarizeBy: none
+		sourceColumn: maps__DefaultType__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__DefaultZoomLevel__c
+		dataType: double
+		lineageTag: 26dc8148-dcf4-40e5-b485-8e4cae34656d
+		summarizeBy: sum
+		sourceColumn: maps__DefaultZoomLevel__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maps__DeviceId__c
+		dataType: string
+		lineageTag: 8db919fe-c770-4fab-b4af-df2220b1efcc
+		summarizeBy: none
+		sourceColumn: maps__DeviceId__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__DeviceVendor__c
+		dataType: string
+		lineageTag: fc7937a5-387c-43c6-9cc0-93f34463ff66
+		summarizeBy: none
+		sourceColumn: maps__DeviceVendor__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__DistanceCalculationRule__c
+		dataType: string
+		lineageTag: 0344156b-827a-44a6-824e-0943ebd1b955
+		summarizeBy: none
+		sourceColumn: maps__DistanceCalculationRule__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__EditMapsOrgWideQueries__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 65a782cb-b219-489e-bcd4-4df9185c76d7
+		summarizeBy: none
+		sourceColumn: maps__EditMapsOrgWideQueries__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__EditTimesheetEntries__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 884efded-1e0d-41f0-966d-02996dc5414a
+		summarizeBy: none
+		sourceColumn: maps__EditTimesheetEntries__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__FinishedAdvRouteSetup__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: dff7d5fd-86ce-40ef-9607-030ecedf3cc4
+		summarizeBy: none
+		sourceColumn: maps__FinishedAdvRouteSetup__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__MapsSetting__c
+		dataType: string
+		lineageTag: 0f9e6eaa-30a4-47c9-9ab5-7986dd283ce6
+		summarizeBy: none
+		sourceColumn: maps__MapsSetting__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__MaxExportSize__c
+		dataType: double
+		lineageTag: f3f6addb-0666-4e31-8d7d-08b190d05edd
+		summarizeBy: sum
+		sourceColumn: maps__MaxExportSize__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maps__MaxQuerySize__c
+		dataType: double
+		lineageTag: 2b6fee29-1747-4850-9cdc-1548b94ae84d
+		summarizeBy: sum
+		sourceColumn: maps__MaxQuerySize__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column maps__PreferredTypeOfMeasurement__c
+		dataType: string
+		lineageTag: be9f00b7-e637-4ee6-91d3-4a7aebe9a1cc
+		summarizeBy: none
+		sourceColumn: maps__PreferredTypeOfMeasurement__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__ReceiveBatchExceptionEmails__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 66f54503-5a64-4a9e-85d7-fec9766bb79c
+		summarizeBy: none
+		sourceColumn: maps__ReceiveBatchExceptionEmails__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__RequireApprovalProcess__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9fa968dd-66c2-4cca-b5ed-4d1a6f8d7f90
+		summarizeBy: none
+		sourceColumn: maps__RequireApprovalProcess__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__TPApprover__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 18a50292-e146-4388-9090-05b0e23215a4
+		summarizeBy: none
+		sourceColumn: maps__TPApprover__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__TPPublisher__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 616dd69f-8d29-4af1-8031-3caa0e0e09dd
+		summarizeBy: none
+		sourceColumn: maps__TPPublisher__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__TestUserLookup__c
+		dataType: string
+		lineageTag: 31ba0064-6a5c-4271-bf22-4e4b33e69605
+		summarizeBy: none
+		sourceColumn: maps__TestUserLookup__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__TimesheetPeriod__c
+		dataType: string
+		lineageTag: cef4ebd7-ef68-41ae-b752-27e38f669210
+		summarizeBy: none
+		sourceColumn: maps__TimesheetPeriod__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column maps__Version__c
+		dataType: string
+		lineageTag: e69be147-d235-46ff-9a22-204cb97cd52b
+		summarizeBy: none
+		sourceColumn: maps__Version__c
+
+		annotation SummarizationSetBy = Automatic
+
+	partition User = m
+		mode: import
+		source =
+				let
+				    Source = Salesforce.Data("https://login.salesforce.com/", [ApiVersion=48, CreateNavigationProperties=true]),
+				    User1 = Source{[Name="User"]}[Data]
+				in
+				    User1
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

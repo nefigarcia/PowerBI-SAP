@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 175.07341887506152
+          },
+          "nodeIndex": "SAP_SD_HL_BillingDocumentItem_V2",
+          "nodeLineageTag": "67a39331-6308-4df0-b6f6-6f984e41dd5e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 632.72602739726028,
+            "y": 213.77204901204783
+          },
+          "nodeIndex": "KNVV",
+          "nodeLineageTag": "4522e84a-c76a-4828-a119-77eac65cc27d",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 902,
+            "y": -40.3457301073729
+          },
+          "nodeIndex": "Quote",
+          "nodeLineageTag": "66248509-52b6-4946-8f66-a0c1afaf18f8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1190.2240023778356,
+            "y": 361.79067336656152
+          },
+          "nodeIndex": "Quote Line Item",
+          "nodeLineageTag": "fd8a01d4-ec0f-41ee-8f86-507b14437bc3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1215.0152751892513,
+            "y": -50
+          },
+          "nodeIndex": "User",
+          "nodeLineageTag": "58d75428-3935-4951-812d-4cba15cf5279",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1499.0152751892513,
+            "y": 175.07341887506158
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "28e31008-d1bd-4b62-877d-6b48e241ca95",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 444.31664505226513,
+            "y": 420.62136408054107
+          },
+          "nodeIndex": "SAP_SD_HL_SalesDocumentItem_V2",
+          "nodeLineageTag": "678aad97-cac8-45bb-b9a0-740d4c00b2ff",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 97.333333333333343,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,33 @@
+table KNVV
+	lineageTag: 4522e84a-c76a-4828-a119-77eac65cc27d
+
+	column 'Account Assignment Group'
+		dataType: string
+		lineageTag: a683cb0f-33c9-4139-8ca6-edf5c1d6b7fe
+		summarizeBy: none
+		sourceColumn: Account Assignment Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Assignment Group Description'
+		dataType: string
+		lineageTag: acb80ca2-a386-482a-b2c5-6b2f73ed4835
+		summarizeBy: none
+		sourceColumn: Account Assignment Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KNVV = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\cillian.ryan\OneDrive - Kingspan\KNVV.csv"),[Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"", "_1", "_2"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,3685 @@
+/// SAP Sales Document Item (SAP_SD_RL_SalesDocumentItem_V2)
+/// Order intake facts. One row = one sales-order line.
+table SalesOrders
+	lineageTag: b2220001-0000-4000-a000-000000000001
+
+	measure 'ISO AOP - $/bdft OI' = SUM(SalesOrders[Revenue_Order_Intake])/SUM(SalesOrders[Order_Quantity_in_BFT2])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Production Measures
+		lineageTag: 2c0e891a-9b66-42ba-85c8-fd077b6d573c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sum Fcst Order Qty. in FT2 for Membranes OI' =
+			
+			VAR FcstOrderQtyFT2MembranesOI =
+			SUMX(
+			    FILTER(
+			        SalesOrders,
+			        CONTAINSSTRING(SalesOrders[FC_Product_Group], "TPO")
+			    ),
+			    SalesOrders[ForecastSalesSQFT]
+			)
+			RETURN
+			IF(
+			    FcstOrderQtyFT2MembranesOI = BLANK(),
+			    0,
+			    FcstOrderQtyFT2MembranesOI
+			)
+		formatString: 0
+		displayFolder: Production Measures
+		lineageTag: fe74e79c-49c9-45a9-9788-1ad131d3407f
+
+	measure 'Sum Order Qty. in BFT2 for ISO OI' =
+			
+			VAR OrderQtyBFT2ISOOI =
+			SUMX(
+			    FILTER(
+			        SalesOrders,
+			        CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "iso")
+			    ),
+			    SalesOrders[Requested_Quantity_in_BFT]
+			)
+			RETURN
+			IF(
+			    OrderQtyBFT2ISOOI = BLANK(),
+			    0,
+			    OrderQtyBFT2ISOOI
+			)
+		displayFolder: Production Measures
+		lineageTag: f9d09aa3-16f6-4caf-9c82-d111bc5827b4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum Order Qty. in BFT2 for ISO SB' =
+			
+			VAR OrderQtyBFT2ISOSB =
+			SUMX(
+			    FILTER(
+			        SalesOrders,
+			        CONTAINSSTRING(SalesOrders[FC_Product_Group], "ISO")
+			    ),
+			    SalesOrders[Requested_Quantity_in_BFT]
+			)
+			RETURN
+			IF(
+			    OrderQtyBFT2ISOSB = BLANK(),
+			    0,
+			    OrderQtyBFT2ISOSB
+			)
+		displayFolder: Production Measures
+		lineageTag: 67ae59d4-128f-4d3e-9068-1e9397f8403e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum Order Qty. in FT2 for Membranes OI' =
+			
+			VAR OrderQtyFT2MembranesOI =
+			SUMX(
+			    FILTER(
+			        SalesOrders,
+			        CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "Membrane")
+			    ),
+			    SalesOrders[Order_Quantity_in_FT2]
+			)
+			RETURN
+			IF(
+			    OrderQtyFT2MembranesOI = BLANK(),
+			    0,
+			    OrderQtyFT2MembranesOI
+			)
+		displayFolder: Production Measures
+		lineageTag: 269d8b55-af28-4506-bf94-e9d8867a4d23
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum Order Qty. in FT2 for Membranes SB' =
+			
+			VAR OrderQtyFT2MembranesSB =
+			SUMX(
+			    FILTER(
+			        SalesOrders,
+			        CONTAINSSTRING(SalesOrders[FC_Product_Group], "TPO")
+			    ),
+			    SalesOrders[RequestedQuantityInBaseUnit]
+			)
+			RETURN
+			IF(
+			    OrderQtyFT2MembranesSB = BLANK(),
+			    0,
+			    OrderQtyFT2MembranesSB
+			)
+		displayFolder: Production Measures
+		lineageTag: 5ea235c8-1c76-456c-9ba1-25dd7c616945
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum Order Qty. in FT2 for Membranes SB 2' =
+			
+			VAR OrderQtyFT2MembranesSB2 =
+			CALCULATE(
+			    SUMX(SalesOrders, [Open_Order_Quantity_in_FT2]),
+			    SalesOrders[FC_Product_Group] = "TPO"
+			)
+			RETURN
+			IF(
+			    OrderQtyFT2MembranesSB2 = BLANK(),
+			    0,
+			    OrderQtyFT2MembranesSB2
+			)
+		displayFolder: Production Measures
+		lineageTag: 556894fe-9af6-41a1-86b4-c5cfa1fc08de
+
+	measure 'ISO Rate OI' =
+			
+			VAR IsoRateOI =
+			[Sum Order Qty. in BFT2 for ISO OI]/[Sum Order Qty. in FT2 for Membranes OI]
+			RETURN
+			IF(
+			    IsoRateOI = BLANK(),
+			    0,
+			    IsoRateOI
+			)
+		displayFolder: Production Measures
+		lineageTag: d4b240fa-dccb-4824-98f3-8162af01fffc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ISO Rate SB' =
+			
+			VAR IsoRateVBAPSB =
+			[Sum Order Qty. in BFT2 for ISO SB]/[Sum Order Qty. in FT2 for Membranes SB]
+			RETURN
+			IF(
+			    IsoRateVBAPSB = BLANK(),
+			    0,
+			    IsoRateVBAPSB
+			)
+		displayFolder: Production Measures
+		lineageTag: 23635400-84c2-4bf1-b056-ab9ed178837e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ISO Rate Fcst OI' =
+			
+			VAR IsoRateFcstOI =
+			DIVIDE(
+				SUM(SalesOrders[ForecastSalesBDFT]),
+				[Sum Fcst Order Qty. in FT2 for Membranes OI]
+			)
+			RETURN
+			IF(
+			    IsoRateFcstOI = BLANK(),
+			    0,
+			    IsoRateFcstOI
+			)
+		displayFolder: Production Measures
+		lineageTag: 7d6f8a41-9c22-4272-88ec-e6d6fd58c551
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Backlog $' =
+			
+			VAR TotalBacklog =
+			SUM(SalesOrders[Revenue_Backlog])
+			RETURN
+			IF(TotalBacklog = BLANK(),
+			0,
+			TotalBacklog)
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Production Measures
+		lineageTag: 28a120d1-2597-4861-8715-761318820c6d
+
+	column SalesDocument
+		dataType: string
+		displayFolder: Keys
+		lineageTag: b2220001-0000-4000-a000-000000000101
+		summarizeBy: none
+		sourceColumn: SalesDocument
+
+	column SalesDocumentItem
+		dataType: string
+		displayFolder: Keys
+		lineageTag: b2220001-0000-4000-a000-000000000102
+		summarizeBy: none
+		sourceColumn: SalesDocumentItem
+
+	column RequestedDeliveryDate
+		dataType: string
+		displayFolder: Dates
+		lineageTag: b2220001-0000-4000-a000-000000000105
+		summarizeBy: none
+		sourceColumn: RequestedDeliveryDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentType
+		dataType: string
+		displayFolder: Document
+		lineageTag: b2220001-0000-4000-a000-000000000106
+		summarizeBy: none
+		sourceColumn: SalesDocumentType
+
+	column OverallSDProcessStatus
+		dataType: string
+		displayFolder: Document
+		lineageTag: b2220001-0000-4000-a000-000000000107
+		summarizeBy: none
+		sourceColumn: OverallSDProcessStatus
+
+	column Division
+		dataType: string
+		displayFolder: Organization
+		lineageTag: b2220001-0000-4000-a000-000000000114
+		summarizeBy: none
+		sourceColumn: Division
+
+	column DistributionChannel
+		dataType: string
+		displayFolder: Organization
+		lineageTag: b2220001-0000-4000-a000-000000000115
+		summarizeBy: none
+		sourceColumn: DistributionChannel
+
+	column SalesGroup
+		dataType: string
+		displayFolder: Organization
+		lineageTag: b2220001-0000-4000-a000-000000000116
+		summarizeBy: none
+		sourceColumn: SalesGroup
+
+	column SalesOffice
+		dataType: string
+		displayFolder: Organization
+		lineageTag: b2220001-0000-4000-a000-000000000117
+		summarizeBy: none
+		sourceColumn: SalesOffice
+
+	column SalesDistrict
+		dataType: string
+		displayFolder: Geography
+		lineageTag: b2220001-0000-4000-a000-000000000119
+		summarizeBy: none
+		sourceColumn: SalesDistrict
+
+	column Country
+		dataType: string
+		displayFolder: Geography
+		lineageTag: b2220001-0000-4000-a000-000000000120
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+	column Region
+		dataType: string
+		displayFolder: Geography
+		lineageTag: b2220001-0000-4000-a000-000000000121
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: Region
+
+	column OrderQuantity
+		dataType: double
+		displayFolder: Measures (raw)
+		lineageTag: b2220001-0000-4000-a000-000000000123
+		summarizeBy: sum
+		sourceColumn: OrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderQuantityUnit
+		dataType: string
+		displayFolder: Measures (raw)
+		lineageTag: b2220001-0000-4000-a000-000000000124
+		summarizeBy: none
+		sourceColumn: OrderQuantityUnit
+
+	column TransactionCurrency
+		dataType: string
+		displayFolder: Measures (raw)
+		lineageTag: b2220001-0000-4000-a000-000000000125
+		summarizeBy: none
+		sourceColumn: TransactionCurrency
+
+	column Application_Product_Number
+		dataType: string
+		lineageTag: 80778d7b-ebe9-45d5-aded-d1f6690a22c5
+		summarizeBy: none
+		sourceColumn: Application_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArticleCategory_Product_Number
+		dataType: string
+		lineageTag: fd1e74ec-6e03-49c0-88d6-cf858a05246f
+		summarizeBy: none
+		sourceColumn: ArticleCategory_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column BaseUnit
+		dataType: string
+		lineageTag: 63aab600-1d42-4507-bd19-6fbb0134fc55
+		summarizeBy: none
+		sourceColumn: BaseUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column BaseUnit_Product_Number
+		dataType: string
+		lineageTag: d763ccae-6434-4f05-ad7a-fbfd9008a493
+		summarizeBy: none
+		sourceColumn: BaseUnit_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column BasicMaterial_Product_Number
+		dataType: string
+		lineageTag: 603c76ee-43e5-4c41-92e0-6cde81a101d9
+		summarizeBy: none
+		sourceColumn: BasicMaterial_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Batch
+		dataType: string
+		lineageTag: af85abfe-7d2e-4924-b170-8ce1b0bcb424
+		summarizeBy: none
+		sourceColumn: Batch
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToParty_A_5
+		dataType: string
+		lineageTag: 57c47e79-06f3-410e-9074-2c6680a6d461
+		summarizeBy: none
+		sourceColumn: BillToParty_A_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingCompanyCode_D0
+		dataType: string
+		lineageTag: 630b3f16-63cb-40be-8823-13475f52db89
+		summarizeBy: none
+		sourceColumn: BillingCompanyCode_D0
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingDocumentDate
+		dataType: string
+		lineageTag: 12c76fe6-5975-4660-9cc1-ba94a72ec8d5
+		summarizeBy: none
+		sourceColumn: BillingDocumentDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billto_Territory
+		dataType: string
+		lineageTag: a0317c3f-88b1-4f7d-a2d1-18cf8f116490
+		summarizeBy: none
+		sourceColumn: Billto_Territory
+
+		annotation SummarizationSetBy = Automatic
+
+	column BindingPeriodValEndDate
+		dataType: string
+		lineageTag: 7c13679d-e585-4f16-8088-069eec4cc8c6
+		summarizeBy: none
+		sourceColumn: BindingPeriodValEndDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column BindingPeriodValStartDate
+		dataType: string
+		lineageTag: 6b479497-02d3-48e5-abe0-5bc76f8635d8
+		summarizeBy: none
+		sourceColumn: BindingPeriodValStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessType
+		dataType: string
+		lineageTag: c333ec20-1007-4440-ac39-d12d6489d843
+		summarizeBy: none
+		sourceColumn: BusinessType
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessType1
+		dataType: string
+		lineageTag: 9d6cbb7b-c1b9-418e-89b5-3b8077d365be
+		summarizeBy: none
+		sourceColumn: BusinessType1
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessType2
+		dataType: string
+		lineageTag: 9f676431-0177-480c-badb-c653bda85406
+		summarizeBy: none
+		sourceColumn: BusinessType2
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessType6
+		dataType: string
+		lineageTag: 3c8921e2-dad7-4b13-b0fb-e521111603c7
+		summarizeBy: none
+		sourceColumn: BusinessType6
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALWEEK1
+		dataType: string
+		lineageTag: a1e0f8a8-61b9-4a75-9e62-eb269b0110d1
+		summarizeBy: none
+		sourceColumn: CALWEEK1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALWEEK2
+		dataType: string
+		lineageTag: aa980805-b395-40c1-b88f-4a0a4c9fae36
+		summarizeBy: none
+		sourceColumn: CALWEEK2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALWEEK3
+		dataType: string
+		lineageTag: 0e899a36-fd7f-4b2a-a793-6b8ea89c2e4c
+		summarizeBy: none
+		sourceColumn: CALWEEK3
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChangedOn_A_9
+		dataType: string
+		lineageTag: 9dbbcf78-8209-4f09-bd56-0645c000bc9d
+		summarizeBy: none
+		sourceColumn: ChangedOn_A_9
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChartOfAccounts
+		dataType: string
+		lineageTag: f1979140-794f-4463-9c5b-d659ea5d0e21
+		summarizeBy: none
+		sourceColumn: ChartOfAccounts
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName1
+		dataType: string
+		lineageTag: 6bd42ae9-cc4d-48f1-90de-1fd7a53a7398
+		summarizeBy: none
+		sourceColumn: CityName1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName2
+		dataType: string
+		lineageTag: fc52a9ae-0aab-46f9-ae9c-9e4aeb01bc8a
+		summarizeBy: none
+		sourceColumn: CityName2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName3
+		dataType: string
+		lineageTag: bf455d7a-bbf4-4b74-929c-22876f75e353
+		summarizeBy: none
+		sourceColumn: CityName3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CityName4
+		dataType: string
+		lineageTag: 065ca70e-6c24-4574-9238-e725b1e2f6f6
+		summarizeBy: none
+		sourceColumn: CityName4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: 951354f2-6543-47e0-bf75-077c36144bf3
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompetitorID_Product_Number
+		dataType: string
+		lineageTag: a29883e6-0317-4910-b28f-70c7030f0ae7
+		summarizeBy: none
+		sourceColumn: CompetitorID_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompletionRule
+		dataType: string
+		lineageTag: 8adbd6d2-c4d6-4d97-b725-ee103a5f4ccb
+		summarizeBy: none
+		sourceColumn: CompletionRule
+
+		annotation SummarizationSetBy = Automatic
+
+	column ControllingArea
+		dataType: string
+		lineageTag: 21b2e36d-216c-4b16-acb3-b55cf9868121
+		summarizeBy: none
+		sourceColumn: ControllingArea
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country1
+		dataType: string
+		lineageTag: 19b9c495-e9bc-4da6-bfa2-fce25e6de6da
+		summarizeBy: none
+		sourceColumn: Country1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country2
+		dataType: string
+		lineageTag: 76e76957-d19d-40dd-95d8-8e0fa8566aba
+		summarizeBy: none
+		sourceColumn: Country2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country3
+		dataType: string
+		lineageTag: 2c8a8878-e2a7-445d-81a0-01a2c57ba3bf
+		summarizeBy: none
+		sourceColumn: Country3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country4
+		dataType: string
+		lineageTag: 82ab4892-1735-47ca-9a05-b105ef4d29c0
+		summarizeBy: none
+		sourceColumn: Country4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country5
+		dataType: string
+		lineageTag: 68c01e5c-c1d7-470b-8985-4f01238599b2
+		summarizeBy: none
+		sourceColumn: Country5
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedOn_A_8
+		dataType: string
+		lineageTag: 0fa331bd-4e5c-48a9-b4d5-74903a2bee2f
+		summarizeBy: none
+		sourceColumn: CreatedOn_A_8
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreationDate_D8
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: fcdd3da3-7ec6-4876-8a12-8b8ff0cb72b3
+		summarizeBy: none
+		sourceColumn: CreationDate_D8
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column CreditControlArea
+		dataType: string
+		lineageTag: ad76d3f4-7b25-47a1-865c-c2009701cbcf
+		summarizeBy: none
+		sourceColumn: CreditControlArea
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditDebit_Posting_CD
+		dataType: string
+		lineageTag: 07eb892c-cf03-4683-834b-53da8940c664
+		summarizeBy: none
+		sourceColumn: CreditDebit_Posting_CD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Creditdebit_posting_Item_Level
+		dataType: string
+		lineageTag: 7a5ae4f1-5f9d-44ae-88cd-6b58db347825
+		summarizeBy: none
+		sourceColumn: Creditdebit_posting_Item_Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: f3cb6da3-1d5e-4134-a4db-1e8146e31746
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency1
+		dataType: string
+		lineageTag: 644809c5-fbd8-46f7-8fa9-917f5ebc0be5
+		summarizeBy: none
+		sourceColumn: Currency1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Current_Period_Flag
+		dataType: string
+		lineageTag: 1fd3046d-92cf-4330-8e3d-6d42fbe5ae4d
+		summarizeBy: none
+		sourceColumn: Current_Period_Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerFullName
+		dataType: string
+		lineageTag: 47c859ce-6b1b-44e5-9cbe-404b2ebc1383
+		summarizeBy: none
+		sourceColumn: CustomerFullName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerFullName1
+		dataType: string
+		lineageTag: 10b183e2-fbd2-46ae-9651-5b767fe99883
+		summarizeBy: none
+		sourceColumn: CustomerFullName1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerFullName2
+		dataType: string
+		lineageTag: 1cf9aa9f-15ec-4899-a0c1-12bdc46c9046
+		summarizeBy: none
+		sourceColumn: CustomerFullName2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerFullName3
+		dataType: string
+		lineageTag: d51175af-7ec2-4581-bdec-c8f54d6ef6b2
+		summarizeBy: none
+		sourceColumn: CustomerFullName3
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_SAP2
+		dataType: string
+		lineageTag: d9b5efa2-9109-41b9-b8f2-52525a717cc4
+		summarizeBy: none
+		sourceColumn: DATE_SAP2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_SAP3
+		dataType: string
+		lineageTag: a9c34b3d-ce31-4529-bfb4-2358f5311aaf
+		summarizeBy: none
+		sourceColumn: DATE_SAP3
+
+		annotation SummarizationSetBy = Automatic
+
+	column DefaultPurchasingOrganization
+		dataType: string
+		lineageTag: 9995c1fd-6be4-434e-939d-7822e8eee2f9
+		summarizeBy: none
+		sourceColumn: DefaultPurchasingOrganization
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeletionIndicator
+		dataType: string
+		lineageTag: 2fa8a28d-b07c-4d9c-98ee-d17d2da43b23
+		summarizeBy: none
+		sourceColumn: DeletionIndicator
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeletionIndicator1
+		dataType: string
+		lineageTag: 1dd73c06-5fea-40bd-88dd-4d13a1963209
+		summarizeBy: none
+		sourceColumn: DeletionIndicator1
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeletionIndicator2
+		dataType: string
+		lineageTag: 6511c71f-2060-4d6b-86e7-df4fbd035ac3
+		summarizeBy: none
+		sourceColumn: DeletionIndicator2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeletionIndicator3
+		dataType: string
+		lineageTag: 56948d55-e712-4e60-a760-853c8d226a9c
+		summarizeBy: none
+		sourceColumn: DeletionIndicator3
+
+		annotation SummarizationSetBy = Automatic
+
+	column DocDate_A_10
+		dataType: string
+		lineageTag: 50033cb9-f080-4f97-b4be-041f72d3bf26
+		summarizeBy: none
+		sourceColumn: DocDate_A_10
+
+		annotation SummarizationSetBy = Automatic
+
+	column Document_CategoryQuotationOrde
+		dataType: string
+		lineageTag: 8b3bcf18-856c-49c7-97e5-76094448c838
+		summarizeBy: none
+		sourceColumn: Document_CategoryQuotationOrde
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExternalProductGroup_Product_Number
+		dataType: string
+		lineageTag: c149220f-7147-4007-bff0-61f285b4edf4
+		summarizeBy: none
+		sourceColumn: ExternalProductGroup_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column FC_Product_Group
+		dataType: string
+		lineageTag: 97c67b59-50bf-4aaa-8884-bf3ee98d060d
+		summarizeBy: none
+		sourceColumn: FC_Product_Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column FC_Product_Group_Product_Number
+		dataType: string
+		lineageTag: 05d9ce71-ca32-46bf-9301-8c84fa3f5d66
+		summarizeBy: none
+		sourceColumn: FC_Product_Group_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalPeriod
+		dataType: string
+		lineageTag: 5980909d-2b53-4718-80b6-ac38d91d14e4
+		summarizeBy: none
+		sourceColumn: FiscalPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYear
+		dataType: string
+		lineageTag: 29a3eae7-3470-4ee3-ad80-0f04c92b107c
+		summarizeBy: none
+		sourceColumn: FiscalYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYearVariant
+		dataType: string
+		lineageTag: 4dc6bb23-15af-41bd-8720-5a7a0ae6e4e3
+		summarizeBy: none
+		sourceColumn: FiscalYearVariant
+
+		annotation SummarizationSetBy = Automatic
+
+	column FiscalYearVariant1
+		dataType: string
+		lineageTag: ead37874-5004-4a86-bc74-d38b81c49e35
+		summarizeBy: none
+		sourceColumn: FiscalYearVariant1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fiscal_Month
+		dataType: string
+		lineageTag: 9a147c69-79b9-4c8d-9a47-8285a360101a
+		summarizeBy: none
+		sourceColumn: Fiscal_Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Forecast_Flag
+		dataType: string
+		lineageTag: c9cdd0fd-6cc2-4896-bd98-d0c292b7603a
+		summarizeBy: none
+		sourceColumn: Forecast_Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column HdrOrderProbabilityInPercent
+		dataType: string
+		lineageTag: ffa6fa15-3954-4427-80ca-332eee5ea5eb
+		summarizeBy: none
+		sourceColumn: HdrOrderProbabilityInPercent
+
+		annotation SummarizationSetBy = Automatic
+
+	column HeaderBillingBlockReason
+		dataType: string
+		lineageTag: 505235d0-2ec4-4a29-bf00-84ae5d315d21
+		summarizeBy: none
+		sourceColumn: HeaderBillingBlockReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsLocation1
+		dataType: string
+		lineageTag: 5bad951a-de5a-494a-8f58-1d3153a5c170
+		summarizeBy: none
+		sourceColumn: IncotermsLocation1
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsLocation2
+		dataType: string
+		lineageTag: 3f2fac04-1165-4910-8187-2494d8c8e565
+		summarizeBy: none
+		sourceColumn: IncotermsLocation2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsTransferLocation
+		dataType: string
+		lineageTag: e245f8cf-57d3-43fa-8299-baab9a69bb0e
+		summarizeBy: none
+		sourceColumn: IncotermsTransferLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: ba9b7711-8291-4b13-910e-e6bdf3c4904b
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry1
+		dataType: string
+		lineageTag: 373612e1-d34c-4168-9eeb-c4c227364e4a
+		summarizeBy: none
+		sourceColumn: Industry1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry2
+		dataType: string
+		lineageTag: 69394484-69a6-455c-81f4-629995379550
+		summarizeBy: none
+		sourceColumn: Industry2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry3
+		dataType: string
+		lineageTag: 0e1f2eb5-3c17-46cb-aeb6-3c3f5df41151
+		summarizeBy: none
+		sourceColumn: Industry3
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustrySector_Product_Number
+		dataType: string
+		lineageTag: a3029001-0738-487a-b13b-2c734dfc3289
+		summarizeBy: none
+		sourceColumn: IndustrySector_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustryStandardName_Product_Number
+		dataType: string
+		lineageTag: 213f5bb4-11c2-4d2c-9c25-9a0fa4e4f7fc
+		summarizeBy: none
+		sourceColumn: IndustryStandardName_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustryType
+		dataType: string
+		lineageTag: b8ca6266-716b-4333-94a2-bfcb9847f2ce
+		summarizeBy: none
+		sourceColumn: IndustryType
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustryType1
+		dataType: string
+		lineageTag: 986af101-8bab-4b09-99d8-d3200e931c98
+		summarizeBy: none
+		sourceColumn: IndustryType1
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustryType2
+		dataType: string
+		lineageTag: 3213d307-8fa7-4c7a-97c3-3e93cc4d8883
+		summarizeBy: none
+		sourceColumn: IndustryType2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IndustryType3
+		dataType: string
+		lineageTag: 629768c1-ff4a-46bc-ae85-3818a47e3063
+		summarizeBy: none
+		sourceColumn: IndustryType3
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternationalArticleNumber
+		dataType: string
+		lineageTag: 680154b5-cb57-4920-9029-e8c0966ddaf3
+		summarizeBy: none
+		sourceColumn: InternationalArticleNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column InventorySpecialStockType
+		dataType: string
+		lineageTag: 014abb0a-ff4b-41d4-adb1-b5e85942c324
+		summarizeBy: none
+		sourceColumn: InventorySpecialStockType
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBusinessPurposeCompleted
+		dataType: string
+		lineageTag: 39c37d89-c065-48b2-ba52-50dd81f8c780
+		summarizeBy: none
+		sourceColumn: IsBusinessPurposeCompleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBusinessPurposeCompleted1
+		dataType: string
+		lineageTag: ce1ad510-12aa-4358-986c-af328a1d8e4c
+		summarizeBy: none
+		sourceColumn: IsBusinessPurposeCompleted1
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBusinessPurposeCompleted2
+		dataType: string
+		lineageTag: d594bcc5-4dd5-40cd-9be1-4cce9d46a345
+		summarizeBy: none
+		sourceColumn: IsBusinessPurposeCompleted2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsBusinessPurposeCompleted3
+		dataType: string
+		lineageTag: 82c430ba-4896-49ed-a6c1-944a9c164b02
+		summarizeBy: none
+		sourceColumn: IsBusinessPurposeCompleted3
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsMarkedForDeletion_Product_Number
+		dataType: string
+		lineageTag: eca71bf3-33d5-44ca-b8ff-0b2d34ac2f29
+		summarizeBy: none
+		sourceColumn: IsMarkedForDeletion_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOneTimeAccount
+		dataType: string
+		lineageTag: 738f519d-cedb-4051-844a-6e95cd732fa8
+		summarizeBy: none
+		sourceColumn: IsOneTimeAccount
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOneTimeAccount1
+		dataType: string
+		lineageTag: e0c058f2-931e-4289-bef3-65bc688d2ef6
+		summarizeBy: none
+		sourceColumn: IsOneTimeAccount1
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOneTimeAccount2
+		dataType: string
+		lineageTag: 643bb7bd-dd67-41f5-94b2-7cf6b3570b34
+		summarizeBy: none
+		sourceColumn: IsOneTimeAccount2
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsOneTimeAccount3
+		dataType: string
+		lineageTag: f94b1de4-cfac-4658-9575-5ee54eec5fbb
+		summarizeBy: none
+		sourceColumn: IsOneTimeAccount3
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsReturnsItem
+		dataType: string
+		lineageTag: e933b0a3-c1a5-4e96-8dfb-83f118c6487d
+		summarizeBy: none
+		sourceColumn: IsReturnsItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemCategoryGroup_Product_Number
+		dataType: string
+		lineageTag: 80a9fdf3-77f6-41f5-aa26-66146474c837
+		summarizeBy: none
+		sourceColumn: ItemCategoryGroup_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemOrderProbabilityInPercent
+		dataType: string
+		lineageTag: 355417f9-24b6-4a76-863c-bbc13fa9fc0e
+		summarizeBy: none
+		sourceColumn: ItemOrderProbabilityInPercent
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemVolumeUnit
+		dataType: string
+		lineageTag: 8dfd2d81-643b-4329-a817-b9b656364b95
+		summarizeBy: none
+		sourceColumn: ItemVolumeUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemWeightUnit
+		dataType: string
+		lineageTag: 8c8aa3fa-f3ee-4f5f-965a-3518d67d5b40
+		summarizeBy: none
+		sourceColumn: ItemWeightUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 055429b7-4be0-4ae9-95d7-f04dc2b2edb7
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH1
+		dataType: string
+		lineageTag: 03e42d84-46cc-402c-ac79-358177cb4ae7
+		summarizeBy: none
+		sourceColumn: MONTH1
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH2
+		dataType: string
+		lineageTag: abe9a9ab-69b1-4366-98f8-81774314a8f0
+		summarizeBy: none
+		sourceColumn: MONTH2
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH3
+		dataType: string
+		lineageTag: 1b7aa1c0-22c4-4e59-8d27-9643958da44c
+		summarizeBy: none
+		sourceColumn: MONTH3
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManufacturerNumber_Product_Number
+		dataType: string
+		lineageTag: 9b15f4f0-a60b-48a2-9364-5529f14c031b
+		summarizeBy: none
+		sourceColumn: ManufacturerNumber_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column NetPriceQuantityUnit
+		dataType: string
+		lineageTag: 754eefe5-0357-43f3-b876-2beded78ff4c
+		summarizeBy: none
+		sourceColumn: NetPriceQuantityUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_order_qty_flag
+		dataType: string
+		lineageTag: 629bc821-d133-4a63-9be3-7ec2e64f01ef
+		summarizeBy: none
+		sourceColumn: Open_order_qty_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderID
+		dataType: string
+		lineageTag: ec76a25d-1c88-413d-9275-a4c38dd5be62
+		summarizeBy: none
+		sourceColumn: OrderID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OriginSDDocument
+		dataType: string
+		lineageTag: 79a88fbc-e17c-4d20-b276-01ccfa6456dc
+		summarizeBy: none
+		sourceColumn: OriginSDDocument
+
+		annotation SummarizationSetBy = Automatic
+
+	column OriginSDDocumentItem
+		dataType: string
+		lineageTag: c11b61fb-058a-4508-ab7d-92b26e6d9cf0
+		summarizeBy: none
+		sourceColumn: OriginSDDocumentItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column OriginallyRequestedMaterial
+		dataType: string
+		lineageTag: 5214c1d9-12a4-497c-890f-6c891c659f96
+		summarizeBy: none
+		sourceColumn: OriginallyRequestedMaterial
+
+		annotation SummarizationSetBy = Automatic
+
+	column PackagingMaterialGroup_Product_Number
+		dataType: string
+		lineageTag: c9fa5283-8d6a-4cd9-a481-481c819c1e20
+		summarizeBy: none
+		sourceColumn: PackagingMaterialGroup_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column PayerParty_D6
+		dataType: string
+		lineageTag: b6feb0ec-0bf7-4038-a733-3d5511c8c675
+		summarizeBy: none
+		sourceColumn: PayerParty_D6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Payer_Territory
+		dataType: string
+		lineageTag: 364ea477-01e3-4855-b98a-ad705ec195d2
+		summarizeBy: none
+		sourceColumn: Payer_Territory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant_A_2
+		dataType: string
+		lineageTag: a65df7a3-7a6c-4220-9ad9-7615d7247e6e
+		summarizeBy: none
+		sourceColumn: Plant_A_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 6dbe26e6-fe7a-4a06-897e-663296362f79
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode1
+		dataType: string
+		lineageTag: 4a4702f1-b9dc-47fc-a939-f39e9fafae11
+		summarizeBy: none
+		sourceColumn: PostalCode1
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode2
+		dataType: string
+		lineageTag: 64a452b5-5799-4da1-9742-c65d5962072e
+		summarizeBy: none
+		sourceColumn: PostalCode2
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode3
+		dataType: string
+		lineageTag: 3a94385d-469a-4304-b9c7-3366ab893da7
+		summarizeBy: none
+		sourceColumn: PostalCode3
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode_Name
+		dataType: string
+		lineageTag: 521ebbc4-3a79-4b84-9848-26c47a8d1107
+		summarizeBy: none
+		sourceColumn: PostalCode_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode_NameBillToParty_A_5
+		dataType: string
+		lineageTag: e12aa683-03b7-4ebe-bd39-131914430b27
+		summarizeBy: none
+		sourceColumn: PostalCode_NameBillToParty_A_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Postal_Code_Name
+		dataType: string
+		lineageTag: 88477e75-30c7-4e43-b479-628eaff8050a
+		summarizeBy: none
+		sourceColumn: Postal_Code_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Postal_Code_Name1
+		dataType: string
+		lineageTag: 4cd5c984-f678-4fbf-8f3a-d5aac37fba5b
+		summarizeBy: none
+		sourceColumn: Postal_Code_Name1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prior_Year
+		dataType: string
+		lineageTag: 6bb52f13-ed8a-4954-ba4c-6e61bd9a5d0d
+		summarizeBy: none
+		sourceColumn: Prior_Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prior_Year_Flag
+		dataType: string
+		lineageTag: 3222818c-95bb-44bb-aeb0-f96226b9ffb8
+		summarizeBy: none
+		sourceColumn: Prior_Year_Flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Family_Product_Number
+		dataType: string
+		lineageTag: f586b411-bb51-4d12-bf02-6d519c799e11
+		summarizeBy: none
+		sourceColumn: Product_Family_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductCategory_Product_Number
+		dataType: string
+		lineageTag: 8d53ef1d-6561-4a6f-b79b-7bbe910bafe5
+		summarizeBy: none
+		sourceColumn: ProductCategory_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductExternalID_Product_Number
+		dataType: string
+		lineageTag: 6784227a-9cbc-466c-b5e0-d9638ca64726
+		summarizeBy: none
+		sourceColumn: ProductExternalID_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductGroup
+		dataType: string
+		lineageTag: cb72a859-c139-41de-826b-3dd15b7325d8
+		summarizeBy: none
+		sourceColumn: ProductGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductGroup_Product_Number
+		dataType: string
+		lineageTag: 55845cbd-9d02-4c06-81fa-23e6a6c02a32
+		summarizeBy: none
+		sourceColumn: ProductGroup_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductHierarchy_Product_Number
+		dataType: string
+		lineageTag: 859cdd1d-2390-4273-b940-d3f9fbd3916b
+		summarizeBy: none
+		sourceColumn: ProductHierarchy_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductIsLocked_Product_Number
+		dataType: string
+		lineageTag: 28eae722-9f20-47dd-a214-736a14df14ad
+		summarizeBy: none
+		sourceColumn: ProductIsLocked_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductManufacturerNumber_Product_Number
+		dataType: string
+		lineageTag: fdbe133e-5a21-4f5d-a5a7-d6fee61dca44
+		summarizeBy: none
+		sourceColumn: ProductManufacturerNumber_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductStandardID_Product_Number
+		dataType: string
+		lineageTag: 3ecc2c58-83a1-4bb7-b2f7-3c8766ed8281
+		summarizeBy: none
+		sourceColumn: ProductStandardID_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductType_Product_Number
+		dataType: string
+		lineageTag: 175f1451-470d-4c10-be02-f5a7f5978a7d
+		summarizeBy: none
+		sourceColumn: ProductType_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductValidEndDate_Product_Number
+		dataType: string
+		lineageTag: 41e4e428-9861-4f19-8c3c-b62c1e73911e
+		summarizeBy: none
+		sourceColumn: ProductValidEndDate_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductValidStartDate_Product_Number
+		dataType: string
+		lineageTag: e3bd71e5-5c3d-4d04-9285-cfc2be893fc8
+		summarizeBy: none
+		sourceColumn: ProductValidStartDate_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_A_14
+		dataType: string
+		lineageTag: 2383ff7b-7517-4774-b1eb-cbe050713c66
+		summarizeBy: none
+		sourceColumn: Product_A_14
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProfitCenter
+		dataType: string
+		lineageTag: 3d5e00db-489b-4fb1-99a2-767ba2ad48ba
+		summarizeBy: none
+		sourceColumn: ProfitCenter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project_Coordinator
+		dataType: string
+		lineageTag: eb98e304-5ff2-4666-b8a8-7f25e20b9ddb
+		summarizeBy: none
+		sourceColumn: Project_Coordinator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project_Name
+		dataType: string
+		lineageTag: fbf1bbd7-b3ae-4276-b0d5-d778efa4fe53
+		summarizeBy: none
+		sourceColumn: Project_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUARTER1
+		dataType: string
+		lineageTag: c1af2509-c2b9-4ca6-9e76-0891921bd4aa
+		summarizeBy: none
+		sourceColumn: QUARTER1
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUARTER2
+		dataType: string
+		lineageTag: d4e26eb3-6773-4d5f-993d-b06d500f68d2
+		summarizeBy: none
+		sourceColumn: QUARTER2
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUARTER3
+		dataType: string
+		lineageTag: a4e7ede2-7430-4f93-866d-9e97e49433e0
+		summarizeBy: none
+		sourceColumn: QUARTER3
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceSDDocument
+		dataType: string
+		lineageTag: f3dd733a-a57b-46d2-847a-12d590883e43
+		summarizeBy: none
+		sourceColumn: ReferenceSDDocument
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceSDDocumentItem
+		dataType: string
+		lineageTag: f1155d0d-b44b-485d-b925-5d480ee3acd4
+		summarizeBy: none
+		sourceColumn: ReferenceSDDocumentItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region1
+		dataType: string
+		lineageTag: b785a264-47d7-4c68-baba-fc4df0088814
+		summarizeBy: none
+		sourceColumn: Region1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region2
+		dataType: string
+		lineageTag: 5334ac25-50b4-40e0-940c-0bef570b4a23
+		summarizeBy: none
+		sourceColumn: Region2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region3
+		dataType: string
+		lineageTag: 6112a7b8-169a-4b63-a0ca-a55c0567d72c
+		summarizeBy: none
+		sourceColumn: Region3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Relevant_for_Sales
+		dataType: string
+		lineageTag: 345efbca-3f6d-456f-807a-9062d1d3ff2a
+		summarizeBy: none
+		sourceColumn: Relevant_for_Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDDocReferenceStatus
+		dataType: string
+		lineageTag: 2874cfb6-6e20-4db1-adc6-ee736ea346c6
+		summarizeBy: none
+		sourceColumn: SDDocReferenceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDDocumentReason
+		dataType: string
+		lineageTag: d1a27243-83f9-4397-a66f-413d6a6a8684
+		summarizeBy: none
+		sourceColumn: SDDocumentReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column SaleOrga_A_13
+		dataType: string
+		lineageTag: d709788c-5513-4c96-95a4-551917719414
+		summarizeBy: none
+		sourceColumn: SaleOrga_A_13
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Representative
+		dataType: string
+		lineageTag: 3c4713b4-1e1c-4523-a430-dd67f1285272
+		summarizeBy: none
+		sourceColumn: Sales_Representative
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentItemCategory
+		dataType: string
+		lineageTag: 34b856fc-2494-43f6-a8c6-a842a8f9bde8
+		summarizeBy: none
+		sourceColumn: SalesDocumentItemCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrganization2
+		dataType: string
+		lineageTag: dc995f7f-d723-46d3-99e7-9440804157e7
+		summarizeBy: none
+		sourceColumn: SalesOrganization2
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrganizationCurrency
+		dataType: string
+		lineageTag: 6cbdde1b-d676-4ea5-b5ba-c444fc929671
+		summarizeBy: none
+		sourceColumn: SalesOrganizationCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Secondary_Grouping_Product_Number
+		dataType: string
+		lineageTag: f94b7227-0b0d-4edd-a5b0-281f4a5ab248
+		summarizeBy: none
+		sourceColumn: Secondary_Grouping_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServicesRenderedDate
+		dataType: string
+		lineageTag: 0fb9fa09-700e-45ce-bcbb-028d40c16134
+		summarizeBy: none
+		sourceColumn: ServicesRenderedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipToParty_A_4
+		dataType: string
+		lineageTag: 2668d22f-2c6a-4e71-bedf-58c324973821
+		summarizeBy: none
+		sourceColumn: ShipToParty_A_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingCondition
+		dataType: string
+		lineageTag: 21c0c4dd-1d67-4ce0-835f-cbb6ad8221c6
+		summarizeBy: none
+		sourceColumn: ShippingCondition
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shipto_Territory
+		dataType: string
+		lineageTag: ddb926dc-f6ba-48ed-ae77-ee91570e2087
+		summarizeBy: none
+		sourceColumn: Shipto_Territory
+
+		annotation SummarizationSetBy = Automatic
+
+	column SizeOrDimensionText_Product_Number
+		dataType: string
+		lineageTag: 0ee463ab-5698-456b-ab84-512fd3247458
+		summarizeBy: none
+		sourceColumn: SizeOrDimensionText_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoldToParty_A_3
+		dataType: string
+		lineageTag: baf0e78d-8883-4826-864a-ecadcfca2a48
+		summarizeBy: none
+		sourceColumn: SoldToParty_A_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column State_Name
+		dataType: string
+		lineageTag: 76041001-0499-4bae-a03d-fbe96bc76ddc
+		summarizeBy: none
+		sourceColumn: State_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column State_NameBillToParty_A_5
+		dataType: string
+		lineageTag: 79d6d034-03be-49be-ba9f-9449d4480bce
+		summarizeBy: none
+		sourceColumn: State_NameBillToParty_A_5
+
+		annotation SummarizationSetBy = Automatic
+
+	column State_NamePayer_A_6
+		dataType: string
+		lineageTag: 442bde2f-cba8-44e8-a08e-86655d5931a0
+		summarizeBy: none
+		sourceColumn: State_NamePayer_A_6
+
+		annotation SummarizationSetBy = Automatic
+
+	column State_NameShipToParty_A_4
+		dataType: string
+		lineageTag: 21f122b7-4d6c-4f6a-a3cd-2b2fe3e7814b
+		summarizeBy: none
+		sourceColumn: State_NameShipToParty_A_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorageLocation
+		dataType: string
+		lineageTag: b21ad7ed-61df-4b61-9875-10bd4668f51c
+		summarizeBy: none
+		sourceColumn: StorageLocation
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetQuantityUnit
+		dataType: string
+		lineageTag: 59b18819-fe1a-42ff-9987-1f54ac50b437
+		summarizeBy: none
+		sourceColumn: TargetQuantityUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column Territory_Name
+		dataType: string
+		lineageTag: 0612cbef-f4dc-4d0d-8782-7afbad6efe85
+		summarizeBy: none
+		sourceColumn: Territory_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValidityStartDate_Product_Number
+		dataType: string
+		lineageTag: 118ec1e4-5848-4f5a-8eca-b2f161525162
+		summarizeBy: none
+		sourceColumn: ValidityStartDate_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Version
+		dataType: string
+		lineageTag: d6647e95-9029-47f2-ae6d-830a321a881b
+		summarizeBy: none
+		sourceColumn: Version
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR1
+		dataType: string
+		lineageTag: e2affc09-9526-4107-92fd-08c611624afd
+		summarizeBy: none
+		sourceColumn: YEAR1
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR2
+		dataType: string
+		lineageTag: 906d9ba4-db0c-4b5d-831a-e3b68202acb8
+		summarizeBy: none
+		sourceColumn: YEAR2
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR3
+		dataType: string
+		lineageTag: fc4160b5-919f-465f-8bfe-00d86006ec72
+		summarizeBy: none
+		sourceColumn: YEAR3
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup1
+		dataType: string
+		lineageTag: 36f43758-82a9-488c-9200-0ed0ef0850da
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup1_T
+		dataType: string
+		lineageTag: dcdd6d08-d6a8-44fb-90bb-3df08cacf88c
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup2
+		dataType: string
+		lineageTag: 9e6aaea5-166d-4ddb-9621-4847f6d11d19
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup2_T
+		dataType: string
+		lineageTag: 4e5d0e0f-c330-491d-acab-aa1e84e6316f
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup3
+		dataType: string
+		lineageTag: 862feb3d-1934-4ce9-a8fa-67e00c912068
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup3
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup3_T
+		dataType: string
+		lineageTag: 6e87c1b6-70b6-47a5-97c4-eff62d0cb110
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup4
+		dataType: string
+		lineageTag: b0756a8c-f732-47a6-b574-7b7fa22e935d
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup4
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup4_T
+		dataType: string
+		lineageTag: dfe35e20-68a5-44b8-b58b-d0ada8326e8d
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup4_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup5
+		dataType: string
+		lineageTag: cbac9cce-7d16-4c99-a412-e92ff6708921
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup5
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalCustomerGroup5_T
+		dataType: string
+		lineageTag: 9ac19e53-0ba4-44b3-9917-07a3638266a0
+		summarizeBy: none
+		sourceColumn: AdditionalCustomerGroup5_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup1
+		dataType: string
+		lineageTag: bfde3935-f4d6-46fd-899b-b143416afe19
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup1
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup1_T
+		dataType: string
+		lineageTag: 1260a87f-fab3-435d-9dd0-3b7b84245c94
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup2
+		dataType: string
+		lineageTag: aca8c506-973d-4e70-a505-af7971b0404e
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup2_T
+		dataType: string
+		lineageTag: 89ffdcb3-4c68-4ff1-a3a3-990781f9255c
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup3
+		dataType: string
+		lineageTag: d624aa12-3e6d-449c-bf7b-8ea1140d1e40
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup3
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup3_T
+		dataType: string
+		lineageTag: 0050e1b5-74a5-4f5e-aa0d-60fee8cb9628
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup4
+		dataType: string
+		lineageTag: 39ac018e-1d00-4a4d-b016-b43b8ce98485
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup4
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup4_T
+		dataType: string
+		lineageTag: 6286e667-1f7a-435f-8579-e520545cb17c
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup4_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup5
+		dataType: string
+		lineageTag: f23ffe25-f2fd-463f-ad59-69827ae231aa
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup5
+
+		annotation SummarizationSetBy = Automatic
+
+	column AdditionalMaterialGroup5_T
+		dataType: string
+		lineageTag: 913b34ec-25c6-4497-a569-4b6402f5e239
+		summarizeBy: none
+		sourceColumn: AdditionalMaterialGroup5_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToParty_D5
+		dataType: string
+		lineageTag: b3bc9239-85b5-424c-a109-af326120fdba
+		summarizeBy: none
+		sourceColumn: BillToParty_D5
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillToParty_D5_T
+		dataType: string
+		lineageTag: 76355c15-bde9-4406-acb8-05e5777aa4d3
+		summarizeBy: none
+		sourceColumn: BillToParty_D5_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingBlockStatus
+		dataType: string
+		lineageTag: 36a3b7ae-044e-40ad-be46-29034e6dbe52
+		summarizeBy: none
+		sourceColumn: BillingBlockStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingBlockStatus_T
+		dataType: string
+		lineageTag: f404c04a-846f-4e6e-813c-0671362d7d53
+		summarizeBy: none
+		sourceColumn: BillingBlockStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompCode_A_0
+		dataType: string
+		lineageTag: a918ad9b-f833-494e-8e9e-0db15830d20f
+		summarizeBy: none
+		sourceColumn: CompCode_A_0
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingCompanyCode_D0_T
+		dataType: string
+		lineageTag: c1bcb1be-42e4-4f6c-98cb-1b06dfc8b634
+		summarizeBy: none
+		sourceColumn: BillingCompanyCode_D0_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessArea
+		dataType: string
+		lineageTag: 71c6364c-5406-41e4-8d51-c3f8f818c541
+		summarizeBy: none
+		sourceColumn: BusinessArea
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessArea_T
+		dataType: string
+		lineageTag: 7d133ec8-94c1-4690-8135-dc91b49ce66c
+		summarizeBy: none
+		sourceColumn: BusinessArea_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALMONTH1
+		dataType: string
+		lineageTag: 07a33e01-aad7-4b83-901a-ceac4cf455b7
+		summarizeBy: none
+		sourceColumn: CALMONTH1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALMONTH1_T
+		dataType: string
+		lineageTag: 8d61f28a-8abb-4957-9291-e2fb846cb414
+		summarizeBy: none
+		sourceColumn: CALMONTH1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALMONTH2
+		dataType: string
+		lineageTag: b4b583e8-3f55-4175-a2b6-b21cf170d493
+		summarizeBy: none
+		sourceColumn: CALMONTH2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALMONTH2_T
+		dataType: string
+		lineageTag: 92fd0f42-7ef2-43c4-8147-5e708549860e
+		summarizeBy: none
+		sourceColumn: CALMONTH2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALMONTH3
+		dataType: string
+		lineageTag: 324b50cc-135d-4821-8c0c-907c186a6ffe
+		summarizeBy: none
+		sourceColumn: CALMONTH3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALMONTH3_T
+		dataType: string
+		lineageTag: 4fecab64-2b78-42d4-ba09-e1a5c437dbc0
+		summarizeBy: none
+		sourceColumn: CALMONTH3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALQUARTER1
+		dataType: string
+		lineageTag: 42c79ee1-c263-42ec-a867-9c21b02da2e5
+		summarizeBy: none
+		sourceColumn: CALQUARTER1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALQUARTER1_T
+		dataType: string
+		lineageTag: 8c7d2001-3ec7-4975-98d3-09f9aed57282
+		summarizeBy: none
+		sourceColumn: CALQUARTER1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALQUARTER2
+		dataType: string
+		lineageTag: 5bd7ec1a-be5a-48bf-aff2-ac064284bf21
+		summarizeBy: none
+		sourceColumn: CALQUARTER2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALQUARTER2_T
+		dataType: string
+		lineageTag: ce085d90-d01c-4a98-87cd-f5165b2286e0
+		summarizeBy: none
+		sourceColumn: CALQUARTER2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALQUARTER3
+		dataType: string
+		lineageTag: ca434338-3925-4691-82ef-b911d1a0be51
+		summarizeBy: none
+		sourceColumn: CALQUARTER3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CALQUARTER3_T
+		dataType: string
+		lineageTag: b0fb61e0-fff4-4f6f-8f76-29b795b3e947
+		summarizeBy: none
+		sourceColumn: CALQUARTER3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastChangeDate_D9
+		dataType: string
+		lineageTag: a2a620fd-a037-4a49-a545-ecb75ca1d716
+		summarizeBy: none
+		sourceColumn: LastChangeDate_D9
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastChangeDate_D9_T
+		dataType: string
+		lineageTag: 5a79a5cc-ed4e-4b69-b4d9-aff98ab52923
+		summarizeBy: none
+		sourceColumn: LastChangeDate_D9_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_SAP1
+		dataType: string
+		lineageTag: 1ac72e26-eee4-4995-8b2d-cfe006429e85
+		summarizeBy: none
+		sourceColumn: DATE_SAP1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreationDate_D8_T
+		dataType: string
+		lineageTag: 16ae45b3-a486-4136-8f88-0cdb3ec4e528
+		summarizeBy: none
+		sourceColumn: CreationDate_D8_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountAssignmentGroup
+		dataType: string
+		lineageTag: c810ffad-f337-4084-a48c-fa1dbacd9fae
+		summarizeBy: none
+		sourceColumn: CustomerAccountAssignmentGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountAssignmentGroup_T
+		dataType: string
+		lineageTag: 7791f896-1718-47ae-8d63-1efc3f61c5a7
+		summarizeBy: none
+		sourceColumn: CustomerAccountAssignmentGroup_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup
+		dataType: string
+		lineageTag: 0162e291-afa8-45d8-a4a2-66d79ed0c371
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup_T
+		dataType: string
+		lineageTag: 77cbfc6a-64e3-4848-95b2-0b678da8122a
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup1
+		dataType: string
+		lineageTag: b4aef19a-9ad3-4e97-a00e-fc032007ac83
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup1_T
+		dataType: string
+		lineageTag: 5e280074-e307-4d6f-b9f6-99fda92caf7f
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup2
+		dataType: string
+		lineageTag: e2155330-cb64-4e70-8d38-8431282198ae
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup2_T
+		dataType: string
+		lineageTag: 43873017-617f-42c6-be7c-b5e9fa9e28b4
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup3
+		dataType: string
+		lineageTag: 13ae1c90-ffed-4474-97f1-e79cddb79762
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerAccountGroup3_T
+		dataType: string
+		lineageTag: 42ad8658-2b7f-4cec-a081-6ddb5384df9d
+		summarizeBy: none
+		sourceColumn: CustomerAccountGroup3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification
+		dataType: string
+		lineageTag: 55719ce7-2387-48ef-bdb3-35a00f790a09
+		summarizeBy: none
+		sourceColumn: CustomerClassification
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification_T
+		dataType: string
+		lineageTag: f9a6a34a-95d5-43d2-b5bd-3bd28d06832a
+		summarizeBy: none
+		sourceColumn: CustomerClassification_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification1
+		dataType: string
+		lineageTag: 54f10125-7557-4000-a924-ebc49164413d
+		summarizeBy: none
+		sourceColumn: CustomerClassification1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification1_T
+		dataType: string
+		lineageTag: aca58c2f-663c-467d-9cf6-8cfcc5543d0a
+		summarizeBy: none
+		sourceColumn: CustomerClassification1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification2
+		dataType: string
+		lineageTag: 0e8ebeca-5470-4207-8d9a-65b9a82996bd
+		summarizeBy: none
+		sourceColumn: CustomerClassification2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification2_T
+		dataType: string
+		lineageTag: 5e1756fe-a163-4304-8de3-fd08c55a0e54
+		summarizeBy: none
+		sourceColumn: CustomerClassification2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification3
+		dataType: string
+		lineageTag: f526e4ea-d7e5-4c41-a9a4-f339d0dd4bcc
+		summarizeBy: none
+		sourceColumn: CustomerClassification3
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerClassification3_T
+		dataType: string
+		lineageTag: 373bc14e-6f0e-45cd-a843-5a5e367f78ce
+		summarizeBy: none
+		sourceColumn: CustomerClassification3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerGroup
+		dataType: string
+		lineageTag: adf017ec-3244-453c-b137-9dd03810a1d1
+		summarizeBy: none
+		sourceColumn: CustomerGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerGroup_T
+		dataType: string
+		lineageTag: d90e9e75-2ffa-41d4-a0f3-ddfc868ad7fa
+		summarizeBy: none
+		sourceColumn: CustomerGroup_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentDate_D10
+		dataType: string
+		lineageTag: 71b77de3-10d1-45b2-bf83-d65eea1068f0
+		summarizeBy: none
+		sourceColumn: SalesDocumentDate_D10
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentDate_D10_T
+		dataType: string
+		lineageTag: 6730a1fb-82ca-4f9a-ad16-7fc88bf40f5f
+		summarizeBy: none
+		sourceColumn: SalesDocumentDate_D10_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK1
+		dataType: string
+		lineageTag: 1f4e3de7-e54d-4e41-8b7d-28586aa046eb
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK1
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK1_T
+		dataType: string
+		lineageTag: 51ab90f8-0c3e-46df-b717-4d16637132b5
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK1_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK2
+		dataType: string
+		lineageTag: cea7cbaa-64b6-4f18-8143-daf66d7843e1
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK2
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK2_T
+		dataType: string
+		lineageTag: a1133c83-e455-4293-a99a-101ea5a27c30
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK3
+		dataType: string
+		lineageTag: bf9295d2-dee6-4bbd-8540-c5dcbfedbdd8
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK3
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY_OF_WEEK3_T
+		dataType: string
+		lineageTag: fa49456c-3cff-4542-b7db-6a54dcdf922b
+		summarizeBy: none
+		sourceColumn: DAY_OF_WEEK3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryBlockReason
+		dataType: string
+		lineageTag: f2c2d8c4-3d7b-4f70-b91a-45572f816b67
+		summarizeBy: none
+		sourceColumn: DeliveryBlockReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryBlockReason_T
+		dataType: string
+		lineageTag: 4a568c4f-e5c8-4a70-9ed9-1b7b46053af9
+		summarizeBy: none
+		sourceColumn: DeliveryBlockReason_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryBlockStatus
+		dataType: string
+		lineageTag: fc9cfc89-cd35-4e24-a41d-c47cb2c864d4
+		summarizeBy: none
+		sourceColumn: DeliveryBlockStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryBlockStatus_T
+		dataType: string
+		lineageTag: dca3a6a7-8086-4298-81df-f73f5712a677
+		summarizeBy: none
+		sourceColumn: DeliveryBlockStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryConfirmationStatus
+		dataType: string
+		lineageTag: 3a772518-0a78-4997-84ef-55dc033cf783
+		summarizeBy: none
+		sourceColumn: DeliveryConfirmationStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryConfirmationStatus_T
+		dataType: string
+		lineageTag: 1c793624-4a7b-43ba-bf96-4bd8a0a4ed99
+		summarizeBy: none
+		sourceColumn: DeliveryConfirmationStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryPriority
+		dataType: string
+		lineageTag: 75a64572-62af-4480-b69c-f1af2a778dd3
+		summarizeBy: none
+		sourceColumn: DeliveryPriority
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryPriority_T
+		dataType: string
+		lineageTag: d115b799-1eec-487f-87b5-08deb6139c64
+		summarizeBy: none
+		sourceColumn: DeliveryPriority_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryStatus
+		dataType: string
+		lineageTag: 7a401ec2-f235-4d78-abea-f69f6021a6eb
+		summarizeBy: none
+		sourceColumn: DeliveryStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeliveryStatus_T
+		dataType: string
+		lineageTag: 903b7605-4713-4bb0-a030-aa767f605014
+		summarizeBy: none
+		sourceColumn: DeliveryStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistributionChannel_T
+		dataType: string
+		lineageTag: 5c88b1b7-1424-46c5-9144-cc6ca946c16c
+		summarizeBy: none
+		sourceColumn: DistributionChannel_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division_T
+		dataType: string
+		lineageTag: 42d2aec7-5ac6-4f42-9c55-8d8210d9afb0
+		summarizeBy: none
+		sourceColumn: Division_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division2
+		dataType: string
+		lineageTag: ef3f193d-7d44-4f34-b8d2-5ae8c9f4266b
+		summarizeBy: none
+		sourceColumn: Division2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division2_T
+		dataType: string
+		lineageTag: 6c1dcc1c-24a5-40ac-8aad-f011d13d279b
+		summarizeBy: none
+		sourceColumn: Division2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division_Product_Number
+		dataType: string
+		lineageTag: 80bd30a8-4fd0-4cc6-951a-588d39bb8325
+		summarizeBy: none
+		sourceColumn: Division_Product_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division_Product_Number_T
+		dataType: string
+		lineageTag: 5e2061f5-dc9e-4ee0-8b57-aff6e63bf4e0
+		summarizeBy: none
+		sourceColumn: Division_Product_Number_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsClassification
+		dataType: string
+		lineageTag: 98822a17-7af9-419a-b69c-691d4be968cd
+		summarizeBy: none
+		sourceColumn: IncotermsClassification
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsClassification_T
+		dataType: string
+		lineageTag: e8fee625-ea32-4691-bc16-72535f816d64
+		summarizeBy: none
+		sourceColumn: IncotermsClassification_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsVersion
+		dataType: string
+		lineageTag: 2768e45a-6585-45c0-bf81-f082685620df
+		summarizeBy: none
+		sourceColumn: IncotermsVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncotermsVersion_T
+		dataType: string
+		lineageTag: 3744cc4f-a6df-4cdc-9585-1cf3f9c7495b
+		summarizeBy: none
+		sourceColumn: IncotermsVersion_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemBillingBlockReason
+		dataType: string
+		lineageTag: 3b7adb50-04bb-49ab-b4d7-46690bf03fc8
+		summarizeBy: none
+		sourceColumn: ItemBillingBlockReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemBillingBlockReason_T
+		dataType: string
+		lineageTag: 71e87c96-8347-49ca-96b4-ba5795efca3b
+		summarizeBy: none
+		sourceColumn: ItemBillingBlockReason_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemBillingIncompletionStatus
+		dataType: string
+		lineageTag: e09d1359-9541-48ce-9f3a-7f57d95b59bb
+		summarizeBy: none
+		sourceColumn: ItemBillingIncompletionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemBillingIncompletionStatus_T
+		dataType: string
+		lineageTag: cf737339-28f0-4dfd-94c3-96045a282b76
+		summarizeBy: none
+		sourceColumn: ItemBillingIncompletionStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemDeliveryIncompletionStatus
+		dataType: string
+		lineageTag: 5b9f5ced-fc98-4b47-ac66-d81426c6430e
+		summarizeBy: none
+		sourceColumn: ItemDeliveryIncompletionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemDeliveryIncompletionStatus_T
+		dataType: string
+		lineageTag: 3c2473c1-acc0-412a-8b80-3e4cd4da59e0
+		summarizeBy: none
+		sourceColumn: ItemDeliveryIncompletionStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGeneralIncompletionStatus
+		dataType: string
+		lineageTag: e80c7d82-8b8a-4a26-8353-9cdaa408920d
+		summarizeBy: none
+		sourceColumn: ItemGeneralIncompletionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGeneralIncompletionStatus_T
+		dataType: string
+		lineageTag: 6d750ad7-b1f0-44ca-8fb2-9e273519d43a
+		summarizeBy: none
+		sourceColumn: ItemGeneralIncompletionStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemIsBillingRelevant
+		dataType: string
+		lineageTag: adf5a468-147a-4fac-b476-5cee18436850
+		summarizeBy: none
+		sourceColumn: ItemIsBillingRelevant
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemIsBillingRelevant_T
+		dataType: string
+		lineageTag: 03a69373-0d5c-4e59-b128-b437219472dd
+		summarizeBy: none
+		sourceColumn: ItemIsBillingRelevant_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderRelatedBillingStatus
+		dataType: string
+		lineageTag: 0b72a816-8d84-4bdb-a3a5-aa33bf1fa14f
+		summarizeBy: none
+		sourceColumn: OrderRelatedBillingStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderRelatedBillingStatus_T
+		dataType: string
+		lineageTag: 8eb02e94-c693-45e5-a137-9752191769bc
+		summarizeBy: none
+		sourceColumn: OrderRelatedBillingStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallDelivConfStatus
+		dataType: string
+		lineageTag: a497b309-9c8a-4017-8ee2-5b3d3c876ccc
+		summarizeBy: none
+		sourceColumn: OverallDelivConfStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallDelivConfStatus_T
+		dataType: string
+		lineageTag: a24aedd0-662a-4d49-85f1-486b15eba5dc
+		summarizeBy: none
+		sourceColumn: OverallDelivConfStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallDeliveryStatus
+		dataType: string
+		lineageTag: d42cf35a-75cd-4c7a-8234-f0d5e4a20b5f
+		summarizeBy: none
+		sourceColumn: OverallDeliveryStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallDeliveryStatus_T
+		dataType: string
+		lineageTag: ee120550-e8ed-4560-8693-2d2276d1c9cb
+		summarizeBy: none
+		sourceColumn: OverallDeliveryStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallOrdReltdBillgStatus
+		dataType: string
+		lineageTag: c62fb425-48ff-4b3a-a2a6-273ec43d67de
+		summarizeBy: none
+		sourceColumn: OverallOrdReltdBillgStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallOrdReltdBillgStatus_T
+		dataType: string
+		lineageTag: 6409e1c7-3c2c-46b1-9638-350f6182e5ee
+		summarizeBy: none
+		sourceColumn: OverallOrdReltdBillgStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallSDDocReferenceStatus
+		dataType: string
+		lineageTag: 7376d55e-1d98-4551-94e3-dfe04feca624
+		summarizeBy: none
+		sourceColumn: OverallSDDocReferenceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallSDDocReferenceStatus_T
+		dataType: string
+		lineageTag: 304f6935-46e4-48e3-8b6d-9a9ac49990e5
+		summarizeBy: none
+		sourceColumn: OverallSDDocReferenceStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallSDDocumentRejectionSts
+		dataType: string
+		lineageTag: cdebc45f-0f89-49d0-b38a-c185d50fdd0e
+		summarizeBy: none
+		sourceColumn: OverallSDDocumentRejectionSts
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallSDDocumentRejectionSts_T
+		dataType: string
+		lineageTag: c64be303-fe53-42ac-98f8-9e19328fcb8d
+		summarizeBy: none
+		sourceColumn: OverallSDDocumentRejectionSts_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallSDProcessStatus_T
+		dataType: string
+		lineageTag: 4e92b893-0783-41b9-bb13-c31d0c44e90e
+		summarizeBy: none
+		sourceColumn: OverallSDProcessStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallTotalDeliveryStatus
+		dataType: string
+		lineageTag: f872a873-f7e6-4e48-ba18-31b60279de43
+		summarizeBy: none
+		sourceColumn: OverallTotalDeliveryStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallTotalDeliveryStatus_T
+		dataType: string
+		lineageTag: ad55bc9b-4ead-45c6-a336-5577323bf32f
+		summarizeBy: none
+		sourceColumn: OverallTotalDeliveryStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallTotalSDDocRefStatus
+		dataType: string
+		lineageTag: 8583692b-2009-40dd-999a-a7f6fad66b22
+		summarizeBy: none
+		sourceColumn: OverallTotalSDDocRefStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverallTotalSDDocRefStatus_T
+		dataType: string
+		lineageTag: 68142bcb-cc41-496d-84f5-ccc2e530987c
+		summarizeBy: none
+		sourceColumn: OverallTotalSDDocRefStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartialDeliveryIsAllowed
+		dataType: string
+		lineageTag: fa890e91-28d7-44f2-85e6-ff900bcf9657
+		summarizeBy: none
+		sourceColumn: PartialDeliveryIsAllowed
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartialDeliveryIsAllowed_T
+		dataType: string
+		lineageTag: b485c2dd-1231-4d93-9bd9-b78f4d54371a
+		summarizeBy: none
+		sourceColumn: PartialDeliveryIsAllowed_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Payer_A_6
+		dataType: string
+		lineageTag: 80d48f93-6bf7-4cbd-9a86-f8781f11850b
+		summarizeBy: none
+		sourceColumn: Payer_A_6
+
+		annotation SummarizationSetBy = Automatic
+
+	column PayerParty_D6_T
+		dataType: string
+		lineageTag: e7ede2a9-a81d-4014-ac06-340f3f37a8a1
+		summarizeBy: none
+		sourceColumn: PayerParty_D6_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant_D2
+		dataType: string
+		lineageTag: fce1c5ef-a42e-4f0f-93eb-c9b30b4aaae6
+		summarizeBy: none
+		sourceColumn: Plant_D2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Plant_D2_T
+		dataType: string
+		lineageTag: e5ac45b4-4e04-4a96-8759-adfcb3cb353a
+		summarizeBy: none
+		sourceColumn: Plant_D2_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column PricingIncompletionStatus
+		dataType: string
+		lineageTag: 58022e7d-13f7-4760-9423-b928850ed5a6
+		summarizeBy: none
+		sourceColumn: PricingIncompletionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column PricingIncompletionStatus_T
+		dataType: string
+		lineageTag: 946dd258-fbbd-4dce-b4ab-51f8bb569c24
+		summarizeBy: none
+		sourceColumn: PricingIncompletionStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_D14
+		dataType: string
+		lineageTag: e937c62d-9ffe-4507-b9b1-32021fbee37d
+		summarizeBy: none
+		sourceColumn: Product_D14
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_D14_T
+		dataType: string
+		lineageTag: c68f1040-2126-41d8-9ebb-977a5eadd639
+		summarizeBy: none
+		sourceColumn: Product_D14_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column _Project_Coordinator
+		dataType: string
+		lineageTag: 96e276e4-54b4-4eed-8839-e3e3a841d36c
+		summarizeBy: none
+		sourceColumn: _Project_Coordinator
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project_Coordinator_T
+		dataType: string
+		lineageTag: 494811ff-db19-4064-822f-70c81cc4576b
+		summarizeBy: none
+		sourceColumn: Project_Coordinator_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceSDDocumentCategory
+		dataType: string
+		lineageTag: af802581-d094-4bc4-ad88-1fc4df5ffd87
+		summarizeBy: none
+		sourceColumn: ReferenceSDDocumentCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReferenceSDDocumentCategory_T
+		dataType: string
+		lineageTag: 6149a056-5d3d-4624-b11d-1ff6e2a08f17
+		summarizeBy: none
+		sourceColumn: ReferenceSDDocumentCategory_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column Route
+		dataType: string
+		lineageTag: 18526076-3977-4b13-9d02-d18f9336ce62
+		summarizeBy: none
+		sourceColumn: Route
+
+		annotation SummarizationSetBy = Automatic
+
+	column Route_T
+		dataType: string
+		lineageTag: 8b0f2ca2-29b1-413b-a95b-9cce157f5847
+		summarizeBy: none
+		sourceColumn: Route_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDDocumentCategory
+		dataType: string
+		lineageTag: 07312f8b-3bb5-4806-91aa-ec79a9cbbb4b
+		summarizeBy: none
+		sourceColumn: SDDocumentCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDDocumentCategory_T
+		dataType: string
+		lineageTag: 408fc60d-cde6-448f-a8c4-07dec5ab38b2
+		summarizeBy: none
+		sourceColumn: SDDocumentCategory_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDDocumentRejectionStatus
+		dataType: string
+		lineageTag: 34b54c4e-134d-41b4-90dc-a230c3256b38
+		summarizeBy: none
+		sourceColumn: SDDocumentRejectionStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDDocumentRejectionStatus_T
+		dataType: string
+		lineageTag: 2d2cb0fc-b54c-411e-95db-533943444869
+		summarizeBy: none
+		sourceColumn: SDDocumentRejectionStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDProcessStatus
+		dataType: string
+		lineageTag: 1af5418d-a9d4-4b13-af59-f95ab8c27a63
+		summarizeBy: none
+		sourceColumn: SDProcessStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SDProcessStatus_T
+		dataType: string
+		lineageTag: 22531f5d-2e56-4b38-8b12-0581af5b2f2b
+		summarizeBy: none
+		sourceColumn: SDProcessStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrganization_D13
+		dataType: string
+		lineageTag: 1590e7af-a5c5-467e-9d1d-3fd1dcfdb124
+		summarizeBy: none
+		sourceColumn: SalesOrganization_D13
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOrganization_D13_T
+		dataType: string
+		lineageTag: 39b8f6aa-3e63-4d76-ae34-db5e2ab96b19
+		summarizeBy: none
+		sourceColumn: SalesOrganization_D13_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column _Sales_Representativ
+		dataType: string
+		lineageTag: 0b2e6c6a-aab0-48c0-b2f6-aa63c98f1bbc
+		summarizeBy: none
+		sourceColumn: _Sales_Representativ
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Representative_T
+		dataType: string
+		lineageTag: d4afab9f-618b-410f-9d2e-65fad65343b6
+		summarizeBy: none
+		sourceColumn: Sales_Representative_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDistrict_T
+		dataType: string
+		lineageTag: b43aa176-a25c-439c-b475-692d9e73ebb1
+		summarizeBy: none
+		sourceColumn: SalesDistrict_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column _SalesDocumentItemCa
+		dataType: string
+		lineageTag: 941255e8-715d-4938-aa24-40d9032a2cdd
+		summarizeBy: none
+		sourceColumn: _SalesDocumentItemCa
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentItemCategory_T
+		dataType: string
+		lineageTag: 883b4b0a-f32f-4213-9771-cbfe79f3591a
+		summarizeBy: none
+		sourceColumn: SalesDocumentItemCategory_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentRjcnReason
+		dataType: string
+		lineageTag: fd64b836-124e-4e07-bfad-6777bd71e30b
+		summarizeBy: none
+		sourceColumn: SalesDocumentRjcnReason
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentRjcnReason_T
+		dataType: string
+		lineageTag: 9029c1e5-1ec4-440c-9e07-e16302cb9b74
+		summarizeBy: none
+		sourceColumn: SalesDocumentRjcnReason_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesDocumentType_T
+		dataType: string
+		lineageTag: 3321a10a-59b4-43bd-ae36-72d1cd291da2
+		summarizeBy: none
+		sourceColumn: SalesDocumentType_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesGroup_T
+		dataType: string
+		lineageTag: 24d48caf-7d84-4c6d-93f8-f8cabf028a08
+		summarizeBy: none
+		sourceColumn: SalesGroup_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesOffice_T
+		dataType: string
+		lineageTag: 4f26548f-5f32-4fdd-af42-2ba361c22412
+		summarizeBy: none
+		sourceColumn: SalesOffice_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipToParty_D4
+		dataType: string
+		lineageTag: 71537fbc-8cd6-4e67-ac00-cb439290308c
+		summarizeBy: none
+		sourceColumn: ShipToParty_D4
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipToParty_D4_T
+		dataType: string
+		lineageTag: f207ace2-829d-4480-8970-ece10faf5ae3
+		summarizeBy: none
+		sourceColumn: ShipToParty_D4_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingPoint
+		dataType: string
+		lineageTag: 0c2479a1-0793-43ae-abc9-edbd066a6d84
+		summarizeBy: none
+		sourceColumn: ShippingPoint
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingPoint_T
+		dataType: string
+		lineageTag: c99b07d9-7dcd-4d47-bc4f-c5b64c73b55e
+		summarizeBy: none
+		sourceColumn: ShippingPoint_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingType
+		dataType: string
+		lineageTag: f395baf8-b247-494e-b90b-3733c90ea3f0
+		summarizeBy: none
+		sourceColumn: ShippingType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShippingType_T
+		dataType: string
+		lineageTag: 192fa0ce-d01c-45fd-b3aa-9469ae1a8e53
+		summarizeBy: none
+		sourceColumn: ShippingType_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoldToParty_D3
+		dataType: string
+		lineageTag: 55baa3d1-f020-4902-a54e-bd108f194dbc
+		summarizeBy: none
+		sourceColumn: SoldToParty_D3
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoldToParty_D3_T
+		dataType: string
+		lineageTag: f62ffa69-af2b-4c06-bfcc-909f721be38b
+		summarizeBy: none
+		sourceColumn: SoldToParty_D3_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatisticalValueControl
+		dataType: string
+		lineageTag: f8432e05-2aef-4c49-96b4-fb91e3e6362a
+		summarizeBy: none
+		sourceColumn: StatisticalValueControl
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatisticalValueControl_T
+		dataType: string
+		lineageTag: 4eaa2358-b250-43e5-95d2-f29361f3b292
+		summarizeBy: none
+		sourceColumn: StatisticalValueControl_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCreditCheckStatus
+		dataType: string
+		lineageTag: 625c0f5e-e7cf-47b5-bb61-efdf1ec1100f
+		summarizeBy: none
+		sourceColumn: TotalCreditCheckStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalCreditCheckStatus_T
+		dataType: string
+		lineageTag: 8fb065c7-0910-463d-9a62-a26202ca3bd3
+		summarizeBy: none
+		sourceColumn: TotalCreditCheckStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalDeliveryStatus
+		dataType: string
+		lineageTag: aba9be51-6d44-4a03-a8f9-e1aa30b14ebf
+		summarizeBy: none
+		sourceColumn: TotalDeliveryStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalDeliveryStatus_T
+		dataType: string
+		lineageTag: 7ea01846-83d8-40fc-a94c-b383c1904188
+		summarizeBy: none
+		sourceColumn: TotalDeliveryStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSDDocReferenceStatus
+		dataType: string
+		lineageTag: 04ad5bd8-353c-45e0-92e6-dbe7fc3fdb09
+		summarizeBy: none
+		sourceColumn: TotalSDDocReferenceStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSDDocReferenceStatus_T
+		dataType: string
+		lineageTag: e40fb0d5-f3e6-415d-8d95-dfe4b8b4ea7a
+		summarizeBy: none
+		sourceColumn: TotalSDDocReferenceStatus_T
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetQuantity
+		dataType: string
+		lineageTag: 2e255f9d-c96b-479b-b893-94f9ad3f6fc0
+		summarizeBy: none
+		sourceColumn: TargetQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetToBaseQuantityDnmntr
+		dataType: string
+		lineageTag: a49fcf93-ea82-45c4-8f8e-26b10d8b3061
+		summarizeBy: none
+		sourceColumn: TargetToBaseQuantityDnmntr
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConfdDelivQtyInOrderQtyUnit
+		dataType: string
+		lineageTag: 7a017d2c-55e6-40b7-903e-d99ea9f91e15
+		summarizeBy: none
+		sourceColumn: ConfdDelivQtyInOrderQtyUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetDelivQtyInOrderQtyUnit
+		dataType: string
+		lineageTag: c114ed27-9b14-42f1-8ee5-70af6f5425fb
+		summarizeBy: none
+		sourceColumn: TargetDelivQtyInOrderQtyUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column ConfdDeliveryQtyInBaseUnit
+		dataType: string
+		lineageTag: 1c424e17-9c8b-4f88-b228-bf41b3dd8644
+		summarizeBy: none
+		sourceColumn: ConfdDeliveryQtyInBaseUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column RequestedQuantityInBaseUnit
+		dataType: double
+		lineageTag: e399a3bd-3135-454f-a0d3-0914b22660c0
+		summarizeBy: sum
+		sourceColumn: RequestedQuantityInBaseUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemGrossWeight
+		dataType: string
+		lineageTag: 5285a335-ba29-43f4-8a5b-4c75d93989b8
+		summarizeBy: none
+		sourceColumn: ItemGrossWeight
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemNetWeight
+		dataType: string
+		lineageTag: af167564-b26b-429f-bbf5-8bc96b6db7c1
+		summarizeBy: none
+		sourceColumn: ItemNetWeight
+
+		annotation SummarizationSetBy = Automatic
+
+	column ItemVolume
+		dataType: string
+		lineageTag: e83db38b-65d7-41ab-82c6-4d14b0a34840
+		summarizeBy: none
+		sourceColumn: ItemVolume
+
+		annotation SummarizationSetBy = Automatic
+
+	column NetPriceAmount
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 622808e1-f6a5-41d9-a67c-a54d2aebfe83
+		summarizeBy: sum
+		sourceColumn: NetPriceAmount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotal1Amount
+		dataType: string
+		lineageTag: e9a784c9-6600-47fe-9f26-275d7abecb45
+		summarizeBy: none
+		sourceColumn: Subtotal1Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotal2Amount
+		dataType: string
+		lineageTag: 23e40d5e-cb21-43d0-bec5-8409daa7a16a
+		summarizeBy: none
+		sourceColumn: Subtotal2Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotal3Amount
+		dataType: string
+		lineageTag: 49a2caf2-4dcc-44af-8887-729b9ea3e59c
+		summarizeBy: none
+		sourceColumn: Subtotal3Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotal4Amount
+		dataType: string
+		lineageTag: 6aee7d1e-7e35-45b5-a37b-9f1c9ed0091e
+		summarizeBy: none
+		sourceColumn: Subtotal4Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotal5Amount
+		dataType: string
+		lineageTag: a147fe95-fe4c-448e-942c-d824fa35ce63
+		summarizeBy: none
+		sourceColumn: Subtotal5Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotal6Amount
+		dataType: string
+		lineageTag: 1b120449-4f51-4cc8-a8e7-162bfa169b64
+		summarizeBy: none
+		sourceColumn: Subtotal6Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinDeliveryQtyInBaseUnit
+		dataType: string
+		lineageTag: 4a79cd18-2e9b-4e5b-b210-f91083b5293e
+		summarizeBy: none
+		sourceColumn: MinDeliveryQtyInBaseUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column OverdelivTolrtdLmtRatioInPct
+		dataType: string
+		lineageTag: 8d1846ad-b8a2-4a1a-9eff-9fc2637d1800
+		summarizeBy: none
+		sourceColumn: OverdelivTolrtdLmtRatioInPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnderdelivTolrtdLmtRatioInPct
+		dataType: string
+		lineageTag: 37c49e6d-de55-4b16-8c56-4b77315a9034
+		summarizeBy: none
+		sourceColumn: UnderdelivTolrtdLmtRatioInPct
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBTOTAL1AMOUNT_CC_CUR
+		dataType: string
+		lineageTag: 938c98f0-04bc-40de-a3f3-f35921d12d2b
+		summarizeBy: none
+		sourceColumn: SUBTOTAL1AMOUNT_CC_CUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBTOTAL2AMOUNT_CC_CUR
+		dataType: string
+		lineageTag: fb90df4d-005a-49a0-afb7-6e6935e8e160
+		summarizeBy: none
+		sourceColumn: SUBTOTAL2AMOUNT_CC_CUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBTOTAL3AMOUNT_CC_CUR
+		dataType: string
+		lineageTag: c5ca22bb-f6cc-40f2-90a2-276082b00772
+		summarizeBy: none
+		sourceColumn: SUBTOTAL3AMOUNT_CC_CUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBTOTAL4AMOUNT_CC_CUR
+		dataType: string
+		lineageTag: 836a763b-1c92-497b-a9c8-26286cabb63d
+		summarizeBy: none
+		sourceColumn: SUBTOTAL4AMOUNT_CC_CUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBTOTAL5AMOUNT_CC_CUR
+		dataType: string
+		lineageTag: 314976c8-01aa-4d93-abcc-177e3cf02a90
+		summarizeBy: none
+		sourceColumn: SUBTOTAL5AMOUNT_CC_CUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBTOTAL6AMOUNT_CC_CUR
+		dataType: string
+		lineageTag: 9a54574a-0d26-4b0d-811a-441ed45f620c
+		summarizeBy: none
+		sourceColumn: SUBTOTAL6AMOUNT_CC_CUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Requested_Quantity_in_BFT
+		dataType: double
+		formatString: #,0
+		lineageTag: c6f528a8-24d5-4c3f-9546-1c7bf522bc03
+		summarizeBy: sum
+		sourceColumn: Requested_Quantity_in_BFT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastSales
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d4cd36ec-53af-4d9d-a378-a096060ddb47
+		summarizeBy: sum
+		sourceColumn: ForecastSales
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastSalesSQFT
+		dataType: int64
+		formatString: #,0
+		lineageTag: 10a48636-66de-4628-9417-334ffad06cf4
+		summarizeBy: sum
+		sourceColumn: ForecastSalesSQFT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ForecastSalesBDFT
+		dataType: int64
+		formatString: #,0
+		lineageTag: f4c1e15c-202f-4d1e-a515-2e4b2201b584
+		summarizeBy: sum
+		sourceColumn: ForecastSalesBDFT
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Quantity_in_M2
+		dataType: string
+		lineageTag: e98d1a18-7fab-42ed-9d90-131fbd541862
+		summarizeBy: none
+		sourceColumn: Order_Quantity_in_M2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Quantity_in_BFT2
+		dataType: double
+		lineageTag: 3eb2af01-6454-438b-85d3-96c600e75188
+		summarizeBy: sum
+		sourceColumn: Order_Quantity_in_BFT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Quantity_in_FT2
+		dataType: double
+		lineageTag: 6d3f021c-1c03-4e53-8d7e-f03e0f033a08
+		summarizeBy: sum
+		sourceColumn: Order_Quantity_in_FT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue_Order_Intake
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 5a7b3d95-5598-448c-96b6-94ab67e06743
+		summarizeBy: sum
+		sourceColumn: Revenue_Order_Intake
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue_Backlog
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f3495c7f-ff28-4884-93f6-b4f696d415d7
+		summarizeBy: sum
+		sourceColumn: Revenue_Backlog
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Order_Quantity_in_BFT2
+		dataType: string
+		lineageTag: 4ee4d173-dc6e-4401-ab73-bc65d1178e7c
+		summarizeBy: none
+		sourceColumn: Open_Order_Quantity_in_BFT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Order_Quantity_in_FT2
+		dataType: double
+		lineageTag: 66810d2d-3990-45e0-b754-964389cf2897
+		summarizeBy: sum
+		sourceColumn: Open_Order_Quantity_in_FT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_quantity_in_Sales_UoM
+		dataType: string
+		lineageTag: acfd666d-da18-4e5f-aa04-c5d8ab1399e9
+		summarizeBy: none
+		sourceColumn: Open_quantity_in_Sales_UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Order_Quantity_in_Base_UoM
+		dataType: string
+		lineageTag: d6f05dca-4223-4d96-a1a2-eac3fee0fbc1
+		summarizeBy: none
+		sourceColumn: Open_Order_Quantity_in_Base_UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Order_Quantity_in_Base_UOM_with_Signs
+		dataType: string
+		lineageTag: 10043dc1-b7c6-40db-bf5b-000344c5f3ea
+		summarizeBy: none
+		sourceColumn: Open_Order_Quantity_in_Base_UOM_with_Signs
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Order_Quantity_in_M2
+		dataType: string
+		lineageTag: b6792a12-06db-4032-8213-e9891e6dbca9
+		summarizeBy: none
+		sourceColumn: Open_Order_Quantity_in_M2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Cost
+		dataType: string
+		lineageTag: cf3ce527-9317-4fa8-bef2-b3fa264052f9
+		summarizeBy: none
+		sourceColumn: Open_Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open_Cost_with_Sign
+		dataType: string
+		lineageTag: 7aca47da-4ba0-416f-8472-d8b0747b81b4
+		summarizeBy: none
+		sourceColumn: Open_Cost_with_Sign
+
+		annotation SummarizationSetBy = Automatic
+
+	column PY_Revenue_Order_intake
+		dataType: string
+		lineageTag: cfcb71ed-5f27-4d3c-9c9c-b7e4bf7f2534
+		summarizeBy: none
+		sourceColumn: PY_Revenue_Order_intake
+
+		annotation SummarizationSetBy = Automatic
+
+	column PY_Revenue_Backlog
+		dataType: string
+		lineageTag: 568159bd-2a05-4ac1-a061-81b084d165dc
+		summarizeBy: none
+		sourceColumn: PY_Revenue_Backlog
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_Margin_for_open_orders
+		dataType: string
+		lineageTag: 826d748c-a282-4047-ad9d-91d36c4bcb20
+		summarizeBy: none
+		sourceColumn: Gross_Margin_for_open_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_margin_percentage_for_open_orders
+		dataType: string
+		lineageTag: de851be3-0cd8-48cd-9fe9-f464b97f1854
+		summarizeBy: none
+		sourceColumn: Gross_margin_percentage_for_open_orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column PY_Sales_Order_Quantity_in_Base_UoM
+		dataType: string
+		lineageTag: 83b42396-6564-42f0-b993-6085cc2355c2
+		summarizeBy: none
+		sourceColumn: PY_Sales_Order_Quantity_in_Base_UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit_Price_in_Base_UoM
+		dataType: string
+		lineageTag: 63a2a5a2-06f2-46d8-879a-296b58af29f3
+		summarizeBy: none
+		sourceColumn: Unit_Price_in_Base_UoM
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_Margin_Order_Intake
+		dataType: string
+		lineageTag: c24a069a-0ce2-4f5a-bf68-db692a4125b8
+		summarizeBy: none
+		sourceColumn: Gross_Margin_Order_Intake
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_margin_percentage_for_Order_Intake
+		dataType: string
+		lineageTag: 6ec03f79-1939-4b70-b752-803963eec31f
+		summarizeBy: none
+		sourceColumn: Gross_margin_percentage_for_Order_Intake
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustReturnsCost_CC
+		dataType: string
+		lineageTag: c437f988-e07d-4c0a-9ccb-920529ddd8c4
+		summarizeBy: none
+		sourceColumn: CustReturnsCost_CC
+
+		annotation SummarizationSetBy = Automatic
+
+	column No_of_IncomingCustReturnsItems
+		dataType: string
+		lineageTag: 9af1ff95-fb15-416a-884a-c7615dab073b
+		summarizeBy: none
+		sourceColumn: No_of_IncomingCustReturnsItems
+
+		annotation SummarizationSetBy = Automatic
+
+	column No_of_IncomingSalesOrderItems
+		dataType: string
+		lineageTag: 13061dbd-922f-4594-87be-4c66fe33bc18
+		summarizeBy: none
+		sourceColumn: No_of_IncomingSalesOrderItems
+
+		annotation SummarizationSetBy = Automatic
+
+	column No_of_OrderItemsfrmQuotation
+		dataType: string
+		lineageTag: 2fb83fb6-2ff1-499b-8138-1a1f9ea5fe8a
+		summarizeBy: none
+		sourceColumn: No_of_OrderItemsfrmQuotation
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustReturnsCost
+		dataType: string
+		lineageTag: bc90a740-6676-447f-ba90-7a77ad72d3e3
+		summarizeBy: none
+		sourceColumn: CustReturnsCost
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncSalesOrdCost
+		dataType: string
+		lineageTag: fa529efd-3f40-4a23-876c-d04a651a4333
+		summarizeBy: none
+		sourceColumn: IncSalesOrdCost
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustReturnsNetAmnt
+		dataType: string
+		lineageTag: 25bf2a7c-9ae2-415c-9f3e-87a221867bd1
+		summarizeBy: none
+		sourceColumn: CustReturnsNetAmnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustReturnsNetAmnt_CC
+		dataType: string
+		lineageTag: f1aca67f-cff2-4f6e-b888-32300cec3286
+		summarizeBy: none
+		sourceColumn: CustReturnsNetAmnt_CC
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncSalesOrdCost_CC
+		dataType: string
+		lineageTag: fb54faf5-8b2d-445c-a659-d071fb959426
+		summarizeBy: none
+		sourceColumn: IncSalesOrdCost_CC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustReturnsQty
+		dataType: string
+		lineageTag: fb8cc569-27ce-4365-9cf6-f6bc3ab68225
+		summarizeBy: none
+		sourceColumn: CustReturnsQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotBasedSalesOrdNetAmnt
+		dataType: string
+		lineageTag: 3dafb4dc-41b9-479f-98c1-068acd07ff9b
+		summarizeBy: none
+		sourceColumn: QuotBasedSalesOrdNetAmnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncSalesOrdNetAmnt
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 228286f0-56c0-4403-98f0-b38d2932c24c
+		summarizeBy: sum
+		sourceColumn: IncSalesOrdNetAmnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuotBasedSalesOrdNetAmnt_CC
+		dataType: string
+		lineageTag: 33397090-b5b0-44d5-a415-37fc88be9d5f
+		summarizeBy: none
+		sourceColumn: QuotBasedSalesOrdNetAmnt_CC
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncSalesOrdNetAmnt_CC
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f58de547-ae60-4b25-a868-637ac869aa66
+		summarizeBy: sum
+		sourceColumn: IncSalesOrdNetAmnt_CC
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncSalesOrderQty
+		dataType: double
+		lineageTag: 5e679f57-2d9e-44d6-beb6-55ebcff13bb1
+		summarizeBy: sum
+		sourceColumn: IncSalesOrderQty
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASP
+		dataType: string
+		lineageTag: 9d1b2a67-e88c-4d3f-8a36-f54bc29cdb68
+		summarizeBy: none
+		sourceColumn: ASP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit_Price
+		dataType: string
+		lineageTag: 8b459c7c-2ecf-402d-a393-cd9e50f5d5d5
+		summarizeBy: none
+		sourceColumn: Unit_Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_Margin
+		dataType: string
+		lineageTag: f6ed1498-d071-4623-88b8-92305c3e9151
+		summarizeBy: none
+		sourceColumn: Gross_Margin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gross_Margin_Cal
+		dataType: string
+		lineageTag: 626da6d3-d6cf-4b43-ae55-81642dd06972
+		summarizeBy: none
+		sourceColumn: Gross_Margin_Cal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Quantity__FT2
+		dataType: string
+		lineageTag: bb0ed703-8a7d-443c-b7bb-5e08c7aec555
+		summarizeBy: none
+		sourceColumn: Order_Quantity__FT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Quantity__BFT2
+		dataType: string
+		lineageTag: c54ae310-ae9c-4ad0-b88f-dd63afbd354a
+		summarizeBy: none
+		sourceColumn: Order_Quantity__BFT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISO_Rate
+		dataType: string
+		lineageTag: 6937745c-ee4c-4c5a-86e9-ef004de4b809
+		summarizeBy: none
+		sourceColumn: ISO_Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISO_Rate_Forecast
+		dataType: string
+		lineageTag: e9f5740f-8240-4c83-83cd-17088608fdfa
+		summarizeBy: none
+		sourceColumn: ISO_Rate_Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_Forecast_Membrane_Qty_in_FT2
+		dataType: string
+		lineageTag: b3b53398-0d36-4c9f-af5e-9220f9facfc9
+		summarizeBy: none
+		sourceColumn: Sales_Forecast_Membrane_Qty_in_FT2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billing_Quantity_in_BFT2_for_ISO
+		dataType: string
+		lineageTag: 2f77f7f6-3d9e-4d50-bfa1-289e0afa852d
+		summarizeBy: none
+		sourceColumn: Billing_Quantity_in_BFT2_for_ISO
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billing_Quantity_in_FT2_for_Membrane
+		dataType: string
+		lineageTag: 58407c26-507d-4d02-949c-4878b61a45d6
+		summarizeBy: none
+		sourceColumn: Billing_Quantity_in_FT2_for_Membrane
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Quantity__FT2__TPO
+		dataType: string
+		lineageTag: d106c8dd-f8db-4b80-9f39-3a38a0c0aa61
+		summarizeBy: none
+		sourceColumn: Order_Quantity__FT2__TPO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesOrders = m
+		mode: import
+		source =
+				let
+					Source = SapDataWarehouseCloudConnector.Contents(
+						#"p_DatasphereServer",
+						"analytical",
+						#"p_DatasphereSpace",
+						"SAP_SD_RL_SalesDocumentItem_V2",
+						"SalesOrganization_D13='IN """ & #"p_SalesOrganization" & """'"
+					),
+					Typed = Table.TransformColumns(Source, {
+						{"CreationDate_D8",              each try Date.From(_) otherwise null, type nullable date},
+						{"IncSalesOrdNetAmnt_CC",        each try Number.From(_) otherwise null, Currency.Type},
+						{"IncSalesOrdNetAmnt",           each try Number.From(_) otherwise null, Currency.Type},
+						{"NetPriceAmount",               each try Number.From(_) otherwise null, Currency.Type},
+						{"IncSalesOrderQty",             each try Number.From(_) otherwise null, type number},
+						{"OrderQuantity",                each try Number.From(_) otherwise null, type number},
+						{"Revenue_Order_Intake",         each try Number.From(_) otherwise null, Currency.Type},
+						{"Revenue_Backlog",              each try Number.From(_) otherwise null, Currency.Type},
+						{"ForecastSales",                each try Number.From(_) otherwise null, Currency.Type},
+						{"ForecastSalesSQFT",            each try Number.From(_) otherwise null, Int64.Type},
+						{"ForecastSalesBDFT",            each try Number.From(_) otherwise null, Int64.Type},
+						{"Order_Quantity_in_FT2",        each try Number.From(_) otherwise null, type number},
+						{"Order_Quantity_in_BFT2",       each try Number.From(_) otherwise null, type number},
+						{"Requested_Quantity_in_BFT",    each try Number.From(_) otherwise null, type number},
+						{"RequestedQuantityInBaseUnit",  each try Number.From(_) otherwise null, type number},
+						{"Open_Order_Quantity_in_FT2",   each try Number.From(_) otherwise null, type number}
+					})
+				in
+					Typed
+
+	annotation PBI_ResultType = Table
+

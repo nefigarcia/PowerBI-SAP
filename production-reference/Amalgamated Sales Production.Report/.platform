@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Amalgamated Sales Production"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cf6207bc-b257-40d3-b70e-f34ed9c220e5"
+  }
+}

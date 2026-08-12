@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 852.38305001469382,
+            "y": 25
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "e0000001-0000-4000-a000-000000000001",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 588.38305001469371,
+            "y": 0
+          },
+          "nodeIndex": "Billing",
+          "nodeLineageTag": "b1110001-0000-4000-a000-000000000001",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.20156119318523,
+            "y": 6.8521425700456859
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "d0000001-0000-4000-a000-000000000001",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -10.007444610201503
+          },
+          "nodeIndex": "SalesOrders",
+          "nodeLineageTag": "b2220001-0000-4000-a000-000000000001",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,274 @@
+relationship 526db17a-150a-4a84-a41e-83ba89f5a9af
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.BillingDocumentDate
+	toColumn: LocalDateTable_546ca71d-3f04-42d8-9f8e-d3f1ec48b367.Date
+
+relationship 6b373c8b-9ea3-4f74-ac5f-788e9918a4b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.ServicesRenderedDate
+	toColumn: LocalDateTable_4b749be9-95a5-4d44-8070-1996a47972ba.Date
+
+relationship f6cfd352-f27d-40fb-acff-f8453f4cc3de
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.PricingDate
+	toColumn: LocalDateTable_02d9e6f8-9822-4b10-9dbb-e5142b0501d1.Date
+
+relationship 13c4edfa-e0f3-475a-944a-6f575f0d9aa6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.FixedValueDate
+	toColumn: LocalDateTable_0b3122c5-d8fa-4f83-8ac6-61d6d15b4d24.Date
+
+relationship a99b97c2-9347-4c82-9244-43a1e58033b0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.PriceDetnExchangeRateDate
+	toColumn: LocalDateTable_e718680f-b3be-4460-85b3-3bbf29b00cd0.Date
+
+relationship 734559a5-7258-4692-a109-90ab23691979
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.CreationDate
+	toColumn: LocalDateTable_77fccfe9-2613-4eed-877c-3dff6613432c.Date
+
+relationship 82a029c4-7d05-4cc1-a7e6-d1c9b102b0c3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.LastChangeDate
+	toColumn: LocalDateTable_f07c1e3b-2e71-492c-8eb1-fe000bfc83e8.Date
+
+relationship d2e52467-2c02-4589-9e27-4b18f65a30e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.RequestedDeliveryDate
+	toColumn: LocalDateTable_2f4e3091-fd0b-45a5-a3d6-266d965ba3d0.Date
+
+relationship 6de4624a-9fbf-4007-885d-f30810843df3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.Fiscal_Month
+	toColumn: LocalDateTable_b34c7f1b-fff3-4b72-bbc4-b514225c9a9a.Date
+
+relationship 0cc31bac-142f-4ef2-8363-0dc35fa0628d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.LastLoginDate
+	toColumn: LocalDateTable_8311a4d4-7fa8-4d73-8544-3bb67fffba49.Date
+
+relationship d9ff1165-7eb6-4640-bba3-f55fc25439eb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.LastPasswordChangeDate
+	toColumn: LocalDateTable_520927f8-b87d-4e20-a280-96a9663845d0.Date
+
+relationship fd7f859a-5975-45d5-a854-221b30d2fb6f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.CreatedDate
+	toColumn: LocalDateTable_eef16e33-4699-4116-8f4a-2919d43772c9.Date
+
+relationship e9f062d3-1d65-4f6a-8bf9-8bb8e95c9c3e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.LastModifiedDate
+	toColumn: LocalDateTable_73a01ddf-c96c-4283-8901-8d64c27959d0.Date
+
+relationship 25f2e474-ffb8-471f-acf4-298b566e0366
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.SystemModstamp
+	toColumn: LocalDateTable_be5eee8a-ffbe-4a34-991d-1f1716b68702.Date
+
+relationship 71ab97cd-1d84-41c9-91c3-bff5e10e1cea
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.PasswordExpirationDate
+	toColumn: LocalDateTable_cace4296-40b9-4fdd-b16f-f1316295241d.Date
+
+relationship 9055e1f0-e898-4d8a-9756-3a9e3bca7341
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.SuAccessExpirationDate
+	toColumn: LocalDateTable_075050f5-8eb8-4edd-a265-48f54b65b8f7.Date
+
+relationship 79d8e043-518c-4dd3-b8f4-dc9f4c603835
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.OfflineTrialExpirationDate
+	toColumn: LocalDateTable_fc7f16c5-c39a-42fe-948d-24b81d83f20f.Date
+
+relationship fdd6733b-1359-437c-84e6-3f4c5d383377
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.OfflinePdaTrialExpirationDate
+	toColumn: LocalDateTable_09c8285a-b578-4e2f-aa74-215420c30b6f.Date
+
+relationship 62ebdf56-f128-4873-a564-516c973454cf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.LastViewedDate
+	toColumn: LocalDateTable_26bb901d-6f78-4d2a-89c8-ae3a20fd9aab.Date
+
+relationship cfd34da2-93cc-4394-89fa-0c1b792e517a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: User.LastReferencedDate
+	toColumn: LocalDateTable_0ebcbe88-730d-4dd0-bd47-7d8067faa39d.Date
+
+relationship c087e272-f145-4ee0-9769-b9eaa5bae651
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quote.CreatedDate
+	toColumn: LocalDateTable_b201dcb9-c55c-4830-882b-655b61a383ba.Date
+
+relationship 6f345450-1672-42fc-9e1d-ac87c0eefea5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quote.LastModifiedDate
+	toColumn: LocalDateTable_02125448-69df-4380-a741-1b5c07d0ae39.Date
+
+relationship 247183d8-bc3d-475b-b9f5-5b374d396245
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quote.SystemModstamp
+	toColumn: LocalDateTable_0efd03f3-50a9-4b92-974a-ae2d797dc7cf.Date
+
+relationship ecdb50cd-f856-4c73-8c82-77da5dff8b8a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quote.LastViewedDate
+	toColumn: LocalDateTable_11643a07-7f20-417f-a7fc-35a4ff6b9e04.Date
+
+relationship b3525554-c707-4fae-820a-ec83337fb14d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quote.LastReferencedDate
+	toColumn: LocalDateTable_7505eb97-46a6-4980-9e70-9e0fd0d34fdb.Date
+
+relationship 8b98b68c-1c75-47ba-a390-a965af0a0cee
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Quote.ExpirationDate
+	toColumn: LocalDateTable_b9717e19-66fc-4e06-a9ac-2effa543f0eb.Date
+
+relationship 462c46e4-dfc5-485d-be13-cf0419c62425
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Quote Line Item'.CreatedDate
+	toColumn: LocalDateTable_b4fd0c8d-4b10-4400-a7bb-87baf4bcb6c1.Date
+
+relationship 77663e64-f466-41f4-8670-8d3de03103f4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Quote Line Item'.LastModifiedDate
+	toColumn: LocalDateTable_6d90391e-31ef-4371-a64a-9ec786cd1af3.Date
+
+relationship d76cb884-1211-42d4-99a5-1bb15fe18ceb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Quote Line Item'.SystemModstamp
+	toColumn: LocalDateTable_756facda-2424-40ba-aa6e-78259597372a.Date
+
+relationship e490280f-66af-49a0-b40d-e6f3e85278a6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Quote Line Item'.LastViewedDate
+	toColumn: LocalDateTable_68fa5e59-6ede-4e7a-b630-7fc400ce3cd4.Date
+
+relationship 4b670635-8a3a-4fef-ac4b-6ba80cd5a888
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Quote Line Item'.LastReferencedDate
+	toColumn: LocalDateTable_fc03ead2-509c-4eb1-947d-ab6d697d6962.Date
+
+relationship ba4670d7-bd73-432c-9012-84e9a815e179
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Quote Line Item'.ServiceDate
+	toColumn: LocalDateTable_770ec23d-0b7d-41f4-895e-a58dd1ea081f.Date
+
+relationship bb6035a3-94bf-4c54-9bcb-80cd5664da4f
+	fromColumn: Quote.CreatedById
+	toColumn: User.Id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 24c13907-117c-4b8d-a8fd-7c85c885385a
+	isActive: false
+	fromColumn: Quote.LastModifiedById
+	toColumn: User.Id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 486727f8-5f16-4e76-b243-7c2cb0cfc123
+	fromColumn: 'Quote Line Item'.QuoteId
+	toColumn: Quote.Id
+
+	annotation PBI_IsFromSource = FS
+
+relationship eb3e8e7c-85b9-4384-ac14-a333452f66d6
+	isActive: false
+	fromColumn: 'Quote Line Item'.CreatedById
+	toColumn: User.Id
+
+	annotation PBI_IsFromSource = FS
+
+relationship a378d3d9-e4c7-4777-be7a-9487a84acf6f
+	isActive: false
+	fromColumn: 'Quote Line Item'.LastModifiedById
+	toColumn: User.Id
+
+	annotation PBI_IsFromSource = FS
+
+relationship 6dd31900-56aa-7d42-6323-3e988d5c28a2
+	crossFilteringBehavior: bothDirections
+	fromColumn: SAP_SD_HL_BillingDocumentItem_V2.CustomerAccountAssignmentGroup
+	toColumn: KNVV.'Account Assignment Group'
+
+relationship 23f705b6-b397-45ef-a68f-b91d77d01b42
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Customer.'Document Date'
+	toColumn: LocalDateTable_02318d3f-30f6-4f23-b250-02c0d380da12.Date
+
+relationship a457de78-16d1-4b4e-8c59-66970758f695
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Customer.'Requested delivery date'
+	toColumn: LocalDateTable_682fa7f0-0ffa-4e3b-b488-f3226d70987a.Date
+
+relationship 85762185-9454-2c58-637f-6bc9263a9856
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Customer.Material
+	toColumn: SAP_SD_HL_BillingDocumentItem_V2.Material
+
+relationship ac9576ce-4144-4d81-87be-65a14d7dd4d6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.SalesDocumentDate
+	toColumn: LocalDateTable_f943f043-be0f-4807-8c21-36ae41524397.Date
+
+relationship bc9dd437-ee95-4904-ac46-ffa7719c405f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.ServicesRenderedDate
+	toColumn: LocalDateTable_6c496045-5a14-47fd-b417-72aa4fb9e597.Date
+
+relationship fb796aef-5768-4d58-8a27-fa7e7ca15794
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.PricingDate
+	toColumn: LocalDateTable_d4880123-7576-4fd5-8639-7849b54a5611.Date
+
+relationship e6ec5577-897c-44d6-9f75-4dee2a8e6788
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.ExchangeRateDate
+	toColumn: LocalDateTable_51a72f0d-d150-4654-bf9a-ba29928b31c7.Date
+
+relationship dd7cdfe2-8e55-4d44-bbfa-adefced55515
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.RequestedDeliveryDate
+	toColumn: LocalDateTable_e6925382-bbf7-4847-b0f0-74285ef5494a.Date
+
+relationship 803387c0-c7da-4eb7-91eb-e7621760e45f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.BindingPeriodValStartDate
+	toColumn: LocalDateTable_e2f64962-b509-4e96-b55e-61cb51d39425.Date
+
+relationship a4f8a871-a1ac-4774-a210-4e073e4cd781
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.BindingPeriodValEndDate
+	toColumn: LocalDateTable_43fe9be4-1228-44e2-8f71-69fe3a97eb3d.Date
+
+relationship 4cf69513-9a4e-4c37-8fb9-b10172259c12
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.BillingDocumentDate
+	toColumn: LocalDateTable_7d15f034-058d-49fa-a020-1f12ca571212.Date
+
+relationship 2183aa73-b453-4488-a0ff-f22519e86a7f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.CreationDate
+	toColumn: LocalDateTable_561148e9-58fe-4101-834c-3d577515e7b6.Date
+
+relationship 02a7f5e5-ed84-4b2c-b56c-3bf1b317a6ba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.LastChangeDate
+	toColumn: LocalDateTable_f92d58f4-56af-46ff-aa8a-6fd7a0e497c4.Date
+
+relationship 6c903e76-ddbd-4490-9181-522cbb288a29
+	joinOnDateBehavior: datePartOnly
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.Fiscal_Month
+	toColumn: LocalDateTable_979d3895-161b-43dc-9223-9518e6f2e0fb.Date
+
+relationship 5e2a377b-4dc4-0b74-48a8-c3178326c9c1
+	crossFilteringBehavior: bothDirections
+	fromColumn: SAP_SD_HL_SalesDocumentItem_V2.CustomerAccountAssignmentGroup
+	toColumn: KNVV.'Account Assignment Group'
+

@@ -1,0 +1,24 @@
+/// SAP Datasphere host, e.g. abc123.hcs.cloud.sap
+expression p_DatasphereServer = "datasphere-krw.eu10.hcs.cloud.sap" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5f2a1a5c-1000-4001-a001-000000000001
+
+	annotation PBI_ResultType = Text
+
+/// SAP Datasphere space technical name
+expression p_DatasphereSpace = "PR_KRW" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5f2a1a5c-1000-4001-a001-000000000002
+
+	annotation PBI_ResultType = Text
+
+/// AWIP sales organization (fed to the RL views' SalesOrganization_D## parameter)
+expression p_SalesOrganization = "6000" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5f2a1a5c-1000-4001-a001-000000000003
+
+	annotation PBI_ResultType = Text
+
+/// AWIP company code (fed to the Billing view's CompanyCode_D1 parameter)
+expression p_CompanyCode = "6000" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5f2a1a5c-1000-4001-a001-000000000004
+
+	annotation PBI_ResultType = Text
+

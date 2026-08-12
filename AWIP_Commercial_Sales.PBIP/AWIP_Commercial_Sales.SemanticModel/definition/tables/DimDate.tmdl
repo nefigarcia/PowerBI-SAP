@@ -1,0 +1,87 @@
+/// Shared date dimension. Calendar span 2020-01-01 .. 2030-12-31.
+/// Grain: one row per calendar day.
+table DimDate
+	lineageTag: d0000001-0000-4000-a000-000000000001
+	dataCategory: Time
+
+	column Date
+		lineageTag: 515df242-c9b7-4dd0-af97-74768dcc6bf9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		lineageTag: f3b93189-b5e1-474c-a828-3bfd2d242904
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 7a506008-743b-437d-9922-35597caac372
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		lineageTag: c4648d98-d3ed-42b1-a1a1-e03fefb0d8c2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		lineageTag: c7daf379-10ec-4f27-b0bf-12192803ca4e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthName]
+		sortByColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: 907e17c0-a816-4862-b6fc-39a2e0e6c125
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekNumber
+		lineageTag: 80bde68c-9efa-4ba1-ac4d-cad513dfee86
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [DayOfWeekNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		lineageTag: dfbbe729-36a3-4322-b8be-c22cfcbaa3e1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DayName]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+					CALENDAR(DATE(2020,1,1), DATE(2030,12,31)),
+					"Year",             YEAR([Date]),
+					"Quarter",          "Q" & FORMAT([Date],"Q"),
+					"MonthNumber",      MONTH([Date]),
+					"MonthName",        FORMAT([Date],"MMMM"),
+					"YearMonth",        FORMAT([Date],"YYYY-MM"),
+					"DayOfWeekNumber",  WEEKDAY([Date],2),
+					"DayName",          FORMAT([Date],"dddd")
+				)
+
+	annotation PBI_ResultType = Table
+

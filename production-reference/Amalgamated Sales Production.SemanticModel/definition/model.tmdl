@@ -1,0 +1,70 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["SAP_SD_HL_BillingDocumentItem_V2","KNVV","User","Quote","Quote Line Item","Customer","SAP_SD_HL_SalesDocumentItem_V2"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_ce6f7510-6054-453a-8607-b2273368e9cb
+ref table SAP_SD_HL_BillingDocumentItem_V2
+ref table LocalDateTable_546ca71d-3f04-42d8-9f8e-d3f1ec48b367
+ref table LocalDateTable_4b749be9-95a5-4d44-8070-1996a47972ba
+ref table LocalDateTable_02d9e6f8-9822-4b10-9dbb-e5142b0501d1
+ref table LocalDateTable_0b3122c5-d8fa-4f83-8ac6-61d6d15b4d24
+ref table LocalDateTable_e718680f-b3be-4460-85b3-3bbf29b00cd0
+ref table LocalDateTable_77fccfe9-2613-4eed-877c-3dff6613432c
+ref table LocalDateTable_f07c1e3b-2e71-492c-8eb1-fe000bfc83e8
+ref table LocalDateTable_2f4e3091-fd0b-45a5-a3d6-266d965ba3d0
+ref table LocalDateTable_b34c7f1b-fff3-4b72-bbc4-b514225c9a9a
+ref table KNVV
+ref table User
+ref table LocalDateTable_8311a4d4-7fa8-4d73-8544-3bb67fffba49
+ref table LocalDateTable_520927f8-b87d-4e20-a280-96a9663845d0
+ref table LocalDateTable_eef16e33-4699-4116-8f4a-2919d43772c9
+ref table LocalDateTable_73a01ddf-c96c-4283-8901-8d64c27959d0
+ref table LocalDateTable_be5eee8a-ffbe-4a34-991d-1f1716b68702
+ref table LocalDateTable_cace4296-40b9-4fdd-b16f-f1316295241d
+ref table LocalDateTable_075050f5-8eb8-4edd-a265-48f54b65b8f7
+ref table LocalDateTable_fc7f16c5-c39a-42fe-948d-24b81d83f20f
+ref table LocalDateTable_09c8285a-b578-4e2f-aa74-215420c30b6f
+ref table LocalDateTable_26bb901d-6f78-4d2a-89c8-ae3a20fd9aab
+ref table LocalDateTable_0ebcbe88-730d-4dd0-bd47-7d8067faa39d
+ref table Quote
+ref table LocalDateTable_b201dcb9-c55c-4830-882b-655b61a383ba
+ref table LocalDateTable_02125448-69df-4380-a741-1b5c07d0ae39
+ref table LocalDateTable_0efd03f3-50a9-4b92-974a-ae2d797dc7cf
+ref table LocalDateTable_11643a07-7f20-417f-a7fc-35a4ff6b9e04
+ref table LocalDateTable_7505eb97-46a6-4980-9e70-9e0fd0d34fdb
+ref table LocalDateTable_b9717e19-66fc-4e06-a9ac-2effa543f0eb
+ref table 'Quote Line Item'
+ref table LocalDateTable_b4fd0c8d-4b10-4400-a7bb-87baf4bcb6c1
+ref table LocalDateTable_6d90391e-31ef-4371-a64a-9ec786cd1af3
+ref table LocalDateTable_756facda-2424-40ba-aa6e-78259597372a
+ref table LocalDateTable_68fa5e59-6ede-4e7a-b630-7fc400ce3cd4
+ref table LocalDateTable_fc03ead2-509c-4eb1-947d-ab6d697d6962
+ref table LocalDateTable_770ec23d-0b7d-41f4-895e-a58dd1ea081f
+ref table Customer
+ref table LocalDateTable_02318d3f-30f6-4f23-b250-02c0d380da12
+ref table LocalDateTable_682fa7f0-0ffa-4e3b-b488-f3226d70987a
+ref table SAP_SD_HL_SalesDocumentItem_V2
+ref table LocalDateTable_f943f043-be0f-4807-8c21-36ae41524397
+ref table LocalDateTable_6c496045-5a14-47fd-b417-72aa4fb9e597
+ref table LocalDateTable_d4880123-7576-4fd5-8639-7849b54a5611
+ref table LocalDateTable_51a72f0d-d150-4654-bf9a-ba29928b31c7
+ref table LocalDateTable_e6925382-bbf7-4847-b0f0-74285ef5494a
+ref table LocalDateTable_e2f64962-b509-4e96-b55e-61cb51d39425
+ref table LocalDateTable_43fe9be4-1228-44e2-8f71-69fe3a97eb3d
+ref table LocalDateTable_7d15f034-058d-49fa-a020-1f12ca571212
+ref table LocalDateTable_561148e9-58fe-4101-834c-3d577515e7b6
+ref table LocalDateTable_f92d58f4-56af-46ff-aa8a-6fd7a0e497c4
+ref table LocalDateTable_979d3895-161b-43dc-9223-9518e6f2e0fb
+
+ref cultureInfo en-GB
+

@@ -1,0 +1,1255 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "e5664335014e349c21d2",
+  "position": {
+    "x": 0,
+    "y": 361.11111111111109,
+    "z": 15000,
+    "height": 265.55555555555554,
+    "width": 1280,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "FiscalYearPeriod"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.FiscalYearPeriod",
+              "nativeQueryRef": "Fiscal Period",
+              "displayName": "Fiscal Period"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "BillingDocument"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.BillingDocument",
+              "nativeQueryRef": "Billing Document",
+              "displayName": "Billing Document"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "BillingDocumentItem"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.BillingDocumentItem",
+              "nativeQueryRef": "Billing Item",
+              "displayName": "Billing Item"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "FC Product Group"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.FC Product Group",
+              "nativeQueryRef": "Product Family",
+              "displayName": "Product Family"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                        }
+                      },
+                      "Property": "Billing_Quantity_in_FT2"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.Billing_Quantity_in_FT2)",
+              "nativeQueryRef": "Sum of Billing_Quantity_in_FT2",
+              "displayName": "Billing Quantity in FT2"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                        }
+                      },
+                      "Property": "Billing_Quantity_in_BFT"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.Billing_Quantity_in_BFT)",
+              "nativeQueryRef": "Sum of Billing_Quantity_in_BFT",
+              "displayName": "Billing Quantity in BFT"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "Unit_Price"
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.Unit_Price)",
+              "nativeQueryRef": "Unit_Price",
+              "displayName": "Unit Price"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "Unit_Price_in_Base_UoM"
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.Unit_Price_in_Base_UoM)",
+              "nativeQueryRef": "Unit_Price_in_Base_UoM",
+              "displayName": "Unit Price in Base UoM"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                        }
+                      },
+                      "Property": "Revenue"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.Revenue)",
+              "nativeQueryRef": "Sum of Revenue",
+              "displayName": "Revenue"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                        }
+                      },
+                      "Property": "BillingQuantityInBaseUnit"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.BillingQuantityInBaseUnit)",
+              "nativeQueryRef": "Sum of BillingQuantityInBaseUnit",
+              "displayName": "Billing Quantity In Base Unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "MaterialGroup"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.MaterialGroup",
+              "nativeQueryRef": "Material Group",
+              "displayName": "Material Group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Customer"
+                    }
+                  },
+                  "Property": "Material Description"
+                }
+              },
+              "queryRef": "Customer.Material Description",
+              "nativeQueryRef": "Material Description"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "Plant"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.Plant",
+              "nativeQueryRef": "Plant"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "SalesDocument"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.SalesDocument",
+              "nativeQueryRef": "Sales Document",
+              "displayName": "Sales Document"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "ProjectName"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.ProjectName",
+              "nativeQueryRef": "Project Name",
+              "displayName": "Project Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "BillingDocumentDate"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.BillingDocumentDate",
+              "nativeQueryRef": "Billing Document Date",
+              "displayName": "Billing Document Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "RequestedDeliveryDate"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.RequestedDeliveryDate",
+              "nativeQueryRef": "Requested Delivery Date",
+              "displayName": "Requested Delivery Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "Sales Representative"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.Sales Representative",
+              "nativeQueryRef": "Sales Representative"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                    }
+                  },
+                  "Property": "Project Coordinator"
+                }
+              },
+              "queryRef": "SAP_SD_HL_BillingDocumentItem_V2.Project Coordinator",
+              "nativeQueryRef": "Project Coordinator"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                        }
+                      },
+                      "Property": "Billing_Quantity_in_M2"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(SAP_SD_HL_BillingDocumentItem_V2.Billing_Quantity_in_M2)",
+              "nativeQueryRef": "Billing Quantity in M2",
+              "displayName": "Billing Quantity in M2"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "135.48441447721856D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_KOB1.Internal CAPEX ID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153.90318840432911D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_KOB1.Remaining"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "157.70442141401344D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAPEX Approved.Project"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "123.37083118794538D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KRW_NA_SAP_KOB1.Amount LC)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.95519773384345D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CAPEX Approved.CAPEX Approved)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.33633312385741D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_KOB1.% CAPEX"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "underline": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e8ce584d2085da7e6eb1",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "BillingDocument"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "adfdded8c5e2074e4032",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Forecast_Flag"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "SAP_SD_HL_BillingDocumentItem_V2",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "s"
+                            }
+                          },
+                          "Property": "Forecast_Flag"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "'Y'"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "a44b27a92a92853469ea",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Billing_Quantity_in_BFT"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "38036e25499503311de6",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Prior_Year_Flag"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "s",
+              "Entity": "SAP_SD_HL_BillingDocumentItem_V2",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "s"
+                            }
+                          },
+                          "Property": "Prior_Year_Flag"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "'Y'"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "739939427e8b7e65ae21",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Billing_Quantity_in_FT2"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "728202b63192155d880b",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "BillingDocumentDate"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6207fdd494d0e4d85d79",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "BillingQuantityInBaseUnit"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "aa5c55ab3217590c0ca5",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "BillToPartyRegion"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "a4251df905c980e766eb",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "FC Product Group"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "629829ff4aa87b1c1388",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "FiscalYearPeriod"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "115b6b1936e393a8c709",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Material"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "ce5f02927d374e9e070c",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "MaterialGroup"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "54b2530234617d2d6da7",
+        "ordinal": 12,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Plant"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c6c9e24c403b3d7c030b",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Project Coordinator"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "201319fa77ea59bd4692",
+        "ordinal": 14,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "ProjectName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1d8bfdd9c826212170a0",
+        "ordinal": 15,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "RequestedDeliveryDate"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "617ce2ed915d0d50e4c6",
+        "ordinal": 16,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Sales Representative"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1c1a37bade83986420db",
+        "ordinal": 17,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "SalesDocument"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7e3b88e0dc02e44cc260",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "SalesDocumentItem"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "077bdcb0ce579d0ec40d",
+        "ordinal": 19,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "SoldToParty"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "d3a66a96746d6a050835",
+        "ordinal": 20,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                  }
+                },
+                "Property": "Billing_Quantity_in_M2"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c813bd1319186ab99170",
+        "ordinal": 21,
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+                  }
+                },
+                "Property": "Revenue"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f4ac16e3c27115eb50d6",
+        "ordinal": 22,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Unit_Price"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "36ae6f11d81313b9ab2a",
+        "ordinal": 23,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "SAP_SD_HL_BillingDocumentItem_V2"
+              }
+            },
+            "Property": "Unit_Price_in_Base_UoM"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

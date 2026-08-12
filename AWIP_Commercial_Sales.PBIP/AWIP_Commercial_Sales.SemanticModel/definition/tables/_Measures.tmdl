@@ -1,0 +1,90 @@
+/// Centralized measures. Placeholder empty table to host DAX measures.
+table _Measures
+	lineageTag: e0000001-0000-4000-a000-000000000001
+
+	measure Sales = SUM('Billing'[SlsVolNetAmt_CC])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Actuals
+		lineageTag: e0000001-0000-4000-a000-000000010001
+
+	measure 'Sales Quantity' = SUM('Billing'[SalesVolumeQuantity])
+		formatString: #,0.##
+		displayFolder: Quantity
+		lineageTag: e0000001-0000-4000-a000-000000010002
+
+	measure 'Order Intake' = SUM('SalesOrders'[IncSalesOrdNetAmnt_CC])
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Actuals
+		lineageTag: e0000001-0000-4000-a000-000000010003
+
+	measure 'Order Intake Quantity' = SUM('SalesOrders'[IncSalesOrderQty])
+		formatString: #,0.##
+		displayFolder: Quantity
+		lineageTag: e0000001-0000-4000-a000-000000010004
+
+	measure 'Sales PY' = CALCULATE([Sales], SAMEPERIODLASTYEAR('DimDate'[Date]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Prior Year
+		lineageTag: e0000001-0000-4000-a000-000000020001
+
+	measure 'Sales Quantity PY' = CALCULATE([Sales Quantity], SAMEPERIODLASTYEAR('DimDate'[Date]))
+		formatString: #,0.##
+		displayFolder: Prior Year
+		lineageTag: e0000001-0000-4000-a000-000000020002
+
+	measure 'Order Intake PY' = CALCULATE([Order Intake], SAMEPERIODLASTYEAR('DimDate'[Date]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Prior Year
+		lineageTag: e0000001-0000-4000-a000-000000020003
+
+	measure 'Order Intake Quantity PY' = CALCULATE([Order Intake Quantity], SAMEPERIODLASTYEAR('DimDate'[Date]))
+		formatString: #,0.##
+		displayFolder: Prior Year
+		lineageTag: e0000001-0000-4000-a000-000000020004
+
+	measure 'Sales YoY %' = DIVIDE([Sales] - [Sales PY], [Sales PY])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Variance
+		lineageTag: e0000001-0000-4000-a000-000000030001
+
+	measure 'Sales Quantity YoY %' = DIVIDE([Sales Quantity] - [Sales Quantity PY], [Sales Quantity PY])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Variance
+		lineageTag: e0000001-0000-4000-a000-000000030002
+
+	measure 'Order Intake YoY %' = DIVIDE([Order Intake] - [Order Intake PY], [Order Intake PY])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Variance
+		lineageTag: e0000001-0000-4000-a000-000000030003
+
+	measure 'Order Intake Quantity YoY %' = DIVIDE([Order Intake Quantity] - [Order Intake Quantity PY], [Order Intake Quantity PY])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Variance
+		lineageTag: e0000001-0000-4000-a000-000000030004
+
+	measure 'Order Intake vs Sales' = [Order Intake] - [Sales]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Variance
+		lineageTag: e0000001-0000-4000-a000-000000030005
+
+	measure 'Avg Sales Price' = DIVIDE([Sales], [Sales Quantity])
+		formatString: \$#,0.00;(\$#,0.00);\$0.00
+		displayFolder: Rates
+		lineageTag: e0000001-0000-4000-a000-000000040001
+
+	measure 'Avg Order Price' = DIVIDE([Order Intake], [Order Intake Quantity])
+		formatString: \$#,0.00;(\$#,0.00);\$0.00
+		displayFolder: Rates
+		lineageTag: e0000001-0000-4000-a000-000000040002
+
+	column Value
+		lineageTag: 9a178ec1-448e-4047-9db6-039827206214
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = {BLANK()}
+
+	annotation PBI_ResultType = Table
+

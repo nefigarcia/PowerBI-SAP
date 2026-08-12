@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "4c2a62afe18e95907a8b",
+  "displayName": "Invoiced Sales - Detail",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["p_DatasphereServer","p_DatasphereSpace","p_SalesOrganization","p_CompanyCode","Billing","SalesOrders"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Billing
+ref table DimDate
+ref table SalesOrders
+ref table _Measures
+
+ref cultureInfo en-US
+

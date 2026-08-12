@@ -1,0 +1,344 @@
+table 'Quote Line Item'
+	lineageTag: fd8a01d4-ec0f-41ee-8f86-507b14437bc3
+
+	column Id
+		dataType: string
+		lineageTag: a4d977ef-4087-4111-9336-c96c39abc770
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsDeleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e09fc36c-f2ab-46df-851b-f3cead85dc8f
+		summarizeBy: none
+		sourceColumn: IsDeleted
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineNumber
+		dataType: string
+		lineageTag: 640b5baf-36c6-4a75-b1dd-28e9fbf27924
+		summarizeBy: none
+		sourceColumn: LineNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrencyIsoCode
+		dataType: string
+		lineageTag: d3727c16-36c7-4279-88a0-f596654dd892
+		summarizeBy: none
+		sourceColumn: CurrencyIsoCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8102e4d5-5d3b-43e9-a6b0-b05a9947c1d2
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 462c46e4-dfc5-485d-be13-cf0419c62425
+			defaultHierarchy: LocalDateTable_b4fd0c8d-4b10-4400-a7bb-87baf4bcb6c1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedById
+		dataType: string
+		lineageTag: d1f326e9-494d-41f2-a2ec-d7c30d8fbb1c
+		summarizeBy: none
+		sourceColumn: CreatedById
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d8606242-4971-4705-b3b5-f44f94186d5c
+		summarizeBy: none
+		sourceColumn: LastModifiedDate
+
+		variation Variation
+			isDefault
+			relationship: 77663e64-f466-41f4-8670-8d3de03103f4
+			defaultHierarchy: LocalDateTable_6d90391e-31ef-4371-a64a-9ec786cd1af3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastModifiedById
+		dataType: string
+		lineageTag: 6043d016-fae3-4f6b-92b2-40cc05f56afc
+		summarizeBy: none
+		sourceColumn: LastModifiedById
+
+		annotation SummarizationSetBy = Automatic
+
+	column SystemModstamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 22397f4d-4bc4-45c0-b3eb-ae2a13c323e4
+		summarizeBy: none
+		sourceColumn: SystemModstamp
+
+		variation Variation
+			isDefault
+			relationship: d76cb884-1211-42d4-99a5-1bb15fe18ceb
+			defaultHierarchy: LocalDateTable_756facda-2424-40ba-aa6e-78259597372a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastViewedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8ec3c3c7-ffb0-446a-ac29-a2983777158d
+		summarizeBy: none
+		sourceColumn: LastViewedDate
+
+		variation Variation
+			isDefault
+			relationship: e490280f-66af-49a0-b40d-e6f3e85278a6
+			defaultHierarchy: LocalDateTable_68fa5e59-6ede-4e7a-b630-7fc400ce3cd4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastReferencedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c12e0a4-5fb5-4c29-af63-a3a758d77055
+		summarizeBy: none
+		sourceColumn: LastReferencedDate
+
+		variation Variation
+			isDefault
+			relationship: 4b670635-8a3a-4fef-ac4b-6ba80cd5a888
+			defaultHierarchy: LocalDateTable_fc03ead2-509c-4eb1-947d-ab6d697d6962.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuoteId
+		dataType: string
+		lineageTag: 40a4ee6c-791e-4301-b870-04baa85c5b03
+		summarizeBy: none
+		sourceColumn: QuoteId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PricebookEntryId
+		dataType: string
+		lineageTag: 2f1d2cd2-23b3-4f18-b556-28b8bfcca287
+		summarizeBy: none
+		sourceColumn: PricebookEntryId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpportunityLineItemId
+		dataType: string
+		lineageTag: 09a0ba45-cd15-404d-966e-0713eab263ec
+		summarizeBy: none
+		sourceColumn: OpportunityLineItemId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: double
+		lineageTag: 72651487-ad82-49fc-9bb2-442f70045a57
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UnitPrice
+		dataType: double
+		lineageTag: e43cca0e-b130-4166-9a5a-8b266eb999fc
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Discount
+		dataType: double
+		lineageTag: 09ce7b69-cc3b-465a-9e3f-f03e9b1839e0
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Description
+		dataType: string
+		lineageTag: d28758d3-3c78-48e8-8718-f8d037fc6047
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column ServiceDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 94d5689e-9b7d-4f32-b78e-ab2665f9424e
+		summarizeBy: none
+		sourceColumn: ServiceDate
+
+		variation Variation
+			isDefault
+			relationship: ba4670d7-bd73-432c-9012-84e9a815e179
+			defaultHierarchy: LocalDateTable_770ec23d-0b7d-41f4-895e-a58dd1ea081f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Product2Id
+		dataType: string
+		lineageTag: 22aea2f2-7de4-4d80-ad60-3e362365d6ea
+		summarizeBy: none
+		sourceColumn: Product2Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortOrder
+		dataType: int64
+		formatString: 0
+		lineageTag: 0618101b-8842-4e06-b901-562a62dcbbc2
+		summarizeBy: sum
+		sourceColumn: SortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column ListPrice
+		dataType: double
+		lineageTag: d250c9fa-f451-4c8c-8a1a-a6f054f0a84f
+		summarizeBy: sum
+		sourceColumn: ListPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Subtotal
+		dataType: double
+		lineageTag: 9b4c6858-4416-40f7-95d9-d57261b18ba1
+		summarizeBy: sum
+		sourceColumn: Subtotal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalPrice
+		dataType: double
+		lineageTag: a498521a-bd40-431c-9e5c-376d028dc876
+		summarizeBy: sum
+		sourceColumn: TotalPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Net_Unit_Price__c
+		dataType: double
+		lineageTag: 77de3484-e0d8-4628-803f-be2cdc50d408
+		summarizeBy: sum
+		sourceColumn: Net_Unit_Price__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Product_Family__c
+		dataType: string
+		lineageTag: b290b315-cbbb-4fb1-af04-16d0ec4518ce
+		summarizeBy: none
+		sourceColumn: Product_Family__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Name__c
+		dataType: string
+		lineageTag: 5b5fc454-b2fa-4d04-b011-0b8d2544c8a2
+		summarizeBy: none
+		sourceColumn: Product_Name__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column UOM__c
+		dataType: string
+		lineageTag: e736e0e0-dd3b-4d96-8791-a25a81f3ca6e
+		summarizeBy: none
+		sourceColumn: UOM__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column List_Extended__c
+		dataType: double
+		lineageTag: cbee4380-5b16-4bc2-87f9-9cf8437915a7
+		summarizeBy: sum
+		sourceColumn: List_Extended__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Net_Extended__c
+		dataType: double
+		lineageTag: bc396e0f-9e51-472a-bf5e-4f1b77a4d713
+		summarizeBy: sum
+		sourceColumn: Net_Extended__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Net_Unit_Price_Flow__c
+		dataType: double
+		lineageTag: 8d3170a5-15ef-4359-91f1-b1ea4901b05d
+		summarizeBy: sum
+		sourceColumn: Net_Unit_Price_Flow__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Actual_Discount__c
+		dataType: double
+		lineageTag: 9832a5fa-f7d6-4690-9e2c-b80137e559d8
+		summarizeBy: sum
+		sourceColumn: Actual_Discount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Total_List_Price__c
+		dataType: double
+		lineageTag: 9161dc2f-b547-4f73-8fcd-b14c817fe695
+		summarizeBy: sum
+		sourceColumn: Total_List_Price__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Quote Line Item' = m
+		mode: import
+		source =
+				let
+				    Source = Salesforce.Data("https://login.salesforce.com/", [ApiVersion=48, CreateNavigationProperties=true]),
+				    QuoteLineItem = Source{[Name="QuoteLineItem"]}[Data]
+				in
+				    QuoteLineItem
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

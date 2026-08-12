@@ -1,0 +1,8 @@
+relationship 3f7497dd-e016-449d-1c9d-f312dbab782e
+	fromColumn: Billing.BillingDocumentDate_D5
+	toColumn: DimDate.Date
+
+relationship d4b935e9-705f-1d3a-fc4e-fce6b0208d54
+	fromColumn: SalesOrders.CreationDate_D8
+	toColumn: DimDate.Date
+
