@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["p_DatasphereServer","p_DatasphereSpace","p_SalesOrganization","p_CompanyCode","Billing","SalesOrders"]
+annotation PBI_QueryOrder = ["p_DatasphereServer","p_DatasphereSpace","p_SalesOrganization","p_CompanyCode","Billing","SalesOrders","KRW_NA_FF_CALENDAR","CAPEX Approved","KRW_NA_FF_COSTCENTREHIER","KRW_NA_FF_COSTCTHIER_ONDULINE","KRW_NA_FF_COSTELEM_OH1","KRW_NA_FF_COSTELEMHIER","KRW_NA_FF_FISCALPERIOD","KRW_NA_FF_FORECAST_INTAKE","KRW_NA_FF_GEOINFO","KRW_NA_FF_HISTSB1","KRW_NA_FF_PLSTRUCTURE","KRW_NA_FF_TERRITORY","KRW_NA_FF_ZIPCODES"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -16,6 +16,19 @@ ref table Billing
 ref table DimDate
 ref table SalesOrders
 ref table _Measures
+ref table KRW_NA_FF_CALENDAR
+ref table 'CAPEX Approved'
+ref table KRW_NA_FF_COSTCENTREHIER
+ref table KRW_NA_FF_COSTCTHIER_ONDULINE
+ref table KRW_NA_FF_COSTELEM_OH1
+ref table KRW_NA_FF_COSTELEMHIER
+ref table KRW_NA_FF_FISCALPERIOD
+ref table KRW_NA_FF_FORECAST_INTAKE
+ref table KRW_NA_FF_GEOINFO
+ref table KRW_NA_FF_HISTSB1
+ref table KRW_NA_FF_PLSTRUCTURE
+ref table KRW_NA_FF_TERRITORY
+ref table KRW_NA_FF_ZIPCODES
 
 ref cultureInfo en-US
 

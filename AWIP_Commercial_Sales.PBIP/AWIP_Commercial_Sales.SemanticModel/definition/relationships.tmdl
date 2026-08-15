@@ -6,3 +6,32 @@ relationship d4b935e9-705f-1d3a-fc4e-fce6b0208d54
 	fromColumn: SalesOrders.CreationDate_D8
 	toColumn: DimDate.Date
 
+relationship AutoDetected_5fec0261-dced-49ea-aede-16dc5aae5305
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: KRW_NA_FF_FISCALPERIOD.'Calendar Date'
+	toColumn: KRW_NA_FF_CALENDAR.'Calendar Date'
+
+relationship AutoDetected_db66fffc-ccb2-45f5-aa6f-4191678f3564
+	fromColumn: KRW_NA_FF_HISTSB1.'Internal CAPEX ID'
+	toColumn: 'CAPEX Approved'.'Internal CAPEX ID'
+
+relationship AutoDetected_b57492e0-ec1b-4d14-86c1-3211f94c6c62
+	fromColumn: Billing.State_Name
+	toColumn: KRW_NA_FF_GEOINFO.State
+
+relationship AutoDetected_da5932da-e567-4bdf-a7c2-4bb9b8847c55
+	fromColumn: SalesOrders.State_Name
+	toColumn: KRW_NA_FF_GEOINFO.State
+
+relationship AutoDetected_91ebea43-f7db-4490-ab2c-b0af1c41c6f8
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: KRW_NA_FF_COSTELEM_OH1.'Cost Element Key'
+	toColumn: KRW_NA_FF_COSTELEMHIER.CostElement
+
+relationship a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d
+	isActive: false
+	fromColumn: SalesOrders.CreationDate_D8
+	toColumn: KRW_NA_FF_CALENDAR.Date
+

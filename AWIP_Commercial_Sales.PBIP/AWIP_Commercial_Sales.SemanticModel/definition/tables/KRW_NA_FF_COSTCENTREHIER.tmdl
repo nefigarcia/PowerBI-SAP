@@ -1,0 +1,47 @@
+table KRW_NA_FF_COSTCENTREHIER
+	lineageTag: 5ebfb110-25bb-453e-9eab-8eae74c76dc7
+
+	column 'Cost Center Group'
+		dataType: string
+		lineageTag: 08668bde-764c-4318-8845-cf53bb431d9c
+		summarizeBy: none
+		sourceColumn: Cost Center Group
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center Group Description'
+		dataType: string
+		lineageTag: 956eaf7a-d5c8-4fb1-98be-3bb608dfc41f
+		summarizeBy: none
+		sourceColumn: Cost Center Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Centre'
+		dataType: string
+		lineageTag: 3b49bc6a-f541-4d57-baa3-61f54a9c905d
+		summarizeBy: none
+		sourceColumn: Cost Centre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Centre Description'
+		dataType: string
+		lineageTag: 9688bef0-348f-4378-a448-174e3a3468f6
+		summarizeBy: none
+		sourceColumn: Cost Centre Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_COSTCENTREHIER = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "d28982b1-b94f-43cd-b719-bbaa14b77ba1"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_COSTCENTREHIER", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

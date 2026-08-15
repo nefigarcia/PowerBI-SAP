@@ -1,0 +1,39 @@
+table KRW_NA_FF_TERRITORY
+	lineageTag: 8e6b7ae8-7e01-432f-8378-af2576a6d47f
+
+	column 'Zip Code ID'
+		dataType: string
+		lineageTag: 09ba0011-4e5b-4571-b6d5-34d80800d4e1
+		summarizeBy: none
+		sourceColumn: Zip Code ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Zip Code Name'
+		dataType: string
+		lineageTag: 841fd786-95ed-4baa-87b6-843808343531
+		summarizeBy: none
+		sourceColumn: Zip Code Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Territory Name'
+		dataType: string
+		lineageTag: 93e690f6-a3f3-4d9c-8cfc-fe3484a86f35
+		summarizeBy: none
+		sourceColumn: Territory Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_TERRITORY = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "bd3aacdc-369c-486d-b9bc-a3837dc9cda1"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_TERRITORY", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

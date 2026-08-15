@@ -1,0 +1,65 @@
+table KRW_NA_FF_COSTELEM_OH1
+	lineageTag: da47e9c8-b8de-466e-b191-d157a807712a
+
+	column 'Cost Element Sort'
+		dataType: int64
+		formatString: 0
+		lineageTag: ac241a8b-bda7-4bfb-947f-f9e0e24bd93a
+		summarizeBy: sum
+		sourceColumn: Cost Element Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Group Key'
+		dataType: string
+		lineageTag: 6e79883c-43cb-4827-9c12-7dd89f560c46
+		summarizeBy: none
+		sourceColumn: Cost Element Group Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Group Text'
+		dataType: string
+		lineageTag: d8809de3-e5d4-409f-a8eb-a62f33b191eb
+		summarizeBy: none
+		sourceColumn: Cost Element Group Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Key'
+		dataType: string
+		lineageTag: 92bb1182-9b09-4cb8-bd1f-21bc194a5afd
+		summarizeBy: none
+		sourceColumn: Cost Element Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Text'
+		dataType: string
+		lineageTag: cf8bf8a3-271a-41af-a487-d5608345b159
+		summarizeBy: none
+		sourceColumn: Cost Element Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CostElem Group Sort'
+		dataType: int64
+		formatString: 0
+		lineageTag: 47eccf4b-80be-4d36-875a-aa8640115f3f
+		summarizeBy: sum
+		sourceColumn: CostElem Group Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_COSTELEM_OH1 = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "e5c6d724-cdf3-4ed9-9d6b-93a946f4b312"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_COSTELEM_OH1", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

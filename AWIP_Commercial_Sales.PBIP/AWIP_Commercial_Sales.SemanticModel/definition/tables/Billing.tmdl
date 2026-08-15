@@ -72,11 +72,8 @@ table Billing
 			
 			VAR FcstSalesQtyFT2Membranes =
 			SUMX(
-			    FILTER(
-			        Billing,
-			        CONTAINSSTRING(Billing[FC_Product_Group], "TPO")
-			    ),
-			    Billing[ForecastSalesSQFT]
+			    Billing,
+			    IFERROR(VALUE(Billing[Sales_Forecast_Membrane_Qty_in_FT2]), 0)
 			)
 			RETURN
 			IF(

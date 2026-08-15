@@ -1,0 +1,87 @@
+table KRW_NA_FF_FORECAST_INTAKE
+	lineageTag: d9310c39-b3bd-4538-a933-927288bfe568
+
+	column Period
+		dataType: string
+		lineageTag: 190c520e-90e9-4e73-a7b9-71948ccf8971
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: string
+		lineageTag: 85cc31a1-4856-4983-8dbc-ce503fb3d92b
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales $'
+		dataType: double
+		lineageTag: f1b5eda9-440e-4a4a-8e53-7c4a8fff0c6a
+		summarizeBy: sum
+		sourceColumn: Sales $
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales Membrane sqft'
+		dataType: double
+		lineageTag: 2381ac13-8e54-41aa-a8b9-adde6e16299c
+		summarizeBy: sum
+		sourceColumn: Sales Membrane sqft
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales ISO sqft'
+		dataType: double
+		lineageTag: 5c5d331f-b22a-4289-8664-b8d6f8a437ee
+		summarizeBy: sum
+		sourceColumn: Sales ISO sqft
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sales ISO bdft'
+		dataType: double
+		lineageTag: 325c9f91-5326-4ead-a06c-19dc31c9d484
+		summarizeBy: sum
+		sourceColumn: Sales ISO bdft
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Fiscal Year Period'
+		dataType: string
+		lineageTag: a0976f58-ac5f-4fa5-bb95-7c7bd29dd2ad
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Period Sorted'
+		dataType: string
+		lineageTag: ce5020ae-b0c6-488d-9831-d174f9d30126
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period Sorted
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_FORECAST_INTAKE = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "fb37fa33-24b9-43bf-a270-bbf521ccff86"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_FORECAST_INTAKE", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

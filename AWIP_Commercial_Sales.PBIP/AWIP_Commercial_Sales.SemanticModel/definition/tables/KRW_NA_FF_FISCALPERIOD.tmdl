@@ -1,0 +1,47 @@
+table KRW_NA_FF_FISCALPERIOD
+	lineageTag: c2fc3219-4e3d-4e37-95dc-06d7efe18bbb
+
+	column 'Calendar Date'
+		dataType: string
+		lineageTag: 4931c5a1-4513-4ff9-b66a-03ac9bbbb2b9
+		summarizeBy: none
+		sourceColumn: Calendar Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: dc013fe4-0097-4ece-986c-5b3691df1831
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Period'
+		dataType: string
+		lineageTag: a7b8ab12-fab1-4336-9ae7-61f4fc2381ba
+		summarizeBy: none
+		sourceColumn: Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Period'
+		dataType: string
+		lineageTag: 360f0e56-e50a-437e-b6fb-2047d7e119e9
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_FISCALPERIOD = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "56e148c3-9dc7-4b7c-af6a-1f2b20584eca"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_FISCALPERIOD", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

@@ -1,5 +1,11 @@
 # Unmapped Items
 
+> ⚠ **SUPERSEDED (2026-08-12)** — Kingspan added 13 Power BI Dataflow tables **and** enriched the Datasphere Billing / SalesOrders views. The forecast-measure blocker (Billing `ISO Rate Fcst IS`, `Sum Fcst Sales in FT2 for Membranes`) is now **resolved** via `Billing[ISO_Rate_Forecast]`, `Billing[Sales_Forecast_Membrane_Qty_in_FT2]` (native columns) and the standalone `KRW_NA_FF_FORECAST_INTAKE` dataflow.
+>
+> Also resolved: nearly all of the "Fields referenced in visuals but NOT in SAP Datasphere" section below — the fields now exist as native `Billing` / `SalesOrders` columns (Application, Industry, Sales_Representative_T, Project_Coordinator_T, ProjectName, CustomerFullName, Territory_Name × 4, Material_D17_T, NetSlsCostAmount, Gross_Margin, Margin_Percent) or via dataflow tables.
+>
+> **Read [`recovered-missing-fields.md`](recovered-missing-fields.md), [`dataflow-production-crosswalk.md`](dataflow-production-crosswalk.md), and [`still-missing-after-dataflows.md`](still-missing-after-dataflows.md) for the current status.** This file is kept for historical context only.
+
 ## ⚠ Forecast measures — NOT FOUND in RL data model
 
 **Verified 2026-08-10 via DAX diagnostic queries.**

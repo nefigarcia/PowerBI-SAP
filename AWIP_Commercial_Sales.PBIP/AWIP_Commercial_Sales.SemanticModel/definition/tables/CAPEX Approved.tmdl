@@ -1,0 +1,73 @@
+table 'CAPEX Approved'
+	lineageTag: 4fa1455f-8c84-4441-901d-56fd56bcd901
+
+	column Order
+		dataType: string
+		lineageTag: 6e5b92a0-16ca-40cb-a021-bae75b7ae9eb
+		summarizeBy: none
+		sourceColumn: Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Internal CAPEX ID'
+		dataType: string
+		lineageTag: f007e32f-6e29-48c2-9b72-1f153e32de54
+		summarizeBy: none
+		sourceColumn: Internal CAPEX ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: df096224-4cf8-4cf5-b144-108b30a7d42e
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project
+		dataType: string
+		lineageTag: b7393e66-e7e7-4595-a51c-7a122a9149a0
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Currency
+		dataType: string
+		lineageTag: 80f43c59-f8b2-4616-90be-5954615ef67d
+		summarizeBy: none
+		sourceColumn: Currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAPEX Approved'
+		dataType: double
+		lineageTag: d7eece27-1f23-40fe-b0b2-7c925734743b
+		summarizeBy: none
+		sourceColumn: CAPEX Approved
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ORD_CAPID
+		dataType: string
+		lineageTag: c10f30e7-7f90-447a-b900-2dc2b052a627
+		summarizeBy: none
+		sourceColumn: ORD_CAPID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'CAPEX Approved' = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "d5c329e8-43dc-4c52-92f1-80c5fa7faaa6"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "CAPEX Approved", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

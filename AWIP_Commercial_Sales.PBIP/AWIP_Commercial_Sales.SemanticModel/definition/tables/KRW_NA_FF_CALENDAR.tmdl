@@ -1,0 +1,137 @@
+table KRW_NA_FF_CALENDAR
+	lineageTag: e2c78c41-aedc-4c63-a09f-91826f5e8033
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0eb1533c-da34-446c-aecd-cc1af1544dea
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: a35f32ca-2401-441a-8f02-c9ae61feb5c8
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: c4457f9f-5f37-4fd6-ae03-5dc824209bf8
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: fec7d018-e8b9-42e9-83e2-e8b5b3286b28
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e843d6d-4f27-4492-a02d-33170aca01ea
+		summarizeBy: sum
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 27f45cfc-d814-462d-b998-dffea0e0e36d
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2b50d71e-7051-4b59-bab8-e5145e77eb9f
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'End of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b2854cc3-83da-4c02-9b01-367c3e822d96
+		summarizeBy: none
+		sourceColumn: End of Month
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 0d43a0de-dd2a-422e-9e4b-0279d78bd0b9
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Current Month'
+		dataType: string
+		lineageTag: 62299e7f-718d-4c43-9f11-619e4c563ef3
+		summarizeBy: none
+		sourceColumn: Current Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtraction
+		dataType: double
+		lineageTag: 3484f7d4-3e10-4d64-a46a-37d98ac0b251
+		summarizeBy: sum
+		sourceColumn: Subtraction
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month Type'
+		dataType: string
+		lineageTag: 089966f0-0f0b-476f-8ab0-9a85dcfc19cb
+		summarizeBy: none
+		sourceColumn: Month Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calendar Date'
+		dataType: string
+		lineageTag: 340041a2-bd84-4c1b-ac08-eed89ae13e43
+		summarizeBy: none
+		sourceColumn: Calendar Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_CALENDAR = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "ba1d8f9b-3b34-4e61-907e-7ca9db97b302"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_CALENDAR", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

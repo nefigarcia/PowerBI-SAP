@@ -1,5 +1,9 @@
 # Missing / External Data Sources
 
+> ⚠ **SUPERSEDED (2026-08-12)** — Kingspan added 13 Power BI Dataflow tables to the AWIP model **and** enriched the Datasphere Billing / SalesOrders views with the previously-missing Customer.xlsx / KNVV.csv fields. Most of the classifications below are no longer accurate.
+>
+> **Read [`still-missing-after-dataflows.md`](still-missing-after-dataflows.md) for the current still-missing list** and [`recovered-missing-fields.md`](recovered-missing-fields.md) for what is now restorable. This file is kept for historical context only.
+
 **Scope:** Production tables + fields that DO NOT come from SAP Datasphere and therefore cannot be reproduced from the new Billing/Sales OData connections alone.
 
 ---

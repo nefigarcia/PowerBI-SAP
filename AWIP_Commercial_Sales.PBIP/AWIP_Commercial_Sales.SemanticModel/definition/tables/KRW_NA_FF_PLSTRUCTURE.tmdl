@@ -1,0 +1,71 @@
+table KRW_NA_FF_PLSTRUCTURE
+	lineageTag: 703487d8-31d7-4c8b-9f0a-a5d9174aa857
+
+	column 'Group Sort'
+		dataType: string
+		lineageTag: 283e2723-5837-4034-a843-e291002b5943
+		summarizeBy: none
+		sourceColumn: Group Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Group Description'
+		dataType: string
+		lineageTag: c56d1134-38df-4490-b896-934eb3e3e772
+		summarizeBy: none
+		sourceColumn: Group Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Number'
+		dataType: string
+		lineageTag: 1ec12939-edbb-496e-83fa-48037d15aa80
+		summarizeBy: none
+		sourceColumn: Line Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tagetik Account code'
+		dataType: string
+		lineageTag: de95c108-1f5f-44e6-8955-5bfa9438746b
+		summarizeBy: none
+		sourceColumn: Tagetik Account code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tagetik Account Description'
+		dataType: string
+		lineageTag: b1190bf2-d0af-4e69-9453-d683ac35bf7a
+		summarizeBy: none
+		sourceColumn: Tagetik Account Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'GL Account'
+		dataType: string
+		lineageTag: 0fac4218-e570-4867-b843-ee4234c4d8cd
+		summarizeBy: none
+		sourceColumn: GL Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Text for B/S P&L Item'
+		dataType: string
+		lineageTag: 580bc0de-b8b5-4fc5-a2b1-3eb409c0d1e5
+		summarizeBy: none
+		sourceColumn: Text for B/S P&L Item
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_PLSTRUCTURE = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "bd64cee7-1d35-46fb-97c7-5c3e15128af9"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_PLSTRUCTURE", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

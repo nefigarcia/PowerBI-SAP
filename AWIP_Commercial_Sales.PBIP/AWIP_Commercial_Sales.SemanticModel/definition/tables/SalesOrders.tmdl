@@ -190,6 +190,46 @@ table SalesOrders
 		displayFolder: Production Measures
 		lineageTag: 28a120d1-2597-4861-8715-761318820c6d
 
+	/// PY = same calendar month of prior year, using the KRW_NA_FF_CALENDAR dataflow table via an inactive relationship on CreationDate_D8.
+	measure 'PY Revenue Order Intake' =
+			CALCULATE(
+			    SUM(SalesOrders[Revenue_Order_Intake]),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: b2220001-0000-4000-a000-0000000000a1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sum PY Order Qty. in FT2 for Membranes OI' =
+			CALCULATE(
+			    SUM(SalesOrders[Order_Quantity_in_FT2]),
+			    CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "Membrane"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+		displayFolder: Production Measures
+		lineageTag: b2220001-0000-4000-a000-0000000000a2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum PY Order Qty. in BFT2 for ISO OI' =
+			CALCULATE(
+			    SUM(SalesOrders[Order_Quantity_in_BFT2]),
+			    CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "iso"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+		displayFolder: Production Measures
+		lineageTag: b2220001-0000-4000-a000-0000000000a3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column SalesDocument
 		dataType: string
 		displayFolder: Keys

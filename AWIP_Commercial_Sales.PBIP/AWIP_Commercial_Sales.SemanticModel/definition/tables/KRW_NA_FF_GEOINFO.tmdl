@@ -1,0 +1,67 @@
+table KRW_NA_FF_GEOINFO
+	lineageTag: 8da0548f-15af-4956-b09b-2af9bf8e0c7f
+
+	column Country
+		dataType: string
+		lineageTag: 772d327b-fef5-463e-96ff-60f0ec81318a
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Code
+		dataType: string
+		lineageTag: 3a65a32b-a163-4b81-b690-524f26273943
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 1789a46c-a0a5-4910-b23e-c0a8c8e8c026
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: 42ee6169-343f-470e-955c-3e6471180527
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: b26e4a74-77a1-403d-94db-a84a1cc1b05c
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COUNTRY_REGION
+		dataType: string
+		lineageTag: 94cdb614-dca9-4431-baa4-eafabd5f414c
+		summarizeBy: none
+		sourceColumn: COUNTRY_REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_GEOINFO = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "447d5626-27df-44c5-bc5e-b56916bdb28c"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_GEOINFO", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

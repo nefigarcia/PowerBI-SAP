@@ -1,0 +1,63 @@
+table KRW_NA_FF_COSTELEMHIER
+	lineageTag: 7bcda1c6-1a36-4933-9090-2530ae00632b
+
+	column 'Cost Element Group Key'
+		dataType: string
+		lineageTag: 98b5c829-c045-490b-a9a8-8643b8ef9cf7
+		summarizeBy: none
+		sourceColumn: Cost Element Group Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Group Text'
+		dataType: string
+		lineageTag: 11dbaa1a-f759-4c6c-8083-dec2bd1fb583
+		summarizeBy: none
+		sourceColumn: Cost Element Group Text
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Group Sorting'
+		dataType: string
+		lineageTag: 89365bf6-4503-4a20-87c5-0b87c9e4fce1
+		summarizeBy: none
+		sourceColumn: Cost Element Group Sorting
+
+		annotation SummarizationSetBy = Automatic
+
+	column CostElement
+		dataType: string
+		lineageTag: 4bea50e3-ec94-42c9-8b97-bc08921efea7
+		summarizeBy: none
+		sourceColumn: CostElement
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Element Description'
+		dataType: string
+		lineageTag: b0ee952b-2f4e-45da-947a-43a029f9dced
+		summarizeBy: none
+		sourceColumn: Cost Element Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exclude
+		dataType: string
+		lineageTag: 8b64411c-7c0a-4fb2-8bb1-b0e8e9faf14a
+		summarizeBy: none
+		sourceColumn: Exclude
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_COSTELEMHIER = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "a5cced2b-1fe6-48a6-937e-b8d2ec91ad34"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_COSTELEMHIER", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

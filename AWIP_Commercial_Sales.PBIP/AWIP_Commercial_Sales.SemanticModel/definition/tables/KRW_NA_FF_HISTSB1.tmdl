@@ -1,0 +1,152 @@
+table KRW_NA_FF_HISTSB1
+	lineageTag: a331a591-9a02-4440-95db-8bf0c55e2e41
+
+	column 'Internal CAPEX ID'
+		dataType: string
+		lineageTag: c08b284e-5c86-4484-8e6b-8c3ffe188e0e
+		summarizeBy: none
+		sourceColumn: Internal CAPEX ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Project
+		dataType: string
+		lineageTag: 0b1d8043-6d40-4a96-81c2-cc333ac2bb67
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: cac7c864-5293-488d-a18f-c4664f76e77a
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order
+		dataType: string
+		lineageTag: 60dd7f44-37f4-4e5a-bd02-86ab3483f3d0
+		summarizeBy: none
+		sourceColumn: Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Period
+		dataType: int64
+		formatString: 0
+		lineageTag: a7d4023d-f10c-48c2-a0ee-a7bb4f89a53b
+		summarizeBy: sum
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1245152-9b7f-41bb-8b83-5cc17d155517
+		summarizeBy: sum
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Invoice
+		dataType: string
+		lineageTag: 35d93435-d1e3-4994-85f1-66e787f310f8
+		summarizeBy: none
+		sourceColumn: Invoice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Invoice Date'
+		dataType: string
+		lineageTag: 17b1de43-e2d4-4ddd-8ca8-4945e841b74f
+		summarizeBy: none
+		sourceColumn: Invoice Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posting Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 52b4552f-51de-419d-87b9-89a20bcf2b8c
+		summarizeBy: none
+		sourceColumn: Posting Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Description
+		dataType: string
+		lineageTag: 884edd85-1600-4012-b640-750603ce4ae2
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount DC'
+		dataType: double
+		lineageTag: 4083e5e1-339e-4bf7-be23-79cc9da22827
+		summarizeBy: sum
+		sourceColumn: Amount DC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Curr
+		dataType: string
+		lineageTag: 3ffa321f-920d-4f76-9435-257b45897efd
+		summarizeBy: none
+		sourceColumn: Curr
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount LC'
+		dataType: double
+		lineageTag: 86a7ad74-e31f-4c56-af4e-ad2212d3038b
+		summarizeBy: sum
+		sourceColumn: Amount LC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Vendor
+		dataType: string
+		lineageTag: 51643d99-b997-4961-8194-3639c5ddbfe4
+		summarizeBy: none
+		sourceColumn: Vendor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Purchase Order'
+		dataType: string
+		lineageTag: ff4a3c34-c2a1-4947-abde-f2eccd1766d2
+		summarizeBy: none
+		sourceColumn: Purchase Order
+
+		annotation SummarizationSetBy = Automatic
+
+	column Item
+		dataType: string
+		lineageTag: 69f84edf-6e62-49d3-9ff9-2e3737101afe
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW_NA_FF_HISTSB1 = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "84b23137-ac92-40f8-a3f8-0df06d8f2399"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW_NA_FF_HISTSB1", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+
