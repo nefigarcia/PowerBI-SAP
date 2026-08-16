@@ -29,6 +29,7 @@ ref table KRW_NA_FF_HISTSB1
 ref table KRW_NA_FF_PLSTRUCTURE
 ref table KRW_NA_FF_TERRITORY
 ref table KRW_NA_FF_ZIPCODES
+ref table 'Fiscal Period Selector'
 
 ref cultureInfo en-US
 

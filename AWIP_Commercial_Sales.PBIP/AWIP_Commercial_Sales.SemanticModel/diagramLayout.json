@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 1701.3333740234375,
         "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 852.38305001469382,
-            "y": 25
+            "x": 4494.3830500146942,
+            "y": 39.496277694899248
           },
           "nodeIndex": "_Measures",
           "nodeLineageTag": "e0000001-0000-4000-a000-000000000001",
@@ -19,12 +19,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
         },
         {
           "location": {
-            "x": 588.38305001469371,
-            "y": 0
+            "x": 4230.3830500146942,
+            "y": 14.496277694899248
           },
           "nodeIndex": "Billing",
           "nodeLineageTag": "b1110001-0000-4000-a000-000000000001",
@@ -32,12 +32,12 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 334.20156119318523,
-            "y": 6.8521425700456859
+            "x": 3976.2015611931852,
+            "y": 21.348420264944934
           },
           "nodeIndex": "DimDate",
           "nodeLineageTag": "d0000001-0000-4000-a000-000000000001",
@@ -45,12 +45,12 @@
             "height": 272,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 50,
-            "y": -10.007444610201503
+            "x": 3692,
+            "y": 4.4888330846977453
           },
           "nodeIndex": "SalesOrders",
           "nodeLineageTag": "b2220001-0000-4000-a000-000000000001",
@@ -58,7 +58,188 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 334,
+            "y": 1
+          },
+          "nodeIndex": "CAPEX Approved",
+          "nodeLineageTag": "4fa1455f-8c84-4441-901d-56fd56bcd901",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 902,
+            "y": -25
+          },
+          "nodeIndex": "KRW_NA_FF_CALENDAR",
+          "nodeLineageTag": "e2c78c41-aedc-4c63-a09f-91826f5e8033",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 87
+          },
+          "nodeIndex": "KRW_NA_FF_COSTCENTREHIER",
+          "nodeLineageTag": "5ebfb110-25bb-453e-9eab-8eae74c76dc7",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1988,
+            "y": 87
+          },
+          "nodeIndex": "KRW_NA_FF_COSTCTHIER_ONDULINE",
+          "nodeLineageTag": "d51cc035-756c-4e3f-ae64-392e9f0f675c",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1470,
+            "y": 13
+          },
+          "nodeIndex": "KRW_NA_FF_COSTELEM_OH1",
+          "nodeLineageTag": "da47e9c8-b8de-466e-b191-d157a807712a",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1186,
+            "y": 13
+          },
+          "nodeIndex": "KRW_NA_FF_COSTELEMHIER",
+          "nodeLineageTag": "7bcda1c6-1a36-4933-9090-2530ae00632b",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 618,
+            "y": 37
+          },
+          "nodeIndex": "KRW_NA_FF_FISCALPERIOD",
+          "nodeLineageTag": "c2fc3219-4e3d-4e37-95dc-06d7efe18bbb",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2272,
+            "y": 39
+          },
+          "nodeIndex": "KRW_NA_FF_FORECAST_INTAKE",
+          "nodeLineageTag": "d9310c39-b3bd-4538-a933-927288bfe568",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 2556,
+            "y": 63
+          },
+          "nodeIndex": "KRW_NA_FF_GEOINFO",
+          "nodeLineageTag": "8da0548f-15af-4956-b09b-2af9bf8e0c7f",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -25
+          },
+          "nodeIndex": "KRW_NA_FF_HISTSB1",
+          "nodeLineageTag": "a331a591-9a02-4440-95db-8bf0c55e2e41",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 2840,
+            "y": 51
+          },
+          "nodeIndex": "KRW_NA_FF_PLSTRUCTURE",
+          "nodeLineageTag": "703487d8-31d7-4c8b-9f0a-a5d9174aa857",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 3124,
+            "y": 99
+          },
+          "nodeIndex": "KRW_NA_FF_TERRITORY",
+          "nodeLineageTag": "8e6b7ae8-7e01-432f-8378-af2576a6d47f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 3408,
+            "y": 99
+          },
+          "nodeIndex": "KRW_NA_FF_ZIPCODES",
+          "nodeLineageTag": "b6a3c110-1ea3-4219-99a6-5f692f854a39",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 4728.3830500146942,
+            "y": 82.248138847449638
+          },
+          "nodeIndex": "Fiscal Period Selector",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 17
         }
       ],
       "name": "All tables",

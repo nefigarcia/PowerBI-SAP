@@ -139,6 +139,15 @@ table Billing
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Selected Fiscal Period' =
+			
+			VALUE(
+			    MAX(
+			        'Fiscal Period Selector'[FiscalYearPeriod]
+			    )
+			)
+		lineageTag: e3c2452f-4b10-4230-983b-92f3f611fd36
+
 	column BillingDocument
 		dataType: string
 		displayFolder: Keys

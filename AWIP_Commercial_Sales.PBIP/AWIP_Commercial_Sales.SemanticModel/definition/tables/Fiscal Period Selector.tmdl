@@ -1,0 +1,25 @@
+table 'Fiscal Period Selector'
+	lineageTag: 9de12ee5-d544-4c46-ad58-e493e88a0df4
+
+	column FiscalYearPeriod
+		lineageTag: 0774bc77-3697-4911-b1e8-9706426ce229
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FiscalYearPeriod]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fiscal Period Selector' = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    SELECTCOLUMNS(
+				        Billing,
+				        "FiscalYearPeriod",
+				        Billing[FiscalYearPeriod]
+				    )
+				)
+
+	annotation PBI_Id = a647582021814df78fa564bcb6076cca
+
