@@ -1,0 +1,31 @@
+table KRW_NA_SAP_TVAPT
+	lineageTag: 259793e5-0fa6-4461-bb21-bf0bf8632258
+	sourceLineageTag: 98317e61-1d3b-49ee-8611-9dc2af8829d9
+
+	column 'Item Category'
+		dataType: string
+		isNullable: false
+		lineageTag: 63ad4299-9dae-40f3-aaa8-83b0fa0015aa
+		sourceLineageTag: 987fe3bb-73cb-4a1e-afa8-dc6048245f79
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category Description'
+		dataType: string
+		lineageTag: 369f25b0-c000-422d-9046-4f5738c7e524
+		sourceLineageTag: 63a778e7-8aa7-460c-b39d-4fec4d70a28d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category Description
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_SAP_TVAPT = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_TVAPT
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

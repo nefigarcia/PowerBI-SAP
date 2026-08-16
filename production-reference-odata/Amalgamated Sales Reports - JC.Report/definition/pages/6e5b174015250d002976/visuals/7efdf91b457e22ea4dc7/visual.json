@@ -1,0 +1,73 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "7efdf91b457e22ea4dc7",
+  "position": {
+    "x": 11.815384615384616,
+    "y": 293.4153846153846,
+    "z": 25000,
+    "height": 92.553846153846152,
+    "width": 160.49230769230769,
+    "tabOrder": 25000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "Sales Representative"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.Sales Representative",
+              "nativeQueryRef": "Sales Rep Orders",
+              "active": true,
+              "displayName": "Sales Rep Orders"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "selectAllCheckboxEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,75 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectQuery to AS - KRW_NA_SM_INVOICED","DirectQuery to AS - KRW_NA_SM_SORDERS","DirectQuery to AS - KRW_NA_SM_BACKLOG","Salesforce Quotes","Salesforce Quote Line Item"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table KRW_NA_FF_FISCALPERIOD
+ref table KRW_NA_SAP_VBRP
+ref table KRW_NA_SAP_TVM3T
+ref table KRW_NA_SAP_KNA1
+ref table KRW_NA_FF_CALENDAR
+ref table KRW_NA_SAP_LIKP
+ref table KRW_NA_SAP_MARM_BFT
+ref table KRW_NA_SAP_KNVV
+ref table KRW_NA_FF_GEOINFO
+ref table 'FiscalYearPeriods Slicer'
+ref table LocalDateTable_7549747c-3835-46cb-b679-6708d003061b
+ref table LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a
+ref table LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9
+ref table LocalDateTable_89c50fe7-31eb-4022-b6f2-2368a49a41a3
+ref table KRW-NA_FF_FORECAST
+ref table LocalDateTable_750892a4-fbbf-4041-bfec-4719f2d2feb0
+ref table KRW_NA_SAP_VBPA2
+ref table KRW_NA_SAP_TVAPT
+ref table 'KRW_NA_FF_FISCALPERIOD OI'
+ref table 'KRW_NA_SAP_KNA1 OI'
+ref table 'KRW_NA_FF_CALENDAR OI'
+ref table 'KRW_NA_SAP_KNVV OI'
+ref table 'KRW_NA_FF_GEOINFO OI'
+ref table 'KRW_NA_SAP_VBAP OI'
+ref table 'FiscalYearPeriods Slicer OI'
+ref table KRW_NA_FF_FORECAST_INTAKE
+ref table 'LocalDateTable_7549747c-3835-46cb-b679-6708d003061b 2'
+ref table 'LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a 2'
+ref table 'LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9 2'
+ref table LocalDateTable_fe6033ef-490c-467a-a1f3-49fe2e2abbcf
+ref table 'KRW_NA_FF_FISCALPERIOD SB'
+ref table 'KRW_NA_SAP_KNA1 SB'
+ref table 'KRW_NA_FF_CALENDAR SB'
+ref table 'KRW_NA_SAP_MARM_BFT 2'
+ref table 'KRW_NA_SAP_KNVV SB'
+ref table 'KRW_NA_FF_GEOINFO SB'
+ref table 'KRW_NA_SAP_VBAP SB'
+ref table KRW_NA_SAP_LIPS
+ref table 'FiscalYearPeriods Slicer SB'
+ref table 'LocalDateTable_7549747c-3835-46cb-b679-6708d003061b 3'
+ref table 'LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a 3'
+ref table 'LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9 3'
+ref table LocalDateTable_78efd809-5c10-4262-aa3a-be5293123fb2
+ref table 'Salesforce Quotes'
+ref table DateTableTemplate_86f3efbe-b4de-42f6-8730-5a6c63c9bab1
+ref table LocalDateTable_7a2d5ba1-a665-42ce-934b-818e4f55078d
+ref table LocalDateTable_c07dbbc8-83c6-41de-8964-f9b40556ac9c
+ref table LocalDateTable_a8248b06-a7dd-411f-81c5-061704daf33b
+ref table LocalDateTable_5cf4f00f-961e-4015-86b9-556161f9a72a
+ref table LocalDateTable_b630bc67-0e77-4bf2-a068-bca2f6cce244
+ref table LocalDateTable_7973285a-4d28-4d5a-a087-c89ef55c7319
+ref table 'Salesforce Quote Line Item'
+ref table LocalDateTable_d88424c6-a991-4b9d-8e0f-85b415be895f
+ref table LocalDateTable_2885518e-571f-4254-bfff-70bcdd9b55b0
+ref table LocalDateTable_905e68c3-9c93-4033-ad4e-6b8117bf75ff
+ref table LocalDateTable_d2ea07de-1f75-44de-b599-60723926aca4
+ref table LocalDateTable_350f55b9-e1da-41c1-9e1b-bb6613de1109
+ref table LocalDateTable_86c3c5ed-e5a6-44b5-bdf1-c1f00dced78e
+
+ref cultureInfo en-GB
+

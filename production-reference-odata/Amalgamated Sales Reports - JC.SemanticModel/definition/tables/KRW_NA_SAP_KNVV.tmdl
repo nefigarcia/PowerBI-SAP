@@ -1,0 +1,116 @@
+table KRW_NA_SAP_KNVV
+	lineageTag: 423a1f20-700f-4ae0-8e0a-ad0e998359cf
+	sourceLineageTag: f99a012a-2a63-4b75-a50e-526fc63d59ee
+
+	column Customer
+		dataType: string
+		isHidden
+		lineageTag: a0f34b18-702e-4485-9936-54512cc14feb
+		sourceLineageTag: e3d809f7-8d94-4ecc-9c6e-91b4c036fc99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Organization'
+		dataType: string
+		isHidden
+		lineageTag: 90053dff-ddf7-466e-a850-229f425f858b
+		sourceLineageTag: e8f154d0-ed0e-46c0-8d6b-c947f23031e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Organization
+
+		annotation SummarizationSetBy = User
+
+	column 'Distribution Channel'
+		dataType: string
+		isHidden
+		lineageTag: 94454fe0-bc0d-4968-b0c2-af7f473b2287
+		sourceLineageTag: ceeff288-5475-4bb1-b02c-9fb372229d0e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Distribution Channel
+
+		annotation SummarizationSetBy = User
+
+	column Division
+		dataType: string
+		isHidden
+		lineageTag: f5079228-fa09-438d-9915-cfaff32494e6
+		sourceLineageTag: fd9955c6-a57e-4e8f-9d29-471984f8b4b8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = User
+
+	column CUST_SALES
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: 88159018-7ef5-4c20-9511-ceda0342c858
+		sourceLineageTag: 3e605b33-0291-4c72-bebf-673a042f81e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_SALES
+
+		annotation SummarizationSetBy = User
+
+	column Created
+		dataType: string
+		lineageTag: 05f72a45-b917-438f-8d88-e756f30babbb
+		sourceLineageTag: ae9c4e5d-50cd-400e-9de9-75892e68ab15
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Group'
+		dataType: string
+		lineageTag: 295a7f2d-74ab-4262-a548-1129b91fc505
+		sourceLineageTag: 5b24cf0b-bd57-43dd-af2c-005ddfd70992
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Company Type'
+		dataType: string
+		lineageTag: ae819547-ea93-46af-9299-ca120240a917
+		sourceLineageTag: 8ee4d077-0b7d-4ae4-b4c2-dc6fcee97001
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Account Assignment Group'
+		dataType: string
+		lineageTag: fc27abee-e568-4d75-8a0c-436f399e8bd0
+		sourceLineageTag: 4b69fb75-ab95-4be2-a229-56785e82914f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Account Assignment Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Account Assignment Group Description'
+		dataType: string
+		lineageTag: cbb05726-cc42-4892-ae17-255ca8c840ba
+		sourceLineageTag: cccfcd91-74d4-4d5b-bc84-43c2c53e4faa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Account Assignment Group Description
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_SAP_KNVV = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_KNVV
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

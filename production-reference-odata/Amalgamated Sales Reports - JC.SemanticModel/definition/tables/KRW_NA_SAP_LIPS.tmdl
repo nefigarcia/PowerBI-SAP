@@ -1,0 +1,41 @@
+table KRW_NA_SAP_LIPS
+	lineageTag: 4dbcbd17-303e-41e3-ac8b-251ea3d632d1
+	sourceLineageTag: e8920c3e-bba7-4411-8207-1d80f14d297a
+
+	column DOC_ITM
+		dataType: string
+		isNullable: false
+		lineageTag: 1b5366fe-b365-447a-bc09-54ef524c3721
+		sourceLineageTag: 227bf222-79fd-442c-8958-b602b9c71dba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_ITM
+
+		annotation SummarizationSetBy = User
+
+	column 'Quantity Delivered BUoM'
+		dataType: double
+		lineageTag: 42c9378d-0ff2-4706-8772-fe53dd1a58f6
+		sourceLineageTag: 356df3a7-af11-45f3-9db7-b5571a975c90
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Quantity Delivered BUoM
+
+		annotation SummarizationSetBy = User
+
+	column 'Quantity Delivered SUoM'
+		dataType: double
+		lineageTag: 384a133c-c6f7-445c-a39a-2d5794ca6efc
+		sourceLineageTag: 48da6b74-f13e-4e9c-a42e-cc2c3c43fc39
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Quantity Delivered SUoM
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_SAP_LIPS = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_LIPS
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_BACKLOG'
+

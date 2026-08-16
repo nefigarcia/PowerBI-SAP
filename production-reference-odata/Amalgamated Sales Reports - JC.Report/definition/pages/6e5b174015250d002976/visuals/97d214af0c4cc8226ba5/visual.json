@@ -1,0 +1,93 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "97d214af0c4cc8226ba5",
+  "position": {
+    "x": 925.204991087344,
+    "y": 446.06060606060606,
+    "z": 8000,
+    "height": 263.52941176470586,
+    "width": 349.09090909090907,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Sales Representative"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Sales Representative",
+              "nativeQueryRef": "Sales Representative",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Revenue in DC with Sign"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)",
+              "nativeQueryRef": "Revenue",
+              "displayName": "Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

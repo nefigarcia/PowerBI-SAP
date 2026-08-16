@@ -1,0 +1,936 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "2cd0a0b22dc0f7e9d08f",
+  "position": {
+    "x": 0,
+    "y": 360,
+    "z": 6000,
+    "height": 257.14285714285717,
+    "width": 1279.5073891625616,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_FF_FISCALPERIOD SB"
+                    }
+                  },
+                  "Property": "Fiscal Year Period"
+                }
+              },
+              "queryRef": "KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period",
+              "nativeQueryRef": "Fiscal Year Period",
+              "displayName": "Fiscal Year Period"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_KNA1 SB"
+                    }
+                  },
+                  "Property": "Customer Description"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_KNA1 SB.Customer Description",
+              "nativeQueryRef": "Sold-To Name",
+              "displayName": "Sold-To Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Product Family"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Product Family",
+              "nativeQueryRef": "Product Family"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Secondary Grouping"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Secondary Grouping",
+              "nativeQueryRef": "Secondary Grouping"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Item Description"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Item Description",
+              "nativeQueryRef": "Item Description"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Order Qty. in FT2"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP SB.Order Qty. in FT2)",
+              "nativeQueryRef": "Order Qty. in FT2",
+              "displayName": "Order Qty. in FT2"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Order Qty. in BFT2"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP SB.Order Qty. in BFT2)",
+              "nativeQueryRef": "Order Qty. in BFT2",
+              "displayName": "Order Qty. in BFT2"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Unit Price in DC"
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP SB.Unit Price in DC)",
+              "nativeQueryRef": "Unit Price in DC",
+              "displayName": "Unit Price"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Price UoM"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Pricing UoM",
+              "nativeQueryRef": "Price UoM",
+              "displayName": "Price UoM"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Revenue in DC with Sign"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)",
+              "nativeQueryRef": "Revenue",
+              "displayName": "Revenue"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "SO Quantity in Sales UoM with Sign"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP SB.SO Quantity in Sales UoM with Sign)",
+              "nativeQueryRef": "Order Quantity in Sales UoM",
+              "displayName": "Order Quantity in Sales UoM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Material"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Material",
+              "nativeQueryRef": "Material"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Sales UoM"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Sales UoM",
+              "nativeQueryRef": "Sales UoM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Plant"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Plant",
+              "nativeQueryRef": "Plant"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Sales Document"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Sales Document",
+              "nativeQueryRef": "Sales Order",
+              "displayName": "Sales Order"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Sales Item"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Sales Item",
+              "nativeQueryRef": "Sales Item"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Customer Project Name"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Customer Project Name",
+              "nativeQueryRef": "Customer Project Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Ship-to State Name"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Ship-to State Name",
+              "nativeQueryRef": "Ship-to State",
+              "displayName": "Ship-to State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Bill-to State Name"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Bill-to State Name",
+              "nativeQueryRef": "Bill-to State",
+              "displayName": "Bill-to State"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Sold-To"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Sold-To",
+              "nativeQueryRef": "Sold-To"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Document Date"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Document Date",
+              "nativeQueryRef": "Document Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Requested Delivery Date"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Requested Delivery Date",
+              "nativeQueryRef": "Requested Delivery Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Industry Text"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Industry Text",
+              "nativeQueryRef": "Industry",
+              "displayName": "Industry"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_KNVV SB"
+                    }
+                  },
+                  "Property": "Company Type"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_KNVV SB.Company Type",
+              "nativeQueryRef": "Company Type1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Project Coordinator"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Project Coordinator",
+              "nativeQueryRef": "Project Coordinator"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP SB"
+                    }
+                  },
+                  "Property": "Sales Representative"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP SB.Sales Representative",
+              "nativeQueryRef": "Sales Representative"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_KNA1 SB"
+                    }
+                  },
+                  "Property": "Region"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_KNA1 SB.Region",
+              "nativeQueryRef": "State",
+              "displayName": "State"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Order Qty. in M2"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP SB.Order Qty. in M2)",
+              "nativeQueryRef": "Order Qty. in M2",
+              "displayName": "Order Qty. in M2"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KRW_NA_FF_FISCALPERIOD SB"
+                  }
+                },
+                "Property": "Fiscal Year Period"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "135.48441447721856D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_KOB1.Internal CAPEX ID"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "153.90318840432911D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_KOB1.Remaining"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "157.70442141401344D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "CAPEX Approved.Project"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "123.37083118794538D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KRW_NA_SAP_KOB1.Amount LC)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "130.95519773384345D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(CAPEX Approved.CAPEX Approved)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.33633312385741D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_KOB1.% CAPEX"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.48374128088163D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_VBRP.Margin Perc"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "underline": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "italic": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dotted'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "border": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C0995D'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "foreground": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#004288'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

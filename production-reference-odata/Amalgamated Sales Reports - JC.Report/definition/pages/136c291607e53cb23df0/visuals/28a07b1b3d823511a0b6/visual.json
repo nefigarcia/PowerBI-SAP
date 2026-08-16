@@ -1,0 +1,181 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "28a07b1b3d823511a0b6",
+  "position": {
+    "x": 0,
+    "y": 154.34083601286173,
+    "z": 0,
+    "height": 205.78778135048231,
+    "width": 1280,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Product Family"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Product Family",
+              "nativeQueryRef": "Product Family",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Current FYP VBRP"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Current FYP VBRP",
+              "nativeQueryRef": "Current FYP VBRP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Prior Year FYP VBRP"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Prior Year FYP VBRP",
+              "nativeQueryRef": "Prior Year FYP VBRP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Current Date FYP VBRP"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Current Date FYP VBRP",
+              "nativeQueryRef": "Current Date FYP VBRP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Prior Year Date FYP VBRP"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Prior Year Date FYP VBRP",
+              "nativeQueryRef": "Prior Year Date FYP VBRP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Current Fiscal Month Billing Qty. in FT2 for Membranes Split"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in FT2 for Membranes Split",
+              "nativeQueryRef": "Current Fiscal Month Billing Qty. in FT2 for Membranes Split"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Prior Year Fiscal Month Billing Qty. in FT2 for Membranes Split"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Prior Year Fiscal Month Billing Qty. in FT2 for Membranes Split",
+              "nativeQueryRef": "Prior Year Fiscal Month Billing Qty. in FT2 for Membranes Split"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KRW_NA_SAP_VBRP"
+                  }
+                },
+                "Property": "Product Family"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "215.87664223312416D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in FT2 for Membranes Split"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "212.45656993899192D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KRW_NA_SAP_VBRP.Prior Year Fiscal Month Billing Qty. in FT2 for Membranes Split"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

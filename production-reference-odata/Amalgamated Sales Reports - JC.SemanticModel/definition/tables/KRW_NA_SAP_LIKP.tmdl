@@ -1,0 +1,38 @@
+table KRW_NA_SAP_LIKP
+	lineageTag: f7bf616e-6d8e-4ad8-98aa-639178432c8b
+	sourceLineageTag: ebed1b5f-a8eb-4ed4-8053-126a0a5ce030
+
+	column 'Delivery Document'
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: dbc63fdb-c053-47db-968e-79d45eb3de25
+		sourceLineageTag: 122710a9-2021-499d-94cc-c4c5bb0c4ae4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Delivery Document
+
+		annotation SummarizationSetBy = User
+
+	column 'Delivery Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: cb776c64-0615-4d1b-b496-cf42a73150da
+		sourceLineageTag: 31146f80-28e9-42b2-ba0b-d65168dd6239
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Delivery Date
+
+		variation Variation
+			isDefault
+			relationship: a13a1b5a-bfa1-4127-88ff-39a5285c240a
+			defaultHierarchy: LocalDateTable_89c50fe7-31eb-4022-b6f2-2368a49a41a3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_SAP_LIKP = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_LIKP
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

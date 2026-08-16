@@ -1,0 +1,176 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "3932cc9fc84a0e1e3b03",
+  "position": {
+    "x": 334.92227979274611,
+    "y": 1.105354058721943,
+    "z": 7000,
+    "height": 103.90328151986184,
+    "width": 343.7651122625216,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Revenue in DC with Sign"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)",
+              "nativeQueryRef": "Sales",
+              "displayName": "Sales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Revenue Previous Year"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Revenue Previous Year",
+              "nativeQueryRef": "Sales PY",
+              "displayName": "Sales PY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Sum Billing Qty. in FT2 for Membranes"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes",
+              "nativeQueryRef": "Sales QTY",
+              "displayName": "Sales QTY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBRP"
+                    }
+                  },
+                  "Property": "Sum Billing Qty. in FT2 for Membranes Prior Year"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes Prior Year",
+              "nativeQueryRef": "Sales QTY PY",
+              "displayName": "Sales QTY PY"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "KRW_NA_SAP_VBRP"
+                      }
+                    },
+                    "Property": "Revenue in DC with Sign"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "card": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "barColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {}
+        }
+      ],
+      "dataLabels": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,2827 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Toggle OFF",
+  "name": "1c79400e0ce1805a9e10",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "36e3c70f7d49c897e374",
+      "a3b8a670c2692cb0d891",
+      "8bd4ae63a27dc1a5543e",
+      "520c005c05d33c73c781",
+      "6fd1fb9eaba070d0dbc0",
+      "dc6839761cc0598db374",
+      "c04715fe0c9be745bd78",
+      "f512c54224ed119a3dc0",
+      "cebcd2779509ee2601b6",
+      "3ddc70f064727c751b9e",
+      "bf6d504ed1196115a423",
+      "822b678f0d3484937b08",
+      "f932c8ddd2b72081d460",
+      "356223a09c28a2661d8d",
+      "9cc7e3e00cdee5c38e59",
+      "9afceb00ee0bd5a03bc4",
+      "14ad5a174a07b684092d",
+      "3b6a620b05b55c098bd1",
+      "cb47ed40069281b75472",
+      "724bb1f31aede015a7cc",
+      "d134e1df2c895e2de450",
+      "462468d510ce00e510c3",
+      "091dc318eeb7078435d8",
+      "88837ea3db1e705167da"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "4cebd6cd708bb1448d5f",
+    "sections": {
+      "4cebd6cd708bb1448d5f": {
+        "visualContainers": {
+          "bf6d504ed1196115a423": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          },
+          "822b678f0d3484937b08": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "dc6839761cc0598db374": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "764c1ebedffc20252b8a",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4b493cf3d8c9f538a5c4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c849260c8e883f8bbc19",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Current Month Order Revenue Doc Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9e41255437cb0a9a39a9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Current Month Order Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "620c67cc18c2dfe08267",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "$ Difference Current Month"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "356223a09c28a2661d8d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "938d0bed903d16379766",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "k"
+                                    }
+                                  },
+                                  "Property": "Product Family"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'TPO Membranes'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c6213c0d8d7dc483562b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Current Fiscal Month Sales Membrane sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a5bf5bc37c3e6fe40950",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Current Calendar Month Order FT2 for Membranes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "14d6e1c66c9cb1b4248d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "88837ea3db1e705167da": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "f932c8ddd2b72081d460": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "938d0bed903d16379766",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a7fc233c32925cf1ee70",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e28d27d77cfe49ef70f7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Current Fiscal Month Sales ISO sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d2c42d3a003508d20980",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Current Month Sales ISO bdft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5c9142e275cd36210eed",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Current Calendar Month Order FT2 for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d518720abde11fe16656",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Current Calendar Month Order BFT for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f512c54224ed119a3dc0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3993afe3b73bd33daf94",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f4dd36a4bb4f23dce380",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "657f6e78007d63a8c608",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Current Month Order Revenue Doc Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1eec1e715bcdb661d0b6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Current Month Order Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "83aee309358da303d9d7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "$ Difference Current Month"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9cc7e3e00cdee5c38e59": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "be8c2bf7bca6a1f9479e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "87faa327a18cd6f4d0c4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db25554da73efd2867ad",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "$ Difference YTD VBRP"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "be1be0262ad3a73ce795",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "YTD Invoiced Revenue Billing Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c4cc032afd6598d55abd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "YTD Invoice Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "3ddc70f064727c751b9e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1459682c0fad95cbd371",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a1e8e929ea571aad3edf",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4a7d7556afd57620bde0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "YTD Invoiced Revenue Billing Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b48ab8b7f454ad880265",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "YTD Invoice Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "64ac4b79ba2f4efc27af",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "$ Difference YTD VBRP"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "6fd1fb9eaba070d0dbc0": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "938d0bed903d16379766",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9f69eb8f94692786102e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6ebb670823212820b80d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "YTD Order Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8cc7392b2282f2f18d98",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "YTD Order Revenue Doc Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1b0485dfc4eaee0f2047",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "$ Difference YTD"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "9afceb00ee0bd5a03bc4": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9c7ef0441f0b529dbbc9",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "83a20e02ba1f6a4a74ff",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a2241773cbfa7bfb1575",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Current Month Invoiced Revenue Billing Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "db6d3724329252436448",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Current Month Invoice Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "628a526a6f965933c025",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "$ Difference Current Month VBRP"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "14ad5a174a07b684092d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "cfcd238913fc9ec004a7",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9ff7e2afe47c73666d79",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Current Month Invoice Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "16dee72cf5956f0c2494",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7dc99e181a642fad87ca",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Current Month Invoiced Revenue Billing Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6ab94f259a7f89c7ca3c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "$ Difference Current Month VBRP"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "c04715fe0c9be745bd78": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "938d0bed903d16379766",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c168fba0b6d4c296f335",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "934ae80263f8f46a00ee",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "YTD Order Revenue Doc Date"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "61283a5c079fa13c705b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "YTD Order Revenue Fcst"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "df545bbca1069469a20f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "$ Difference YTD"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "cebcd2779509ee2601b6": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "938d0bed903d16379766",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6197e302f8c11d1c5881",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ca68a40a127275613f28",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "YTD Sales ISO bdft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9a1328395174acdf1f06",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "YTD Sales ISO sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "134bf31215e1ba39c413",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "YTD Order BFT for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "295c416faefb8c265b6f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "YTD Order FT2 for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "3b6a620b05b55c098bd1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "938d0bed903d16379766",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP OI",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6ef7d3b4e1b085464305",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a892b46372442a68329d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "YTD Order FT2 for Membranes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "33c226e7691e59df1ddf",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "YTD Sales Membrane sqft"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "cb47ed40069281b75472": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "90306d886d2b90e975d3",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d5fd14da8c6ce38e42ab",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "YTD Billing Qty. in FT2 for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d51d22cd6689768d124b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "YTD Invoiced Sales ISO sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "546411cdb2f4f5badbc6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f3cc0107abbdca9c0a39",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "YTD Billing Qty. in BFT2 for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4af5dd9476f77e77307a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "YTD Invoiced Sales ISO bdft"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "724bb1f31aede015a7cc": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "8116863bc72e9d4202d8",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4626e847696c46b8f4cb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "YTD Billing Qty. in FT2 for Membranes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b7b7dcc95a0f97250044",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "YTD Invoiced Sales Membrane sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f3ffe1cc72940fb7e184",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "d134e1df2c895e2de450": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5e64fd91b597a5065b55",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'ISO'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'iso'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "a524863bfb6f17aca327",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Current Month Billing Qty. in BFT2 for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0215e0c77bc5a29e10e4",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Current Month Billing Qty. in FT2 for ISO"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f398b3ced5d1a5757b27",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Current Month Invoiced Sales ISO sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "619fc7a9cca20081f90c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "88b1738d1ebe32986fe9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Current Month Invoiced Sales ISO bdft"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "462468d510ce00e510c3": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9c740d62b3ae1d59e8f7",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k1",
+                        "Entity": "KRW_NA_SAP_VBRP",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Or": {
+                            "Left": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k1"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'Membrane'"
+                                  }
+                                }
+                              }
+                            },
+                            "Right": {
+                              "Contains": {
+                                "Left": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "k1"
+                                      }
+                                    },
+                                    "Property": "Product Family"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "'membrane'"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9a8fde44fd1ac575df89",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Current Month Billing Qty. in FT2 for Membranes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b7d0c13658789ad4d2db",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Current Month Invoiced Sales Membrane sqft"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "47a8df50a9c96b273781",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW-NA_FF_FORECAST"
+                            }
+                          },
+                          "Property": "Prior Year"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Product Family"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "091dc318eeb7078435d8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "37bcc101610baafd4720",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FISCALPERIOD SB"
+                        }
+                      },
+                      "Property": "Fiscal Year Period"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0dad6eb8586d3331b33a",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBAP SB"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "barChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FISCALPERIOD SB"
+                        }
+                      },
+                      "Property": "Fiscal Year Period"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FISCALPERIOD SB"
+                        }
+                      },
+                      "Property": "Fiscal Year Period"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "520c005c05d33c73c781": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "8bd4ae63a27dc1a5543e": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {}
+            }
+          },
+          "a3b8a670c2692cb0d891": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "36e3c70f7d49c897e374": {
+            "singleVisual": {
+              "visualType": "textbox",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+table KRW_NA_SAP_TVM3T
+	lineageTag: c6cd0eac-4678-4040-8e29-97b8aa845392
+	sourceLineageTag: 5ea10157-f56c-41f4-957c-665003159608
+
+	column 'Product Family'
+		dataType: string
+		isHidden
+		lineageTag: d44a8657-e68a-40b6-858d-24cfb496bd7f
+		sourceLineageTag: 34b62f1b-f277-4426-875a-6078a964503a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Product Family
+
+		annotation SummarizationSetBy = User
+
+	column 'Product Family Description'
+		dataType: string
+		lineageTag: 6e261424-3b7d-4a09-85a4-25a50b5e739b
+		sourceLineageTag: 9df53255-45f4-4dcb-adf7-47ce2444feeb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Product Family Description
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_SAP_TVM3T = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_TVM3T
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

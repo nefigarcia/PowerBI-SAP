@@ -1,0 +1,1106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Order Intake",
+  "name": "ab584024d280d15c4812",
+  "options": {
+    "targetVisualNames": [],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "6e5b174015250d002976",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "4067e310f5408c067b6d",
+          "type": "Advanced",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "k",
+                "Entity": "KRW-NA_FF_FORECAST",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "StartsWith": {
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "k"
+                          }
+                        },
+                        "Property": "Fiscal Year Period Sorted"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'2026'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "KRW-NA_FF_FORECAST"
+                }
+              },
+              "Property": "Fiscal Year Period Sorted"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "a21f8befbbffcb8cc178",
+          "type": "Advanced",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "f",
+                "Entity": "FiscalYearPeriods Slicer SB",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Not": {
+                    "Expression": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "f"
+                              }
+                            },
+                            "Property": "Fiscal Year Period"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "null"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "FiscalYearPeriods Slicer SB"
+                }
+              },
+              "Property": "Fiscal Year Period"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "f456e166e5b08a50797a",
+          "type": "Advanced",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "k",
+                "Entity": "KRW_NA_FF_FORECAST_INTAKE",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "StartsWith": {
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "k"
+                          }
+                        },
+                        "Property": "Fiscal Year Period Sorted"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'2026'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                }
+              },
+              "Property": "Fiscal Year Period Sorted"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "6e5b174015250d002976": {
+        "visualContainers": {
+          "48a0266aac7a01d63142": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "072e9784399c46e2e38c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_GEOINFO"
+                        }
+                      },
+                      "Property": "State"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "57877ffcc4878e8efd7c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "shapeMap",
+              "objects": {}
+            }
+          },
+          "e965f040da46b94b8d07": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "06cefe550515ea333a8a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_KNVV"
+                        }
+                      },
+                      "Property": "Account Assignment Group Description"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "31918fd59f24b54d8a1c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pieChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_KNVV"
+                        }
+                      },
+                      "Property": "Account Assignment Group Description"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "afb7e0b7b6723dbab9c5": {
+            "singleVisual": {
+              "visualType": "image",
+              "objects": {}
+            }
+          },
+          "3932cc9fc84a0e1e3b03": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "44c30bffece587bf6c04",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3f5e0ca4451ec36c5adb",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Revenue Previous Year"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "806059bcf20ef2597538",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Sum Billing Qty. in FT2 for Membranes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2142b6212e9b4f73cc89",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Sum Billing Qty. in FT2 for Membranes Prior Year"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "multiRowCard",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "97d214af0c4cc8226ba5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a763367537f77a6b8a49",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Sales Representative"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9da36c39e1a03acf7756",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "treemap",
+              "objects": {},
+              "activeProjections": {
+                "Group": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Sales Representative"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "dda1dc7eace68e474607": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d2e13bde0b72152fd0f3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "115d7a86df6c1218d545",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Fiscal Year Period Sorted"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Fiscal Year Period Sorted"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW-NA_FF_FORECAST"
+                        }
+                      },
+                      "Property": "Fiscal Year Period Sorted"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "2c2b3a6ec67a4667e4c8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0744e7f1f7e2cc211b26",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBAP OI"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "eabbc7c141c1eede6515",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Fiscal Year Period Sorted"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Fiscal Year Period Sorted"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                        }
+                      },
+                      "Property": "Fiscal Year Period Sorted"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7b4f39b15a43ba1e2e23": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5fdcc0e075601bbbbaee",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s1",
+                        "Entity": "Salesforce Quote Line Item",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Aggregation": {
+                                    "Expression": {
+                                      "Column": {
+                                        "Expression": {
+                                          "SourceRef": {
+                                            "Source": "s1"
+                                          }
+                                        },
+                                        "Property": "Quantity"
+                                      }
+                                    },
+                                    "Function": 0
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Salesforce Quote Line Item"
+                            }
+                          },
+                          "Property": "Quantity"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0294c9b33b164403e07a",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "s",
+                        "Entity": "Salesforce Quotes",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "In": {
+                                "Expressions": [
+                                  {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Source": "s"
+                                        }
+                                      },
+                                      "Property": "Status"
+                                    }
+                                  }
+                                ],
+                                "Values": [
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Rejected'"
+                                      }
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "Literal": {
+                                        "Value": "'Approved'"
+                                      }
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Salesforce Quotes"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "3150c7cdb86d1a866954",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Salesforce Quotes"
+                        }
+                      },
+                      "Property": "Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e26730c0629d6ff4c3dd",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Salesforce Quotes"
+                            }
+                          },
+                          "Property": "TotalPrice"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "Salesforce Quote Line Item"
+                            }
+                          },
+                          "Property": "Quantity"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "8a69018cb13c227b453c": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c8ac72a20706ea232282",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Customer Project Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d599b7a0350695d6da53",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Sum Order Qty. in FT2 for Membranes OI"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "5908b2141ac21c086e47",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBAP OI"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Sum Order Qty. in FT2 for Membranes OI"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "c5c5fe4e8b181c543e9c": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e43b163f5159b0d437bc": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7d92814c64023a7b5053": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "36c52ad5eb5526e5d79a": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "a17603475cb8996b4082": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "9d716294469b5e9d150e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Sum Billing Qty. in FT2 for Membranes"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4e066c9510c14b2edc3d",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBRP"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2499980ec67eb5229d81",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Customer Project Name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBRP"
+                        }
+                      },
+                      "Property": "Sum Billing Qty. in FT2 for Membranes"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "81a2e0dc5ae8166e0a39": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "af079b1d436f3dd50bdf",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Customer Project Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c669cf4b27d2ef33508b",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "k",
+                        "Entity": "KRW_NA_SAP_VBAP SB",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "k"
+                                  }
+                                },
+                                "Property": "Sum Order Qty. in FT2 for Membranes SB"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Sum Order Qty. in FT2 for Membranes SB"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4633280815a268eb24a2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "KRW_NA_SAP_VBAP SB"
+                            }
+                          },
+                          "Property": "Revenue in DC with Sign"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP SB"
+                        }
+                      },
+                      "Property": "Sum Order Qty. in FT2 for Membranes SB"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

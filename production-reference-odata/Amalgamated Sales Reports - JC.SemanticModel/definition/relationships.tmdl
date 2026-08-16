@@ -1,0 +1,224 @@
+relationship 84976a58-2a56-42af-b5e1-b73645366dd6
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: KRW_NA_FF_FISCALPERIOD.'Calendar Date'
+	toColumn: KRW_NA_FF_CALENDAR.'Calendar Date'
+
+relationship 6020dedc-d137-4426-a098-fbb99de3ec1d
+	fromColumn: KRW_NA_FF_FISCALPERIOD.'Fiscal Year Period'
+	toColumn: 'FiscalYearPeriods Slicer'.'Fiscal Year Period'
+
+relationship 2750bb55-72e1-497f-86e1-a97ed20ef100
+	fromColumn: KRW_NA_SAP_VBRP.'Sold To'
+	toColumn: KRW_NA_SAP_KNA1.Customer
+
+relationship 9ea45544-5cca-46b9-980f-9c095297d30d
+	fromColumn: KRW_NA_SAP_VBRP.'Billing Date'
+	toColumn: KRW_NA_FF_CALENDAR.Date
+
+relationship adb76900-d09c-4827-9a6a-634658292711
+	fromColumn: KRW_NA_SAP_VBRP.'Delivery Document'
+	toColumn: KRW_NA_SAP_LIKP.'Delivery Document'
+
+relationship c4dcc523-db7a-4f04-86b0-32f38b2d8fa9
+	fromColumn: KRW_NA_SAP_VBRP.CUST_SALES
+	toColumn: KRW_NA_SAP_KNVV.CUST_SALES
+
+relationship 7c19d78a-c394-4061-92f7-7cfacaeb085c
+	fromColumn: KRW_NA_SAP_KNA1.COUNTRY_REGION
+	toColumn: KRW_NA_FF_GEOINFO.COUNTRY_REGION
+
+relationship 11021782-5174-4838-a6a5-9cc065bd5629
+	fromColumn: KRW_NA_FF_CALENDAR.Date
+	toColumn: LocalDateTable_7549747c-3835-46cb-b679-6708d003061b.Date
+
+relationship 3b181dd1-03e7-4458-b48d-a14ffb51e3ad
+	fromColumn: KRW_NA_FF_CALENDAR.'Start of Month'
+	toColumn: LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a.Date
+
+relationship 4327ed5a-960d-438e-a582-c24679c47a4b
+	fromColumn: KRW_NA_FF_CALENDAR.'End of Month'
+	toColumn: LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9.Date
+
+relationship a13a1b5a-bfa1-4127-88ff-39a5285c240a
+	fromColumn: KRW_NA_SAP_LIKP.'Delivery Date'
+	toColumn: LocalDateTable_89c50fe7-31eb-4022-b6f2-2368a49a41a3.Date
+
+relationship 941497e8-6da5-461c-94f1-a0bd4ab96fee
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'FiscalYearPeriods Slicer'.'Fiscal Year Period'
+	toColumn: KRW-NA_FF_FORECAST.'Fiscal Year Period 2'
+
+relationship 60b64453-1540-4641-9dde-6004ac23220d
+	fromColumn: KRW_NA_SAP_VBRP.'Requested Delivery Date'
+	toColumn: LocalDateTable_750892a4-fbbf-4041-bfec-4719f2d2feb0.Date
+
+relationship 5812e248-0798-4580-a2c0-502e6f6fda6c
+	fromColumn: KRW_NA_SAP_VBRP.'Item Category'
+	toColumn: KRW_NA_SAP_TVAPT.'Item Category'
+
+relationship f5714de2-31c8-4536-a1cd-ad74c52fec30
+	fromColumn: 'KRW_NA_FF_FISCALPERIOD OI'.'Fiscal Year Period'
+	toColumn: 'FiscalYearPeriods Slicer OI'.'Fiscal Year Period'
+
+relationship 53677a5f-8f47-4215-b472-19698ec917ca
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'KRW_NA_FF_FISCALPERIOD OI'.'Calendar Date'
+	toColumn: 'KRW_NA_FF_CALENDAR OI'.'Calendar Date'
+
+relationship 38d88028-df01-4c75-aaf2-c410d8723c17
+	fromColumn: 'KRW_NA_SAP_KNA1 OI'.COUNTRY_REGION
+	toColumn: 'KRW_NA_FF_GEOINFO OI'.COUNTRY_REGION
+
+relationship 9888bfce-604e-4acb-8303-b2cb90b5943f
+	fromColumn: 'KRW_NA_FF_CALENDAR OI'.Date
+	toColumn: 'LocalDateTable_7549747c-3835-46cb-b679-6708d003061b 2'.Date
+
+relationship 7856747d-00b1-401d-aba6-713cec35759f
+	fromColumn: 'KRW_NA_FF_CALENDAR OI'.'Start of Month'
+	toColumn: 'LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a 2'.Date
+
+relationship 6e14cffa-83d9-4a81-9562-bf3b4caac618
+	fromColumn: 'KRW_NA_FF_CALENDAR OI'.'End of Month'
+	toColumn: 'LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9 2'.Date
+
+relationship 22670f6a-8f95-496f-afa9-cb0f4a9b77b5
+	fromColumn: 'KRW_NA_SAP_VBAP OI'.'Requested Delivery Date'
+	toColumn: LocalDateTable_fe6033ef-490c-467a-a1f3-49fe2e2abbcf.Date
+
+relationship 6d9b2b66-26f4-43bf-b9d4-ba460566f827
+	fromColumn: 'KRW_NA_SAP_VBAP OI'.'Document Date'
+	toColumn: 'KRW_NA_FF_CALENDAR OI'.Date
+
+relationship ea788fbb-a693-4457-8d0d-3a2f09adb93a
+	fromColumn: 'KRW_NA_SAP_VBAP OI'.Sold-To
+	toColumn: 'KRW_NA_SAP_KNA1 OI'.Customer
+
+relationship 4580f6b7-c3e7-40c2-ae19-2abc4032a273
+	fromColumn: 'KRW_NA_SAP_VBAP OI'.CUST_SALES
+	toColumn: 'KRW_NA_SAP_KNVV OI'.CUST_SALES
+
+relationship 08f23610-97ed-4a24-835c-a01cb1db1fea
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'FiscalYearPeriods Slicer OI'.'Fiscal Year Period'
+	toColumn: KRW_NA_FF_FORECAST_INTAKE.'Fiscal Year Period'
+
+relationship 6125feb5-0018-4748-9add-85d610f5dd4b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'KRW_NA_FF_FISCALPERIOD SB'.'Calendar Date'
+	toColumn: 'KRW_NA_FF_CALENDAR SB'.'Calendar Date'
+
+relationship ae536b8d-22da-4127-bc72-f8d0444f2f75
+	fromColumn: 'KRW_NA_SAP_KNA1 SB'.COUNTRY_REGION
+	toColumn: 'KRW_NA_FF_GEOINFO SB'.COUNTRY_REGION
+
+relationship 81df9a63-213d-4b6b-9bf0-a0239da97d45
+	fromColumn: 'KRW_NA_FF_CALENDAR SB'.Date
+	toColumn: 'LocalDateTable_7549747c-3835-46cb-b679-6708d003061b 3'.Date
+
+relationship 87623bbf-0657-4178-93e3-a23736e7a370
+	fromColumn: 'KRW_NA_FF_CALENDAR SB'.'Start of Month'
+	toColumn: 'LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a 3'.Date
+
+relationship eebdbd15-631f-4584-a190-0610f659527f
+	fromColumn: 'KRW_NA_FF_CALENDAR SB'.'End of Month'
+	toColumn: 'LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9 3'.Date
+
+relationship e750b053-5371-4797-916a-af90a84cf97c
+	fromColumn: 'KRW_NA_FF_CALENDAR SB'.'Fiscal Year Period'
+	toColumn: 'FiscalYearPeriods Slicer SB'.'Fiscal Year Period'
+
+relationship 941b4261-5825-4d8c-9b0c-78d76816c15f
+	fromColumn: 'KRW_NA_SAP_VBAP SB'.Material
+	toColumn: 'KRW_NA_SAP_MARM_BFT 2'.Material
+
+relationship 22fc58b4-725c-46b8-be07-32eea8522383
+	fromColumn: 'KRW_NA_SAP_VBAP SB'.Sold-To
+	toColumn: 'KRW_NA_SAP_KNA1 SB'.Customer
+
+relationship 08091f14-1a32-417b-b009-0a4f80bbce9e
+	fromColumn: 'KRW_NA_SAP_VBAP SB'.'Document Date'
+	toColumn: LocalDateTable_78efd809-5c10-4262-aa3a-be5293123fb2.Date
+
+relationship c0b926d2-0bb1-4f40-897b-2fd8a8bbdd9e
+	fromColumn: 'KRW_NA_SAP_VBAP SB'.'Requested Delivery Date'
+	toColumn: 'KRW_NA_FF_CALENDAR SB'.Date
+
+relationship 1859846b-50d5-4ce0-8f7b-328e9d03cf15
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'KRW_NA_SAP_VBAP SB'.SO_ITEM
+	toColumn: KRW_NA_SAP_LIPS.DOC_ITM
+
+relationship 418b6a79-8c86-4960-8442-d2aaf7c9430c
+	fromColumn: 'KRW_NA_SAP_VBAP SB'.CUST_SALES
+	toColumn: 'KRW_NA_SAP_KNVV SB'.CUST_SALES
+
+relationship ae114ee2-1822-4ece-904d-7af4f5ac6850
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quotes'.CreatedDate
+	toColumn: LocalDateTable_7a2d5ba1-a665-42ce-934b-818e4f55078d.Date
+
+relationship 12c53773-3f56-4936-b948-e375b4132be3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quotes'.LastModifiedDate
+	toColumn: LocalDateTable_c07dbbc8-83c6-41de-8964-f9b40556ac9c.Date
+
+relationship 44cf28c2-ead5-4e3a-83e0-9bace8f85f56
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quotes'.SystemModstamp
+	toColumn: LocalDateTable_a8248b06-a7dd-411f-81c5-061704daf33b.Date
+
+relationship 9ff7f026-4a99-46f5-98e8-36aa5b1cc306
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quotes'.LastViewedDate
+	toColumn: LocalDateTable_5cf4f00f-961e-4015-86b9-556161f9a72a.Date
+
+relationship b074f881-4eb1-494d-9416-80230d40a350
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quotes'.LastReferencedDate
+	toColumn: LocalDateTable_b630bc67-0e77-4bf2-a068-bca2f6cce244.Date
+
+relationship c963169a-54a8-4801-9e4e-63ae5572c5a1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quotes'.ExpirationDate
+	toColumn: LocalDateTable_7973285a-4d28-4d5a-a087-c89ef55c7319.Date
+
+relationship aaa49077-5cc7-40ba-863c-2ccc3bf8a36a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quote Line Item'.CreatedDate
+	toColumn: LocalDateTable_d88424c6-a991-4b9d-8e0f-85b415be895f.Date
+
+relationship dc527aeb-6712-48fd-835a-3d43d8bd26d4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quote Line Item'.LastModifiedDate
+	toColumn: LocalDateTable_2885518e-571f-4254-bfff-70bcdd9b55b0.Date
+
+relationship 63a5b38b-4fb0-4b72-a415-f94912315951
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quote Line Item'.SystemModstamp
+	toColumn: LocalDateTable_905e68c3-9c93-4033-ad4e-6b8117bf75ff.Date
+
+relationship 97c2da77-7a88-4bf4-a849-f521a63f53de
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quote Line Item'.LastViewedDate
+	toColumn: LocalDateTable_d2ea07de-1f75-44de-b599-60723926aca4.Date
+
+relationship 0484561a-e2ca-4a27-9bbd-a5deeb08dc01
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quote Line Item'.LastReferencedDate
+	toColumn: LocalDateTable_350f55b9-e1da-41c1-9e1b-bb6613de1109.Date
+
+relationship cd6cd355-21eb-4ea8-94d9-e07a57210842
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Salesforce Quote Line Item'.ServiceDate
+	toColumn: LocalDateTable_86c3c5ed-e5a6-44b5-bdf1-c1f00dced78e.Date
+
+relationship e97294b9-589b-6447-b00b-b5fca3d1524e
+	fromColumn: 'Salesforce Quote Line Item'.QuoteId
+	toColumn: 'Salesforce Quotes'.Id
+

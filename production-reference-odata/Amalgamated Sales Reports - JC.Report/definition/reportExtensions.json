@@ -1,0 +1,41 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/reportExtension/1.0.0/schema.json",
+  "name": "extension",
+  "entities": [
+    {
+      "name": "KRW_NA_SAP_VBRP",
+      "measures": [
+        {
+          "name": "Average Revenue per Product Family",
+          "dataType": "Double",
+          "expression": "\nAVERAGEX(\n\tKEEPFILTERS(VALUES('KRW_NA_SAP_AUSP'[Product Family])),\n\tCALCULATE(SUM('KRW_NA_SAP_VBRP'[Revenue in DC with Sign]))\n)",
+          "formatString": "General Number",
+          "measureTemplate": {
+            "daxTemplateName": "AveragePerCategory",
+            "version": 0
+          }
+        },
+        {
+          "name": "Average Margin per Product Family",
+          "dataType": "Double",
+          "expression": "\nAVERAGEX(\n\tKEEPFILTERS(VALUES('KRW_NA_SAP_AUSP'[Product Family])),\n\tCALCULATE(SUM('KRW_NA_SAP_VBRP'[Margin in DC]))\n)",
+          "formatString": "General Number",
+          "measureTemplate": {
+            "daxTemplateName": "AveragePerCategory",
+            "version": 0
+          }
+        },
+        {
+          "name": "Average Margin per Fiscal Year Period",
+          "dataType": "Double",
+          "expression": "\nAVERAGEX(\n\tKEEPFILTERS(VALUES('KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period])),\n\tCALCULATE(SUM('KRW_NA_SAP_VBRP'[Margin in DC]))\n)",
+          "formatString": "General Number",
+          "measureTemplate": {
+            "daxTemplateName": "AveragePerCategory",
+            "version": 0
+          }
+        }
+      ]
+    }
+  ]
+}

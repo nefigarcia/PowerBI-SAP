@@ -1,0 +1,110 @@
+table KRW_NA_SAP_VBPA2
+	lineageTag: eb825fe5-f31a-4789-bc96-7a841926b0c0
+	sourceLineageTag: 2c25e661-4b95-4371-968a-cd8b391af7fe
+
+	column Document
+		dataType: string
+		lineageTag: 5bc14827-8cdc-4151-9028-b62c485ca3af
+		sourceLineageTag: 56b3eb62-c344-4f16-a602-329335d6e32c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Document
+
+		annotation SummarizationSetBy = User
+
+	column Item
+		dataType: string
+		lineageTag: cff0d1a8-4c67-4426-9a94-fc80327009e3
+		sourceLineageTag: b215d631-6411-4409-96c7-3b7ebf1df28e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item
+
+		annotation SummarizationSetBy = User
+
+	column 'Partner Function'
+		dataType: string
+		lineageTag: 7245429a-84e2-408e-98e6-0e4f2255eb56
+		sourceLineageTag: 7ed3820a-854e-4c64-959d-bfa4669f5a16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Partner Function
+
+		annotation SummarizationSetBy = User
+
+	column Customer
+		dataType: string
+		lineageTag: a21fbdd1-6bc2-4d9c-bbf3-25d6d92448a4
+		sourceLineageTag: b22df19d-9b4e-4ede-a1ef-790bbbd7cdc5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = User
+
+	column 'Address Number'
+		dataType: string
+		lineageTag: 0631cb58-c077-464c-8ae5-8cf1bebf28c8
+		sourceLineageTag: 6930c9bf-6f48-4f94-b9ef-28cbe0ef821d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Address Number
+
+		annotation SummarizationSetBy = User
+
+	column Name
+		dataType: string
+		lineageTag: 38f0b608-c3a5-4dda-a480-11d76d71c44b
+		sourceLineageTag: bca54811-b896-4d60-8436-6518976ed295
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Zip Code'
+		dataType: string
+		lineageTag: 3b4df31b-ec00-4f57-9dc6-4515633a63a5
+		sourceLineageTag: 3efedeaf-d57b-4ba2-8352-b95223e89270
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column Region
+		dataType: string
+		lineageTag: 044c1597-d79e-49cf-a8a6-193a006c11ad
+		sourceLineageTag: f81ac8fb-8042-4ad7-af09-3b030c99f884
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = User
+
+	column 'Region Name'
+		dataType: string
+		lineageTag: 672bec4d-7357-4209-9603-bc1b43d63108
+		sourceLineageTag: 019ac1a2-4834-4dcf-a0b3-0de21f07a01b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region Name
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP
+		dataType: string
+		lineageTag: 5b909749-1455-403c-b4fc-d2b0f085b1e2
+		sourceLineageTag: 97784090-059b-45d6-a276-861a4300245c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_SAP_VBPA2 = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_VBPA2
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+
