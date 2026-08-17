@@ -35,3 +35,9 @@ relationship a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d
 	fromColumn: SalesOrders.CreationDate_D8
 	toColumn: KRW_NA_FF_CALENDAR.Date
 
+relationship c1c2c3c4-c5c6-4c7c-8c8c-9c0c1c2c3c4c
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'KRW-NA_FF_FORECAST'.'Fiscal Year Period Billing Format'
+	toColumn: 'Fiscal Period Selector'.FiscalYearPeriod
+

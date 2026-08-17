@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Amalgamated Sales Reports - JC"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a3e2bf0a-736a-4971-8962-bd917dec0020"
+  }
+}

@@ -3,13 +3,129 @@
 table Billing
 	lineageTag: b1110001-0000-4000-a000-000000000001
 
+	/// DIAGNOSTIC: raw BFT for ISO rows. Delete once ISO Rate is verified.
+	measure '_Diag ISO BFT (single)' =
+			SUMX(
+			    FILTER(Billing, CONTAINSSTRING(Billing[Product_Family], "iso")),
+			    Billing[Billing_Quantity_in_BFT]
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000001
+
+	/// DIAGNOSTIC: raw BFT2 (double underscore) for ISO rows.
+	measure '_Diag ISO BFT2 (double_underscore)' =
+			SUMX(
+			    FILTER(Billing, CONTAINSSTRING(Billing[Product_Family], "iso")),
+			    Billing[Billing_Quantity_in__BFT2]
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000002
+
+	/// DIAGNOSTIC: raw FT2 for Membrane rows.
+	measure '_Diag Membrane FT2' =
+			SUMX(
+			    FILTER(Billing, CONTAINSSTRING(Billing[Product_Family], "Membrane")),
+			    Billing[Billing_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000003
+
+	/// DIAGNOSTIC: distinct Product_Family values on ISO-ish rows (should list what values Kingspan uses; helps confirm the CONTAINSSTRING matches).
+	measure '_Diag Distinct Product_Family Count' =
+			COUNTROWS(DISTINCT(Billing[Product_Family]))
+		formatString: 0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000004
+
+	/// DIAGNOSTIC: BFT total for ONLY "ISO GF" families (excludes Polyiso). If ratio using this / _Diag Membrane FT2 = 1.34, we've found the right filter.
+	measure '_Diag ISO BFT (ISO GF only)' =
+			SUMX(
+			    FILTER(Billing, CONTAINSSTRING(Billing[Product_Family], "ISO GF")),
+			    Billing[Billing_Quantity_in_BFT]
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000005
+
+	/// DIAGNOSTIC: FT2 total for ONLY exact "TPO Membranes" family (excludes anything else containing "Membrane"). If ratio _Diag ISO BFT / this = 1.34, denominator was the problem.
+	measure '_Diag Membrane FT2 (TPO Membranes exact)' =
+			CALCULATE(
+			    SUMX(Billing, Billing[Billing_Quantity_in_FT2]),
+			    Billing[Product_Family] = "TPO Membranes"
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000006
+
+	/// DIAGNOSTIC: candidate ISO Rate using ISO GF only + TPO Membranes exact. Should equal ~1.34 for 2026-07 if hypothesis right.
+	measure '_Diag Candidate ISO Rate' =
+			DIVIDE(
+			    [_Diag ISO BFT (ISO GF only)],
+			    [_Diag Membrane FT2 (TPO Membranes exact)]
+			)
+		formatString: 0.00
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000007
+
+	/// DIAGNOSTIC: uses Kingspan-added string column `Billing_Qty_in_FT2` (mirrors prod naming "Billing Qty. in FT2" exactly). If this differs from _Diag Membrane FT2, the string col is what prod uses.
+	measure '_Diag Membrane FT2 (string Qty col)' =
+			SUMX(
+			    FILTER(Billing, CONTAINSSTRING(Billing[Product_Family], "Membrane")),
+			    IFERROR(VALUE(Billing[Billing_Qty_in_FT2]), 0)
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000008
+
+	/// DIAGNOSTIC: ISO BFT sanity using Kingspan pre-classified string col (already filtered to ISO rows). No Product_Family filter needed since col is pre-classified.
+	measure '_Diag ISO BFT (pre-classified string)' =
+			SUMX(
+			    Billing,
+			    IFERROR(VALUE(Billing[Billing_quantity_in_BFT2_For_ISO]), 0)
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-000000000009
+
+	/// DIAGNOSTIC: Membrane FT2 using Kingspan pre-classified string col. No Product_Family filter needed since col is pre-classified.
+	measure '_Diag Membrane FT2 (pre-classified string)' =
+			SUMX(
+			    Billing,
+			    IFERROR(VALUE(Billing[Billing_quantity_in_FT2_for_Membrane]), 0)
+			)
+		formatString: #,0
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-00000000000a
+
+	/// DIAGNOSTIC: candidate using both pre-classified string cols. If this = 1.34 we've found it.
+	measure '_Diag Candidate ISO Rate v2' =
+			DIVIDE(
+			    [_Diag ISO BFT (pre-classified string)],
+			    [_Diag Membrane FT2 (pre-classified string)]
+			)
+		formatString: 0.00
+		displayFolder: _Diagnostics
+		lineageTag: 11111111-0000-4000-a000-00000000000b
+
+	/// HELPER: Fiscal Year Period corresponding to TODAY(). Production put [Fiscal Year Period] on KRW_NA_FF_CALENDAR (AAS-cube-side calc column); AWIP's raw KRW_NA_FF_CALENDAR dataflow doesn't have it — the column lives on KRW_NA_FF_FISCALPERIOD instead. This variant filters CALENDAR to today's row and uses the existing CALENDAR<->FISCALPERIOD bi-di relationship on [Calendar Date] to reach FISCALPERIOD's [Fiscal Year Period].
+	measure 'Current FYP VBRP' =
+			CALCULATE(
+			    MAX('KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period]),
+			    'KRW_NA_FF_CALENDAR'[Date] = TODAY()
+			)
+		displayFolder: Production Measures
+		lineageTag: a9a961c1-6bc9-4ed9-bebb-9f0faaa54b91
+
 	measure 'Sum Billing Qty. in FT2 for Membranes' =
-			
+
 			VAR BillingQtyFT2Membranes =
 			SUMX(
 			    FILTER(
 			        Billing,
-			        CONTAINSSTRING(Billing[FC_Product_Group], "TPO")
+			        CONTAINSSTRING(Billing[Product_Family], "Membrane")
 			    ),
 			    Billing[Billing_Quantity_in_FT2]
 			)
@@ -48,14 +164,14 @@ table Billing
 		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Sum Billing Qty. in BFT2 for ISO' =
-			
+
 			VAR BillingQtyBFT2ISO =
 			SUMX(
 			    FILTER(
 			        Billing,
-			        CONTAINSSTRING(Billing[FC_Product_Group], "iso")
+			        CONTAINSSTRING(Billing[Product_Family], "iso")
 			    ),
-			    Billing[Billing_Quantity_in__BFT2]
+			    Billing[Billing_Quantity_in_BFT]
 			)
 			RETURN
 			IF(
@@ -71,10 +187,7 @@ table Billing
 	measure 'Sum Fcst Sales in FT2 for Membranes' =
 			
 			VAR FcstSalesQtyFT2Membranes =
-			SUMX(
-			    Billing,
-			    IFERROR(VALUE(Billing[Sales_Forecast_Membrane_Qty_in_FT2]), 0)
-			)
+			SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft])
 			RETURN
 			IF(
 			    FcstSalesQtyFT2Membranes = BLANK(),
@@ -99,7 +212,8 @@ table Billing
 		displayFolder: Production Measures
 		lineageTag: 48555e51-6706-4088-b40b-1e2eae25aa8b
 
-	measure 'ISO AOP - $/bdft IS' = SUM(Billing[Revenue])/SUM(Billing[Billing_Quantity_with_Signs])
+	/// Production formula shape: SUM(Revenue) / SUM(Billing Qty. in BFT2). Was previously wrong (used Billing_Quantity_with_Signs as denominator — that's total signed qty across all UOMs, not BFT2).
+	measure 'ISO AOP - $/bdft IS' = SUM(Billing[Revenue])/SUM(Billing[Billing_Quantity_in__BFT2])
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Production Measures
 		lineageTag: c262598f-e8b0-4e7e-a7ae-c372ac3d196f
@@ -125,8 +239,8 @@ table Billing
 			
 			VAR IsoRateFcstIS =
 			DIVIDE(
-				SUM(Billing[ForecastSalesBDFT]),
-				([Sum Fcst Sales in FT2 for Membranes])
+			    SUM('KRW-NA_FF_FORECAST'[Sales ISO bdft]),
+			    SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft])
 			)
 			RETURN
 			IF(
@@ -140,13 +254,502 @@ table Billing
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Selected Fiscal Period' =
-			
+
 			VALUE(
 			    MAX(
 			        'Fiscal Period Selector'[FiscalYearPeriod]
 			    )
 			)
 		lineageTag: e3c2452f-4b10-4230-983b-92f3f611fd36
+
+	/// Ported from KRW_NA_SAP_VBRP. Margin/Revenue ratio using Datasphere Gross_Margin.
+	measure 'Margin Perc' =
+			DIVIDE(
+			    SUM('Billing'[Gross_Margin]),
+			    SUM('Billing'[Revenue])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Production Measures
+		lineageTag: e0000009-0001-4000-a000-000000000001
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Average Margin per Fiscal Year Period' =
+			AVERAGEX(
+			    KEEPFILTERS(VALUES('KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period])),
+			    CALCULATE(SUM('Billing'[Gross_Margin]))
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-0002-4000-a000-000000000002
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Month Billing Qty. in FT2 for Membranes' =
+			SUMX(
+			    FILTER(
+			        Billing,
+			        CONTAINSSTRING(Billing[Product_Family], "Membrane") &&
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY()) &&
+			        MONTH('Billing'[BillingDocumentDate_D5]) = MONTH(TODAY())
+			    ),
+			    Billing[Billing_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0003-4000-a000-000000000003
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'YTD Billing Qty. in FT2 for Membranes' =
+			SUMX(
+			    FILTER(
+			        Billing,
+			        CONTAINSSTRING(Billing[Product_Family], "Membrane") &&
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY())
+			    ),
+			    Billing[Billing_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0004-4000-a000-000000000004
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Month Billing Qty. in BFT2 for ISO' =
+			SUMX(
+			    FILTER(
+			        Billing,
+			        CONTAINSSTRING(Billing[Product_Family], "ISO") &&
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY()) &&
+			        MONTH('Billing'[BillingDocumentDate_D5]) = MONTH(TODAY())
+			    ),
+			    Billing[Billing_Quantity_in__BFT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0005-4000-a000-000000000005
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'YTD Billing Qty. in BFT2 for ISO' =
+			SUMX(
+			    FILTER(
+			        Billing,
+			        CONTAINSSTRING(Billing[Product_Family], "ISO") &&
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY())
+			    ),
+			    Billing[Billing_Quantity_in__BFT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0006-4000-a000-000000000006
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Month Billing Qty. in FT2 for ISO' =
+			SUMX(
+			    FILTER(
+			        Billing,
+			        CONTAINSSTRING(Billing[Product_Family], "ISO") &&
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY()) &&
+			        MONTH('Billing'[BillingDocumentDate_D5]) = MONTH(TODAY())
+			    ),
+			    Billing[Billing_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0007-4000-a000-000000000007
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'YTD Billing Qty. in FT2 for ISO' =
+			SUMX(
+			    FILTER(
+			        Billing,
+			        CONTAINSSTRING(Billing[Product_Family], "ISO") &&
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY())
+			    ),
+			    Billing[Billing_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0008-4000-a000-000000000008
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Month Invoiced Revenue Billing Date' =
+			CALCULATE(
+			    SUM('Billing'[Revenue]),
+			    FILTER(
+			        'Billing',
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY()) &&
+			        MONTH('Billing'[BillingDocumentDate_D5]) = MONTH(TODAY())
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0009-4000-a000-000000000009
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'YTD Invoiced Revenue Billing Date' =
+			CALCULATE(
+			    SUM('Billing'[Revenue]),
+			    FILTER(
+			        'Billing',
+			        YEAR('Billing'[BillingDocumentDate_D5]) = YEAR(TODAY())
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-000a-4000-a000-00000000000a
+
+	/// Ported from KRW_NA_SAP_VBRP. Depends on [Current Fiscal Month Invoiced Revenue] and [Current Month Invoice Revenue Fcst] (the latter lives on KRW-NA_FF_FORECAST — port separately).
+	measure '$ Difference Current Month VBRP' = [Current Fiscal Month Invoiced Revenue] - [Current Month Invoice Revenue Fcst]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-000b-4000-a000-00000000000b
+
+	/// Ported from KRW_NA_SAP_VBRP. Depends on [YTD Invoice Revenue Fcst] (on KRW-NA_FF_FORECAST).
+	measure '$ Difference YTD VBRP' = [YTD Invoiced Revenue Billing Date] - [YTD Invoice Revenue Fcst]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-000c-4000-a000-00000000000c
+
+	/// Ported from KRW_NA_SAP_VBRP. Depends on [Current Month Invoice Revenue Fcst] (on KRW-NA_FF_FORECAST).
+	measure '% Fcst VBRP CM' = DIVIDE([Current Month Invoiced Revenue Billing Date], [Current Month Invoice Revenue Fcst])
+		formatString: 0%;-0%;0%
+		displayFolder: Production Measures
+		lineageTag: e0000009-000d-4000-a000-00000000000d
+
+	/// Ported from KRW_NA_SAP_VBRP. Helper: SELECTEDVALUE of BillingDocumentDate_D5 year. NOTE: Production's `Revenue` measure was SKIPPED here — AWIP's Billing already has a column of the same name. Use `[Sum Revenue in DC with sign IS]` or `SUM(Billing[Revenue])` where prod DAX would have called `[Revenue]`.
+	measure 'Billing Year' = YEAR ( SELECTEDVALUE ( 'Billing'[BillingDocumentDate_D5] ) )
+		formatString: 0
+		displayFolder: Production Measures
+		lineageTag: e0000009-000f-4000-a000-00000000000f
+
+	/// Ported from KRW_NA_SAP_VBRP. AWIP uses inactive USERELATIONSHIP on BillingDocumentDate_D5 to align with the Kingspan PY pattern used on the OI side.
+	measure 'Revenue Previous Year' =
+			VAR RevenueLastYear =
+			CALCULATE(
+			    SUM(Billing[Revenue]),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    USERELATIONSHIP(Billing[BillingDocumentDate_D5], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(
+			    ([Billing Year] = YEAR(TODAY()) - 1 || SUM(Billing[Revenue]) = 0),
+			    0,
+			    RevenueLastYear
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0010-4000-a000-000000000010
+
+	/// Ported from KRW_NA_SAP_VBRP. AWIP uses inactive USERELATIONSHIP (Kingspan PY pattern).
+	measure 'Sum Billing Qty. in FT2 for Membranes Prior Year' =
+			VAR BillingQtyFT2MembranesPriorYear =
+			CALCULATE(
+			    SUM(Billing[Billing_Quantity_in_FT2]),
+			    CONTAINSSTRING(Billing[Product_Family], "Membrane"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    USERELATIONSHIP(Billing[BillingDocumentDate_D5], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(
+			    [Billing Year] = YEAR(TODAY()) - 1 || SUM(Billing[Billing_Quantity_in_FT2]) = 0,
+			    0,
+			    BillingQtyFT2MembranesPriorYear
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0011-4000-a000-000000000011
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP. AWIP uses inactive USERELATIONSHIP (Kingspan PY pattern).
+	measure 'Sum Billing Qty. in BFT2 for ISO Prior Year' =
+			VAR BillingQtyBFT2ISOPriorYear =
+			CALCULATE(
+			    SUM(Billing[Billing_Quantity_in__BFT2]),
+			    CONTAINSSTRING(Billing[Product_Family], "iso"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    USERELATIONSHIP(Billing[BillingDocumentDate_D5], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(
+			    [Billing Year] = YEAR(TODAY()) - 1 || SUM(Billing[Billing_Quantity_in__BFT2]) = 0,
+			    0,
+			    BillingQtyBFT2ISOPriorYear
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0012-4000-a000-000000000012
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP. Uses [Current FYP VBRP] helper.
+	measure 'Current Fiscal Month Billing Qty. in FT2 for Membranes' =
+			VAR CurrentFYPValueMIS = [Current FYP VBRP]
+			RETURN
+			CALCULATE (
+			    SUM ( 'Billing'[Billing_Quantity_in_FT2]),
+			    CONTAINSSTRING('Billing'[Product_Family], "Membrane"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueMIS
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0013-4000-a000-000000000013
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Fiscal Month Billing Qty. in FT2 for ISO' =
+			VAR CurrentFYPValueISOISFT2 = [Current FYP VBRP]
+			RETURN
+			CALCULATE (
+			    SUM ( 'Billing'[Billing_Quantity_in_FT2]),
+			    CONTAINSSTRING('Billing'[Product_Family], "iso"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueISOISFT2
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0014-4000-a000-000000000014
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Fiscal Month Billing Qty. in BFT2 for ISO' =
+			VAR CurrentFYPValueISOISBFT2 = [Current FYP VBRP]
+			RETURN
+			CALCULATE (
+			    SUM ( 'Billing'[Billing_Quantity_in__BFT2]),
+			    CONTAINSSTRING('Billing'[Product_Family], "iso"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueISOISBFT2
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0015-4000-a000-000000000015
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Fiscal Month Invoiced Revenue' =
+			CALCULATE(
+			    SUM('Billing'[Revenue]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = [Current FYP VBRP]
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0016-4000-a000-000000000016
+
+	/// Ported from KRW_NA_SAP_VBRP. Depends on [Current Month Invoice Revenue Fcst] (on KRW-NA_FF_FORECAST).
+	measure '% Fcst VBRP FM' = DIVIDE([Current Fiscal Month Invoiced Revenue FT2 Membranes], [Current Month Invoice Revenue Fcst])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Production Measures
+		lineageTag: e0000009-0017-4000-a000-000000000017
+
+	/// Ported from KRW_NA_SAP_VBRP. Kingspan PY pattern via inactive USERELATIONSHIP.
+	measure 'Revenue For Fiscal Month Previous Year' =
+			VAR RevenueFMLastYear =
+			CALCULATE(
+			    SUM(Billing[Revenue]),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(Billing[BillingDocumentDate_D5], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(RevenueFMLastYear = BLANK(), 0, RevenueFMLastYear)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0018-4000-a000-000000000018
+
+	/// Ported from KRW_NA_SAP_VBRP. Kingspan PY pattern via inactive USERELATIONSHIP.
+	measure 'Sum Billing Qty. in FT2 for Membranes Fiscal Month Prior Year' =
+			VAR BillingQtyFT2MembranesFMPriorYear =
+			CALCULATE(
+			    SUM(Billing[Billing_Quantity_in_FT2]),
+			    CONTAINSSTRING(Billing[Product_Family], "Membrane"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(Billing[BillingDocumentDate_D5], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(BillingQtyFT2MembranesFMPriorYear = BLANK(), 0, BillingQtyFT2MembranesFMPriorYear)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0019-4000-a000-000000000019
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP. Kingspan PY pattern via inactive USERELATIONSHIP.
+	measure 'Sum Billing Qty. in BFT2 for ISO Fiscal Month Prior Year' =
+			VAR BillingQtyBFT2ISOFMPriorYear =
+			CALCULATE(
+			    SUM(Billing[Billing_Quantity_in__BFT2]),
+			    CONTAINSSTRING(Billing[Product_Family], "iso"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(Billing[BillingDocumentDate_D5], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(BillingQtyBFT2ISOFMPriorYear = BLANK(), 0, BillingQtyBFT2ISOFMPriorYear)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-001a-4000-a000-00000000001a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'Current Fiscal Month Invoiced Revenue FT2 Membranes' =
+			VAR CurrentFMInvoicedRevMFT2 = [Current FYP VBRP]
+			RETURN
+			CALCULATE (
+			    SUM ( 'Billing'[Revenue]),
+			    CONTAINSSTRING('Billing'[Product_Family], "Membrane"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFMInvoicedRevMFT2
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-001b-4000-a000-00000000001b
+
+	/// Ported from KRW_NA_SAP_VBRP. No product filter — used for legend/slicer splits.
+	measure 'Current Fiscal Month Billing Qty. in FT2 for Membranes Split' =
+			VAR CurrentFYPValueMISSplit = [Current FYP VBRP]
+			RETURN
+			CALCULATE (
+			    SUM ( 'Billing'[Billing_Quantity_in_FT2]),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueMISSplit
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-001c-4000-a000-00000000001c
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBRP. YoY % using MathematicalPercentageDifference template.
+	measure 'Sum of Revenue in DC with Sign % difference from Revenue Previous Year' =
+			VAR __BASELINE_VALUE = [Revenue Previous Year]
+			VAR __VALUE_TO_COMPARE = SUM('Billing'[Revenue])
+			RETURN
+			    DIVIDE(__VALUE_TO_COMPARE - __BASELINE_VALUE, __BASELINE_VALUE)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Production Measures
+		lineageTag: e0000009-001d-4000-a000-00000000001d
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'PercDiff PY Sales' =
+			DIVIDE(
+			    SUM(Billing[Revenue]) - [Revenue Previous Year],
+			    [Revenue Previous Year],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Production Measures
+		lineageTag: e0000009-001e-4000-a000-00000000001e
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'PercDiff Arrow Sales' =
+			VAR PercDiff =
+			DIVIDE(
+			    SUM(Billing[Revenue]) - [Revenue Previous Year],
+			    [Revenue Previous Year],
+			    0
+			)
+			RETURN
+			IF(
+			    PercDiff > 0,
+			    UNICHAR(9650),
+			    UNICHAR(9660)
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-001f-4000-a000-00000000001f
+
+	/// Ported from KRW_NA_SAP_VBRP. Membrane-filtered qty YoY %.
+	measure 'PercDiff PY Sales QTY' =
+			DIVIDE(
+			    [Sum Billing Qty. in FT2 for Membranes] - [Sum Billing Qty. in FT2 for Membranes Prior Year],
+			    [Sum Billing Qty. in FT2 for Membranes Prior Year],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Production Measures
+		lineageTag: e0000009-0020-4000-a000-000000000020
+
+	/// Ported from KRW_NA_SAP_VBRP.
+	measure 'PercDiff Arrow Sales QTY' =
+			VAR PercDiffQTY =
+			DIVIDE(
+			    [Sum Billing Qty. in FT2 for Membranes] - [Sum Billing Qty. in FT2 for Membranes Prior Year],
+			    [Sum Billing Qty. in FT2 for Membranes Prior Year],
+			    0
+			)
+			RETURN
+			IF(
+			    PercDiffQTY > 0,
+			    UNICHAR(9650),
+			    UNICHAR(9660)
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-0021-4000-a000-000000000021
+
+	/// Ported from KRW_NA_SAP_VBRP. Helper: FYP for TODAY() - 365 days.
+	measure 'Prior Year FYP VBRP' =
+			LOOKUPVALUE(
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period],
+			    'KRW_NA_FF_CALENDAR'[Date], (TODAY() - 365)
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-0022-4000-a000-000000000022
+
+	/// Ported from KRW_NA_SAP_VBRP. Trivial helper.
+	measure 'Current Date FYP VBRP' =
+			LOOKUPVALUE(
+			    'KRW_NA_FF_CALENDAR'[Date],
+			    'KRW_NA_FF_CALENDAR'[Date], TODAY()
+			)
+		formatString: General Date
+		displayFolder: Production Measures
+		lineageTag: e0000009-0023-4000-a000-000000000023
+
+	/// Ported from KRW_NA_SAP_VBRP. Trivial helper.
+	measure 'Prior Year Date FYP VBRP' =
+			LOOKUPVALUE(
+			    'KRW_NA_FF_CALENDAR'[Date],
+			    'KRW_NA_FF_CALENDAR'[Date], (TODAY() - 365)
+			)
+		formatString: General Date
+		displayFolder: Production Measures
+		lineageTag: e0000009-0024-4000-a000-000000000024
+
+	/// Ported from KRW_NA_SAP_VBRP. No product filter — used for legend/slicer splits.
+	measure 'Prior Year Fiscal Month Billing Qty. in FT2 for Membranes Split' =
+			VAR PYFYPValueMIS = [Prior Year FYP VBRP]
+			RETURN
+			IF(
+			    CALCULATE (
+			        SUM ( 'Billing'[Billing_Quantity_in_FT2]),
+			        'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = PYFYPValueMIS
+			    ) = BLANK(),
+			    0,
+			    CALCULATE (
+			        SUM ( 'Billing'[Billing_Quantity_in_FT2]),
+			        'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = PYFYPValueMIS
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0025-4000-a000-000000000025
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column BillingDocument
 		dataType: string

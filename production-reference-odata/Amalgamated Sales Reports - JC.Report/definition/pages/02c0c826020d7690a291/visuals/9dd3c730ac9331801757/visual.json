@@ -1,0 +1,305 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "9dd3c730ac9331801757",
+  "position": {
+    "x": 409.48328267477206,
+    "y": 200.36474164133739,
+    "z": 3000,
+    "height": 176.048632218845,
+    "width": 615.68389057750767,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                    }
+                  },
+                  "Property": "Fiscal Year Period Sorted"
+                }
+              },
+              "queryRef": "KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted",
+              "nativeQueryRef": "Current Month",
+              "active": true,
+              "displayName": "Current Month"
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_KNVV OI"
+                    }
+                  },
+                  "Property": "Account Assignment Group Description"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_KNVV OI.Account Assignment Group Description",
+              "nativeQueryRef": "Account Assignment Group",
+              "active": true,
+              "displayName": "Account Assignment Group"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "Current Fiscal Month Order FT2 for Membranes"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.Current Fiscal Month Order FT2 for Membranes1",
+              "nativeQueryRef": "FT2 Membranes",
+              "displayName": "FT2 Membranes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "Current Fiscal Month Order Revenue FT2 Membranes"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.Current Fiscal Month Order Revenue FT2 Membranes",
+              "nativeQueryRef": "Intake1",
+              "displayName": "Intake"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_FF_FORECAST_INTAKE"
+                    }
+                  },
+                  "Property": "Current Month Order Revenue Fcst"
+                }
+              },
+              "queryRef": "KRW_NA_FF_FORECAST_INTAKE.Current Month Order Revenue Fcst",
+              "nativeQueryRef": "Intake Fcst",
+              "displayName": "Intake Fcst"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "% Fcst FM"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.% Fcst FM",
+              "nativeQueryRef": "% Fcst",
+              "displayName": "% Fcst"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "subTotals": [
+        {
+          "properties": {
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "perRowLevel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Order Intake - MTD'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b096edad8e8a0483042e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KRW_NA_SAP_VBAP OI"
+              }
+            },
+            "Property": "Product Family"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "k",
+              "Entity": "KRW_NA_SAP_VBAP OI",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "k"
+                          }
+                        },
+                        "Property": "Product Family"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'TPO Membranes'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Polyiso Insulation'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "add121fa734abfac1e3e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KRW_NA_SAP_KNVV OI"
+              }
+            },
+            "Property": "Account Assignment Group Description"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "k2",
+              "Entity": "KRW_NA_SAP_KNVV OI",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "k2"
+                            }
+                          },
+                          "Property": "Account Assignment Group Description"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

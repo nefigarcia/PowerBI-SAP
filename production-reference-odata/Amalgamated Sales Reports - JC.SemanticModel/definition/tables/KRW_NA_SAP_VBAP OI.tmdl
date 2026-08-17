@@ -1,0 +1,1749 @@
+table 'KRW_NA_SAP_VBAP OI'
+	lineageTag: fa30c9fd-ab43-47ab-aa66-5be1a1d64659
+	sourceLineageTag: 4eb44a75-1604-465f-9547-5a7f579e5077
+
+	measure 'Margin Perc VBAP' =
+			
+			DIVIDE(
+				SUM('KRW_NA_SAP_VBAP OI'[Margin in DC]),
+				SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: e13b5a92-e204-405a-825f-2a6b933f8625
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Sum Order Qty. in FT2 for Membranes OI' =
+			
+			VAR OrderQtyFT2MembranesOI =
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane")
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]
+			)
+			RETURN
+			IF(
+			    OrderQtyFT2MembranesOI = BLANK(),
+			    0,
+			    OrderQtyFT2MembranesOI
+			)
+		formatString: #,0
+		lineageTag: 99dddc91-a96d-4ab9-800d-38ea835fdf70
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Sum Order Qty. in BFT2 for ISO OI' =
+			
+			VAR OrderQtyBFT2ISOOI =
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso")
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2]
+			)
+			RETURN
+			IF(
+			    OrderQtyBFT2ISOOI = BLANK(),
+			    0,
+			    OrderQtyBFT2ISOOI
+			)
+		formatString: #,0
+		lineageTag: 5d4a89d9-f7ae-49a8-8abc-9d5d0c9f63c6
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'ISO Rate VBAP OI' =
+			
+			VAR IsoRateVBAP =
+			[Sum Order Qty. in BFT2 for ISO OI]/[Sum Order Qty. in FT2 for Membranes OI]
+			RETURN
+			IF(
+			    IsoRateVBAP = BLANK(),
+			    0,
+			    IsoRateVBAP
+			)
+		formatString: 0.00
+		lineageTag: f2e3228d-520b-4c52-b5af-eba2d1603b76
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Current Month Order Revenue' =
+			
+			CALCULATE(
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			FILTER(
+			'KRW_NA_FF_CALENDAR OI',
+			YEAR('KRW_NA_FF_CALENDAR OI'[Date]) = YEAR(TODAY()) &&
+			MONTH('KRW_NA_FF_CALENDAR OI'[Date]) = MONTH(TODAY())
+			)
+			)
+		formatString: #,0
+		lineageTag: cbb22085-03ec-4247-ab10-24de653c4715
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Month Order Revenue Doc Date' =
+			
+			CALCULATE(
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			FILTER(
+			'KRW_NA_SAP_VBAP OI',
+			YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			)
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f50e4a37-74c8-453c-9700-d90c11d8428e
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Current Calendar Month Order FT2 for Membranes' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			        MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]
+			)
+		formatString: #,0
+		lineageTag: 2046df28-a62a-4896-b9cd-02c1c4c7d54f
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Order FT2 for Membranes' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]
+			)
+		formatString: #,0
+		lineageTag: 4bd40d23-112d-4cb3-be28-0ca9e1cd524d
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Order FT2 for ISO' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]
+			)
+		formatString: #,0
+		lineageTag: ffb803d8-2ba6-4be5-aa7c-32abacf1abb0
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Order BFT for ISO' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2]
+			)
+		formatString: #,0
+		lineageTag: f9f6978d-17fa-4b28-8702-f69f1f2108af
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Calendar Month Order FT2 for ISO' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			        MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]
+			)
+		formatString: #,0
+		lineageTag: 0723a0d0-3a86-4c38-9211-62330b3cdd2d
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Calendar Month Order BFT for ISO' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			        MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2]
+			)
+		formatString: #,0
+		lineageTag: 8ab45777-87c7-42ea-820f-81557e73a768
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Order Revenue Doc Date' =
+			
+			CALCULATE(
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			FILTER(
+			'KRW_NA_SAP_VBAP OI',
+			YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY())
+			)
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: cffce8de-08fd-4a87-8669-c5713d992817
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure '$ Difference Current Month' = [Current Fiscal Month Order Revenue] - [Current Month Order Revenue Fcst]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 58f0ff26-a729-4cff-a735-1b4e0278d46b
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure '$ Difference YTD' = [YTD Order Revenue Doc Date] - [YTD Order Revenue Fcst]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: bc9c90ab-bea2-40d9-9f6b-e19befe406d9
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure '% Fcst CM' = [Current Month Order Revenue Doc Date]/[Current Month Order Revenue Fcst]
+		formatString: 0%;-0%;0%
+		lineageTag: 5d488900-cc6c-4dc3-9891-8a1239539e3a
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Current Month Membrane Order Revenue Doc Date' =
+			
+			CALCULATE(
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			FILTER(
+			'KRW_NA_SAP_VBAP OI',
+			CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane") &&
+			YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			)
+			)
+		lineageTag: cdab22b1-7e5b-4fe9-b28b-953aa0c903c6
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current Month ISO Order Revenue Doc Date' =
+			
+			CALCULATE(
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			FILTER(
+			'KRW_NA_SAP_VBAP OI',
+			CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso") &&
+			YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			)
+			)
+		lineageTag: 54fff1d2-dcef-4a65-821a-4d9a88107fe9
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Order Year OI' =
+			
+			YEAR ( SELECTEDVALUE ( 'KRW_NA_SAP_VBAP OI'[Document Date] ) )
+		formatString: 0
+		lineageTag: 3a603bf3-511c-46b6-8f45-6e3d77764b23
+
+		changedProperty = Name
+
+	measure 'Revenue OI' =
+			
+			VAR SumRevenueOI =
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign])
+			RETURN
+			IF(
+			    SumRevenueOI = BLANK(),
+			    0,
+			    SumRevenueOI
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 403f778c-ca30-4c3d-8614-5ba2e81e13e0
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Revenue Previous Year OI' =
+			
+			VAR RevenueLastYearOI =
+			CALCULATE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			    YEAR('KRW_NA_FF_CALENDAR OI'[Date]) = YEAR(TODAY()) - 1
+			)
+			RETURN
+			IF(
+			    ('KRW_NA_SAP_VBAP OI'[Order Year OI] = YEAR(TODAY()) - 1 || SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]) = 0),
+			    0,
+			    RevenueLastYearOI
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 62aa3bb3-a278-4f13-8344-a989d41e4bcd
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Sum Order Qty. in FT2 for Membranes Prior Year OI' =
+			
+			VAR OrderQtyFT2MembranesPriorYearOI =
+			CALCULATE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane"),
+			    YEAR('KRW_NA_FF_CALENDAR OI'[Date]) = YEAR(TODAY()) - 1
+			)
+			RETURN
+			IF(
+			    ('KRW_NA_SAP_VBAP OI'[Order Year OI] = YEAR(TODAY()) - 1 || SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]) = 0),
+			    0,
+			    OrderQtyFT2MembranesPriorYearOI
+			)
+		formatString: #,0
+		lineageTag: d5caecfc-cdc5-45a7-ba8b-1099ac783cb9
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Sum Order Qty. in BFT2 for ISO Prior Year OI' =
+			
+			VAR OrderQtyBFT2ISOPriorYearOI =
+			CALCULATE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2]),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso"),
+			    YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) - 1
+			)
+			RETURN
+			IF(
+			    ('KRW_NA_SAP_VBAP OI'[Order Year OI] = YEAR(TODAY()) - 1 || SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2]) = 0),
+			    0,
+			    OrderQtyBFT2ISOPriorYearOI
+			)
+		formatString: #,0
+		lineageTag: 206bf582-9504-4a10-94bf-812e6142fdb3
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Sum Revenue in DC with sign VBAP OI' =
+			
+			VAR RevDcVBAPOI =
+			SUM(KRW_NA_SAP_VBRP[Revenue in DC with Sign])
+			RETURN
+			IF(
+			    RevDcVBAPOI = BLANK(),
+			    0,
+			    RevDcVBAPOI
+			)
+		lineageTag: 4dc98f09-7bc0-4a28-be29-956fc6bb6a81
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current Fiscal Month Order FT2 for Membranes Hardcoded' =
+			
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2] ),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane"),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = "2026.2"
+			)
+		formatString: #,0
+		lineageTag: de9ca85e-9561-46f1-adc1-3a25cb9a93f3
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Fiscal Month Order FT2 for ISO' =
+			
+			VAR CurrentFYPValueISOOIFT2 = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2] ),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso"),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = CurrentFYPValueISOOIFT2
+			)
+		formatString: #,0
+		lineageTag: 57d23a30-1e73-47eb-85a4-e3f708be36d2
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Fiscal Month Order BFT for ISO' =
+			
+			VAR CurrentFYPValueISOOIBFT2 = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2] ),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso"),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = CurrentFYPValueISOOIBFT2
+			)
+		formatString: #,0
+		lineageTag: b4fd3674-5055-4ac3-bb4b-a3e1406df39f
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Fiscal Month Order Revenue' =
+			
+			CALCULATE(
+			SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			FILTER(
+			'KRW_NA_FF_CALENDAR OI',
+			'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = [Current FYP VBAP OI]
+			)
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: b1ef7bd7-6e56-4cdf-a588-b1af43629b0e
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure '% Fcst FM' = [Current Fiscal Month Order Revenue]/[Current Month Order Revenue Fcst]
+		formatString: 0%;-0%;0%
+		lineageTag: 25c62c01-0fc0-48cc-87bf-10b1e4a8319a
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Revenue Fiscal Month Previous Year OI' =
+			
+			VAR RevenueFMLastYearOI =
+			CALCULATE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]),
+			    YEAR('KRW_NA_FF_CALENDAR OI'[Date]) = YEAR(TODAY()) - 1,
+			    MONTH('KRW_NA_FF_CALENDAR OI'[Date]) = MONTH(TODAY())
+			)
+			RETURN
+			IF(
+			    RevenueFMLastYearOI = BLANK(),
+			    0,
+			    RevenueFMLastYearOI
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 83236c81-2f96-4d70-837e-c36e7a4cc548
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Sum Order Qty. in FT2 for Membranes Fiscal Month Prior Year OI' =
+			
+			VAR OrderQtyFT2MembranesFMPriorYearOI =
+			CALCULATE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane"),
+			    YEAR('KRW_NA_FF_CALENDAR OI'[Date]) = YEAR(TODAY()) - 1,
+			    MONTH('KRW_NA_FF_CALENDAR OI'[Date]) = MONTH(TODAY())
+			)
+			RETURN
+			IF(
+			    OrderQtyFT2MembranesFMPriorYearOI = BLANK(),
+			    0,
+			    OrderQtyFT2MembranesFMPriorYearOI
+			)
+		formatString: #,0
+		lineageTag: d48d12a8-144f-4630-898f-cb45beba6496
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Sum Order Qty. in BFT2 for ISO Fiscal Month Prior Year OI' =
+			
+			VAR OrderQtyBFT2ISOFMPriorYearOI =
+			CALCULATE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2]),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "iso"),
+			    YEAR('KRW_NA_FF_CALENDAR OI'[Date]) = YEAR(TODAY()) - 1,
+			    MONTH('KRW_NA_FF_CALENDAR OI'[Date]) = MONTH(TODAY())
+			)
+			RETURN
+			IF(
+			    OrderQtyBFT2ISOFMPriorYearOI = BLANK(),
+			    0,
+			    OrderQtyBFT2ISOFMPriorYearOI
+			)
+		formatString: #,0
+		lineageTag: 477baf64-a1d0-4bbd-936d-84c84d7e74a2
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Fiscal Month Order FT2 for Membranes' =
+			
+			VAR CurrentFYPValueMOI = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2] ),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane"),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = CurrentFYPValueMOI
+			)
+		formatString: #,0
+		lineageTag: 4a24f731-5099-47cc-8139-7649f0b6a5a2
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Calendar Month Order FT2 for Membranes 2' =
+			
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP OI',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane") &&
+			        YEAR('KRW_NA_SAP_VBAP OI'[Document Date]) = YEAR(TODAY()) &&
+			        MONTH('KRW_NA_SAP_VBAP OI'[Document Date]) = MONTH(TODAY())
+			    ),
+			    'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2]
+			)
+		lineageTag: fed23815-cbb2-402a-a2b8-79da4cc3c7e7
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current FYP VBAP OI' =
+			LOOKUPVALUE(
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period],   -- Column to return
+			    'KRW_NA_FF_CALENDAR OI'[Date], TODAY() -- Search column & value
+			)
+		lineageTag: c8af07df-23d3-4bf8-92e0-44020b201613
+
+		changedProperty = Name
+
+	measure 'ISO AOP - $/bdft VBAP OI' = SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign])/SUM('KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2])
+		formatString: \$#,0.000;(\$#,0.000);\$#,0.000
+		lineageTag: 09945c82-6982-4a9b-b04c-603698227be2
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Current Fiscal Month Order Revenue FT2 Membranes' =
+			
+			VAR CurrentFYPValueMOIFT2 = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign] ),
+			    CONTAINSSTRING('KRW_NA_SAP_VBAP OI'[Product Family], "Membrane"),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = CurrentFYPValueMOIFT2
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a9ee125a-1dc9-4e7e-b29c-dccfdddf3949
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'PercDiff PY Orders' =
+			
+			DIVIDE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]) - 'KRW_NA_SAP_VBAP OI'[Revenue Previous Year OI],
+			    'KRW_NA_SAP_VBAP OI'[Revenue Previous Year OI],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9d371853-43c9-42d1-9141-68e9f798ebd4
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'PercDiff PY Orders QTY' =
+			
+			DIVIDE(
+			    [Sum Order Qty. in FT2 for Membranes OI] - [Sum Order Qty. in FT2 for Membranes Prior Year OI],
+			    [Sum Order Qty. in FT2 for Membranes Prior Year OI],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d33a7c3e-cf3d-4294-bff5-712ea736adde
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'PercDiff Arrow Orders' = ```
+			
+			VAR PercDiff = 
+			DIVIDE(
+			    SUM('KRW_NA_SAP_VBAP OI'[Revenue in DC with Sign]) - 'KRW_NA_SAP_VBAP OI'[Revenue Previous Year OI],
+			    'KRW_NA_SAP_VBAP OI'[Revenue Previous Year OI],
+			    0
+			)
+			RETURN
+			IF(
+			    PercDiff > 0,
+			    UNICHAR(9650),  -- ▲ Up arrow
+			    UNICHAR(9660)   -- ▼ Down arrow
+			)
+			```
+		lineageTag: 914240c4-17b2-4083-93ca-7ae252b411f0
+
+		changedProperty = Name
+
+	measure 'PercDiff Arrow Orders QTY' = ```
+			
+			VAR PercDiff = 
+			DIVIDE(
+			    [Sum Order Qty. in FT2 for Membranes OI] - [Sum Order Qty. in FT2 for Membranes Prior Year OI],
+			    [Sum Order Qty. in FT2 for Membranes Prior Year OI],
+			    0
+			)
+			RETURN
+			IF(
+			    PercDiff > 0,
+			    UNICHAR(9650),  -- ▲ Up arrow
+			    UNICHAR(9660)   -- ▼ Down arrow
+			)
+			```
+		lineageTag: c9f9338a-c7e1-4356-b914-b31e10180041
+
+		changedProperty = Name
+
+	measure 'Current Fiscal Month Order BFT for ISO Split' =
+			
+			VAR CurrentFYPValueISOOIBFT2Split = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Order Qty. in BFT2] ),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = CurrentFYPValueISOOIBFT2Split
+			)
+		formatString: #,0
+		lineageTag: 270e5e86-d1ae-4660-9277-5fc24543de32
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Fiscal Month Order FT2 for ISO Split' =
+			
+			VAR CurrentFYPValueISOOIFT2Split = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_SAP_VBAP OI'[Order Qty. in FT2] ),
+			    'KRW_NA_FF_CALENDAR OI'[Fiscal Year Period] = CurrentFYPValueISOOIFT2Split
+			)
+		formatString: #,0
+		lineageTag: a5228641-7759-4522-a92b-769a99925e6b
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Material
+		dataType: string
+		lineageTag: 997507a2-2026-4130-9a5a-3cf6261d3d2a
+		sourceLineageTag: 1e67d632-641f-4a17-a307-9dee7a774c55
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Description'
+		dataType: string
+		lineageTag: 3afaf61c-eb8e-4452-b63c-71f7b67ff103
+		sourceLineageTag: bc40a1df-25ed-43a8-8981-88f9cce3e896
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Doc Currency'
+		dataType: string
+		lineageTag: 62858d9a-68d1-44e0-8d9b-cdb231efcd5d
+		sourceLineageTag: 9e149b67-e600-4fdd-9cb1-f52f803ef46c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Doc Currency
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Quantity'
+		dataType: double
+		lineageTag: 97d6101a-bcc2-44ac-b0be-33f5669c2b33
+		sourceLineageTag: c5036b51-2dc9-4af8-8cfc-c08aea0939ff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales UoM'
+		dataType: string
+		lineageTag: 6094cdab-f983-49a4-8208-7af32d397bf3
+		sourceLineageTag: b7765993-7dfe-4cde-ac68-0d6d175c9520
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales UoM
+
+		annotation SummarizationSetBy = User
+
+	column Numerator
+		dataType: double
+		isHidden
+		lineageTag: 82b9550e-f061-47ed-b97b-4c9bf5735371
+		sourceLineageTag: 67362598-99c1-4dfa-b8f8-02fa4f8e5da9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Numerator
+
+		annotation SummarizationSetBy = User
+
+	column Denominator
+		dataType: double
+		isHidden
+		lineageTag: 3fb005da-b34f-4706-b35a-e1582443f482
+		sourceLineageTag: a6a3e72b-b2b4-4378-8480-e106a2a3d94f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Denominator
+
+		annotation SummarizationSetBy = User
+
+	column Plant
+		dataType: string
+		lineageTag: bc5ac72b-2943-4735-8539-d6174bd3eee2
+		sourceLineageTag: bd89c820-8c4f-4b57-881a-e36ed89d47fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = User
+
+	column 'Net Price'
+		dataType: double
+		lineageTag: 0a3fe953-4a03-4435-ba50-8dd1bcf8cb44
+		sourceLineageTag: 303f8e8f-210a-4bb2-afcd-eb4cfefc36f1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Net Price
+
+		annotation SummarizationSetBy = User
+
+	column 'Per Unit'
+		dataType: double
+		lineageTag: 007cc26b-daf3-4ecb-844e-a3773bdf12b2
+		sourceLineageTag: 6ef35481-61af-4386-bf9a-55dcab575920
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Per Unit
+
+		annotation SummarizationSetBy = User
+
+	column 'Price UoM'
+		dataType: string
+		lineageTag: d2ca431b-08ec-4048-8c63-1713365da3d2
+		sourceLineageTag: e59cf4c8-557e-4cf9-8269-c2d1824fd905
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Price UoM
+
+		annotation SummarizationSetBy = User
+
+	column Cost
+		dataType: double
+		lineageTag: 6068dbc1-afa6-4fea-aec7-3dd8b41c3065
+		sourceLineageTag: 47a99054-d796-4d7a-a5cc-59a022c563e4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost
+
+		annotation SummarizationSetBy = User
+
+	column Sector
+		dataType: int64
+		formatString: 0
+		lineageTag: dd4c2baf-e8be-4ff8-9f1e-af615192bd50
+		sourceLineageTag: d594410f-8e09-48f3-95da-bfbbbc08eb46
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = User
+
+	column 'Product Family'
+		dataType: string
+		lineageTag: ab477fd1-9868-4c14-afa3-133e6a6233f4
+		sourceLineageTag: 351c03d9-eb7a-478e-bdfa-c1357786ddf5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Product Family
+
+		annotation SummarizationSetBy = User
+
+	column 'Billing Status'
+		dataType: string
+		lineageTag: 04e3847a-214f-4206-b993-6510df3c30a3
+		sourceLineageTag: 801385fb-de0e-4e2c-9e8f-5322daa43394
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Billing Status
+
+		annotation SummarizationSetBy = User
+
+	column 'Margin % VBAP'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 66ef6bee-a4a8-4bec-b815-ecdf54694b03
+		sourceLineageTag: c671444a-6a89-4105-af55-7b2c197891da
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Margin % VBAP
+
+		annotation SummarizationSetBy = User
+
+	column SO_ITEM
+		dataType: string
+		lineageTag: 6880afff-2616-49aa-818d-43b4d09cc067
+		sourceLineageTag: 676e9c83-dfc9-4958-8dd1-1007a208352e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SO_ITEM
+
+		annotation SummarizationSetBy = User
+
+	column MAT_UOM
+		dataType: string
+		isHidden
+		lineageTag: a2c19493-977b-48f7-ac52-a4ce2d2ac7a4
+		sourceLineageTag: 544ede1a-7924-40b5-ac64-7d7f3ff7788e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MAT_UOM
+
+		annotation SummarizationSetBy = User
+
+	column 'Numerator Pricing Unit'
+		dataType: double
+		isHidden
+		lineageTag: bbd9bdb5-e0a4-4267-b4b1-5ba5e7fcc098
+		sourceLineageTag: 8f9f671d-7bfc-4960-9b43-71be3b402ee0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Numerator Pricing Unit
+
+		annotation SummarizationSetBy = User
+
+	column 'Denominator Pricing Unit'
+		dataType: double
+		isHidden
+		lineageTag: b414d69f-c4a0-4ff3-aefa-141c2f59bcef
+		sourceLineageTag: 8bcc7598-050f-4fd8-82ef-c9e83d93b7aa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Denominator Pricing Unit
+
+		annotation SummarizationSetBy = User
+
+	column 'Document Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 730758d5-aef1-49bb-8fe4-3d057dadc059
+		sourceLineageTag: 64d6ba70-a175-4e1f-97af-aa754771225f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Document Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Requested Delivery Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f04a31ad-1228-44c1-b3fd-19f011539f24
+		sourceLineageTag: 41c36a45-d86d-4294-8ea1-b1a3e7f84d09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Requested Delivery Date
+
+		variation Variation
+			isDefault
+			relationship: 22670f6a-8f95-496f-afa9-cb0f4a9b77b5
+			defaultHierarchy: LocalDateTable_fe6033ef-490c-467a-a1f3-49fe2e2abbcf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Doc. Type'
+		dataType: string
+		lineageTag: e7d44c69-9ec8-4717-bcd2-c47ad25ee0e8
+		sourceLineageTag: db9a9fd8-b876-421b-b07e-571aabbf7795
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Doc. Type
+
+		annotation SummarizationSetBy = User
+
+	column Sold-To
+		dataType: string
+		lineageTag: fa5bffac-d5f4-47ae-8b2c-3de1c7be44f9
+		sourceLineageTag: 944ec2c8-3e67-4b88-8898-dfb9aa7e2243
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-To
+
+		annotation SummarizationSetBy = User
+
+	column 'BFT Numerator'
+		dataType: double
+		isHidden
+		lineageTag: 9acdf3ac-36be-4c47-8f08-108848f883a1
+		sourceLineageTag: 12cdd5bb-3ac6-4af5-9151-8d758b59a32d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BFT Numerator
+
+		annotation SummarizationSetBy = User
+
+	column 'BFT Denominator'
+		dataType: double
+		isHidden
+		lineageTag: dc1460a1-463c-4980-a2de-2d007fa5ea80
+		sourceLineageTag: 5a1761d9-82b7-4936-9a1b-18319db3c336
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BFT Denominator
+
+		annotation SummarizationSetBy = User
+
+	column 'Debit/Credit Multiplier'
+		dataType: double
+		isHidden
+		lineageTag: 96d63c73-eb28-44af-9516-f7ec96610a62
+		sourceLineageTag: c3977a4d-8354-4c6b-a68a-0b345d9c1d8a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Debit/Credit Multiplier
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost in DC with Sign'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 968bd0e7-2e3c-4b59-92d8-5ba6f553367e
+		sourceLineageTag: 79a408ca-d9e2-4371-a5f5-85935a10fe6f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost in DC with Sign
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column 'SO Quantity in Base UoM'
+		dataType: double
+		lineageTag: 6a8c3f45-17ad-4d90-a3de-271638e67c04
+		sourceLineageTag: 4a69944f-10ff-437a-909f-601d2f877ad6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SO Quantity in Base UoM
+
+		annotation SummarizationSetBy = User
+
+	column 'Unit Price in DC'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 327b3db4-c38e-4aa3-8945-e6f76cc78f5f
+		sourceLineageTag: fa214ba7-4780-4b6b-aa0c-e820f6642bf4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unit Price in DC
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Revenue in DC with Sign'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: e536c9c6-dc84-477a-91e8-0566be985c73
+		sourceLineageTag: 061434a9-a123-4f72-af48-18b746d4acfb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Revenue in DC with Sign
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Margin in DC'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: e7d20e17-60b1-4862-b32f-da9271cf108c
+		sourceLineageTag: a567a511-31e1-4bc6-b597-9de1a6ccbc34
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Margin in DC
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Document'
+		dataType: string
+		lineageTag: 92e9ef15-f34c-4b35-b1b1-f3ab1784d09c
+		sourceLineageTag: 48db99c3-c73c-4c4c-a450-f4161622d133
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Document
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Quantity in Pricing UoM with sign'
+		dataType: string
+		lineageTag: d692ee75-f60b-4f8d-a967-93413acb9fc6
+		sourceLineageTag: 49727a88-7bf1-49c6-8e20-544cc71d0ae1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Order Quantity in Pricing UoM with sign
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Qty. in FT2'
+		dataType: double
+		formatString: #,0
+		lineageTag: 3d803982-09af-49da-8f02-12446d852c4f
+		sourceLineageTag: 501861a3-2641-42f8-9381-003e4c636f49
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Qty. in FT2
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Base UoM'
+		dataType: string
+		lineageTag: d75f6a5c-9e85-4add-b7ac-44057c838b24
+		sourceLineageTag: 7f146071-df7b-4192-af65-01509364746a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base UoM
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Qty. in M2'
+		dataType: double
+		formatString: #,0
+		lineageTag: ccebe3d0-08f3-4227-b553-82f2b3ae4b6d
+		sourceLineageTag: 1fad9088-02fc-47a4-8eda-f4a8f91057e2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Qty. in M2
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Order Qty. in BFT2'
+		dataType: double
+		formatString: #,0
+		lineageTag: 720580e2-f069-422d-b47e-f04573ad04ce
+		sourceLineageTag: 2d5f5261-5ab1-40db-b666-0a59e9bef00e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Qty. in BFT2
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Material Group'
+		dataType: string
+		lineageTag: 9a04bd9b-24d7-4bfd-918e-9a05bae352b8
+		sourceLineageTag: 9894dc87-0cfd-4460-9f66-a93eacc9aa37
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Material Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Item'
+		dataType: string
+		lineageTag: b938d63a-e499-4de5-995e-3804bb461623
+		sourceLineageTag: 6bcfd178-4a83-44ba-96d1-9fa898ee3ab9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Item
+
+		annotation SummarizationSetBy = User
+
+	column 'Net Value'
+		dataType: double
+		lineageTag: a297dd16-8d47-48bc-b408-1dab6a744006
+		sourceLineageTag: c6b4b4bf-bce3-4058-a29e-91738115bd69
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Net Value
+
+		annotation SummarizationSetBy = User
+
+	column 'SO Quantity in Sales UoM with Sign'
+		dataType: double
+		formatString: #,0
+		lineageTag: fd915fbd-2ac6-40fb-a75d-a7b806b3ca7d
+		sourceLineageTag: ae32a956-67b9-4813-8a93-b763ed0ab5db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SO Quantity in Sales UoM with Sign
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Sales Representative'
+		dataType: string
+		lineageTag: 7b0ca7e2-2301-4cf3-aff4-5b20e203823f
+		sourceLineageTag: e2f4f966-ab5b-4794-9453-8c918e2014c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Representative
+
+		annotation SummarizationSetBy = User
+
+	column 'Project Coordinator'
+		dataType: string
+		lineageTag: f28f9d70-2f05-47fd-9a82-9b3cbef6ed7d
+		sourceLineageTag: 4908fe03-c6e5-4ee5-8933-8b56dde23705
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Project Coordinator
+
+		annotation SummarizationSetBy = User
+
+	column 'Margin %'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 658ed59e-8e12-4317-a14e-f76ca0f6c06f
+		sourceLineageTag: f46f352f-4997-4cc6-a854-ffdd2002f645
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Margin %
+
+		annotation SummarizationSetBy = User
+
+	column Application
+		dataType: string
+		lineageTag: c93b7465-bf18-4614-ab4f-88daea73a691
+		sourceLineageTag: e8b5603b-6f6c-4e95-9151-29e1f7da093f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Application
+
+		annotation SummarizationSetBy = User
+
+	column MAT_UOM_BRD
+		dataType: string
+		lineageTag: 1f7fe2ae-41bc-4092-803d-fad58a8f42bf
+		sourceLineageTag: f0c0abf5-db85-4246-b091-4167ec3d89d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MAT_UOM_BRD
+
+		annotation SummarizationSetBy = User
+
+	column 'Numerator BRD'
+		dataType: double
+		lineageTag: e9f049b1-d11a-483c-8fcb-b68051026b82
+		sourceLineageTag: f86f3b78-a981-43c2-ab8d-e0a0dea4cc96
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Numerator BRD
+
+		annotation SummarizationSetBy = User
+
+	column Factor
+		dataType: string
+		lineageTag: 87642793-8b38-4e97-a482-ba0f2b4d1f18
+		sourceLineageTag: a27ec40a-b465-47fb-a7bd-e6e055284978
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Factor
+
+		annotation SummarizationSetBy = User
+
+	column 'Secondary Grouping'
+		dataType: string
+		lineageTag: ac6501e7-7bd3-40a0-af43-683d7c02d744
+		sourceLineageTag: f7bf0bc8-8d41-4e7b-96c3-e957822c93c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Secondary Grouping
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_SP
+		dataType: string
+		isHidden
+		lineageTag: 6f4a9a4e-c281-4834-bf9d-636be926adc6
+		sourceLineageTag: 1de991c1-a63c-4d1f-9da5-1cebe5ffc41e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_SP
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_SH
+		dataType: string
+		isHidden
+		lineageTag: 6cea4f2a-1252-407e-b9cb-73707328e1ba
+		sourceLineageTag: 061b6734-4497-4f26-9a06-f9fb8ec55af1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_SH
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_PY
+		dataType: string
+		isHidden
+		lineageTag: 277c5f0f-d19c-4ab5-9fed-1bc3c096aecc
+		sourceLineageTag: 547d3175-42b3-43b8-a0aa-64d902386868
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_PY
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_BL
+		dataType: string
+		isHidden
+		lineageTag: c797a8f7-3b53-4178-badb-ed9f8374099f
+		sourceLineageTag: 74ddd413-657f-40a9-a516-61db7be58695
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_BL
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to Zip Code'
+		dataType: string
+		lineageTag: 990e31ca-052f-467c-a28c-19db2d09aefa
+		sourceLineageTag: 8bac30af-e14c-4095-bd1a-3bbe984b22fa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to State'
+		dataType: string
+		lineageTag: a94df92c-4980-4697-b28b-8be7b9825139
+		sourceLineageTag: 080641e1-4d8f-453e-bc31-068e7b382fb4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to State
+
+		annotation SummarizationSetBy = User
+
+	column Bill-to
+		dataType: string
+		lineageTag: 62400e8a-ee3b-4882-8453-af1c066b1258
+		sourceLineageTag: 5803dc05-2b2e-4d07-9130-8a3042f0e0c9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to Name'
+		dataType: string
+		lineageTag: 823c23e2-c683-40bf-a078-369ae181ab2b
+		sourceLineageTag: d2d425cc-1709-486b-9223-13ada5c48467
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to Zip Code'
+		dataType: string
+		lineageTag: cd3239ba-9bb6-4449-a6be-284310a1918e
+		sourceLineageTag: 300becb8-56f1-481b-b070-2ea6f97568be
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to State'
+		dataType: string
+		lineageTag: b80d07af-f5c2-4dbd-8282-45fd6f52d992
+		sourceLineageTag: f8dfcbed-da5d-4001-b1f8-c4b660041378
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to State
+
+		annotation SummarizationSetBy = User
+
+	column Payer
+		dataType: string
+		lineageTag: 9f669176-2122-4746-98c4-42d3403c642c
+		sourceLineageTag: 8046a6fe-9f31-4ff7-9fa4-9f6784a7b4ea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer Name'
+		dataType: string
+		lineageTag: 1d5e0e33-4e90-46d2-8620-355e4ec0fba2
+		sourceLineageTag: e13a63cf-6119-4853-ba46-35cabed04375
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer Zip Code'
+		dataType: string
+		lineageTag: a6c84760-8864-431e-bea5-63748db7ec13
+		sourceLineageTag: 4aa77e1e-7f10-4e0c-b70c-4d9e46cc9b0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer State'
+		dataType: string
+		lineageTag: 780c6531-eb93-4e05-8b5d-1fb254589694
+		sourceLineageTag: 42a4386e-868d-406f-9dd1-f5674c60c90e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer State
+
+		annotation SummarizationSetBy = User
+
+	column 'Industry Text'
+		dataType: string
+		lineageTag: a795ab6e-ca0a-4613-85fd-022d8c74b64a
+		sourceLineageTag: 510a0eab-f299-4c1c-9a52-3a81ccc7fe6d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Industry Text
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to Zip Code Name'
+		dataType: string
+		lineageTag: 04f79f88-6498-4cbc-b9f5-3606a68d051d
+		sourceLineageTag: c2f777b0-deba-4aa8-be91-4fd918129b47
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Sold-to'
+		dataType: string
+		lineageTag: 50dfa730-2292-48e4-aad8-5a4c37401534
+		sourceLineageTag: 63ab411a-6e89-462b-8e99-7a45db27ab7d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Sold-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to Zip Code Name'
+		dataType: string
+		lineageTag: 2d7e408f-83f5-44f9-b368-72c2f23f58b4
+		sourceLineageTag: d2c1617e-ce47-436c-8ca0-d6fa0542c105
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Ship-to'
+		dataType: string
+		lineageTag: 54d25024-d59f-4467-a8da-509f0c15e2ad
+		sourceLineageTag: da095e5c-43ed-4d9f-ae07-9630882ca39f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Ship-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to Zip Code Name'
+		dataType: string
+		lineageTag: e3985d66-a6dc-4ff4-920f-634128c9862c
+		sourceLineageTag: 9776910b-903d-4bdb-81f6-03e2328c7c31
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Bill-to'
+		dataType: string
+		lineageTag: 1c3d8bdb-30af-41e3-b780-e7287cc70cbe
+		sourceLineageTag: 4c71b4d1-7646-4a54-b819-1d3a2ff16665
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Bill-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Name'
+		dataType: string
+		lineageTag: 2f770963-dd6a-4d93-a85d-18d021d22317
+		sourceLineageTag: e67d6495-a9f0-443f-8f5a-4bea0b7156c8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer Zip Code Name'
+		dataType: string
+		lineageTag: fc8d1964-0b0a-40b6-928d-27cfb0dcfdaa
+		sourceLineageTag: dab05207-3121-4ea2-8062-10201c6e45eb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Payer'
+		dataType: string
+		lineageTag: fc150f30-9729-4725-835f-65ba8afe94e8
+		sourceLineageTag: 9788478a-4bfd-4367-b085-1878d59e96c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Payer
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to State Name'
+		dataType: string
+		lineageTag: aea82c38-9fc4-4c3a-b93f-6b6e47f8a8fd
+		sourceLineageTag: cb8ec8c0-4175-49cc-816f-57e32d9bad3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to State Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to State Text'
+		dataType: string
+		lineageTag: 5c0c26bf-ba77-4218-90bc-a0f106296523
+		sourceLineageTag: 160801d7-7099-472e-bd78-b239cce6c923
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to State Text
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer State Name'
+		dataType: string
+		lineageTag: 60708e11-f458-4189-89ec-5a0a9a52cab6
+		sourceLineageTag: 3ca75c3c-214a-4cac-978f-33d4c4d49594
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer State Name
+
+		annotation SummarizationSetBy = User
+
+	column Ship-to
+		dataType: string
+		lineageTag: 452b39e7-5bb1-4016-9e83-a3061290ead9
+		sourceLineageTag: 8eeda7c4-0366-40c8-808c-5d172b041cda
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to Name'
+		dataType: string
+		lineageTag: 9903b223-c126-490f-aefb-c26ead147fa7
+		sourceLineageTag: 862696dc-640c-4fc7-8063-98a4914401b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to Zip Code'
+		dataType: string
+		lineageTag: 66a89485-d8ca-4d37-a5cc-b9b4c2772c09
+		sourceLineageTag: 6653ce07-75c2-4579-b084-21273fca5bfd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to State'
+		dataType: string
+		lineageTag: 2db00541-fa74-4dab-bd2b-31fb05dc9293
+		sourceLineageTag: 8439991b-ffc9-401d-94e9-3214a0642bee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to State
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to State Name'
+		dataType: string
+		lineageTag: 48fbc8ee-992f-4247-9d53-5442ee0419d8
+		sourceLineageTag: 258ec7b0-939e-48b1-a979-66ac702e78c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to State Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Distribution Channel'
+		dataType: string
+		lineageTag: 61151f47-ae22-4e98-90c1-8ba4f6e85ab4
+		sourceLineageTag: d130cc82-d898-4e9c-9332-567fa8618265
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Distribution Channel
+
+		annotation SummarizationSetBy = User
+
+	column Division
+		dataType: string
+		lineageTag: 5cab4cd8-bd21-4f4d-b968-2214ecca7552
+		sourceLineageTag: 85fa2f73-2a58-4cb6-8053-bec634b6c353
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = User
+
+	column CUST_SALES
+		dataType: string
+		lineageTag: a1b1c93e-5f42-472d-877e-4d0d7748e616
+		sourceLineageTag: ded7cf2a-c555-47d9-99d3-01b3c91f502c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_SALES
+
+		annotation SummarizationSetBy = User
+
+	column 'Target Value'
+		dataType: double
+		lineageTag: 82abe2ed-6e26-4805-b719-8afc0ed316e9
+		sourceLineageTag: 568dd21d-e058-4a26-8828-0640e3374214
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Target Value
+
+		annotation SummarizationSetBy = User
+
+	column 'Target Quantity'
+		dataType: double
+		lineageTag: 51c1458c-b981-410e-b84b-9b72b69e1965
+		sourceLineageTag: 8bfecb9d-748c-4585-a12c-fd456736bfbc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Target Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Target UoM'
+		dataType: string
+		lineageTag: 908167c8-8fbd-4715-821a-3df4543fd085
+		sourceLineageTag: bf4fc12c-3ac2-4fdb-a2a7-22ba300cf142
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Target UoM
+
+		annotation SummarizationSetBy = User
+
+	column Quantity
+		dataType: string
+		lineageTag: 0e38c727-2c46-4048-9861-b41bf136a931
+		sourceLineageTag: 9c356e08-7207-41f6-9111-655bf148b024
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category'
+		dataType: string
+		lineageTag: 6fbd7037-3e34-4674-8b23-751670478ff5
+		sourceLineageTag: c237dc6b-bb7f-4d39-a577-cf3bf040fba0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category
+
+		annotation SummarizationSetBy = User
+
+	column 'Reason for Rejection'
+		dataType: string
+		lineageTag: 8b17bad7-2dbe-4788-aa2b-00e84064e1b6
+		sourceLineageTag: 06690676-eb9c-4247-a109-87626ea5b61f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reason for Rejection
+
+		annotation SummarizationSetBy = User
+
+	column 'Rejection Status'
+		dataType: string
+		lineageTag: f75a1c7a-4a3f-4524-bb57-229c2a861354
+		sourceLineageTag: e88d7b8e-865a-4a0b-a99a-65523d1e877d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rejection Status
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category Description'
+		dataType: string
+		lineageTag: 91c9e66c-571e-4d96-9b83-523223e81f03
+		sourceLineageTag: 759a77c3-2068-4885-8f66-cd9d88e78313
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category Key and Description'
+		dataType: string
+		lineageTag: 094ad76a-5b89-4a43-bd2a-2417d39a3c67
+		sourceLineageTag: f95e478a-5e1c-4c5d-9aa6-6da669bd24d2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category Key and Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Unit Price in DC in Base UoM'
+		dataType: string
+		lineageTag: 22b2d5c7-574e-459c-9524-d56a48ec627c
+		sourceLineageTag: 79c08da6-71d4-44c8-96cc-ba268c7d74b7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Unit Price in DC in Base UoM
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_SAP_VBAP OI' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_VBAP
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_SORDERS'
+
+	changedProperty = Name
+

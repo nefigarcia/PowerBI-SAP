@@ -1,0 +1,83 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "3a9faf33444e9a99822b",
+  "position": {
+    "x": 0,
+    "y": 360,
+    "z": 1000,
+    "height": 360,
+    "width": 436.1194029850746,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_FF_CALENDAR"
+                    }
+                  },
+                  "Property": "Calendar Date"
+                }
+              },
+              "queryRef": "KRW_NA_FF_CALENDAR.Calendar Date",
+              "nativeQueryRef": "Calendar Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_FF_CALENDAR"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "KRW_NA_FF_CALENDAR.Date",
+              "nativeQueryRef": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_FF_CALENDAR"
+                    }
+                  },
+                  "Property": "Fiscal Year Period"
+                }
+              },
+              "queryRef": "KRW_NA_FF_CALENDAR.Fiscal Year Period",
+              "nativeQueryRef": "Fiscal Year Period"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KRW_NA_FF_CALENDAR"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

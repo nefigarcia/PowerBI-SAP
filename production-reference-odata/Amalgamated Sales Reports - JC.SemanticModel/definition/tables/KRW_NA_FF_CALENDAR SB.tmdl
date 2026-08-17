@@ -1,0 +1,195 @@
+table 'KRW_NA_FF_CALENDAR SB'
+	lineageTag: 2c59dbb4-0a47-406b-9ad7-68736fd29272
+	sourceLineageTag: 75e8f4ab-bb3b-4f63-b22e-0317d11d7db4
+
+	column Date
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		lineageTag: 09ebb741-18df-4b5f-856a-6be13ce593f1
+		sourceLineageTag: a693745a-8535-4d23-9952-0f53caab7b9d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 81df9a63-213d-4b6b-9bf0-a0239da97d45
+			defaultHierarchy: 'LocalDateTable_7549747c-3835-46cb-b679-6708d003061b 3'.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d0e6643-7c11-489e-a4ca-2b8b7d5ef27d
+		sourceLineageTag: db44ad00-7e59-4477-8772-2c8b1225bd1e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: baa1d9ab-11ff-46be-9474-2b725d9d9e18
+		sourceLineageTag: d7f9c375-9244-4a79-b98c-b9d84b5a38e7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 9b8eb111-265b-49a8-8a0f-c4f81e3741cb
+		sourceLineageTag: 3bc00fe7-6ccd-4833-9864-247d4ecb9bbb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: bb65feb3-c076-446b-8786-798cc957b016
+		sourceLineageTag: 37bd2a0c-6289-4934-b7e5-27c09b37b95d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = User
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 3002a348-6500-41b9-a008-dc01ec81693a
+		sourceLineageTag: 47db52eb-d20d-4f7b-a42e-115c0a082e67
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f152efa4-7b2f-4543-a639-8cdfcdee380f
+		sourceLineageTag: 19e7a3f4-acd2-4fe2-8d59-7ffc79ac0177
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		variation Variation
+			isDefault
+			relationship: 87623bbf-0657-4178-93e3-a23736e7a370
+			defaultHierarchy: 'LocalDateTable_2db857ee-2e08-47cf-82da-16c1ae9b8a5a 3'.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'End of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a875e651-6721-4c90-81b1-1dfcd6065b5b
+		sourceLineageTag: 6f9653d3-16e5-44d2-9c31-76859ed93448
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: End of Month
+
+		variation Variation
+			isDefault
+			relationship: eebdbd15-631f-4584-a190-0610f659527f
+			defaultHierarchy: 'LocalDateTable_8f0aa0e5-0705-4a86-832a-ae5cd4a2f2a9 3'.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Year Month'
+		dataType: string
+		lineageTag: 0a88909c-f8cd-4873-b26c-0058c7858d7c
+		sourceLineageTag: 024e32dd-61ab-420e-909b-d223243ed5db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Year Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Current Month'
+		dataType: string
+		lineageTag: 38b44b6a-f6de-4ea0-9340-e98625ba31bc
+		sourceLineageTag: 5b9e7ab3-2c27-4928-ad19-436fd3417f17
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Current Month
+
+		annotation SummarizationSetBy = User
+
+	column Subtraction
+		dataType: double
+		lineageTag: 63fd6849-6f9f-43f3-8055-e4668ce812e2
+		sourceLineageTag: a198a1ad-7526-497e-af67-572e4da86b45
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Subtraction
+
+		annotation SummarizationSetBy = User
+
+	column 'Month Type'
+		dataType: string
+		lineageTag: 84d6a03b-bc82-4e64-9672-f87915b335e7
+		sourceLineageTag: e6574f7d-faf5-436b-ac2c-b7ddafd4cd5d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Month Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Calendar Date'
+		dataType: string
+		isNullable: false
+		lineageTag: 1845af19-81d7-47c4-b28e-3ac2edd30bef
+		sourceLineageTag: f2f6a115-b966-4001-8559-9e5a69b6ba11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calendar Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: 7a2656a9-41ff-43b3-8fb1-dbb5cff39dab
+		sourceLineageTag: 284f1ace-5504-42a0-8fb0-54601bcb20f5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = User
+
+	column 'Fiscal Period'
+		dataType: string
+		lineageTag: bd236ec1-3c1b-4168-9651-7185e9599474
+		sourceLineageTag: 426b2e22-ee7c-412c-bbfb-f8f5be3cf0c2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Fiscal Year Period'
+		dataType: string
+		lineageTag: cb25d646-c553-47fe-9ce9-19cfc3d2fdb5
+		sourceLineageTag: 58419c68-7c89-440a-b533-5f6634d50fdf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_FF_CALENDAR SB' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_FF_CALENDAR
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_BACKLOG'
+
+	changedProperty = Name
+

@@ -1,0 +1,423 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1572.3287922062286,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 715.65014243325481,
+            "y": 175.55713547163481
+          },
+          "nodeIndex": "KRW_NA_FF_CALENDAR",
+          "nodeLineageTag": "75e8f4ab-bb3b-4f63-b22e-0317d11d7db4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 999.86554492364485,
+            "y": 123.014276441297
+          },
+          "nodeIndex": "KRW_NA_FF_FISCALPERIOD",
+          "nodeLineageTag": "3925dd36-5163-4b70-8472-db7aad783e0c",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 232.58619964101092,
+            "y": 790.39091487333258
+          },
+          "nodeIndex": "KRW_NA_SAP_KNA1",
+          "nodeLineageTag": "ac03fea2-291e-4024-8208-de16ec74e72c",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 428.1154039505779,
+            "y": 205.50896029196741
+          },
+          "nodeIndex": "KRW_NA_SAP_TVM3T",
+          "nodeLineageTag": "5ea10157-f56c-41f4-957c-665003159608",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 427.47610516575941,
+            "y": 436.28851736579355
+          },
+          "nodeIndex": "KRW_NA_SAP_VBRP",
+          "nodeLineageTag": "e6295852-5cd0-4064-be0d-e2f62941ff9c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1051.279345282634,
+            "y": 458.70259565731476
+          },
+          "nodeIndex": "KRW_NA_FF_GEOINFO",
+          "nodeLineageTag": "d294d83f-5670-438f-8453-db29bafb95b9",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1619.279345282634,
+            "y": 458.70259565731476
+          },
+          "nodeIndex": "KRW_NA_SAP_KNVV",
+          "nodeLineageTag": "f99a012a-2a63-4b75-a50e-526fc63d59ee",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 1903.279345282634,
+            "y": 506.70259565731476
+          },
+          "nodeIndex": "KRW_NA_SAP_LIKP",
+          "nodeLineageTag": "ebed1b5f-a8eb-4ed4-8053-126a0a5ce030",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 2187.279345282634,
+            "y": 482.70259565731476
+          },
+          "nodeIndex": "KRW_NA_SAP_MARM_BFT",
+          "nodeLineageTag": "20752be7-94ce-4c2e-88a6-fe00ee0f0e4d",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1808.6931456416232,
+            "y": 246.70259565731476
+          },
+          "nodeIndex": "FiscalYearPeriods Slicer",
+          "nodeLineageTag": "60b0d613-f248-41a6-b282-6142483d43f3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 2178.1069460006124,
+            "y": 196.70259565731476
+          },
+          "nodeIndex": "KRW-NA_FF_FORECAST",
+          "nodeLineageTag": "8018f2e9-856c-4e98-9a0d-3ac2b3850c07",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2238.6931456416232,
+            "y": 420.70259565731476
+          },
+          "nodeIndex": "KRW_NA_SAP_VBPA2",
+          "nodeLineageTag": "eb825fe5-f31a-4789-bc96-7a841926b0c0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 2290.1069460006124,
+            "y": 506.70259565731476
+          },
+          "nodeIndex": "KRW_NA_SAP_TVAPT",
+          "nodeLineageTag": "259793e5-0fa6-4461-bb21-bf0bf8632258",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 3813.8915530372215,
+            "y": 112.21876359386715
+          },
+          "nodeIndex": "KRW_NA_FF_FORECAST_INTAKE",
+          "nodeLineageTag": "fea7d548-266a-4957-861f-0867e22076f4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 3529.6626559332262,
+            "y": 245.76995166174936
+          },
+          "nodeIndex": "FiscalYearPeriods Slicer OI",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 30
+        },
+        {
+          "location": {
+            "x": 2961.1209834651254,
+            "y": 215.45983190992661
+          },
+          "nodeIndex": "KRW_NA_FF_CALENDAR OI",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 3245.3923643942048,
+            "y": 237.41609147970996
+          },
+          "nodeIndex": "KRW_NA_FF_FISCALPERIOD OI",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 29
+        },
+        {
+          "location": {
+            "x": 3021.6458919398642,
+            "y": 567.08305331818883
+          },
+          "nodeIndex": "KRW_NA_FF_GEOINFO OI",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 2391.5207463596016,
+            "y": 302.97807877997786
+          },
+          "nodeIndex": "KRW_NA_SAP_KNA1 OI",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 2732.7129365408582,
+            "y": 819.40519131462941
+          },
+          "nodeIndex": "KRW_NA_SAP_KNVV OI",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 4488.8732544869363,
+            "y": 742.26351546802721
+          },
+          "nodeIndex": "KRW_NA_SAP_LIPS",
+          "nodeLineageTag": "4dbcbd17-303e-41e3-ac8b-251ea3d632d1",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 4425.8598930087446,
+            "y": 147.14167584660237
+          },
+          "nodeIndex": "KRW_NA_SAP_MARM_BFT 2",
+          "nodeLineageTag": "28857da3-232b-4822-9da3-8852242424e0",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 5063.0854190884793,
+            "y": 376.64161032580364
+          },
+          "nodeIndex": "FiscalYearPeriods Slicer SB",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 4776.0385263868839,
+            "y": 467.55822295322247
+          },
+          "nodeIndex": "KRW_NA_FF_CALENDAR SB",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 5063.0888825437942,
+            "y": 695.48250719277621
+          },
+          "nodeIndex": "KRW_NA_FF_FISCALPERIOD SB",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 3915.3053533962106,
+            "y": 648.70633764776312
+          },
+          "nodeIndex": "KRW_NA_FF_GEOINFO SB",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 4202.3824912600012,
+            "y": 519.77537907451483
+          },
+          "nodeIndex": "KRW_NA_SAP_KNA1 SB",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 24
+        },
+        {
+          "location": {
+            "x": 4138.79587625183,
+            "y": 196.1867448745748
+          },
+          "nodeIndex": "KRW_NA_SAP_KNVV SB",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 4488.7558297756677,
+            "y": 391.62624424697492
+          },
+          "nodeIndex": "KRW_NA_SAP_VBAP SB",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 2675.4956513485718,
+            "y": -50
+          },
+          "nodeIndex": "KRW_NA_SAP_VBAP OI",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 27
+        },
+        {
+          "location": {
+            "x": 5114.5026829027829,
+            "y": 420.70259565731476
+          },
+          "nodeIndex": "Salesforce Quotes",
+          "nodeLineageTag": "be803661-a72b-4d80-a258-176282608e35",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5165.9164832617716,
+            "y": 420.70259565731476
+          },
+          "nodeIndex": "Salesforce Quote Line Item",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 97.333333333333343,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

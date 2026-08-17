@@ -1,0 +1,74 @@
+table 'KRW_NA_FF_GEOINFO OI'
+	lineageTag: 08dd20c8-63c0-4df4-af6d-ac09358fb04f
+	sourceLineageTag: d294d83f-5670-438f-8453-db29bafb95b9
+
+	column Country
+		dataType: string
+		lineageTag: a35addd9-fa68-4535-a76c-2a03d0c521ae
+		sourceLineageTag: c8bdf3c1-b026-4c1d-a4ad-bf8ee670dba3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = User
+
+	column Code
+		dataType: string
+		lineageTag: b5b91f87-5774-42f4-a928-4f0273625b9c
+		sourceLineageTag: 1b23ffb6-43c4-440a-bb51-be2aef168679
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Code
+
+		annotation SummarizationSetBy = User
+
+	column State
+		dataType: string
+		lineageTag: 2c4c4f86-4ca9-475d-989d-582bf19aa871
+		sourceLineageTag: 00a6aaed-03f1-448e-8380-d4e528545f86
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = User
+
+	column Latitude
+		dataType: double
+		lineageTag: 43bc5908-d63b-4b97-9c35-ffadc10ce044
+		sourceLineageTag: 8d36911a-e5b0-4ecc-bbe4-1256a33bc0c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = User
+
+	column Longitude
+		dataType: double
+		lineageTag: ecd9789c-124d-4f69-91b9-9017ce25fec9
+		sourceLineageTag: b18cee7f-fa4c-488c-bee8-4b3804118c91
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = User
+
+	column COUNTRY_REGION
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: 49ad2b29-657c-4c8e-88b0-c9168f0def84
+		sourceLineageTag: d3700c98-38bb-4aff-ab14-1b521bbbb354
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COUNTRY_REGION
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_FF_GEOINFO OI' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_FF_GEOINFO
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_SORDERS'
+
+	changedProperty = Name
+

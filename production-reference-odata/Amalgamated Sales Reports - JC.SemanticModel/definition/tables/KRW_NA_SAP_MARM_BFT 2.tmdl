@@ -1,0 +1,56 @@
+table 'KRW_NA_SAP_MARM_BFT 2'
+	isHidden
+	lineageTag: 28857da3-232b-4822-9da3-8852242424e0
+	sourceLineageTag: 20752be7-94ce-4c2e-88a6-fe00ee0f0e4d
+
+	column Material
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: 44a10567-572a-4e37-8e60-cf241f24f97c
+		sourceLineageTag: 97c84273-aa4b-4c5b-baeb-a099e17000f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = User
+
+	column 'Alternative UoM'
+		dataType: string
+		isHidden
+		lineageTag: 53379a09-843c-448f-9338-5fb3c2c61518
+		sourceLineageTag: 2d4f7e08-c97b-475d-a3d4-d37495efbba2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Alternative UoM
+
+		annotation SummarizationSetBy = User
+
+	column Numerator
+		dataType: double
+		isHidden
+		lineageTag: e14e953f-4705-4e63-a7e8-0e7a0c9059e6
+		sourceLineageTag: b93175b0-107b-44ec-840b-e57f4ec73bc4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Numerator
+
+		annotation SummarizationSetBy = User
+
+	column Denominator
+		dataType: double
+		isHidden
+		lineageTag: 601fed51-c99b-4c54-a643-15bf1ec7639c
+		sourceLineageTag: 432b30dc-ff12-49f6-a5d7-fdcf8ceea23f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Denominator
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_SAP_MARM_BFT 2' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_MARM_BFT
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_BACKLOG'
+

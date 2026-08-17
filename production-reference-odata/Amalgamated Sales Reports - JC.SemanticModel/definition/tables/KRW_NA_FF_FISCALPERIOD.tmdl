@@ -1,0 +1,51 @@
+table KRW_NA_FF_FISCALPERIOD
+	lineageTag: 8ae6a112-6940-451a-b5b6-c7d9181fbbe4
+	sourceLineageTag: 3925dd36-5163-4b70-8472-db7aad783e0c
+
+	column 'Calendar Date'
+		dataType: string
+		isNullable: false
+		lineageTag: 68d97689-3f3c-4fff-b54d-6c9655352e4c
+		sourceLineageTag: 510b91c2-18bd-4fd4-b98a-25aa2b575ad2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Calendar Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: b95b3ca7-1381-42d0-b7d5-779814c2d81c
+		sourceLineageTag: d20dc3d4-6978-49ff-b01d-24cf55a52c3f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = User
+
+	column 'Fiscal Period'
+		dataType: string
+		lineageTag: 5589e6fc-45b2-43e5-b19f-24de14aeb364
+		sourceLineageTag: 62939ef3-726c-4ed6-a434-8ac50f9291ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Fiscal Year Period'
+		dataType: string
+		lineageTag: 5cd19509-b936-48c6-a622-3918bd0a31e1
+		sourceLineageTag: c03eb940-c091-4731-b303-d18831bb096d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = User
+
+	partition KRW_NA_FF_FISCALPERIOD = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_FF_FISCALPERIOD
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

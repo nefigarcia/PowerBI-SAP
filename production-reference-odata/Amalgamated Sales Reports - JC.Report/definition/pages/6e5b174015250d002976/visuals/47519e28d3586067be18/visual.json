@@ -1,0 +1,166 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "47519e28d3586067be18",
+  "position": {
+    "x": 815.75129533678762,
+    "y": 1.105354058721943,
+    "z": 15000,
+    "height": 103.90328151986184,
+    "width": 332.71157167530225,
+    "tabOrder": 15000
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KRW_NA_SAP_VBAP OI"
+                        }
+                      },
+                      "Property": "Revenue in DC with Sign"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(KRW_NA_SAP_VBAP OI.Revenue in DC with Sign)",
+              "nativeQueryRef": "Order Intake",
+              "displayName": "Order Intake"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "Revenue Previous Year OI"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.Revenue Previous Year OI",
+              "nativeQueryRef": "Order Intake PY",
+              "displayName": "Order Intake PY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "Sum Order Qty. in FT2 for Membranes OI"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.Sum Order Qty. in FT2 for Membranes OI",
+              "nativeQueryRef": "Order Intake QTY",
+              "displayName": "Order Intake QTY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KRW_NA_SAP_VBAP OI"
+                    }
+                  },
+                  "Property": "Sum Order Qty. in FT2 for Membranes Prior Year OI"
+                }
+              },
+              "queryRef": "KRW_NA_SAP_VBAP OI.Sum Order Qty. in FT2 for Membranes Prior Year OI",
+              "nativeQueryRef": "Order Intake QTY PY",
+              "displayName": "Order Intake QTY PY"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "KRW_NA_SAP_VBAP OI"
+                      }
+                    },
+                    "Property": "Revenue in DC with Sign"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "card": [
+        {
+          "properties": {
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "barColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

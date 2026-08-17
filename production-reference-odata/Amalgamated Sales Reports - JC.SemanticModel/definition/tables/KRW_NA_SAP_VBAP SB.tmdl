@@ -1,0 +1,1134 @@
+table 'KRW_NA_SAP_VBAP SB'
+	lineageTag: 685b1cfd-c79e-4b25-a5a1-b9854b8e60a9
+	sourceLineageTag: 4eb44a75-1604-465f-9547-5a7f579e5077
+
+	measure 'Margin Perc VBAP SB' =
+			
+			DIVIDE(
+				SUM('KRW_NA_SAP_VBAP SB'[Margin in DC]),
+				SUM('KRW_NA_SAP_VBAP SB'[Revenue in DC with Sign])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 8bd11b42-a80b-4f45-93c4-b1789713ccb8
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Sum Order Qty. in BFT2 for ISO SB' =
+			
+			VAR OrderQtyBFT2ISOSB =
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP SB',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP SB'[Product Family], "iso")
+			    ),
+			    'KRW_NA_SAP_VBAP SB'[Order Qty. in BFT2]
+			)
+			RETURN
+			IF(
+			    OrderQtyBFT2ISOSB = BLANK(),
+			    0,
+			    OrderQtyBFT2ISOSB
+			)
+		lineageTag: c177d6dd-1f9e-437c-a2dd-988f9d969b8c
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sum Order Qty. in FT2 for Membranes SB' =
+			
+			VAR OrderQtyFT2MembranesSB =
+			SUMX(
+			    FILTER(
+			        'KRW_NA_SAP_VBAP SB',
+			        CONTAINSSTRING('KRW_NA_SAP_VBAP SB'[Product Family], "Membrane")
+			    ),
+			    'KRW_NA_SAP_VBAP SB'[Order Qty. in FT2]
+			)
+			RETURN
+			IF(
+			    OrderQtyFT2MembranesSB = BLANK(),
+			    0,
+			    OrderQtyFT2MembranesSB
+			)
+		formatString: #,0
+		lineageTag: 58de1384-8722-46db-9f7f-1900133b3ef1
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'ISO Rate VBAP SB' =
+			
+			VAR IsoRateVBAPSB =
+			[Sum Order Qty. in BFT2 for ISO SB]/[Sum Order Qty. in FT2 for Membranes SB]
+			RETURN
+			IF(
+			    IsoRateVBAPSB = BLANK(),
+			    0,
+			    IsoRateVBAPSB
+			)
+		formatString: 0.00
+		lineageTag: c35c78ed-dce4-4c93-8b04-6c913d1488c6
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Total Backlog $' = ```
+			
+			VAR TotalBacklog = 
+			SUM('KRW_NA_SAP_VBAP SB'[Revenue in DC with Sign])
+			RETURN
+			IF(TotalBacklog = Blank(),
+			0,
+			TotalBacklog)
+			```
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 09a68fd1-9217-44e7-92de-43a608d12217
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	column Material
+		dataType: string
+		lineageTag: 46dbf6af-121f-460e-b322-4f1fe53e9976
+		sourceLineageTag: 1e67d632-641f-4a17-a307-9dee7a774c55
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Material
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Description'
+		dataType: string
+		lineageTag: 2cc5a1a2-6f66-4e43-a22f-1b345c03e03e
+		sourceLineageTag: bc40a1df-25ed-43a8-8981-88f9cce3e896
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Doc Currency'
+		dataType: string
+		lineageTag: 73b9d96c-6ce5-472e-bf5c-b15ab415a7fe
+		sourceLineageTag: 9e149b67-e600-4fdd-9cb1-f52f803ef46c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Doc Currency
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Quantity'
+		dataType: double
+		lineageTag: 70fd345c-03f3-4f2a-84c2-4931e7d4b8e4
+		sourceLineageTag: c5036b51-2dc9-4af8-8cfc-c08aea0939ff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales UoM'
+		dataType: string
+		lineageTag: c7e0876d-38dc-4f23-8922-3e1b8aba7364
+		sourceLineageTag: b7765993-7dfe-4cde-ac68-0d6d175c9520
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales UoM
+
+		annotation SummarizationSetBy = User
+
+	column Numerator
+		dataType: double
+		isHidden
+		lineageTag: f6748b10-68dd-4e84-a809-9534a907d24b
+		sourceLineageTag: 67362598-99c1-4dfa-b8f8-02fa4f8e5da9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Numerator
+
+		annotation SummarizationSetBy = User
+
+	column Denominator
+		dataType: double
+		isHidden
+		lineageTag: 382ccc12-25b0-45da-89e7-22adf581ef0f
+		sourceLineageTag: a6a3e72b-b2b4-4378-8480-e106a2a3d94f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Denominator
+
+		annotation SummarizationSetBy = User
+
+	column Plant
+		dataType: string
+		lineageTag: 0d06aa29-6b9c-4d32-be24-815c4d08cbb4
+		sourceLineageTag: bd89c820-8c4f-4b57-881a-e36ed89d47fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Plant
+
+		annotation SummarizationSetBy = User
+
+	column 'Net Price'
+		dataType: double
+		lineageTag: fa659d03-2564-4ad2-a5f8-5335e738e348
+		sourceLineageTag: 303f8e8f-210a-4bb2-afcd-eb4cfefc36f1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Net Price
+
+		annotation SummarizationSetBy = User
+
+	column 'Per Unit'
+		dataType: double
+		lineageTag: 7493593c-e09c-4cb7-bbca-ae671f5abac0
+		sourceLineageTag: 6ef35481-61af-4386-bf9a-55dcab575920
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Per Unit
+
+		annotation SummarizationSetBy = User
+
+	column 'Price UoM'
+		dataType: string
+		lineageTag: 7a2b58cd-05b1-4ebd-9930-9f1aa894a8c0
+		sourceLineageTag: e59cf4c8-557e-4cf9-8269-c2d1824fd905
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Price UoM
+
+		annotation SummarizationSetBy = User
+
+	column Cost
+		dataType: double
+		lineageTag: 3bb24030-75e7-46b1-ace0-ba7f17f7a355
+		sourceLineageTag: 47a99054-d796-4d7a-a5cc-59a022c563e4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost
+
+		annotation SummarizationSetBy = User
+
+	column Sector
+		dataType: int64
+		formatString: 0
+		lineageTag: 58f273e2-4a33-4299-9ba8-5ec4af37bc5d
+		sourceLineageTag: d594410f-8e09-48f3-95da-bfbbbc08eb46
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sector
+
+		annotation SummarizationSetBy = User
+
+	column 'Product Family'
+		dataType: string
+		lineageTag: 8a5be157-bbdb-44db-9c8d-daaf11a20235
+		sourceLineageTag: 351c03d9-eb7a-478e-bdfa-c1357786ddf5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Product Family
+
+		annotation SummarizationSetBy = User
+
+	column 'Billing Status'
+		dataType: string
+		lineageTag: 354e2cc7-960b-4eca-adfb-21ac654679f3
+		sourceLineageTag: 801385fb-de0e-4e2c-9e8f-5322daa43394
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Billing Status
+
+		annotation SummarizationSetBy = User
+
+	column 'Margin % VBAP'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5ebccedd-ba25-4b02-94a4-4ec45237a2d9
+		sourceLineageTag: c671444a-6a89-4105-af55-7b2c197891da
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Margin % VBAP
+
+		annotation SummarizationSetBy = User
+
+	column SO_ITEM
+		dataType: string
+		isNullable: false
+		lineageTag: 50e83fb0-37af-4398-9f3e-cdc4c3524e6a
+		sourceLineageTag: 676e9c83-dfc9-4958-8dd1-1007a208352e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SO_ITEM
+
+		annotation SummarizationSetBy = User
+
+	column MAT_UOM
+		dataType: string
+		isHidden
+		lineageTag: 651fa1ae-369f-4ee4-858e-0fba1610a322
+		sourceLineageTag: 544ede1a-7924-40b5-ac64-7d7f3ff7788e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MAT_UOM
+
+		annotation SummarizationSetBy = User
+
+	column 'Numerator Pricing Unit'
+		dataType: double
+		isHidden
+		lineageTag: 0008eea8-af17-4e7e-8f06-cce0431e9691
+		sourceLineageTag: 8f9f671d-7bfc-4960-9b43-71be3b402ee0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Numerator Pricing Unit
+
+		annotation SummarizationSetBy = User
+
+	column 'Denominator Pricing Unit'
+		dataType: double
+		isHidden
+		lineageTag: 9cbf0094-83cc-4d7f-94c3-bed90d4fae5f
+		sourceLineageTag: 8bcc7598-050f-4fd8-82ef-c9e83d93b7aa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Denominator Pricing Unit
+
+		annotation SummarizationSetBy = User
+
+	column 'Document Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: b5f03699-bc2c-4e91-aa23-dd3591d18ba9
+		sourceLineageTag: 64d6ba70-a175-4e1f-97af-aa754771225f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Document Date
+
+		variation Variation
+			isDefault
+			relationship: 08091f14-1a32-417b-b009-0a4f80bbce9e
+			defaultHierarchy: LocalDateTable_78efd809-5c10-4262-aa3a-be5293123fb2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = User
+
+	column 'Requested Delivery Date'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 2fa97f17-ec68-458f-a6a3-d2e79f495104
+		sourceLineageTag: 41c36a45-d86d-4294-8ea1-b1a3e7f84d09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Requested Delivery Date
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Doc. Type'
+		dataType: string
+		lineageTag: d2372058-535a-467f-91ed-e47c24e51792
+		sourceLineageTag: db9a9fd8-b876-421b-b07e-571aabbf7795
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Doc. Type
+
+		annotation SummarizationSetBy = User
+
+	column Sold-To
+		dataType: string
+		lineageTag: 8184c2fe-de15-4ef6-93bb-2b299b41240f
+		sourceLineageTag: 944ec2c8-3e67-4b88-8898-dfb9aa7e2243
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-To
+
+		annotation SummarizationSetBy = User
+
+	column 'BFT Numerator'
+		dataType: double
+		isHidden
+		lineageTag: a27263d4-44d2-47c0-91fe-117f20459fb1
+		sourceLineageTag: 12cdd5bb-3ac6-4af5-9151-8d758b59a32d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BFT Numerator
+
+		annotation SummarizationSetBy = User
+
+	column 'BFT Denominator'
+		dataType: double
+		isHidden
+		lineageTag: 9c925c20-abe8-419c-ad30-6c7c36fdde58
+		sourceLineageTag: 5a1761d9-82b7-4936-9a1b-18319db3c336
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BFT Denominator
+
+		annotation SummarizationSetBy = User
+
+	column 'Debit/Credit Multiplier'
+		dataType: double
+		isHidden
+		lineageTag: 8757da83-72b2-4783-94bb-0aaf1e291b7e
+		sourceLineageTag: c3977a4d-8354-4c6b-a68a-0b345d9c1d8a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Debit/Credit Multiplier
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost in DC with Sign'
+		dataType: double
+		lineageTag: 54c595de-b7e1-4ef1-8a12-891bdda8ace9
+		sourceLineageTag: 79a408ca-d9e2-4371-a5f5-85935a10fe6f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost in DC with Sign
+
+		annotation SummarizationSetBy = User
+
+	column 'SO Quantity in Base UoM'
+		dataType: double
+		lineageTag: 0ac6ebe5-20d3-4ea7-bc5b-10e6067e7b99
+		sourceLineageTag: 4a69944f-10ff-437a-909f-601d2f877ad6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SO Quantity in Base UoM
+
+		annotation SummarizationSetBy = User
+
+	column 'Unit Price in DC'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 931fbd7b-4901-403d-a259-471b1452f63a
+		sourceLineageTag: fa214ba7-4780-4b6b-aa0c-e820f6642bf4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Unit Price in DC
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Revenue in DC with Sign'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 9e602e5d-7ce2-4875-8228-0f98751a86f5
+		sourceLineageTag: 061434a9-a123-4f72-af48-18b746d4acfb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Revenue in DC with Sign
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Margin in DC'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: fa457665-8945-428f-9291-5301a873e712
+		sourceLineageTag: a567a511-31e1-4bc6-b597-9de1a6ccbc34
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Margin in DC
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Document'
+		dataType: string
+		lineageTag: 48b34f42-e94a-44e2-9a52-cf1baae124a1
+		sourceLineageTag: 48db99c3-c73c-4c4c-a450-f4161622d133
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Document
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Quantity in Pricing UoM with sign'
+		dataType: string
+		lineageTag: 29ff6b8d-2b54-4aff-96c4-cc5cba62c401
+		sourceLineageTag: 49727a88-7bf1-49c6-8e20-544cc71d0ae1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Order Quantity in Pricing UoM with sign
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Qty. in FT2'
+		dataType: double
+		formatString: #,0
+		lineageTag: 6e433a6b-c26c-4bca-bf07-bf7f9c337ce2
+		sourceLineageTag: 501861a3-2641-42f8-9381-003e4c636f49
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Qty. in FT2
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Base UoM'
+		dataType: string
+		lineageTag: 2f0dd110-c58a-4dc6-ab64-ca7ead07a630
+		sourceLineageTag: 7f146071-df7b-4192-af65-01509364746a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Base UoM
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Qty. in M2'
+		dataType: double
+		formatString: #,0
+		lineageTag: 3d873415-9ac2-410d-858e-e90fc4fe5b90
+		sourceLineageTag: 1fad9088-02fc-47a4-8eda-f4a8f91057e2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Qty. in M2
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Order Qty. in BFT2'
+		dataType: double
+		formatString: #,0
+		lineageTag: 9d108fca-bf9f-40b2-84fc-278da727a9ba
+		sourceLineageTag: 2d5f5261-5ab1-40db-b666-0a59e9bef00e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Order Qty. in BFT2
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Material Group'
+		dataType: string
+		lineageTag: 42d022b8-6b9b-4a8e-bbc9-85688d69a372
+		sourceLineageTag: 9894dc87-0cfd-4460-9f66-a93eacc9aa37
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Material Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Item'
+		dataType: string
+		lineageTag: e553e062-d8ad-43a9-ab2f-0260bf4a24a1
+		sourceLineageTag: 6bcfd178-4a83-44ba-96d1-9fa898ee3ab9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Item
+
+		annotation SummarizationSetBy = User
+
+	column 'Net Value'
+		dataType: double
+		lineageTag: a1833a4a-ac2e-4be1-8034-171877a501a4
+		sourceLineageTag: c6b4b4bf-bce3-4058-a29e-91738115bd69
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Net Value
+
+		annotation SummarizationSetBy = User
+
+	column 'SO Quantity in Sales UoM with Sign'
+		dataType: double
+		formatString: #,0
+		lineageTag: fbf9e9ef-610c-4d1f-875a-b8362b4a9126
+		sourceLineageTag: ae32a956-67b9-4813-8a93-b763ed0ab5db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SO Quantity in Sales UoM with Sign
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Sales Representative'
+		dataType: string
+		lineageTag: d338b33c-97b2-4364-8bc7-70d39299b748
+		sourceLineageTag: e2f4f966-ab5b-4794-9453-8c918e2014c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Representative
+
+		annotation SummarizationSetBy = User
+
+	column 'Project Coordinator'
+		dataType: string
+		lineageTag: 0d48a579-5e23-4f1a-b17d-434412a8879f
+		sourceLineageTag: 4908fe03-c6e5-4ee5-8933-8b56dde23705
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Project Coordinator
+
+		annotation SummarizationSetBy = User
+
+	column 'Margin %'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 702a24a0-6996-46b1-aed9-be300d339935
+		sourceLineageTag: f46f352f-4997-4cc6-a854-ffdd2002f645
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Margin %
+
+		annotation SummarizationSetBy = User
+
+	column 'Quantity Delivered SUoM'
+		dataType: double
+		lineageTag: 53c7de63-82f9-48e2-8d4e-8b04473a6646
+		sourceLineageTag: 22adb1ae-5eb2-4614-9511-cafea7466cac
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Quantity Delivered SUoM
+
+		annotation SummarizationSetBy = User
+
+	column 'Open Quantity'
+		dataType: string
+		lineageTag: 4c558444-c6e8-42fe-9268-10d90e3993a4
+		sourceLineageTag: d13fc259-2a35-4a51-bf99-f5831798d8a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Open Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Cost Open Quantity'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d0fbb2dc-6f25-4c2e-a2a4-6e1433e5f5ea
+		sourceLineageTag: 35b8fe65-32ec-417b-a5ab-a729780075ce
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cost Open Quantity
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column MAT_UOM_BRD
+		dataType: string
+		lineageTag: 3b00b35a-8dc6-4a2d-9d2f-101fef1fad04
+		sourceLineageTag: c413c21e-4ce3-47e3-a5ac-d0392ee56678
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MAT_UOM_BRD
+
+		annotation SummarizationSetBy = User
+
+	column 'Numerator BRD'
+		dataType: double
+		lineageTag: 2d23bfe4-8f7f-479d-8f07-92d3ffae51f7
+		sourceLineageTag: 82e44b7b-b942-41a4-8f7a-3788d1fa5a49
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Numerator BRD
+
+		annotation SummarizationSetBy = User
+
+	column 'BFT Factor'
+		dataType: string
+		lineageTag: ac0bde6e-0031-490f-8e3d-e766ee24a375
+		sourceLineageTag: 42a97ea6-a780-499c-9237-1b1530b737e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BFT Factor
+
+		annotation SummarizationSetBy = User
+
+	column Application
+		dataType: string
+		lineageTag: b60a26ae-09bf-4d62-a209-56bcb7841ee9
+		sourceLineageTag: a26e1f90-cd7d-4861-9ce5-664e9c434602
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Application
+
+		annotation SummarizationSetBy = User
+
+	column 'Secondary Grouping'
+		dataType: string
+		lineageTag: 667d758f-9fba-42b8-ae2e-4fad1ca5fbcf
+		sourceLineageTag: 01806931-9514-47e1-be7d-d488bae3b55b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Secondary Grouping
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Project Name'
+		dataType: string
+		lineageTag: 583d915a-2e38-4422-ba6e-6a542a092b4c
+		sourceLineageTag: 14af68e6-7a0f-44f7-886e-dcc9f83e8241
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Project Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Industry Text'
+		dataType: string
+		lineageTag: 65c5452a-135d-48ff-a72c-86833bfbac78
+		sourceLineageTag: 64342b67-97f0-41a7-8f41-ac8c0ff89d11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Industry Text
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_SP
+		dataType: string
+		isHidden
+		lineageTag: 37193538-fe94-40d6-852e-53f2fa873f43
+		sourceLineageTag: 0e94faf4-461e-4b21-9926-0aebcd33f7c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_SP
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_SH
+		dataType: string
+		isHidden
+		lineageTag: 55e29e13-2827-4f0e-86c2-56a66a7eab2b
+		sourceLineageTag: 1b665fbf-19f1-4058-a1db-7d75d6f736fc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_SH
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_PY
+		dataType: string
+		isHidden
+		lineageTag: 2bf20a99-aa60-47be-9dad-4ef7ad9e85b3
+		sourceLineageTag: 1ab2c13a-d8c6-4ce7-bbdb-da1e01bea32f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_PY
+
+		annotation SummarizationSetBy = User
+
+	column DOC_BP_BL
+		dataType: string
+		isHidden
+		lineageTag: 17f8f89a-fb19-4160-8e5c-32bd5d7db4c5
+		sourceLineageTag: 900ce9b1-5c1d-4fcc-a54e-ed3fb95aa74f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOC_BP_BL
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to Zip Code'
+		dataType: string
+		lineageTag: 9c046c44-7ff1-49ea-9b0a-52b3239afed2
+		sourceLineageTag: 5b237361-fced-4e21-a9b1-161eadcbfc43
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to State'
+		dataType: string
+		lineageTag: 934df8d2-023c-4f3e-9b22-2e08d7963a72
+		sourceLineageTag: dba655a3-9b1e-4c57-9b48-6a5a8a09b6a1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to State
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to State Name'
+		dataType: string
+		lineageTag: 4a70a5d5-8ed2-4168-81e5-4468413e1da4
+		sourceLineageTag: 14e0ea86-cb3a-4291-ae17-7ca5d2e8e5bb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to State Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Sold-to Zip Code Name'
+		dataType: string
+		lineageTag: 02bcc404-70cc-4299-87ea-4d387b805fbe
+		sourceLineageTag: 08b71428-6295-4ca8-b1d4-583d8260c8f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sold-to Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Sold-to'
+		dataType: string
+		lineageTag: c19ccc73-55d8-4af3-9b6c-9979cc89a161
+		sourceLineageTag: cb9e3327-48b9-403a-8675-479de684ef38
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Sold-to
+
+		annotation SummarizationSetBy = User
+
+	column Ship-to
+		dataType: string
+		lineageTag: 87d129e2-40ad-4bec-ba7b-2c0da5442955
+		sourceLineageTag: 59550cda-4cdd-47f2-970e-84de99b866a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to Name'
+		dataType: string
+		lineageTag: a4926a01-e98a-4ffd-9f50-d1a81cd3e044
+		sourceLineageTag: f654a4ee-fb29-48b9-9453-2ec8906a379d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to Zip Code'
+		dataType: string
+		lineageTag: d1cf9b86-3ced-4da1-8bc0-dd9e2d05a8be
+		sourceLineageTag: 6e3ccafd-0681-4875-80f9-4c59b3ce97f7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to State'
+		dataType: string
+		lineageTag: f954421c-3197-4b24-b25a-0b030dac98cb
+		sourceLineageTag: 2dc73161-847e-414a-abda-22ba8dbe3696
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to State
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to State Name'
+		dataType: string
+		lineageTag: 92779e4f-49dc-429d-9c77-8a82dc91c15c
+		sourceLineageTag: 7f4097eb-9183-40bd-a0a1-e526318a378e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to State Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Ship-to Zip Code Name'
+		dataType: string
+		lineageTag: fa85cf4f-d805-4bc3-82f8-67f9f440080f
+		sourceLineageTag: beec808c-bba5-4268-ac2e-bd0686491466
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ship-to Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Ship-to'
+		dataType: string
+		lineageTag: b6f28f14-b082-4e58-83c2-3191f07c2da5
+		sourceLineageTag: 23328dad-8f75-431e-a901-9a8c993ffea2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Ship-to
+
+		annotation SummarizationSetBy = User
+
+	column Bill-to
+		dataType: string
+		lineageTag: 5af28eed-8b8d-47c7-9703-912bc063400b
+		sourceLineageTag: a9f8dffc-722d-477b-9e78-34a95939eb0d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to Name'
+		dataType: string
+		lineageTag: afd934b6-8fb7-4c74-afce-8e5bf972ef4f
+		sourceLineageTag: 200ad51c-884b-4c05-bb7e-455987f08767
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to Zip Code'
+		dataType: string
+		lineageTag: 83f10e2a-90e0-4130-88f6-e0346083df26
+		sourceLineageTag: 44e2ddd6-aad4-4600-84c3-13960352ba8e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to State'
+		dataType: string
+		lineageTag: 4ae40a52-21f7-4c2f-ba42-ecde474c1d42
+		sourceLineageTag: 3a08ff6d-4510-4441-8089-e498e63142ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to State
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to State Name'
+		dataType: string
+		lineageTag: 7e513f88-a6f3-4758-a5f2-502acc0f5423
+		sourceLineageTag: 852527ea-7f8c-460b-a36c-4c0f95672704
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to State Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Bill-to Zip Code Name'
+		dataType: string
+		lineageTag: 8fea5e1c-bb9a-485d-95b4-fa4d070839ed
+		sourceLineageTag: 482a73a0-41c3-4e53-8b4e-dc4cbbf818d7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Bill-to Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Bill-to'
+		dataType: string
+		lineageTag: 9326a474-9704-44cd-8b5f-aeca69975db9
+		sourceLineageTag: 4003ae19-6e13-49b0-9db1-afd6b9c4587e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Bill-to
+
+		annotation SummarizationSetBy = User
+
+	column Payer
+		dataType: string
+		lineageTag: de92309f-35df-4377-b3ae-a35d6ac2f6fa
+		sourceLineageTag: 8ce0e9f8-4dd7-4cac-aee5-506638ae9543
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer Name'
+		dataType: string
+		lineageTag: e15e0913-af7d-4605-87ab-d5f5e3bc5d5a
+		sourceLineageTag: e15f2a15-7ed8-437a-8404-cd35c95e05a4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer Zip Code'
+		dataType: string
+		lineageTag: cdf75c24-c6dc-4ab3-a79a-02d3fd47df7f
+		sourceLineageTag: 3ee46fc5-64ed-476d-b4b5-f1141dcc615f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer Zip Code
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer State'
+		dataType: string
+		lineageTag: da65f808-7872-4a04-a118-854b29f924de
+		sourceLineageTag: b9a79478-7add-4b91-8a6e-8eb12ecbece2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer State
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer State Name'
+		dataType: string
+		lineageTag: f2f3b9c6-8bd9-4dc9-a099-d3c70daa2289
+		sourceLineageTag: fb721dfb-189c-4e25-acb5-ad6a6f9e70e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer State Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Payer Zip Code Name'
+		dataType: string
+		lineageTag: 04668b38-6938-4573-bc7f-a2fcc70f57ce
+		sourceLineageTag: 03d919d7-8e8b-4152-8a22-bb2321c5a585
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Payer Zip Code Name
+
+		annotation SummarizationSetBy = User
+
+	column 'Territory Payer'
+		dataType: string
+		lineageTag: 0ae37651-8c57-48e0-944f-9631e7988f4a
+		sourceLineageTag: 794d4eca-dcc6-42e6-b005-cc2a7dc73972
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Territory Payer
+
+		annotation SummarizationSetBy = User
+
+	column CUST_SALES
+		dataType: string
+		lineageTag: d1890249-5321-4c2c-a07b-fbbff0c9a558
+		sourceLineageTag: ceae47e2-a9bf-40e4-98b5-1939c8ef66a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_SALES
+
+		annotation SummarizationSetBy = User
+
+	column 'Target Value'
+		dataType: double
+		lineageTag: 0fd9ebee-0be4-4aec-bf6e-b7d393da320f
+		sourceLineageTag: 2c5ca6ef-f33a-44e1-a587-42e846cb86c8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Target Value
+
+		annotation SummarizationSetBy = User
+
+	column 'Target Quantity'
+		dataType: double
+		lineageTag: f9523d22-a17d-4cdd-a15a-06cca3fa5e30
+		sourceLineageTag: 02730bd2-f0b9-420d-a354-f11a9de5cc99
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Target Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Target UoM'
+		dataType: string
+		lineageTag: 7a2d471f-d25f-4ad5-a257-cfadad5a1b02
+		sourceLineageTag: c20ceee8-aa25-4dfd-94fe-43a353e4da45
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Target UoM
+
+		annotation SummarizationSetBy = User
+
+	column Quantity
+		dataType: string
+		lineageTag: 594304b9-e321-4e02-8ec6-7800bb5982b7
+		sourceLineageTag: 2864385c-ea16-4c51-ae33-290a4f589a92
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category'
+		dataType: string
+		lineageTag: b7139cbd-e22a-420a-94c5-8e7f96361f23
+		sourceLineageTag: e019ecf2-953e-4438-925a-e6c3c70a7009
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category
+
+		annotation SummarizationSetBy = User
+
+	column 'Reason for Rejection'
+		dataType: string
+		lineageTag: a74cb109-e6ab-4e29-a928-af2260e1e3a8
+		sourceLineageTag: 15cce22c-c01e-4a9e-9f81-2aff1795a6b8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Reason for Rejection
+
+		annotation SummarizationSetBy = User
+
+	column 'Rejection Status'
+		dataType: string
+		lineageTag: 10491255-48a4-4c62-9961-3e6240c7f6de
+		sourceLineageTag: a272dad4-3c10-41e6-a7a1-87cb247884de
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Rejection Status
+
+		annotation SummarizationSetBy = User
+
+	column DOCTY_BILLST
+		dataType: string
+		lineageTag: b293efc8-ce08-4935-9de8-cb6463e33fcd
+		sourceLineageTag: 83ac42cb-9f69-41b3-b3f4-5f45fadd57b8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DOCTY_BILLST
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category Description'
+		dataType: string
+		lineageTag: b2becf5c-a01f-4c6c-b0a1-a1359e9c3e2c
+		sourceLineageTag: 1d1ffb68-23c7-4881-9a86-52ccaf265bc1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Item Category Key and Description'
+		dataType: string
+		lineageTag: b5fc4020-dacc-4c06-b147-66f3f98bcd00
+		sourceLineageTag: 5baf7b30-cf09-4d04-ad8d-2b57f1449712
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Item Category Key and Description
+
+		annotation SummarizationSetBy = User
+
+	column 'Unit Price in DC in Base UoM'
+		dataType: string
+		lineageTag: 8206338b-a081-4a92-9a89-01f137a51915
+		sourceLineageTag: c500e8f4-9429-466c-8872-c28f050ec5b6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Unit Price in DC in Base UoM
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_SAP_VBAP SB' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_VBAP
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_BACKLOG'
+
+	changedProperty = Name
+

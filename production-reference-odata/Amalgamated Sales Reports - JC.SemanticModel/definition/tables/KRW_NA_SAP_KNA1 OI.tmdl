@@ -1,0 +1,65 @@
+table 'KRW_NA_SAP_KNA1 OI'
+	lineageTag: 2745d5ac-15c6-4ea5-9b9a-ba550162c711
+	sourceLineageTag: ac03fea2-291e-4024-8208-de16ec74e72c
+
+	column Customer
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: c66afe93-77fd-4f37-8cae-b220b61c5347
+		sourceLineageTag: ea9f0310-c30b-4bc2-a523-d1a7c3d9068d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Description'
+		dataType: string
+		lineageTag: 26557548-0a28-4804-9038-1cdf248cbc58
+		sourceLineageTag: 3603a3af-1d13-43c0-a23d-c4e06eff56fa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Description
+
+		annotation SummarizationSetBy = User
+
+	column Region
+		dataType: string
+		lineageTag: fdf5e523-ff95-44ad-8cc9-7a5f0b575606
+		sourceLineageTag: f412c6c1-545d-4c49-8066-bdb1199758db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = User
+
+	column Country
+		dataType: string
+		lineageTag: 966d554d-ddf9-47a4-b353-31956f2950c2
+		sourceLineageTag: 78270955-ece5-47ae-a6a0-41ce16aa2474
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = User
+
+	column COUNTRY_REGION
+		dataType: string
+		isHidden
+		lineageTag: 6bc7410a-8128-409d-8d82-133b67e26256
+		sourceLineageTag: 5d54a261-4ea3-4c6d-bc8e-a122a6f77516
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COUNTRY_REGION
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_SAP_KNA1 OI' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_KNA1
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_SORDERS'
+
+	changedProperty = Name
+

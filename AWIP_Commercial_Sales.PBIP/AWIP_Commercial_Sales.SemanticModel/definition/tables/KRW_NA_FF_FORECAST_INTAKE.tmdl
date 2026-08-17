@@ -1,6 +1,124 @@
 table KRW_NA_FF_FORECAST_INTAKE
 	lineageTag: d9310c39-b3bd-4538-a933-927288bfe568
 
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Filters this fact to the current fiscal year-period reported by SalesOrders via helper measure SalesOrders[Current FYP VBAP OI].
+	measure 'Current Month Order Revenue Fcst' =
+			CALCULATE(
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales $]),
+			    FILTER(
+			        'KRW_NA_FF_FORECAST_INTAKE',
+			        'KRW_NA_FF_FORECAST_INTAKE'[Fiscal Year Period] = [Current FYP VBAP OI]
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0011-4000-a000-000000000011
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Cross-table CONTAINSSTRING filter: production references KRW_NA_SAP_VBAP OI[Product Family]; AWIP equivalent column is SalesOrders[Product_Family_Product_Number].
+	measure 'Current Fiscal Month Sales Membrane sqft' =
+			VAR CurrentFYPValueMOIFT2Fcst = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_FF_FORECAST_INTAKE'[Sales Membrane sqft] ),
+			    CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "Membrane"),
+			    KRW_NA_FF_FORECAST_INTAKE[Fiscal Year Period] = CurrentFYPValueMOIFT2Fcst
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0012-4000-a000-000000000012
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). See note on Current Fiscal Month Sales Membrane sqft re: Product_Family_Product_Number substitution.
+	measure 'Current Fiscal Month Sales ISO sqft' =
+			VAR CurrentFYPValueISOOIFT2Fcst = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_FF_FORECAST_INTAKE'[Sales ISO sqft] ),
+			    CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "iso"),
+			    KRW_NA_FF_FORECAST_INTAKE[Fiscal Year Period] = CurrentFYPValueISOOIFT2Fcst
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0013-4000-a000-000000000013
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Calendar filter uses KRW_NA_FF_CALENDAR (AWIP has no OI-side calendar variant).
+	measure 'Current Month Sales ISO bdft' =
+			CALCULATE(
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales ISO bdft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY()) &&
+			        MONTH('KRW_NA_FF_CALENDAR'[Date]) = MONTH(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0014-4000-a000-000000000014
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Calendar filter uses KRW_NA_FF_CALENDAR (no OI variant in AWIP).
+	measure 'YTD Sales ISO bdft' =
+			CALCULATE(
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales ISO bdft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0015-4000-a000-000000000015
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Calendar filter uses KRW_NA_FF_CALENDAR (no OI variant in AWIP).
+	measure 'YTD Sales ISO sqft' =
+			CALCULATE(
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales ISO sqft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0016-4000-a000-000000000016
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Calendar filter uses KRW_NA_FF_CALENDAR (no OI variant in AWIP).
+	measure 'YTD Sales Membrane sqft' =
+			CALCULATE(
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales Membrane sqft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0017-4000-a000-000000000017
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). Calendar filter uses KRW_NA_FF_CALENDAR (no OI variant in AWIP).
+	measure 'YTD Order Revenue Fcst' =
+			CALCULATE(
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales $]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0018-4000-a000-000000000018
+
+	/// Ported from KRW_NA_FF_FORECAST_INTAKE (production). See note on Current Fiscal Month Sales Membrane sqft re: Product_Family_Product_Number substitution.
+	measure 'Current Fiscal Month Sales ISO bdft' =
+			VAR CurrentFYPValueISOOIBFT2Fcst = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'KRW_NA_FF_FORECAST_INTAKE'[Sales ISO bdft] ),
+			    CONTAINSSTRING(SalesOrders[Product_Family_Product_Number], "iso"),
+			    KRW_NA_FF_FORECAST_INTAKE[Fiscal Year Period] = CurrentFYPValueISOOIBFT2Fcst
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0019-4000-a000-000000000019
+
 	column Period
 		dataType: string
 		lineageTag: 190c520e-90e9-4e73-a7b9-71948ccf8971

@@ -1,0 +1,197 @@
+table KRW-NA_FF_FORECAST
+	lineageTag: 6932c9d6-97bf-40e0-9fc0-4610248ed4fc
+
+	/// Ported from KRW-NA_FF_FORECAST (production). Filters this fact to the current fiscal year-period reported by Billing via helper measure Billing[Current FYP VBRP].
+	measure 'Current Month Invoice Revenue Fcst' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales $]),
+			    FILTER(
+			        'KRW-NA_FF_FORECAST',
+			        'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0001-4000-a000-000000000001
+
+	/// Ported from KRW-NA_FF_FORECAST (production).
+	measure 'Current Month Invoiced Sales Membrane sqft' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft]),
+			    FILTER(
+			        'KRW-NA_FF_FORECAST',
+			        'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0002-4000-a000-000000000002
+
+	/// Ported from KRW-NA_FF_FORECAST (production). YTD filter uses KRW_NA_FF_CALENDAR (no OI-side calendar variant exists in AWIP).
+	measure 'YTD Invoiced Sales Membrane sqft' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0003-4000-a000-000000000003
+
+	/// Ported from KRW-NA_FF_FORECAST (production).
+	measure 'Current Month Invoiced Sales ISO bdft' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales ISO bdft]),
+			    FILTER(
+			        'KRW-NA_FF_FORECAST',
+			        'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0004-4000-a000-000000000004
+
+	/// Ported from KRW-NA_FF_FORECAST (production).
+	measure 'YTD Invoiced Sales ISO bdft' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales ISO bdft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0005-4000-a000-000000000005
+
+	/// Ported from KRW-NA_FF_FORECAST (production).
+	measure 'Current Month Invoiced Sales ISO sqft' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales ISO sqft]),
+			    FILTER(
+			        'KRW-NA_FF_FORECAST',
+			        'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0006-4000-a000-000000000006
+
+	/// Ported from KRW-NA_FF_FORECAST (production).
+	measure 'YTD Invoiced Sales ISO sqft' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales ISO sqft]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0007-4000-a000-000000000007
+
+	/// Ported from KRW-NA_FF_FORECAST (production).
+	measure 'YTD Invoice Revenue Fcst' =
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales $]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000010-0008-4000-a000-000000000008
+
+	column Period
+		dataType: string
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801001
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: string
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801002
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales $'
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801003
+		summarizeBy: sum
+		sourceColumn: Sales $
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Sales Membrane sqft'
+		dataType: double
+		formatString: #,0
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801004
+		summarizeBy: sum
+		sourceColumn: Sales Membrane sqft
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales ISO sqft'
+		dataType: double
+		formatString: #,0
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801005
+		summarizeBy: sum
+		sourceColumn: Sales ISO sqft
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales ISO bdft'
+		dataType: double
+		formatString: #,0
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801006
+		summarizeBy: sum
+		sourceColumn: Sales ISO bdft
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Period'
+		dataType: string
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801007
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Period Sorted'
+		dataType: string
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801008
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period Sorted
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Reformats 'Fiscal Year Period Sorted' (YYYY.PP, e.g. "2026.07") to Billing's SAP format YYYYPPP (e.g. "2026007"), so this table can join to Billing[FiscalYearPeriod] / Fiscal Period Selector[FiscalYearPeriod].
+	column 'Fiscal Year Period Billing Format' = LEFT('KRW-NA_FF_FORECAST'[Fiscal Year Period Sorted], 4) & "0" & RIGHT('KRW-NA_FF_FORECAST'[Fiscal Year Period Sorted], 2)
+		dataType: string
+		lineageTag: 6932c9d6-97bf-40e0-9fc0-461024801009
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KRW-NA_FF_FORECAST = m
+		mode: import
+		source =
+				let
+				  Source = PowerPlatform.Dataflows([]),
+				  #"Navigation 1" = Source{[Id = "Workspaces"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[workspaceId = "24b96353-204c-4526-b94b-2128574aa2f0"]}[Data],
+				  #"Navigation 3" = #"Navigation 2"{[dataflowId = "421560b7-c576-42f8-86b0-3e3ffc1d04db"]}[Data],
+				  #"Navigation 4" = #"Navigation 3"{[entity = "KRW-NA_FF_FORECAST", version = ""]}[Data]
+				in
+				  #"Navigation 4"
+

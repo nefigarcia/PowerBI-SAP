@@ -3,6 +3,15 @@
 table SalesOrders
 	lineageTag: b2220001-0000-4000-a000-000000000001
 
+	/// HELPER: Fiscal Year Period corresponding to TODAY(). Production put [Fiscal Year Period] on KRW_NA_FF_CALENDAR OI (AAS-cube-side calc column); AWIP's raw KRW_NA_FF_CALENDAR dataflow doesn't have that column — it lives on KRW_NA_FF_FISCALPERIOD instead. This variant filters CALENDAR to today's row and uses the existing CALENDAR<->FISCALPERIOD bi-di relationship on [Calendar Date] to reach FISCALPERIOD's [Fiscal Year Period].
+	measure 'Current FYP VBAP OI' =
+			CALCULATE(
+			    MAX('KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period]),
+			    'KRW_NA_FF_CALENDAR'[Date] = TODAY()
+			)
+		displayFolder: Production Measures
+		lineageTag: c8af07df-23d3-4bf8-92e0-44020b201613
+
 	measure 'ISO AOP - $/bdft OI' = SUM(SalesOrders[Revenue_Order_Intake])/SUM(SalesOrders[Order_Quantity_in_BFT2])
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Production Measures
@@ -13,13 +22,7 @@ table SalesOrders
 	measure 'Sum Fcst Order Qty. in FT2 for Membranes OI' =
 			
 			VAR FcstOrderQtyFT2MembranesOI =
-			SUMX(
-			    FILTER(
-			        SalesOrders,
-			        CONTAINSSTRING(SalesOrders[FC_Product_Group], "TPO")
-			    ),
-			    SalesOrders[ForecastSalesSQFT]
-			)
+			SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales Membrane sqft])
 			RETURN
 			IF(
 			    FcstOrderQtyFT2MembranesOI = BLANK(),
@@ -164,8 +167,8 @@ table SalesOrders
 			
 			VAR IsoRateFcstOI =
 			DIVIDE(
-				SUM(SalesOrders[ForecastSalesBDFT]),
-				[Sum Fcst Order Qty. in FT2 for Membranes OI]
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales ISO bdft]),
+			    SUM('KRW_NA_FF_FORECAST_INTAKE'[Sales Membrane sqft])
 			)
 			RETURN
 			IF(
@@ -229,6 +232,438 @@ table SalesOrders
 		lineageTag: b2220001-0000-4000-a000-0000000000a3
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Uses Datasphere Gross_Margin_Order_Intake / Revenue_Order_Intake ratio.
+	measure 'Margin Perc VBAP' =
+			DIVIDE(
+			    SUM('SalesOrders'[Gross_Margin_Order_Intake]),
+			    SUM('SalesOrders'[Revenue_Order_Intake])
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Production Measures
+		lineageTag: e0000009-0100-4000-a000-000000000100
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Production filters `KRW_NA_FF_CALENDAR OI[Date]`; AWIP reroutes to KRW_NA_FF_CALENDAR via USERELATIONSHIP on CreationDate_D8.
+	measure 'Current Month Order Revenue' =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY()) &&
+			        MONTH('KRW_NA_FF_CALENDAR'[Date]) = MONTH(TODAY())
+			    ),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0101-4000-a000-000000000101
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Doc Date variant filters on SalesOrders[CreationDate_D8] directly (production `[Document Date]` maps to AWIP `[CreationDate_D8]`).
+	measure 'Current Month Order Revenue Doc Date' =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    FILTER(
+			        'SalesOrders',
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY()) &&
+			        MONTH('SalesOrders'[CreationDate_D8]) = MONTH(TODAY())
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0102-4000-a000-000000000102
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Calendar Month Order FT2 for Membranes' =
+			SUMX(
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "Membrane") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY()) &&
+			        MONTH('SalesOrders'[CreationDate_D8]) = MONTH(TODAY())
+			    ),
+			    'SalesOrders'[Order_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0103-4000-a000-000000000103
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'YTD Order FT2 for Membranes' =
+			SUMX(
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "Membrane") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY())
+			    ),
+			    'SalesOrders'[Order_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0104-4000-a000-000000000104
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'YTD Order FT2 for ISO' =
+			SUMX(
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY())
+			    ),
+			    'SalesOrders'[Order_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0105-4000-a000-000000000105
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'YTD Order BFT for ISO' =
+			SUMX(
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY())
+			    ),
+			    'SalesOrders'[Order_Quantity_in_BFT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0106-4000-a000-000000000106
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Calendar Month Order FT2 for ISO' =
+			SUMX(
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY()) &&
+			        MONTH('SalesOrders'[CreationDate_D8]) = MONTH(TODAY())
+			    ),
+			    'SalesOrders'[Order_Quantity_in_FT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0107-4000-a000-000000000107
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Calendar Month Order BFT for ISO' =
+			SUMX(
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY()) &&
+			        MONTH('SalesOrders'[CreationDate_D8]) = MONTH(TODAY())
+			    ),
+			    'SalesOrders'[Order_Quantity_in_BFT2]
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0108-4000-a000-000000000108
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'YTD Order Revenue Doc Date' =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    FILTER(
+			        'SalesOrders',
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY())
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0109-4000-a000-000000000109
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Depends on [Current Month Order Revenue Fcst] (on KRW_NA_FF_FORECAST_INTAKE — port separately).
+	measure '$ Difference Current Month' = [Current Fiscal Month Order Revenue] - [Current Month Order Revenue Fcst]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-010a-4000-a000-00000000010a
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Depends on [YTD Order Revenue Fcst] (on KRW_NA_FF_FORECAST_INTAKE).
+	measure '$ Difference YTD' = [YTD Order Revenue Doc Date] - [YTD Order Revenue Fcst]
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-010b-4000-a000-00000000010b
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Depends on [Current Month Order Revenue Fcst] (on KRW_NA_FF_FORECAST_INTAKE).
+	measure '% Fcst CM' = DIVIDE([Current Month Order Revenue Doc Date], [Current Month Order Revenue Fcst])
+		formatString: 0%;-0%;0%
+		displayFolder: Production Measures
+		lineageTag: e0000009-010c-4000-a000-00000000010c
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Month Membrane Order Revenue Doc Date' =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "Membrane") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY()) &&
+			        MONTH('SalesOrders'[CreationDate_D8]) = MONTH(TODAY())
+			    )
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-010d-4000-a000-00000000010d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Month ISO Order Revenue Doc Date' =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    FILTER(
+			        'SalesOrders',
+			        CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso") &&
+			        YEAR('SalesOrders'[CreationDate_D8]) = YEAR(TODAY()) &&
+			        MONTH('SalesOrders'[CreationDate_D8]) = MONTH(TODAY())
+			    )
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-010e-4000-a000-00000000010e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Helper.
+	measure 'Order Year OI' = YEAR ( SELECTEDVALUE ( 'SalesOrders'[CreationDate_D8] ) )
+		formatString: 0
+		displayFolder: Production Measures
+		lineageTag: e0000009-010f-4000-a000-00000000010f
+
+	/// Ported from KRW_NA_SAP_VBAP OI. FIXED: production version had a copy-paste bug summing VBRP; corrected to sum SalesOrders.
+	measure 'Sum Revenue in DC with sign VBAP OI' =
+			VAR RevDcVBAPOI =
+			SUM(SalesOrders[Revenue_Order_Intake])
+			RETURN
+			IF(RevDcVBAPOI = BLANK(), 0, RevDcVBAPOI)
+		displayFolder: Production Measures
+		lineageTag: e0000009-0110-4000-a000-000000000110
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Kingspan PY pattern via inactive USERELATIONSHIP on CreationDate_D8.
+	measure 'Revenue Fiscal Month Previous Year OI' =
+			VAR RevenueFMLastYearOI =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(RevenueFMLastYearOI = BLANK(), 0, RevenueFMLastYearOI)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0111-4000-a000-000000000111
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Kingspan PY pattern.
+	measure 'Sum Order Qty. in FT2 for Membranes Fiscal Month Prior Year OI' =
+			VAR OrderQtyFT2MembranesFMPriorYearOI =
+			CALCULATE(
+			    SUM('SalesOrders'[Order_Quantity_in_FT2]),
+			    CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "Membrane"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(OrderQtyFT2MembranesFMPriorYearOI = BLANK(), 0, OrderQtyFT2MembranesFMPriorYearOI)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0112-4000-a000-000000000112
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Kingspan PY pattern.
+	measure 'Sum Order Qty. in BFT2 for ISO Fiscal Month Prior Year OI' =
+			VAR OrderQtyBFT2ISOFMPriorYearOI =
+			CALCULATE(
+			    SUM('SalesOrders'[Order_Quantity_in_BFT2]),
+			    CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso"),
+			    YEAR(KRW_NA_FF_CALENDAR[Date]) = YEAR(TODAY()) - 1,
+			    MONTH(KRW_NA_FF_CALENDAR[Date]) = MONTH(TODAY()),
+			    USERELATIONSHIP(SalesOrders[CreationDate_D8], KRW_NA_FF_CALENDAR[Date])
+			)
+			RETURN
+			IF(OrderQtyBFT2ISOFMPriorYearOI = BLANK(), 0, OrderQtyBFT2ISOFMPriorYearOI)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0113-4000-a000-000000000113
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Uses [Current FYP VBAP OI] helper.
+	measure 'Current Fiscal Month Order FT2 for ISO' =
+			VAR CurrentFYPValueISOOIFT2 = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'SalesOrders'[Order_Quantity_in_FT2] ),
+			    CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueISOOIFT2
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0114-4000-a000-000000000114
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Fiscal Month Order BFT for ISO' =
+			VAR CurrentFYPValueISOOIBFT2 = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'SalesOrders'[Order_Quantity_in_BFT2] ),
+			    CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "iso"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueISOOIBFT2
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0115-4000-a000-000000000115
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Fiscal Month Order Revenue' =
+			CALCULATE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]),
+			    FILTER(
+			        'KRW_NA_FF_CALENDAR',
+			        'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = [Current FYP VBAP OI]
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0116-4000-a000-000000000116
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Depends on [Current Month Order Revenue Fcst] (on KRW_NA_FF_FORECAST_INTAKE).
+	measure '% Fcst FM' = DIVIDE([Current Fiscal Month Order Revenue], [Current Month Order Revenue Fcst])
+		formatString: 0%;-0%;0%
+		displayFolder: Production Measures
+		lineageTag: e0000009-0117-4000-a000-000000000117
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Fiscal Month Order FT2 for Membranes' =
+			VAR CurrentFYPValueMOI = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'SalesOrders'[Order_Quantity_in_FT2] ),
+			    CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "Membrane"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueMOI
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0118-4000-a000-000000000118
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'Current Fiscal Month Order Revenue FT2 Membranes' =
+			VAR CurrentFYPValueMOIFT2 = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'SalesOrders'[Revenue_Order_Intake] ),
+			    CONTAINSSTRING('SalesOrders'[Product_Family_Product_Number], "Membrane"),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueMOIFT2
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-0119-4000-a000-000000000119
+
+	/// Ported from KRW_NA_SAP_VBAP OI. References [PY Revenue Order Intake] (the AWIP equivalent of production `Revenue Previous Year OI`).
+	measure 'PercDiff PY Orders' =
+			DIVIDE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]) - [PY Revenue Order Intake],
+			    [PY Revenue Order Intake],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Production Measures
+		lineageTag: e0000009-011a-4000-a000-00000000011a
+
+	/// Ported from KRW_NA_SAP_VBAP OI. Membrane-filtered qty YoY %.
+	measure 'PercDiff PY Orders QTY' =
+			DIVIDE(
+			    [Sum Order Qty. in FT2 for Membranes OI] - [Sum PY Order Qty. in FT2 for Membranes OI],
+			    [Sum PY Order Qty. in FT2 for Membranes OI],
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Production Measures
+		lineageTag: e0000009-011b-4000-a000-00000000011b
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'PercDiff Arrow Orders' =
+			VAR PercDiff =
+			DIVIDE(
+			    SUM('SalesOrders'[Revenue_Order_Intake]) - [PY Revenue Order Intake],
+			    [PY Revenue Order Intake],
+			    0
+			)
+			RETURN
+			IF(
+			    PercDiff > 0,
+			    UNICHAR(9650),
+			    UNICHAR(9660)
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-011c-4000-a000-00000000011c
+
+	/// Ported from KRW_NA_SAP_VBAP OI.
+	measure 'PercDiff Arrow Orders QTY' =
+			VAR PercDiff =
+			DIVIDE(
+			    [Sum Order Qty. in FT2 for Membranes OI] - [Sum PY Order Qty. in FT2 for Membranes OI],
+			    [Sum PY Order Qty. in FT2 for Membranes OI],
+			    0
+			)
+			RETURN
+			IF(
+			    PercDiff > 0,
+			    UNICHAR(9650),
+			    UNICHAR(9660)
+			)
+		displayFolder: Production Measures
+		lineageTag: e0000009-011d-4000-a000-00000000011d
+
+	/// Ported from KRW_NA_SAP_VBAP OI. No product filter — used for legend/slicer splits.
+	measure 'Current Fiscal Month Order BFT for ISO Split' =
+			VAR CurrentFYPValueISOOIBFT2Split = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'SalesOrders'[Order_Quantity_in_BFT2] ),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueISOOIBFT2Split
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-011e-4000-a000-00000000011e
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	/// Ported from KRW_NA_SAP_VBAP OI. No product filter — used for legend/slicer splits.
+	measure 'Current Fiscal Month Order FT2 for ISO Split' =
+			VAR CurrentFYPValueISOOIFT2Split = [Current FYP VBAP OI]
+			RETURN
+			CALCULATE (
+			    SUM ( 'SalesOrders'[Order_Quantity_in_FT2] ),
+			    'KRW_NA_FF_FISCALPERIOD'[Fiscal Year Period] = CurrentFYPValueISOOIFT2Split
+			)
+		formatString: #,0
+		displayFolder: Production Measures
+		lineageTag: e0000009-011f-4000-a000-00000000011f
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column SalesDocument
 		dataType: string

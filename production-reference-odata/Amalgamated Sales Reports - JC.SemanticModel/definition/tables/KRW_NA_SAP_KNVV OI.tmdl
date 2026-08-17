@@ -1,0 +1,118 @@
+table 'KRW_NA_SAP_KNVV OI'
+	lineageTag: 1cb494b5-4bb3-4cbd-a1e0-e320c5d70e49
+	sourceLineageTag: f99a012a-2a63-4b75-a50e-526fc63d59ee
+
+	column Customer
+		dataType: string
+		isHidden
+		lineageTag: 60cf6eb5-793e-407b-bb67-bc482b11165f
+		sourceLineageTag: e3d809f7-8d94-4ecc-9c6e-91b4c036fc99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Organization'
+		dataType: string
+		isHidden
+		lineageTag: 8f23ceab-f5b0-4141-99f0-3d181894f68d
+		sourceLineageTag: e8f154d0-ed0e-46c0-8d6b-c947f23031e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sales Organization
+
+		annotation SummarizationSetBy = User
+
+	column 'Distribution Channel'
+		dataType: string
+		isHidden
+		lineageTag: 7e8cb7e8-2bdb-4f25-a94b-2c87092ae79d
+		sourceLineageTag: ceeff288-5475-4bb1-b02c-9fb372229d0e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Distribution Channel
+
+		annotation SummarizationSetBy = User
+
+	column Division
+		dataType: string
+		isHidden
+		lineageTag: 1da84820-1911-487a-8dfa-0e3ce75e2dcc
+		sourceLineageTag: fd9955c6-a57e-4e8f-9d29-471984f8b4b8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Division
+
+		annotation SummarizationSetBy = User
+
+	column CUST_SALES
+		dataType: string
+		isHidden
+		isNullable: false
+		lineageTag: 09b7a8e7-c879-4b78-904f-99600c060b67
+		sourceLineageTag: 3e605b33-0291-4c72-bebf-673a042f81e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CUST_SALES
+
+		annotation SummarizationSetBy = User
+
+	column Created
+		dataType: string
+		lineageTag: bbb4c239-6822-4690-a5e1-4e234cc05850
+		sourceLineageTag: a9a049bc-fccd-4706-abf4-ac764d2d4c81
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Created
+
+		annotation SummarizationSetBy = User
+
+	column 'Customer Group'
+		dataType: string
+		lineageTag: eea77c38-fb62-4f43-94b9-31bab82d2c59
+		sourceLineageTag: 14b50b69-33f6-476b-a7b0-2ebd907668a2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Customer Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Company Type'
+		dataType: string
+		lineageTag: 912a8017-ceca-451e-8f6a-419e77581145
+		sourceLineageTag: 8190f5db-286b-4ad5-bbe4-ef8ec481acd2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Company Type
+
+		annotation SummarizationSetBy = User
+
+	column 'Account Assignment Group'
+		dataType: string
+		lineageTag: a794eaa6-23b6-4db6-ad18-69c22e7e9a93
+		sourceLineageTag: c5ca246d-3ca5-46de-9055-72e22284fe9c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Account Assignment Group
+
+		annotation SummarizationSetBy = User
+
+	column 'Account Assignment Group Description'
+		dataType: string
+		lineageTag: 656155a4-c4a3-4c31-9230-d04566190d84
+		sourceLineageTag: af22c73e-b0cc-448c-948c-df7b6bb67bec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Account Assignment Group Description
+
+		annotation SummarizationSetBy = User
+
+	partition 'KRW_NA_SAP_KNVV OI' = entity
+		mode: directQuery
+		source
+			entityName: KRW_NA_SAP_KNVV
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_SORDERS'
+
+	changedProperty = Name
+

@@ -1,0 +1,33 @@
+expression 'DirectQuery to AS - KRW_NA_SM_INVOICED' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/KRW%20-%20North%20America%20Reporting", "KRW_NA_SM_INVOICED"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: e5df7547-4c44-46e3-a91b-14bf491214f2
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+expression 'DirectQuery to AS - KRW_NA_SM_SORDERS' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/KRW%20-%20North%20America%20Reporting", "KRW_NA_SM_SORDERS"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: b746dcb1-0228-4f78-b144-e28681d72483
+
+	annotation PBI_IncludeFutureArtifacts = True
+
+expression 'DirectQuery to AS - KRW_NA_SM_BACKLOG' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/KRW%20-%20North%20America%20Reporting", "KRW_NA_SM_BACKLOG"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: f7e90c22-457e-4b04-b333-5e8de2ec477b
+
+	annotation PBI_IncludeFutureArtifacts = True
+

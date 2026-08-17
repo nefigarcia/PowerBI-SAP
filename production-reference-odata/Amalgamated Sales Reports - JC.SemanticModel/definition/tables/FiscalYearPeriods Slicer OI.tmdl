@@ -1,0 +1,23 @@
+table 'FiscalYearPeriods Slicer OI'
+	lineageTag: c3018b25-0c5b-475f-a112-24895a0b1862
+	sourceLineageTag: 314f62ce-0537-4b65-94de-e8c5c506b4fc
+
+	column 'Fiscal Year Period'
+		dataType: string
+		isNullable: false
+		lineageTag: f5427742-4eae-4b82-91f4-cce7641ea982
+		sourceLineageTag: a0c6d130-45f2-4eae-b76f-2e8eea61c16a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = User
+
+	partition 'FiscalYearPeriods Slicer OI' = entity
+		mode: directQuery
+		source
+			entityName: FiscalYearPeriods Slicer
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_SORDERS'
+
+	changedProperty = Name
+

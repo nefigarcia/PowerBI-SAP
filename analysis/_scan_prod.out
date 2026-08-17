@@ -1,0 +1,470 @@
+total pages: 13
+
+=== PAGE  1 name='Navigation Page' id=4cebd6cd708bb1448d5f visibility=Visible visuals=24 ===
+  [ 0] type=pageNavigator    title='' pos=(0,0) size=(340,719.69064191802) tables=[]
+  [ 1] type=pivotTable       title='' pos=(350.7744680851064,80.61276595744681) size=(459.7106382978723,80.61276595744681) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Invoiced Revenue
+        proj[Values]: KRW-NA_FF_FORECAST.Current Month Invoice Revenue Fcst
+        proj[Values]: KRW_NA_SAP_VBRP.$ Difference Current Month VBRP
+  [ 2] type=pivotTable       title='' pos=(350.7744680851064,80.61276595744681) size=(459.7106382978723,79.52340425531915) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in FT2 for Membranes Split
+        proj[Values]: KRW-NA_FF_FORECAST.Current Month Invoiced Sales Membrane sqft
+  [ 3] type=textbox          title='' pos=(351.86382978723407,11.982978723404255) size=(135.08085106382978,55.55744680851064) tables=[]
+  [ 4] type=textbox          title='' pos=(351.86382978723407,11.982978723404255) size=(135.08085106382978,55.55744680851064) tables=[]
+  [ 5] type=pivotTable       title='' pos=(819.2,80.61276595744681) size=(460.8,80.61276595744681) tables=['KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.YTD Invoiced Revenue Billing Date
+  [ 6] type=pivotTable       title='' pos=(819.2,81.70212765957447) size=(460.8,79.52340425531915) tables=['KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.YTD Billing Qty. in FT2 for Membranes
+  [ 7] type=bookmarkNavigator title='' pos=(1206.7980295566504,0) size=(73.5960591133005,39.90147783251231) tables=[]
+  [ 8] type=pivotTable       title='' pos=(350.7744680851064,168.85106382978722) size=(459.7106382978723,80.61276595744681) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Invoiced Revenue
+        proj[Values]: KRW-NA_FF_FORECAST.Current Month Invoice Revenue Fcst
+        proj[Values]: KRW_NA_SAP_VBRP.$ Difference Current Month VBRP
+  [ 9] type=pivotTable       title='' pos=(351.86382978723407,168.85106382978722) size=(459.7106382978723,79.52340425531915) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in FT2 for ISO
+        proj[Values]: KRW-NA_FF_FORECAST.Current Month Invoiced Sales ISO sqft
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in BFT2 for ISO
+        proj[Values]: KRW-NA_FF_FORECAST.Current Month Invoiced Sales ISO bdft
+  [10] type=pivotTable       title='' pos=(819.2,168.85106382978722) size=(460.8,80.61276595744681) tables=['KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.YTD Invoiced Revenue Billing Date
+  [11] type=pivotTable       title='' pos=(819.2,168.85106382978722) size=(460.8,79.52340425531915) tables=['KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.YTD Billing Qty. in FT2 for ISO
+        proj[Values]: KRW_NA_SAP_VBRP.YTD Billing Qty. in BFT2 for ISO
+  [12] type=textbox          title='' pos=(350.3576982892691,262.7682737169518) size=(135,55.73872472783826) tables=[]
+  [13] type=textbox          title='' pos=(350.391061452514,263.68715083798884) size=(135,55.41899441340782) tables=[]
+  [14] type=pivotTable       title='' pos=(350.7744680851064,330.07659574468084) size=(459.7106382978723,80.61276595744681) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order FT2 for Membranes 2
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Current Month Sales Membrane sqft
+  [15] type=pivotTable       title='' pos=(350.7744680851064,330.07659574468084) size=(459.7106382978723,80.61276595744681) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order Revenue
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Current Month Order Revenue Fcst Doc Date
+        proj[Values]: KRW_NA_SAP_VBAP OI.$ Difference
+  [16] type=pivotTable       title='' pos=(819.2,330.07659574468084) size=(460.8,79.52340425531915) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.YTD Order FT2 for Membranes
+  [17] type=pivotTable       title='' pos=(819.2,330.07659574468084) size=(460.8,80.61276595744681) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.YTD Order Revenue Doc Date
+  [18] type=pivotTable       title='' pos=(350.7744680851064,419.40425531914894) size=(459.7106382978723,79.52340425531915) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order Revenue
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Current Month Order Revenue Fcst Doc Date
+        proj[Values]: KRW_NA_SAP_VBAP OI.$ Difference
+  [19] type=pivotTable       title='' pos=(351.86382978723407,419.40425531914894) size=(459.7106382978723,79.52340425531915) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order FT2 for ISO Split
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Current Month Sales ISO sqft
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order BFT for ISO Split
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Current Month Sales ISO bdft 2
+  [20] type=pivotTable       title='' pos=(819.2,419.40425531914894) size=(460.8,79.52340425531915) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.YTD Order Revenue Doc Date
+  [21] type=pivotTable       title='' pos=(819.2,419.40425531914894) size=(460.8,79.52340425531915) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Rows]: KRW_NA_SAP_VBAP OI.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP OI.YTD Order FT2 for ISO
+        proj[Values]: KRW_NA_SAP_VBAP OI.YTD Order BFT for ISO
+  [22] type=columnChart      title='' pos=(352.348367029549,511.60186625194405) size=(712.6594090202177,193.09486780715397) tables=['KRW_NA_FF_FISCALPERIOD SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Category]: KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period
+        proj[Y]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+  [23] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  2 name='Navigation – 3rd party/ICO split' id=02c0c826020d7690a291 visibility=Visible visuals=5 ===
+  [ 0] type=pageNavigator    title='' pos=(0,0) size=(395.1094339622642,720.6641509433962) tables=[]
+  [ 1] type=pivotTable       title='' pos=(409.48328267477206,11.671732522796352) size=(615.6838905775077,177.9939209726444) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_KNVV', 'KRW_NA_SAP_VBRP']
+        proj[Columns]: KRW-NA_FF_FORECAST.Fiscal Year Period
+        proj[Rows]: KRW_NA_SAP_KNVV.Account Assignment Group Description
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in FT2 for Membranes
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Invoiced Revenue FT2 Membranes
+        proj[Values]: KRW-NA_FF_FORECAST.Current Month Invoice Revenue Fcst
+        proj[Values]: KRW_NA_SAP_VBRP.% Fcst VBRP FM
+  [ 2] type=pivotTable       title='' pos=(409.48328267477206,200.3647416413374) size=(615.6838905775077,176.048632218845) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_KNVV OI', 'KRW_NA_SAP_VBAP OI']
+        proj[Columns]: KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted
+        proj[Rows]: KRW_NA_SAP_KNVV OI.Account Assignment Group Description
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order FT2 for Membranes1
+        proj[Values]: KRW_NA_SAP_VBAP OI.Current Fiscal Month Order Revenue FT2 Membranes
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Current Month Order Revenue Fcst
+        proj[Values]: KRW_NA_SAP_VBAP OI.% Fcst FM
+  [ 3] type=barChart         title='' pos=(409.6,388.3471698113208) size=(615.3660377358491,296.57358490566037) tables=['KRW_NA_FF_FISCALPERIOD SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Category]: KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period
+        proj[Y]: Sum(KRW_NA_SAP_VBAP 2.Revenue in DC with Sign)
+  [ 4] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  3 name='Page 1' id=136c291607e53cb23df0 visibility=HiddenInViewMode visuals=2 ===
+  [ 0] type=pivotTable       title='' pos=(0,154.34083601286173) size=(1280,205.7877813504823) tables=['KRW_NA_SAP_VBRP']
+        proj[Rows]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Current FYP VBRP
+        proj[Values]: KRW_NA_SAP_VBRP.Prior Year FYP VBRP
+        proj[Values]: KRW_NA_SAP_VBRP.Current Date FYP VBRP
+        proj[Values]: KRW_NA_SAP_VBRP.Prior Year Date FYP VBRP
+        proj[Values]: KRW_NA_SAP_VBRP.Current Fiscal Month Billing Qty. in FT2 for Membranes Split
+        proj[Values]: KRW_NA_SAP_VBRP.Prior Year Fiscal Month Billing Qty. in FT2 for Membranes Split
+  [ 1] type=tableEx          title='' pos=(0,360) size=(436.1194029850746,360) tables=['KRW_NA_FF_CALENDAR']
+        proj[Values]: KRW_NA_FF_CALENDAR.Calendar Date
+        proj[Values]: KRW_NA_FF_CALENDAR.Date
+        proj[Values]: KRW_NA_FF_CALENDAR.Fiscal Year Period
+=== PAGE  4 name='Invoiced Sales - Dashboard' id=adc801190c2b80e059c8 visibility=HiddenInViewMode visuals=16 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=slicer           title='' pos=(95.76354679802955,0) size=(250,86.00985221674877) tables=['KRW-NA_FF_FORECAST']
+        proj[Values]: KRW-NA_FF_FORECAST.Fiscal Year Period Sorted
+  [ 2] type=slicer           title='' pos=(380.8374384236453,0) size=(250,86.00985221674877) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Product Family
+  [ 3] type=slicer           title='' pos=(665.9113300492611,0) size=(250,86.00985221674877) tables=['KRW_NA_SAP_KNVV']
+        proj[Values]: KRW_NA_SAP_KNVV.Account Assignment Group Description
+  [ 4] type=shape            title='' pos=(937.0424597364569,0) size=(342.9575402635432,100) tables=[]
+  [ 5] type=card             title='' pos=(960.9248554913295,8.323699421965317) size=(147.97687861271675,80.46242774566474) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.ISO Rate VBRP
+  [ 6] type=card             title='' pos=(1108.9017341040462,8.323699421965317) size=(147.97687861271675,80.46242774566474) tables=['KRW-NA_FF_FORECAST']
+        proj[Values]: KRW-NA_FF_FORECAST.ISO Rate Fcst
+  [ 7] type=multiRowCard     title='' pos=(1.0569777043765483,108.86870355078447) size=(420,90) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Revenue
+        proj[Values]: Sum(KRW-NA_FF_FORECAST.Sales $)
+        proj[Values]: KRW_NA_SAP_VBRP.Revenue For Fiscal Month Previous Year
+  [ 8] type=multiRowCard     title='' pos=(430.379235120845,109.06403940886699) size=(420,90) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes
+        proj[Values]: Sum(KRW-NA_FF_FORECAST.Sales Membrane sqft)
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes Fiscal Month Prior Year
+  [ 9] type=multiRowCard     title='' pos=(859.7014925373135,109.32006633499171) size=(420,90) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in BFT2 for ISO
+        proj[Values]: Sum(KRW-NA_FF_FORECAST.Sales ISO bdft)
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for ISO Fiscal Month Prior Year
+  [10] type=gauge            title='' pos=(0,201.65837479270317) size=(420.29556650246303,160) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[MaxValue]: Sum(KRW-NA_FF_FORECAST.Sales $)
+        proj[Y]: KRW_NA_SAP_VBRP.Revenue
+  [11] type=gauge            title='' pos=(430.11103926701975,201.65837479270317) size=(419.7749805057369,160) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[MaxValue]: Sum(KRW-NA_FF_FORECAST.Sales Membrane sqft)
+        proj[Y]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes
+  [12] type=gauge            title='' pos=(859.7014925373134,201.65837479270317) size=(420.2985074626866,160) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[MaxValue]: Sum(KRW-NA_FF_FORECAST.Sales ISO bdft)
+        proj[Y]: KRW_NA_SAP_VBRP.Sum Billing Qty. in BFT2 for ISO
+  [13] type=tableEx          title='' pos=(0,369.7536945812808) size=(1279.5073891625616,260.6896551724138) tables=['KRW_NA_FF_FISCALPERIOD', 'KRW_NA_SAP_KNA1', 'KRW_NA_SAP_KNVV', 'KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_VBRP.Billing Document
+        proj[Values]: KRW_NA_SAP_KNA1.Customer Description
+        proj[Values]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBRP.Material Description
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Billing Qty. in FT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Billing Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBRP.Price UoM
+        ... and 18 more
+  [14] type=actionButton     title='' pos=(10.466067048242028,656.2224039247751) size=(199.90188062142275,49.19051512673753) tables=[]
+  [15] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  5 name='Invoiced Sales - Detail' id=7547c7eb9f85b3605827 visibility=HiddenInViewMode visuals=6 ===
+  [ 0] type=tableEx          title='' pos=(0,98.42364532019704) size=(1279.5073891625616,532.0197044334975) tables=['KRW_NA_FF_FISCALPERIOD', 'KRW_NA_SAP_KNA1', 'KRW_NA_SAP_KNVV', 'KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_VBRP.Billing Document
+        proj[Values]: KRW_NA_SAP_KNA1.Customer Description
+        proj[Values]: KRW_NA_SAP_VBRP.Product Family
+        proj[Values]: KRW_NA_SAP_VBRP.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBRP.Material Description
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Billing Qty. in FT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Billing Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBRP.Price UoM
+        ... and 18 more
+  [ 1] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 2] type=slicer           title='' pos=(120.4477611940298,0) size=(280.2985074626866,85.97014925373134) tables=['KRW-NA_FF_FORECAST']
+        proj[Values]: KRW-NA_FF_FORECAST.Fiscal Year Period Sorted
+  [ 3] type=slicer           title='' pos=(436.7766078697421,0) size=(280.2985074626866,85.97014925373134) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Product Family
+  [ 4] type=slicer           title='' pos=(753.1054545454544,0) size=(280,85.64363636363636) tables=['KRW_NA_SAP_KNVV']
+        proj[Values]: KRW_NA_SAP_KNVV.Account Assignment Group Description
+  [ 5] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  6 name='Extended Invoiced Sales - Dashboard' id=d0b3413807313c882ead visibility=HiddenInViewMode visuals=14 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=slicer           title='' pos=(91.22909090909094,0) size=(160.11636363636364,85.64363636363636) tables=['KRW-NA_FF_FORECAST']
+        proj[Values]: KRW-NA_FF_FORECAST.Fiscal Year Period Sorted
+  [ 2] type=slicer           title='' pos=(259.2581818181818,0) size=(160.11636363636364,85.64363636363636) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Product Family
+  [ 3] type=slicer           title='' pos=(427.2872727272727,0) size=(160.11636363636364,85.64363636363636) tables=['KRW_NA_SAP_KNVV']
+        proj[Values]: KRW_NA_SAP_KNVV.Account Assignment Group Description
+  [ 4] type=card             title='' pos=(600.4363636363636,0) size=(220,99.60727272727273) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Revenue in DC with sign VBRP
+  [ 5] type=card             title='' pos=(830.370909090909,0) size=(220,99.60727272727273) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes
+  [ 6] type=card             title='' pos=(1060.3054545454545,0) size=(220,99.60727272727273) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in BFT2 for ISO
+  [ 7] type=clusteredColumnChart title='' pos=(10.746268656716417,106.56716417910448) size=(619.7014925373135,230.14925373134326) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Category]: KRW-NA_FF_FORECAST.Fiscal Year Period Sorted
+        proj[Series]: KRW_NA_SAP_VBRP.Secondary Grouping
+        proj[Y]: Avg(KRW_NA_SAP_VBRP.Unit Price in DC)
+  [ 8] type=columnChart      title='' pos=(650.1492537313433,106.56716417910448) size=(619.7014925373135,230.14925373134326) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Category]: KRW-NA_FF_FORECAST.Fiscal Year Period Sorted
+        proj[Y]: KRW_NA_SAP_VBRP.ISO AOP - $/bdft VBRP
+  [ 9] type=barChart         title='' pos=(10.746268656716417,354.6268656716418) size=(409.25373134328356,289.25373134328356) tables=['KRW_NA_SAP_VBRP']
+        proj[Category]: KRW_NA_SAP_VBRP.Material Description
+        proj[Y]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [10] type=donutChart       title='' pos=(434.77611940298505,354.6268656716418) size=(410.14925373134326,289.25373134328356) tables=['KRW_NA_SAP_VBRP']
+        proj[Category]: KRW_NA_SAP_VBRP.Sales Representative
+        proj[Y]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [11] type=barChart         title='' pos=(859.7014925373134,354.6268656716418) size=(410.14925373134326,289.25373134328356) tables=['KRW_NA_SAP_KNA1', 'KRW_NA_SAP_VBRP']
+        proj[Category]: KRW_NA_SAP_KNA1.Customer Description
+        proj[Y]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [12] type=actionButton     title='' pos=(10.466067048242028,656.2224039247751) size=(199.90188062142275,49.19051512673753) tables=[]
+  [13] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  7 name='Order Intake - Dashboard' id=3672e874de9d15c734e8 visibility=HiddenInViewMode visuals=16 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=slicer           title='' pos=(96.96271370420624,0) size=(250,85.97014925373134) tables=['KRW_NA_FF_FORECAST_INTAKE']
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted
+  [ 2] type=slicer           title='' pos=(377.8159023066486,0) size=(250.41454545454545,85.64363636363636) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Product Family
+  [ 3] type=slicer           title='' pos=(659.0836363636363,0) size=(249.48363636363635,85.64363636363636) tables=['KRW_NA_SAP_KNVV OI']
+        proj[Values]: KRW_NA_SAP_KNVV OI.Account Assignment Group Description
+  [ 4] type=shape            title='' pos=(937.0424597364569,0) size=(342.9575402635432,100) tables=[]
+  [ 5] type=card             title='' pos=(960.4685212298683,8.433382137628112) size=(148.05270863836017,80) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.ISO Rate VBAP
+  [ 6] type=card             title='' pos=(1108.5212298682284,8.433382137628112) size=(148.05270863836017,80) tables=['KRW_NA_FF_FORECAST_INTAKE']
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.ISO Rate Fcst VBAP
+  [ 7] type=multiRowCard     title='' pos=(1.0569777043765483,108.86870355078447) size=(420,90) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.Revenue OI
+        proj[Values]: Sum(KRW_NA_FF_FORECAST_INTAKE.Sales $)
+        proj[Values]: KRW_NA_SAP_VBAP OI.Revenue Fiscal Month Previous Year OI
+  [ 8] type=multiRowCard     title='' pos=(430.0400557082466,108.86870355078447) size=(420,90) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Sum Order Qty. in FT2 for Membranes
+        proj[Values]: Sum(KRW_NA_FF_FORECAST_INTAKE.Sales Membrane sqft)
+        proj[Values]: KRW_NA_SAP_VBAP OI.Sum Order Qty. in FT2 for Membranes Fiscal Month Prior Year OI
+  [ 9] type=multiRowCard     title='' pos=(859.7014925373135,108.86870355078447) size=(420,90) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Sum Order Qty. in BFT2 for ISO
+        proj[Values]: Sum(KRW_NA_FF_FORECAST_INTAKE.Sales ISO bdft)
+        proj[Values]: KRW_NA_SAP_VBAP OI.Sum Order Qty. in BFT2 for ISO Fiscal Month Prior Year OI
+  [10] type=gauge            title='' pos=(0,201.65837479270317) size=(420.29556650246303,160) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[MaxValue]: Sum(KRW_NA_FF_FORECAST_INTAKE.Sales $)
+        proj[Y]: KRW_NA_SAP_VBAP OI.Revenue OI
+  [11] type=gauge            title='' pos=(429.8492757885449,201.65837479270317) size=(420.2985074626866,160) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[MaxValue]: Sum(KRW_NA_FF_FORECAST_INTAKE.Sales Membrane sqft)
+        proj[Y]: KRW_NA_SAP_VBAP.Sum Order Qty. in FT2 for Membranes
+  [12] type=gauge            title='' pos=(859.7014925373134,201.65837479270317) size=(420.2985074626866,160) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[MaxValue]: Sum(KRW_NA_FF_FORECAST_INTAKE.Sales ISO bdft)
+        proj[Y]: KRW_NA_SAP_VBAP.Sum Order Qty. in BFT2 for ISO
+  [13] type=tableEx          title='' pos=(0,367.0935960591133) size=(1279.5073891625616,258.0295566502463) tables=['KRW_NA_FF_FISCALPERIOD OI', 'KRW_NA_SAP_KNA1 OI', 'KRW_NA_SAP_KNVV OI', 'KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD 2.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_KNA1 2.Customer Description
+        proj[Values]: KRW_NA_SAP_VBAP.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBAP.Item Description
+        proj[Values]: KRW_NA_SAP_VBAP.Order Qty. in FT2
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Order Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBAP OI.Price UoM
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Revenue in DC with Sign)
+        ... and 17 more
+  [14] type=actionButton     title='' pos=(10.466067048242028,656.2224039247751) size=(199.90188062142275,49.19051512673753) tables=[]
+  [15] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  8 name='Order Intake - Detail' id=08a2a893f078e9c4ad92 visibility=HiddenInViewMode visuals=6 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=tableEx          title='' pos=(0,97.53694581280789) size=(1279.5073891625616,527.5862068965517) tables=['KRW_NA_FF_FISCALPERIOD OI', 'KRW_NA_SAP_KNA1 OI', 'KRW_NA_SAP_KNVV OI', 'KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD 2.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_KNA1 2.Customer Description
+        proj[Values]: KRW_NA_SAP_VBAP.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBAP.Item Description
+        proj[Values]: KRW_NA_SAP_VBAP.Order Qty. in FT2
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Order Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBAP OI.Price UoM
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Revenue in DC with Sign)
+        ... and 17 more
+  [ 2] type=slicer           title='' pos=(118.65671641791045,0) size=(279.4029850746269,85.97014925373134) tables=['KRW_NA_FF_FORECAST_INTAKE']
+        proj[Values]: KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted
+  [ 3] type=slicer           title='' pos=(432.1751424694708,0) size=(280.2985074626866,85.97014925373134) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Product Family
+  [ 4] type=slicer           title='' pos=(746.5890909090908,0) size=(281.13454545454545,85.64363636363636) tables=['KRW_NA_SAP_KNVV OI']
+        proj[Values]: KRW_NA_SAP_KNVV OI.Account Assignment Group Description
+  [ 5] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE  9 name='Extended Order Intake - Dashboard' id=cd86b33e4e73a0548d30 visibility=HiddenInViewMode visuals=14 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=slicer           title='' pos=(92.16,0) size=(160.11636363636364,85.64363636363636) tables=['FiscalYearPeriods Slicer OI']
+        proj[Values]: FiscalYearPeriods Slicer OI.Fiscal Year Period
+  [ 2] type=slicer           title='' pos=(258.7927272727273,0) size=(160.11636363636364,85.64363636363636) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Product Family
+  [ 3] type=slicer           title='' pos=(425.42545454545456,0) size=(160.11636363636364,85.64363636363636) tables=['KRW_NA_SAP_KNVV OI']
+        proj[Values]: KRW_NA_SAP_KNVV OI.Account Assignment Group Description
+  [ 4] type=card             title='' pos=(599.5054545454545,0) size=(219.69454545454545,99.60727272727273) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: Sum(KRW_NA_SAP_VBAP.Revenue in DC with Sign)
+  [ 5] type=card             title='' pos=(829.44,0) size=(219.69454545454545,99.60727272727273) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Sum Order Qty. in FT2 for Membranes
+  [ 6] type=card             title='' pos=(1059.3745454545453,0) size=(220.62545454545455,99.60727272727273) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP.Sum Order Qty. in BFT2 for ISO
+  [ 7] type=clusteredColumnChart title='' pos=(9.753694581280788,112.61083743842364) size=(618.9162561576355,229.6551724137931) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI', 'KRW_NA_SAP_VBRP']
+        proj[Category]: KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted
+        proj[Series]: KRW_NA_SAP_VBAP.Secondary Grouping
+        proj[Y]: Sum(KRW_NA_SAP_VBAP.Unit Price in DC)
+  [ 8] type=columnChart      title='' pos=(650.8374384236454,112.61083743842364) size=(618.9162561576355,229.6551724137931) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Category]: KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted
+        proj[Y]: KRW_NA_SAP_VBAP OI.ISO AOP - $/bdft VBAP OI
+  [ 9] type=barChart         title='' pos=(10.64039408866995,353.7931034482759) size=(408.76847290640393,289.064039408867) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Category]: KRW_NA_SAP_VBAP.Material Group
+        proj[Y]: Sum(KRW_NA_SAP_VBAP.Revenue in DC with Sign)
+  [10] type=donutChart       title='' pos=(435.81280788177344,353.7931034482759) size=(408.76847290640393,289.064039408867) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Category]: KRW_NA_SAP_VBAP.Sales Representative
+        proj[Y]: Sum(KRW_NA_SAP_VBAP.Revenue in DC with Sign)
+  [11] type=barChart         title='' pos=(860.9852216748769,353.7931034482759) size=(408.76847290640393,289.064039408867) tables=['KRW_NA_SAP_KNA1', 'KRW_NA_SAP_KNA1 OI', 'KRW_NA_SAP_VBAP OI']
+        proj[Category]: KRW_NA_SAP_KNA1 OI.Customer Description
+        proj[Y]: Sum(KRW_NA_SAP_VBAP.Revenue in DC with Sign)
+  [12] type=actionButton     title='' pos=(10.466067048242028,656.2224039247751) size=(199.90188062142275,49.19051512673753) tables=[]
+  [13] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE 10 name='Backlog' id=485ff3754ea8455a6933 visibility=HiddenInViewMode visuals=11 ===
+  [ 0] type=barChart         title='' pos=(10.64039408866995,11.527093596059114) size=(615.3694581280788,339.60591133004925) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Category]: KRW_NA_SAP_VBAP SB.Product Family
+        proj[Y]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+  [ 1] type=barChart         title='' pos=(654.384236453202,11.527093596059114) size=(615.3694581280788,339.60591133004925) tables=['KRW_NA_FF_FISCALPERIOD SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Category]: KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period
+        proj[Y]: Sum(KRW_NA_SAP_VBAP 2.Revenue in DC with Sign)
+  [ 2] type=tableEx          title='' pos=(0,360) size=(1279.5073891625616,257.14285714285717) tables=['KRW_NA_FF_FISCALPERIOD SB', 'KRW_NA_SAP_KNA1 SB', 'KRW_NA_SAP_KNVV SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_KNA1 SB.Customer Description
+        proj[Values]: KRW_NA_SAP_VBAP SB.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP SB.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBAP SB.Item Description
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Order Qty. in FT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Order Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBAP SB.Pricing UoM
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+        ... and 18 more
+  [ 3] type=actionButton     title='' pos=(0,662.6865671641791) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 4] type=card             title='' pos=(95.88363636363637,633.0181818181818) size=(139.63636363636363,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.ISO Rate VBAP SB
+  [ 5] type=card             title='' pos=(250.41454545454542,633.0181818181818) size=(139.63636363636363,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Total Backlog $
+  [ 6] type=card             title='' pos=(404.9454545454545,633.0181818181818) size=(139.63636363636363,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Sum Order Qty. in FT2 for Membranes SB
+  [ 7] type=slicer           title='' pos=(564.1309090909091,633.0181818181818) size=(179.66545454545454,86.57454545454546) tables=['FiscalYearPeriods Slicer SB']
+        proj[Values]: FiscalYearPeriods Slicer SB.Fiscal Year Period
+  [ 8] type=slicer           title='' pos=(756.3636363636364,633.0181818181818) size=(179.66545454545454,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Product Family
+  [ 9] type=slicer           title='' pos=(948.5963636363637,633.0181818181818) size=(179.66545454545454,86.57454545454546) tables=['KRW_NA_SAP_KNVV SB']
+        proj[Values]: KRW_NA_SAP_KNVV SB.Account Assignment Group Description
+  [10] type=image            title='' pos=(1127.8817733990147,649.9507389162561) size=(141.87192118226602,70.04926108374384) tables=[]
+=== PAGE 11 name='Backlog - Details' id=b5c1e1e248961b072306 visibility=HiddenInViewMode visuals=6 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=tableEx          title='' pos=(0,97.53694581280789) size=(1279.5073891625616,519.6059113300493) tables=['KRW_NA_FF_FISCALPERIOD SB', 'KRW_NA_SAP_KNA1 SB', 'KRW_NA_SAP_KNVV SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_KNA1 SB.Customer Description
+        proj[Values]: KRW_NA_SAP_VBAP SB.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP SB.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBAP SB.Item Description
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Order Qty. in FT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Order Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBAP SB.Pricing UoM
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+        ... and 18 more
+  [ 2] type=slicer           title='' pos=(105.22388059701491,0) size=(249.8507462686567,86.86567164179104) tables=['FiscalYearPeriods Slicer SB']
+        proj[Values]: FiscalYearPeriods Slicer SB.Fiscal Year Period
+  [ 3] type=slicer           title='' pos=(381.2228493894165,0) size=(249.8507462686567,86.86567164179104) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Product Family
+  [ 4] type=slicer           title='' pos=(657.2218181818182,0) size=(249.48363636363635,86.57454545454546) tables=['KRW_NA_SAP_KNVV SB']
+        proj[Values]: KRW_NA_SAP_KNVV SB.Account Assignment Group Description
+  [ 5] type=image            title='' pos=(1064.7761194029852,650.1492537313433) size=(205.07462686567163,69.85074626865672) tables=[]
+=== PAGE 12 name='Backlog by Rep' id=633a47a92e92bd6b80a2 visibility=HiddenInViewMode visuals=11 ===
+  [ 0] type=shapeMap         title='' pos=(10.64039408866995,9.753694581280788) size=(614.4827586206897,338.7192118226601) tables=['KRW_NA_FF_GEOINFO SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Category]: KRW_NA_FF_GEOINFO SB.State
+        proj[Value]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+  [ 1] type=clusteredColumnChart title='' pos=(654.384236453202,9.753694581280788) size=(615.3694581280788,338.7192118226601) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Category]: KRW_NA_SAP_VBAP SB.Sales Representative
+        proj[Y]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+  [ 2] type=tableEx          title='' pos=(0,360) size=(1279.5073891625616,257.14285714285717) tables=['KRW_NA_FF_FISCALPERIOD SB', 'KRW_NA_SAP_KNA1 SB', 'KRW_NA_SAP_KNVV SB', 'KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_FF_FISCALPERIOD SB.Fiscal Year Period
+        proj[Values]: KRW_NA_SAP_KNA1 SB.Customer Description
+        proj[Values]: KRW_NA_SAP_VBAP SB.Product Family
+        proj[Values]: KRW_NA_SAP_VBAP SB.Secondary Grouping
+        proj[Values]: KRW_NA_SAP_VBAP SB.Item Description
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Order Qty. in FT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Order Qty. in BFT2)
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Unit Price in DC)
+        proj[Values]: KRW_NA_SAP_VBAP SB.Pricing UoM
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+        ... and 18 more
+  [ 3] type=actionButton     title='' pos=(0,662.6865671641791) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 4] type=card             title='' pos=(99.60727272727273,633.0181818181818) size=(139.63636363636363,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.ISO Rate VBAP SB
+  [ 5] type=card             title='' pos=(253.67272727272723,633.0181818181818) size=(140.56727272727272,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Total Backlog $
+  [ 6] type=card             title='' pos=(408.66909090909087,633.0181818181818) size=(139.63636363636363,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Sum Order Qty. in FT2 for Membranes SB
+  [ 7] type=slicer           title='' pos=(564.1309090909091,633.0181818181818) size=(180.59636363636363,86.57454545454546) tables=['FiscalYearPeriods Slicer SB']
+        proj[Values]: FiscalYearPeriods Slicer SB.Fiscal Year Period
+  [ 8] type=slicer           title='' pos=(756.3636363636364,633.0181818181818) size=(179.66545454545454,86.57454545454546) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Product Family
+  [ 9] type=slicer           title='' pos=(947.6654545454545,633.0181818181818) size=(180.59636363636363,86.57454545454546) tables=['KRW_NA_SAP_KNVV SB']
+        proj[Values]: KRW_NA_SAP_KNVV SB.Account Assignment Group Description
+  [10] type=image            title='' pos=(1127.8817733990147,649.9507389162561) size=(141.87192118226602,70.04926108374384) tables=[]
+=== PAGE 13 name='Summary Page' id=6e5b174015250d002976 visibility=HiddenInViewMode visuals=27 ===
+  [ 0] type=actionButton     title='' pos=(0,0) size=(85.07462686567163,57.3134328358209) tables=[]
+  [ 1] type=image            title='' pos=(153.39901477832512,0) size=(160.49261083743843,105.51724137931035) tables=[]
+  [ 2] type=multiRowCard     title='' pos=(334.9222797927461,1.105354058721943) size=(343.7651122625216,103.90328151986184) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+        proj[Values]: KRW_NA_SAP_VBRP.Revenue Previous Year
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes Prior Year
+  [ 3] type=card             title='' pos=(678.6873920552678,1.105354058721936) size=(49.740932642487046,53.05699481865285) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sales with Arrow
+  [ 4] type=card             title='' pos=(678.6873920552678,54.1623488773748) size=(49.740932642487046,50.84628670120898) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.PercDiff Arrow Sales QTY
+  [ 5] type=card             title='' pos=(728.6153846153846,52.184615384615384) size=(74.83076923076923,53.16923076923077) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.PercDiff PY Sales QTY
+  [ 6] type=card             title='' pos=(728.6153846153846,1.9692307692307693) size=(74.83076923076923,52.184615384615384) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Perc diff PY
+  [ 7] type=multiRowCard     title='' pos=(815.7512953367876,1.105354058721943) size=(332.71157167530225,103.90328151986184) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: Sum(KRW_NA_SAP_VBAP OI.Revenue in DC with Sign)
+        proj[Values]: KRW_NA_SAP_VBAP OI.Revenue Previous Year OI
+        proj[Values]: KRW_NA_SAP_VBAP OI.Sum Order Qty. in FT2 for Membranes OI
+        proj[Values]: KRW_NA_SAP_VBAP OI.Sum Order Qty. in FT2 for Membranes Prior Year OI
+  [ 8] type=card             title='' pos=(1143.1384615384616,53.16923076923077) size=(56.12307692307692,52.184615384615384) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.PercDiff Arrow Orders QTY
+  [ 9] type=card             title='' pos=(1143.1384615384616,0) size=(56.12307692307692,54.15384615384615) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.PercDiff Arrow Orders
+  [10] type=card             title='' pos=(1192.3692307692309,1.9692307692307693) size=(81.72307692307692,52.184615384615384) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.PercDiff PY Orders
+  [11] type=card             title='' pos=(1192.3692307692309,53.16923076923077) size=(81.72307692307692,52.184615384615384) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.PercDiff PY Orders QTY
+  [12] type=slicer           title='' pos=(11.815384615384616,149.66153846153847) size=(160.4923076923077,92.55384615384615) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Sales Representative
+  [13] type=pieChart         title='' pos=(172.01970443349754,111.72413793103448) size=(284.6305418719212,324.5320197044335) tables=['KRW_NA_SAP_KNVV', 'KRW_NA_SAP_VBRP']
+        proj[Category]: KRW_NA_SAP_KNVV.Account Assignment Group Description
+        proj[Y]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [14] type=shapeMap         title='' pos=(469.95073891625617,111.72413793103448) size=(268.66995073891627,324.5320197044335) tables=['KRW_NA_SAP_VBRP']
+        proj[Category]: KRW_NA_SAP_VBRP.Ship-to State Name
+        proj[Value]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [15] type=tableEx          title='' pos=(751.0009910802775,149.69276511397422) size=(522.6560951437066,286.69970267591674) tables=['Salesforce Quote Line Item', 'Salesforce Quotes']
+        proj[Values]: Salesforce Quotes.Name
+        proj[Values]: Salesforce Quotes.Status
+        proj[Values]: Sum(Salesforce Quote Line Item.Quantity)
+        proj[Values]: Sum(Salesforce Quotes.TotalPrice)
+  [16] type=tableEx          title='' pos=(751.0009910802775,150.9613478691774) size=(522.6560951437066,286.69970267591674) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.Customer Project Name
+        proj[Values]: KRW_NA_SAP_VBAP OI.Sum Order Qty. in FT2 for Membranes OI
+        proj[Values]: Sum(KRW_NA_SAP_VBAP OI.Revenue in DC with Sign)
+  [17] type=actionButton     title='' pos=(751.9211822660099,110.83743842364532) size=(130.3448275862069,31.921182266009854) tables=[]
+  [18] type=tableEx          title='' pos=(752.2695738354806,152.22993062438056) size=(521.3875123885034,286.69970267591674) tables=['KRW_NA_SAP_VBAP SB']
+        proj[Values]: KRW_NA_SAP_VBAP SB.Customer Project Name
+        proj[Values]: KRW_NA_SAP_VBAP SB.Sum Order Qty. in FT2 for Membranes SB
+        proj[Values]: Sum(KRW_NA_SAP_VBAP SB.Revenue in DC with Sign)
+  [19] type=tableEx          title='' pos=(752.2695738354806,150.9613478691774) size=(521.3875123885034,285.43111992071357) tables=['KRW_NA_SAP_VBRP']
+        proj[Values]: KRW_NA_SAP_VBRP.Customer Project Name
+        proj[Values]: KRW_NA_SAP_VBRP.Sum Billing Qty. in FT2 for Membranes
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [20] type=actionButton     title='' pos=(881.3793103448276,110.83743842364532) size=(131.23152709359607,31.921182266009854) tables=[]
+  [21] type=actionButton     title='' pos=(1010.8374384236454,110.83743842364532) size=(132.11822660098522,31.921182266009854) tables=[]
+  [22] type=actionButton     title='' pos=(1142.0689655172414,110.83743842364532) size=(131.23152709359607,31.921182266009854) tables=[]
+  [23] type=slicer           title='' pos=(11.815384615384616,293.4153846153846) size=(160.4923076923077,92.55384615384615) tables=['KRW_NA_SAP_VBAP OI']
+        proj[Values]: KRW_NA_SAP_VBAP OI.Sales Representative
+  [24] type=clusteredColumnChart title='' pos=(11.408199643493761,446.06060606060606) size=(444.9197860962567,263.52941176470586) tables=['KRW-NA_FF_FORECAST', 'KRW_NA_SAP_VBRP']
+        proj[Category]: KRW-NA_FF_FORECAST.Fiscal Year Period Sorted
+        proj[Y]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)
+  [25] type=clusteredColumnChart title='' pos=(470.36144578313247,446.2650602409638) size=(445.3012048192771,263.13253012048193) tables=['KRW_NA_FF_FORECAST_INTAKE', 'KRW_NA_SAP_VBAP OI']
+        proj[Category]: KRW_NA_FF_FORECAST_INTAKE.Fiscal Year Period Sorted
+        proj[Y]: Sum(KRW_NA_SAP_VBAP OI.Revenue in DC with Sign)
+  [26] type=treemap          title='' pos=(925.204991087344,446.06060606060606) size=(349.09090909090907,263.52941176470586) tables=['KRW_NA_SAP_VBRP']
+        proj[Group]: KRW_NA_SAP_VBRP.Sales Representative
+        proj[Values]: Sum(KRW_NA_SAP_VBRP.Revenue in DC with Sign)

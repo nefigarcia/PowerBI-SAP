@@ -1,0 +1,322 @@
+table KRW-NA_FF_FORECAST
+	lineageTag: 8018f2e9-856c-4e98-9a0d-3ac2b3850c07
+	sourceLineageTag: 4bccaca2-49b3-4aba-9014-e955e9567bf3
+
+	measure 'ISO Rate Fcst' =
+			
+			VAR IsoRateFcst =
+			DIVIDE(
+				SUM('KRW-NA_FF_FORECAST'[Sales ISO bdft]),
+				SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft])
+			)
+			RETURN
+			IF(
+			    IsoRateFcst = BLANK(),
+			    0,
+			    IsoRateFcst
+			)
+		formatString: #,0.00
+		lineageTag: 389772dd-01a6-4345-93d9-05db59d094c2
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalDivision"
+				}
+
+		changedProperty = FormatString
+
+		changedProperty = Name
+
+	measure 'Current Month Invoice Revenue Fcst' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales $]),
+			FILTER(
+			'KRW-NA_FF_FORECAST',
+			'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			)
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 0c1893cc-588b-43da-8f6a-9231eb973885
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Current Month Invoiced Sales Membrane sqft' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft]),
+			FILTER(
+			'KRW-NA_FF_FORECAST',
+			'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			)
+			)
+		formatString: #,0
+		lineageTag: dd4a4386-e4f2-4a68-9422-5a6324379fa9
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Invoiced Sales Membrane sqft' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales Membrane sqft]),
+			FILTER(
+			'KRW_NA_FF_CALENDAR',
+			YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			)
+			)
+		formatString: #,0
+		lineageTag: ecde9692-ad21-44ad-8805-750485382c57
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Month Invoiced Sales ISO bdft' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales ISO bdft]),
+			FILTER(
+			'KRW-NA_FF_FORECAST',
+			'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			)
+			)
+		formatString: #,0
+		lineageTag: 1eb6b801-e763-4ae0-974d-f1a29ec138f1
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Invoiced Sales ISO bdft' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales ISO bdft]),
+			FILTER(
+			'KRW_NA_FF_CALENDAR',
+			YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			)
+			)
+		formatString: #,0
+		lineageTag: e157e68c-b163-44ad-81e4-b4746899c3f7
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Current Month Invoiced Sales ISO sqft' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales ISO sqft]),
+			FILTER(
+			'KRW-NA_FF_FORECAST',
+			'KRW-NA_FF_FORECAST'[Fiscal Year Period] = [Current FYP VBRP]
+			)
+			)
+		formatString: #,0
+		lineageTag: 4e0ded2b-28c5-4cdf-bcab-ceaca2edda3e
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Invoiced Sales ISO sqft' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales ISO sqft]),
+			FILTER(
+			'KRW_NA_FF_CALENDAR',
+			YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			)
+			)
+		formatString: #,0
+		lineageTag: e2281cd7-8040-46a1-bff0-385913725fc7
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'YTD Invoice Revenue Fcst' =
+			
+			CALCULATE(
+			SUM('KRW-NA_FF_FORECAST'[Sales $]),
+			FILTER(
+			'KRW_NA_FF_CALENDAR',
+			YEAR('KRW_NA_FF_CALENDAR'[Date]) = YEAR(TODAY())
+			)
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: cfdf5acd-9e78-4f07-9e97-8d1480f46544
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+	measure 'Current Month Invoiced Sales ISO sqft FM' =
+			
+			CALCULATE(
+			    SUM('KRW-NA_FF_FORECAST'[Sales ISO sqft]),
+			    'KRW-NA_FF_FORECAST'[Fiscal Year Period Sorted] = "2026.02"
+			)
+		formatString: #,0
+		lineageTag: 3e38010e-9a14-4d25-b52d-e643497329f5
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Period
+		dataType: string
+		lineageTag: 6341cfcb-5d77-4886-930a-6aa80e88eeab
+		sourceLineageTag: 4c5702a5-a5dc-4d5a-bd1a-d47467300004
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = User
+
+	column Year
+		dataType: string
+		lineageTag: 8a6e2791-afdd-4028-98b3-170d93815d7a
+		sourceLineageTag: 9e7fa8bc-d1a4-4d94-8a26-a91032ef9aa9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales $'
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: e27f2a2f-cf47-49ad-ad6b-7f7f82a078c2
+		sourceLineageTag: 61e941de-94c6-4cf3-9233-d0987c34bc57
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sales $
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales Membrane sqft'
+		dataType: double
+		formatString: #,0
+		lineageTag: 56547695-e4c3-48af-8fce-90c91ed9b6ee
+		sourceLineageTag: 7d13ccaa-0f78-4e4e-81f8-578b9576079f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sales Membrane sqft
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Sales ISO sqft'
+		dataType: double
+		lineageTag: a16bccc6-2a14-4d0c-8a02-0d6ea148d0be
+		sourceLineageTag: 70f6f1c8-f1b9-4403-8b82-8bcf5ae0a054
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sales ISO sqft
+
+		annotation SummarizationSetBy = User
+
+	column 'Sales ISO bdft'
+		dataType: double
+		formatString: #,0
+		lineageTag: 83bb8c8f-28b2-4f62-aa4f-4a8971af389d
+		sourceLineageTag: 86542a2d-9fa3-47d3-84f9-ff82c0c9fdc6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Sales ISO bdft
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Fiscal Year Period' = 'KRW-NA_FF_FORECAST'[Year] & "." & 'KRW-NA_FF_FORECAST'[Period]
+		lineageTag: 39f287c9-6fe2-4de3-b173-feb960fbe9bb
+		summarizeBy: none
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Period 2'
+		dataType: string
+		isNullable: false
+		lineageTag: 12d2b1e4-a35a-42fb-b507-a6c2b8a85076
+		sourceLineageTag: a8794d12-20af-4816-a6fe-cafc5576a4ff
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = User
+
+	column 'Prior Year'
+		type: calculated
+		dataType: int64
+		lineageTag: 697a1a6c-db96-49cb-a03e-6e13b3ed71f7
+		summarizeBy: sum
+
+		changedProperty = Name
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISO Rate Forecast' =
+			
+			IF (
+			    'KRW-NA_FF_FORECAST'[Sales Membrane sqft] = 0,
+			    0,
+			    'KRW-NA_FF_FORECAST'[Sales ISO bdft]/'KRW-NA_FF_FORECAST'[Sales Membrane sqft]
+			)
+		formatString: 0.0
+		lineageTag: 0c8f79e2-5f0c-4221-bb43-58238938dbba
+		summarizeBy: sum
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year Period Sorted'
+		dataType: string
+		lineageTag: 5a62f8e8-dd46-47ed-aa0e-6be0a4e1f36b
+		sourceLineageTag: a873ce95-7b2f-41b8-b28f-0ce4499cd3c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period Sorted
+
+		annotation SummarizationSetBy = User
+
+	partition KRW-NA_FF_FORECAST = entity
+		mode: directQuery
+		source
+			entityName: KRW-NA_FF_FORECAST
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

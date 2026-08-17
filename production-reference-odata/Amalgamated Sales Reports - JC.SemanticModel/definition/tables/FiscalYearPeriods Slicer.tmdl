@@ -1,0 +1,21 @@
+table 'FiscalYearPeriods Slicer'
+	lineageTag: 60b0d613-f248-41a6-b282-6142483d43f3
+	sourceLineageTag: 8617517d-0b1d-4acb-a19b-d4237d39fc44
+
+	column 'Fiscal Year Period'
+		dataType: string
+		isNullable: false
+		lineageTag: 584e1da4-2763-4c03-a8a9-8921a02963a5
+		sourceLineageTag: 6b1e8b31-3662-4d97-ab5f-2ff7fd207344
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Fiscal Year Period
+
+		annotation SummarizationSetBy = User
+
+	partition 'FiscalYearPeriods Slicer' = entity
+		mode: directQuery
+		source
+			entityName: FiscalYearPeriods Slicer
+			expressionSource: 'DirectQuery to AS - KRW_NA_SM_INVOICED'
+

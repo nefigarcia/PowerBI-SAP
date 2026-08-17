@@ -1,0 +1,2448 @@
+cultureInfo en-GB
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "krw_na_ff_fiscalperiod.fiscal_year_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FISCALPERIOD",
+			          "ConceptualProperty": "Fiscal Year Period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fiscal Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sales_uom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sales UoM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales UoM": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_kna1.customer_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNA1",
+			          "ConceptualProperty": "Customer Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sold To Name": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_kna1.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNA1",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_tvm3t.product_family_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_TVM3T",
+			          "ConceptualProperty": "Product Family Description"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.sum_billing_qty__in_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Billing Qty. in FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Billing Qty. in FT2 for Membranes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Membrane Billing Qty. in sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sales QTY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_billing_qty__in_bft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Billing Qty. in BFT2 for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "ISO Billing Qty. in bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.fiscal_year_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Fiscal Year Period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Current Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.iso_rate_forecast": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "ISO Rate Forecast"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krwna_ff_forecast.fiscal_year_period_sorted": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Fiscal Year Period Sorted"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fiscal Year Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.industry_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Industry Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Industry": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.unit_price_in_dc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Unit Price in DC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Unit Price": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.margin_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Margin %"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.margin_perc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Margin Perc"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.shipto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Ship-to State Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ship-to State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.billto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Bill-to State Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bill-to State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.payer_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Payer State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.soldto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sold-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.item_category_key_and_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Item Category Key and Description"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.unit_price_in_dc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Unit Price in DC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Unit Price": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.industry_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Industry Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Industry": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.margin_perc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Margin Perc"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.shipto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Ship-to State Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ship-to State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.billto_state_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Bill-to State Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bill-to State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.payer_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Payer State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.soldto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sold-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_forecast_intake.fiscal_year_period_sorted": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "Fiscal Year Period Sorted"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Current Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Fiscal Year Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.margin_perc_vbap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Margin Perc VBAP"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.sum_order_qty__in_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sum Order Qty. in FT2 for Membranes OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Order Qty. in FT2 for Membranes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Membrane Order Qty. in sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Order Intake QTY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.sum_order_qty__in_bft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sum Order Qty. in BFT2 for ISO OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Order Qty. in BFT2 for ISO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "ISO Billing Qty. in bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_ff_forecast_intake.iso_rate_fcst_vbap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "ISO Rate Fcst VBAP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ISO Rate Fcst": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_ff_fiscalperiod_oi.fiscal_year_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FISCALPERIOD OI",
+			          "ConceptualProperty": "Fiscal Year Period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fiscal Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_kna1_oi.customer_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNA1 OI",
+			          "ConceptualProperty": "Customer Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sold To Name": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.sales_document": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sales Document"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.billto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Bill-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "fiscalyearperiods_slicer.fiscal_year_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FiscalYearPeriods Slicer",
+			          "ConceptualProperty": "Fiscal Year Period"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_fiscalperiod_sb.fiscal_year_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FISCALPERIOD SB",
+			          "ConceptualProperty": "Fiscal Year Period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fiscal Year Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.industry_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Industry Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Industry": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_kna1_sb.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNA1 SB",
+			          "ConceptualProperty": "Region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.sales_document": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Sales Document"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales Order": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.shipto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Ship-to State Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Ship-to State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.billto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Bill-to State Name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Bill-to State": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.payer_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Payer State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_kna1_sb.customer_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNA1 SB",
+			          "ConceptualProperty": "Customer Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sold-To Name": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.soldto_state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Sold-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_sb.unit_price_in_dc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Unit Price in DC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Unit Price": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.margin_perc_vbap_sb": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Margin Perc VBAP SB"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "fiscalyearperiods_slicer_sb.fiscal_year_period": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FiscalYearPeriods Slicer SB",
+			          "ConceptualProperty": "Fiscal Year Period"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fiscal Period": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.iso_rate_vbap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "ISO Rate VBAP OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ISO Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.iso_rate_vbap_sb": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "ISO Rate VBAP SB"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ISO Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap.unit_price_in_dc1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Unit Price in DC"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.sales_document1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Sales Document"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.industry_text1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Industry Text"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.margin_perc1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Margin Perc"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.shipto_state_name1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Ship-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.billto_state_name1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Bill-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.payer_state_name1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Payer State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap.soldto_state_name1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP",
+			          "ConceptualProperty": "Sold-to State Name"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.revenue_in_dc_with_sign": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Revenue in DC with Sign"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.current_month_order_revenue_doc_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Month Order Revenue Doc Date"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_forecast_intake.current_month_order_revenue_fcst": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "Current Month Order Revenue Fcst"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Forecast": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Intake Fcst": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_ff_forecast_intake.current_month_sales_membrane_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "Current Fiscal Month Sales Membrane sqft"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Forecast": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_month_order_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Calendar Month Order FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_forecast_intake.current_month_sales_iso_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "Current Fiscal Month Sales ISO sqft"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fcst sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_ff_forecast_intake.current_month_sales_iso_bdft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "Current Month Sales ISO bdft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_forecast_intake.ytd_sales_iso_bdft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "YTD Sales ISO bdft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_forecast_intake.ytd_sales_iso_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "YTD Sales ISO sqft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.ytd_order_bft_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "YTD Order BFT for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.ytd_order_ft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "YTD Order FT2 for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_month_order_ft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Calendar Month Order FT2 for ISO"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.current_month_order_bft_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Calendar Month Order BFT for ISO"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.ytd_order_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "YTD Order FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_ff_forecast_intake.ytd_sales_membrane_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "YTD Sales Membrane sqft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_ff_forecast_intake.ytd_order_revenue_fcst": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "YTD Order Revenue Fcst"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.ytd_order_revenue_doc_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "YTD Order Revenue Doc Date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.difference_current_month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "$ Difference Current Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ Difference": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.difference_ytd": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "$ Difference YTD"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.current_month_billing_qty__in_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Month Billing Qty. in FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krwna_ff_forecast.current_month_invoice_revenue_fcst": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Current Month Invoice Revenue Fcst"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Forecast": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Revenue Fcst": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.current_month_invoiced_sales_membrane_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Current Month Invoiced Sales Membrane sqft"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Forecast": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.ytd_billing_qty__in_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "YTD Billing Qty. in FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.ytd_invoiced_sales_membrane_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "YTD Invoiced Sales Membrane sqft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.current_month_billing_qty__in_bft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Month Billing Qty. in BFT2 for ISO"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krwna_ff_forecast.ytd_invoiced_sales_iso_bdft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "YTD Invoiced Sales ISO bdft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.current_month_billing_qty__in_ft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Month Billing Qty. in FT2 for ISO"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krwna_ff_forecast.current_month_invoiced_sales_iso_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Current Month Invoiced Sales ISO sqft"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fcst sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.current_month_invoiced_sales_iso_bdft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Current Month Invoiced Sales ISO bdft"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fcst bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.ytd_billing_qty__in_ft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "YTD Billing Qty. in FT2 for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.ytd_invoiced_sales_iso_sqft": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "YTD Invoiced Sales ISO sqft"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.ytd_billing_qty__in_bft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "YTD Billing Qty. in BFT2 for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.current_month_invoiced_revenue_billing_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Month Invoiced Revenue Billing Date"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.ytd_invoiced_revenue_billing_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "YTD Invoiced Revenue Billing Date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.ytd_invoice_revenue_fcst": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "YTD Invoice Revenue Fcst"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.difference_current_month_vbrp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "$ Difference Current Month VBRP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ Difference": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.difference_ytd_vbrp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "$ Difference YTD VBRP"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.iso_rate_vbrp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "ISO Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ISO Rate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_month_membrane_order_revenue_doc_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Month Membrane Order Revenue Doc Date"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.current_month_iso_order_revenue_doc_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Month ISO Order Revenue Doc Date"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.fcst_vbrp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "% Fcst VBRP CM"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_knvv.account_assignment_group_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNVV",
+			          "ConceptualProperty": "Account Assignment Group Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Account Assignment Group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "AAGC Description": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.revenue_previous_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Revenue Previous Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales PY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_billing_qty__in_ft2_for_membranes_prior_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Billing Qty. in FT2 for Membranes Prior Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales QTY PY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_billing_qty__in_ft2_for_iso_prior_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Billing Qty. in BFT2 for ISO Prior Year"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.revenue_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Revenue OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.revenue_previous_year_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Revenue Previous Year OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Order Intake PY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.sum_order_qty__in_ft2_for_membranes_prior_year_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sum Order Qty. in FT2 for Membranes Prior Year OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Order Intake QTY PY": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.sum_order_qty__in_bft2_for_iso_prior_year_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sum Order Qty. in BFT2 for ISO Prior Year OI"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_sb.sum_order_qty__in_ft2_for_membranes_sb": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Sum Order Qty. in FT2 for Membranes SB"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Membrane in sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Quantity": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_revenue_in_dc_with_sign": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Revenue in DC with sign VBRP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gross Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order FT2 for Membranes Hardcoded"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_ft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order FT2 for ISO"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_bft_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order BFT for ISO"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.current_fiscal_month_billing_qty__in_ft2_for_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Fiscal Month Billing Qty. in FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "FT2 Membranes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.current_fiscal_month_billing_qty__in_ft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Fiscal Month Billing Qty. in FT2 for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.current_fiscal_month_billing_qty__in_bft2_for_iso": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Fiscal Month Billing Qty. in BFT2 for ISO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.current_fiscal_month_invoiced_revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Fiscal Month Invoiced Revenue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_knvv_oi.account_assignment_group_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNVV OI",
+			          "ConceptualProperty": "Account Assignment Group Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Account Assignment Group": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "AAGC Description": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.fcst_vbrp_fm": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "% Fcst VBRP FM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Fcst": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.revenue_for_fiscal_month_previous_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Revenue For Fiscal Month Previous Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prior Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_billing_qty__in_ft2_for_membranes_fiscal_month_prior_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Billing Qty. in FT2 for Membranes Fiscal Month Prior Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prior Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_billing_qty__in_ft2_for_iso_fiscal_month_prior_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum Billing Qty. in BFT2 for ISO Fiscal Month Prior Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prior Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.revenue_fiscal_month_previous_year_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Revenue Fiscal Month Previous Year OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prior Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.sum_order_qty__in_ft2_for_membranes_fiscal_month_prior_year_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sum Order Qty. in FT2 for Membranes Fiscal Month Prior Year OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prior Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.sum_order_qty__in_bft2_for_iso_fiscal_month_prior_year_oi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sum Order Qty. in BFT2 for ISO Fiscal Month Prior Year OI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Prior Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.fcst_fm": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "% Fcst FM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Fcst": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krwna_ff_forecast.current_month_invoiced_sales_iso_sqft_fm": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW-NA_FF_FORECAST",
+			          "ConceptualProperty": "Current Month Invoiced Sales ISO sqft FM"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_ft2_for_membranes_2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order FT2 for Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "FT2 Membranes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_ff_forecast_intake.current_month_sales_iso_bdft_2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_FF_FORECAST_INTAKE",
+			          "ConceptualProperty": "Current Fiscal Month Sales ISO bdft"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Fcst bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.current_fiscal_month_invoiced_revenue_ft2_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Fiscal Month Invoiced Revenue FT2 Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Revenue": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_revenue_ft2_membranes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order Revenue FT2 Membranes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Intake": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.current_fiscal_month_billing_qty__in_ft2_for_membranes_split": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Current Fiscal Month Billing Qty. in FT2 for Membranes Split"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_knvv_sb.account_assignment_group_description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_KNVV SB",
+			          "ConceptualProperty": "Account Assignment Group Description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AAGC Description": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_sb.pricing_uom": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP SB",
+			          "ConceptualProperty": "Price UoM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Price UoM": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbrp.sum_of_revenue_in_dc_with_sign__difference_from_revenue_previous_year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sum of Revenue in DC with Sign % difference from Revenue Previous Year"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "krw_na_sap_vbrp.sales_representative": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBRP",
+			          "ConceptualProperty": "Sales Representative"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales Rep Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.sales_representative": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Sales Representative"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales Rep Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_ft2_for_iso_split": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order FT2 for ISO Split"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual sqft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "krw_na_sap_vbap_oi.current_fiscal_month_order_bft_for_iso_split": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KRW_NA_SAP_VBAP OI",
+			          "ConceptualProperty": "Current Fiscal Month Order BFT for ISO Split"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual bdft": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+
