@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["p_DatasphereServer","p_DatasphereSpace","p_SalesOrganization","p_CompanyCode","Billing","SalesOrders","KRW_NA_FF_CALENDAR","CAPEX Approved","KRW_NA_FF_COSTCENTREHIER","KRW_NA_FF_COSTCTHIER_ONDULINE","KRW_NA_FF_COSTELEM_OH1","KRW_NA_FF_COSTELEMHIER","KRW_NA_FF_FISCALPERIOD","KRW_NA_FF_FORECAST_INTAKE","KRW_NA_FF_GEOINFO","KRW_NA_FF_HISTSB1","KRW_NA_FF_PLSTRUCTURE","KRW_NA_FF_TERRITORY","KRW_NA_FF_ZIPCODES"]
+annotation PBI_QueryOrder = ["p_DatasphereServer","p_DatasphereSpace","p_SalesOrganization","p_CompanyCode","Billing","SalesOrders","KRW_NA_FF_CALENDAR","CAPEX Approved","KRW_NA_FF_COSTCENTREHIER","KRW_NA_FF_COSTCTHIER_ONDULINE","KRW_NA_FF_COSTELEM_OH1","KRW_NA_FF_COSTELEMHIER","KRW_NA_FF_FISCALPERIOD","KRW_NA_FF_FORECAST_INTAKE","KRW_NA_FF_GEOINFO","KRW_NA_FF_HISTSB1","KRW_NA_FF_PLSTRUCTURE","KRW_NA_FF_TERRITORY","KRW_NA_FF_ZIPCODES","KRW-NA_FF_FORECAST"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -30,6 +30,7 @@ ref table KRW_NA_FF_PLSTRUCTURE
 ref table KRW_NA_FF_TERRITORY
 ref table KRW_NA_FF_ZIPCODES
 ref table 'Fiscal Period Selector'
+ref table KRW-NA_FF_FORECAST
 
 ref cultureInfo en-US
 
