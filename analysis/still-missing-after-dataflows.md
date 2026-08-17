@@ -1,5 +1,8 @@
 # Still Missing After Dataflows
 
+> ⚠ **SUPERSEDED (2026-08-17)** by [`phase-12-final-missing-sources.md`](phase-12-final-missing-sources.md).
+> This file's central conclusion — that Salesforce is the sole remaining external gap — is still correct, but the doc predates the Phase 9 v2 measure ports (87 measures added on Aug 16–17) and Phase 12's final re-audit. Read the Phase 12 file for the current, authoritative missing-source verdict, and reference this file only for the historical dataflow-recovery walkthrough.
+
 **Purpose:** After including the 13 new Power BI Dataflow tables and re-inspecting the enriched Datasphere `Billing` / `SalesOrders` columns, this file lists the production items that remain **NOT FOUND** and cannot be reproduced from any source currently in the AWIP_Commercial_Sales model.
 
 This supersedes the previous `analysis/missing-data-sources.md` and the `MISSING SOURCE` section of `analysis/unmapped-items.md` for anything **not** listed here.
