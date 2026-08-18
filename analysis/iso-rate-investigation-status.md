@@ -68,6 +68,71 @@ Recorded in Billing table diagnostic measures (all under `_Diagnostics` display 
 2. **Column identity mismatch.** Production's "Billing Qty. in FT2" (with a **dot after Qty**) may be a completely different column than AWIP's `Billing_Quantity_in_FT2`. AWIP's `Billing_Qty_in_FT2` (with the short "Qty") is the closer NAME match but has different values (69,430).
 3. **Sign / reversal handling.** Production might apply signs (subtract credit memos) via a calculated column upstream, giving a net value lower than AWIP's gross.
 
+---
+
+## Update 2026-08-17 — SAC direct-query results settle the "AWIP data is wrong" hypothesis
+
+User connected Excel to SAP Analytics Cloud, live-queried `SAP_SD_RL_BillingDocumentItem_V2` (the exact same Datasphere view AWIP reads), filtered to `Fiscal Year Period = 2026007`, grouped by `Product Family`. Complete breakdown from SAC:
+
+| Product Family | BFT2 (long) | FT2 (long) | Qty in FT2 (short — STRING) | FT2 for Membrane | BFT2 For ISO |
+|---|---|---|---|---|---|
+| Cover Board | 0 | 53,760 | `PAL56.000` | — | — |
+| ISO GF | **609,356.80** | 365,056 | * | — | 365,056 |
+| ISO GF Taper | 20,736 | 13,568 | * | — | 13,568 |
+| Polyiso Insulation | 3,520 | 7,040 | * | — | 7,040 |
+| PVC Membranes | 0 | 500 | `ROL1.000` | — | — |
+| Roofing Assessories | 0 | 0 | — | — | — |
+| TPO Membranes | 0 | 811,900 | * | 811,900 | — |
+| **TOTAL** | **633,613** | 1,251,824 | (n/a — string) | 811,900 | 385,664 |
+
+**AWIP is 100% correct on the raw numbers.** SAC directly confirms:
+- ISO BFT2 (long-form, ISO product families) = **633,613** — matches AWIP exactly
+- Membrane FT2 (with `CONTAINSSTRING "Membrane"`, catches TPO + PVC) = **812,400** — matches AWIP exactly
+- Short-form `Billing Qty in FT2` is a **STRING** measure with sales-unit codes (`PAL56.000`, `ROL1.000`) — NOT what production uses
+- Pre-classified `Billing quantity in BFT2 For ISO` (misleading name — actually stores FT2 values) = 385,664
+
+**Every possible raw-column ratio computed:**
+
+| Formula | Result | 1.34? |
+|---|---|---|
+| BFT2 ISO / FT2 Membrane (AWIP + production TMDL formula) | 633,613 / 812,400 = **0.78** | ❌ |
+| BFT2 ISO / FT2 ISO (unit conversion within ISO product) | 633,613 / 385,664 = **1.643** | ❌ |
+| BFT2 ISO (ISO GF only) / FT2 ISO (ISO GF only) | 609,357 / 365,056 = **1.669** | ❌ |
+| pre-classified For ISO / pre-classified for Membrane | 385,664 / 811,900 = **0.475** | ❌ |
+| unfiltered BFT2 / unfiltered FT2 | 2,638,352 / 4,063,828 = **0.649** | ❌ |
+
+**Definitive conclusion:** production's 1.34 CANNOT come from any raw-column combination on the Datasphere view. Production must apply a transformation in the AAS cube layer (`KRW_NA_SM_INVOICED`) that isn't visible from Datasphere-side inspection. Most likely candidates:
+
+1. **Unit-conversion factor** (`Factor_UoM_BFT` or similar) applied per row before aggregation.
+2. **Different Product Family mapping** in the AAS cube (e.g., `"TPO Membranes"` → `"Membrane"` and PVC Membranes excluded from the "Membrane" bucket).
+3. **A completely different measure formula** defined only in the AAS cube's calculated columns / measures.
+
+**AWIP hypothesis #1 (different underlying data) is DISPROVEN.** SAC shows identical values to AWIP.
+**AWIP hypothesis #2 (column identity mismatch) is DISPROVEN.** The long-form is confirmed as what production TMDL references.
+**AWIP hypothesis #3 (signs / reversal) is DISPROVEN.** SAC totals match AWIP totals.
+
+## To resume — 2 direct paths (revised)
+
+### Option A — Get the AAS `ISO Rate` DAX directly (FASTEST — 5-minute task for Kingspan)
+Ask Ana / James to open `KRW_NA_SM_INVOICED` semantic model in Tabular Editor or SSMS via XMLA endpoint `powerbi://api.powerbi.com/v1.0/myorg/KRW - North America Reporting`. Copy the DAX definition of:
+- The `ISO Rate` measure itself
+- `Sum Billing Qty. in FT2 for Membranes` (if defined at cube level, may override the .pbip-side measure)
+- `Sum Billing Qty. in BFT2 for ISO`
+- Any `Product Family` calculated column that maps raw SAP values to consolidated business categories
+
+### Option B — Read production dashboard values for 2026-07
+In the production `Amalgamated Sales Reports - JC.pbip` (or the Power BI Service report):
+- Invoiced Membrane - SQFT card = ?
+- Invoiced ISO - BDFT card = ?
+- ISO Rate tile = 1.34 (already confirmed by user)
+
+If Membrane card shows ≈**473,000** (not our 812,400) → AAS cube reduces Membrane denominator by ~340K. That's the smoking gun.
+If ISO card shows ≈**1,088,000** (not our 633,613) → AAS cube multiplies ISO numerator by ~1.72. That's the smoking gun.
+
+## The original 3 options below are historical
+
+(SAC investigation has effectively resolved options B and C — data is same, universe is same.)
+
 ## To resume: 3 things to check (any one of them settles it)
 
 ### Option A — direct value comparison in production semantic model

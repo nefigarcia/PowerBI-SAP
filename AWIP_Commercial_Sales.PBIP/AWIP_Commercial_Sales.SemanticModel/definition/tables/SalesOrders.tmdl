@@ -688,6 +688,19 @@ table SalesOrders
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Typed-date variant of RequestedDeliveryDate (string). Backs the inactive SB role-play relationship to KRW_NA_FF_CALENDAR[Date]. Activate via USERELATIONSHIP in backlog measures where Requested Delivery Date is the business date (production KRW_NA_SAP_VBAP SB.'Requested Delivery Date' pattern).
+	column RequestedDeliveryDate_dt = IF(LEN(SalesOrders[RequestedDeliveryDate]) >= 10, DATEVALUE(SalesOrders[RequestedDeliveryDate]), BLANK())
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		displayFolder: Dates
+		isHidden
+		lineageTag: b2220001-0000-4000-a000-000000000900
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column SalesDocumentType
 		dataType: string
 		displayFolder: Document

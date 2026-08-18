@@ -31,7 +31,6 @@ relationship AutoDetected_91ebea43-f7db-4490-ab2c-b0af1c41c6f8
 	toColumn: KRW_NA_FF_COSTELEMHIER.CostElement
 
 relationship a1b2c3d4-e5f6-4a5b-8c7d-9e0f1a2b3c4d
-	isActive: false
 	fromColumn: SalesOrders.CreationDate_D8
 	toColumn: KRW_NA_FF_CALENDAR.Date
 
@@ -41,3 +40,17 @@ relationship c1c2c3c4-c5c6-4c7c-8c8c-9c0c1c2c3c4c
 	fromColumn: 'KRW-NA_FF_FORECAST'.'Fiscal Year Period Billing Format'
 	toColumn: 'Fiscal Period Selector'.FiscalYearPeriod
 
+relationship e2f4a1b0-1234-4c1a-9d5e-0aa1b2c3d4e5
+	fromColumn: Billing.BillingDocumentDate_D5
+	toColumn: KRW_NA_FF_CALENDAR.Date
+
+relationship e2f4a1b0-1234-4c1a-9d5e-0aa1b2c3d4e6
+	isActive: false
+	fromColumn: SalesOrders.RequestedDeliveryDate_dt
+	toColumn: KRW_NA_FF_CALENDAR.Date
+
+relationship e2f4a1b0-1234-4c1a-9d5e-0aa1b2c3d4e7
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'Fiscal Period Selector'.FiscalYearPeriod
+	toColumn: 'KRW_NA_FF_FORECAST_INTAKE'.'Fiscal Year Period Billing Format'
